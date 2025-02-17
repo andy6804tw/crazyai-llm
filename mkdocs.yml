@@ -1,0 +1,55 @@
+site_name: 全民瘋AI系列 [大語言模型應用與實戰]
+site_author: 10程式中
+site_url: https://andy6804tw.github.io/crazyai-llm/
+extra_css:
+  - 'stylesheets/extra.css'
+  - https://unpkg.com/katex@0/dist/katex.min.css
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/analytics.js
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+theme:
+  name: material
+  language: 'zh-TW'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  palette:
+    primary: 'blue'
+    accent: 'light blue'
+repo_url: https://github.com/andy6804tw/crazyai-dl
+# use_directory_urls: false
+edit_uri: ""
+# Copyright
+copyright: 'Copyright © 2024 - 2025 10程式中'
+nav:
+  - '1. 李宏毅 生成式AI導論':
+    - '1.生成式AI導論/1.1生成式AI是什麼.md'
+    - '1.生成式AI導論/1.2今日的生成式人工智慧厲害在哪裡.md'
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: false
+  # katex math
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  # Code blocks
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+plugins:
+  # - tags:
+  #     tags_file: tags.md
+  - search

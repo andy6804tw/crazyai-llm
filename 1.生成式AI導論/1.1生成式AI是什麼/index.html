@@ -1,0 +1,860 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="10程式中">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.1%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%98%AF%E4%BB%80%E9%BA%BC/">
+      
+      
+      
+        <link rel="next" href="../1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>生成式AI是什麼？ - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              生成式AI是什麼？
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-dl" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-dl" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. 李宏毅 生成式AI導論
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. 李宏毅 生成式AI導論
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    生成式AI是什麼？
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    生成式AI是什麼？
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI的定義與特徵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI的定義與特徵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      為何說「複雜」？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI不是分類
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI在人工智慧中的定位
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI在人工智慧中的定位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度學習 vs. 生成式AI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      機器學習的基礎：從函式學習到生成式模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="機器學習的基礎：從函式學習到生成式模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traininginference" class="md-nav__link">
+    <span class="md-ellipsis">
+      訓練（Training）與推論（Inference）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI的核心技術：文字接龍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI的核心技術：文字接龍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      文字接龍
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-stable-diffusion-midjourney" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI畫圖的原理：從 Stable Diffusion 到 Midjourney
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI畫圖的原理：從 Stable Diffusion 到 Midjourney">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      自迴歸生成 (Autoregressive Generation)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI的未來發展與應用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI的未來發展與應用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      多領域應用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      結論與總結
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI的定義與特徵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI的定義與特徵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      為何說「複雜」？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI不是分類
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI在人工智慧中的定位
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI在人工智慧中的定位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度學習 vs. 生成式AI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      機器學習的基礎：從函式學習到生成式模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="機器學習的基礎：從函式學習到生成式模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traininginference" class="md-nav__link">
+    <span class="md-ellipsis">
+      訓練（Training）與推論（Inference）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI的核心技術：文字接龍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI的核心技術：文字接龍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      文字接龍
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-stable-diffusion-midjourney" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI畫圖的原理：從 Stable Diffusion 到 Midjourney
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI畫圖的原理：從 Stable Diffusion 到 Midjourney">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autoregressive-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      自迴歸生成 (Autoregressive Generation)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成式AI的未來發展與應用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成式AI的未來發展與應用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      多領域應用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      結論與總結
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ai">生成式AI是什麼？</h1>
+<ul>
+<li><strong>課程名稱</strong>： 臺大 生成式導論 2024_第1講</li>
+<li><strong>講者</strong>： 李宏毅（Hung-yi Lee）</li>
+<li><strong>關鍵字</strong>： <code>生成式人工智慧（Generative AI）</code>、<code>深度學習</code>、<code>機器學習</code></li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JGtqpQXfJis?si=1eDwlRxLV3Xctr3f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>近年來，「生成式人工智慧（Generative AI）」席捲全球，不管是在產業還是學術研究領域，都引爆了一股前所未見的熱潮。像是大家耳熟能詳的 <strong>ChatGPT</strong>，或者能夠將「文字變成圖像」的 <strong>Stable Diffusion</strong>、<strong>Midjourney</strong> 等，都是生成式AI技術的精彩應用。相較於傳統的AI通常用來做分類（例如垃圾郵件偵測、貓狗分類），生成式AI真正厲害之處在於它能<strong>自行產生過去從未出現的新內容</strong>，包括文字、圖像乃至於程式碼，在創作與問題解決上都大大拓展了AI的潛能。</p>
+<p><img alt="生成式AI定義與舉例" src="../images/img1-1.png" /></p>
+<p>然而，生成式AI到底是什麼？它和一般AI有什麼不同？在這篇文章中，我會先從生成式AI的定義開始談起，接著逐步介紹它在人工智慧中的定位、背後的技術基礎，以及應用與未來發展的可能性，帶領大家一起探索這個令人興奮的AI領域。</p>
+<h2 id="ai_1">生成式AI的定義與特徵</h2>
+<p>「生成式人工智慧（Generative AI）」最核心的概念，就是<strong>讓機器能夠自動產生複雜而有結構的物件</strong>。舉例來說，一篇文章是由文字組成，一張影像是由像素組成，一段語音是由取樣點組成。這些都屬於複雜度極高、需要龐大組合可能性的資料形式，讓機器從中找出「合理的排列方式」並自動生成內容，就是生成式AI的最大特色。</p>
+<p><img alt="image" src="../images/img1-2.png" /></p>
+<h3 id="_1">為何說「複雜」？</h3>
+<p>「複雜」意味著我們無法用窮舉（exhaustive search）去找出所有可能性，因為那幾乎是<strong>天文數字</strong>。課程中舉了個例子：如果要讓機器生成一篇 100 個字的中文文章，而常用的漢字設為 1000 個，那麼理論上的排列組合有 <span class="arithmatex">\( 1000^{100} = 10^{300} \)</span> 之多，遠遠超出人類或傳統電腦可以直接枚舉的範圍。</p>
+<h3 id="ai_2">生成式AI不是分類</h3>
+<p>如果是垃圾郵件偵測或貓狗分類，機器只需要在幾個固定的類別中做出選擇，這樣的問題屬於<strong>分類 (classification)</strong>，並不需要機器「從無到有」產生新內容，所以不被歸類為生成式AI。</p>
+<p><img alt="image" src="../images/img1-3.png" /></p>
+<h2 id="ai_3">生成式AI在人工智慧中的定位</h2>
+<p>從整個AI發展的宏觀角度來看，生成式AI只是人工智慧眾多目標之一。AI 的應用範疇極廣，包含影像辨識、語音辨識、推薦系統、機器翻譯等等，而生成式AI的著眼點就是讓機器能 <strong>「創造」</strong>，而非單純地「判斷」或「分類」。</p>
+<p><img alt="" src="../images/img1-8.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>左圖呈現的是教授所認為的 AI 技術與目標之間的關係，右圖則是網路上常見的『AI－機器學習－深度學習－生成式AI』關係示意。教授認為深度學習只是達成生成式AI的技術手段，而生成式AI本身是一個獨立的目標，不應該被直接歸入深度學習的範疇。不過，就現階段而言，要實踐生成式AI的主要方法仍然是深度學習，所以暫且接受這樣的歸納方式。</p>
+</div>
+<h3 id="vs-ai">深度學習 vs. 生成式AI</h3>
+<p>尤其近年來深度學習（Deep Learning）大放異彩，提供了許多強力的技術手段（例如各種神經網路架構），得以讓生成式AI在現實層面快速突破。正如課程中所提到的：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>深度學習是技術，生成式人工智慧是一個目標。</p>
+</div>
+<p>生成式人工智慧是人工智慧的眾多目標之一，可以讓機器產生複雜而有結構的物件。</p>
+<p><img alt="" src="../images/img1-4.png" /></p>
+<hr />
+<h2 id="_2">機器學習的基礎：從函式學習到生成式模型</h2>
+<p>談生成式AI前，不能不先了解「機器學習（Machine Learning）」最基本的運作邏輯：<strong>透過資料學習出一個函式</strong>。在最簡單的數學模型裡，假設有 <span class="arithmatex">\( y = f(x) = ax + b \)</span>，只要給定足夠的輸入 <span class="arithmatex">\( x \)</span> 與對應的輸出 <span class="arithmatex">\( y \)</span>，機器就能自己算出參數 <span class="arithmatex">\( a \)</span> 與 <span class="arithmatex">\( b \)</span>。</p>
+<p><img alt="機器學習示意圖" src="../images/img1-5.png" /></p>
+<h3 id="traininginference">訓練（Training）與推論（Inference）</h3>
+<p>如果要分辨貓和狗，模型可能包含成千上萬的參數。給定輸入與輸出，機器透過學習找出這些參數，這個過程稱為 <strong>訓練 (training)</strong>。推論過程則稱為 <strong>測試 (testing) 或 推論 (inference)</strong>。</p>
+<p><img alt="" src="../images/img1-6.png" /></p>
+<ul>
+<li><strong>訓練</strong>：給機器大量範例（輸入與正確輸出），讓它不斷調整參數，直至能對大部分範例都做出準確預測。  </li>
+<li><strong>推論</strong>：當訓練好之後，拿到一個新輸入，機器就能用已學到的參數來輸出結果。這個階段也稱為測試（Testing）或推論（Inference）。</li>
+</ul>
+<p>這個擁有成千上萬參數的函數，通常會以類神經網路來表示，而用於求解這些參數的技術就是深度學習，它是一種機器學習的方法。</p>
+<p><img alt="" src="../images/img1-7.png" /></p>
+<h2 id="ai_4">生成式AI的核心技術：文字接龍</h2>
+<p>生成式AI的熱門應用中，最廣為人知的就是 。若從深度學習的觀點來看，ChatGPT 本質上是一個具備上億個參數的複雜神經網路，它將文字編碼後，透過多層注意力機制進行運算，最後再以文字形式輸出結果。雖然在數學上可以將其視為一個『函式』，但它遠遠超越了一般人對函式的想像，具有強大的語言理解與生成能力。</p>
+<h3 id="_3">文字接龍</h3>
+<p>在語言模型（Language Modeling）中，機器的目標就是一次<strong>預測下一個字</strong>，然後把新預測到的字接到句尾，再繼續預測下一個字。就像在玩接龍遊戲一樣，<strong>逐字生成</strong>，直到產生一段完整的文字回應。下圖顯示了語言模型是如何一步步預測下一個字的流程。</p>
+<p><img alt="文字接龍示意圖" src="../images/img1-9.png" /></p>
+<p>事實上，GPT（Generative Pre-trained Transformer）家族的模型正是以這種自迴歸生成（Autoregressive Generation）的方式運作。每次都根據前面所有的上下文，推斷最可能出現的下一個字，並將其接續到現有的序列之後。如下圖所示，對於文章（由文字構成）或圖片（由像素構成），都可以透過將內容切割成較小的單位（字或像素），按照某種固定的順序依序產生。</p>
+<p><img alt="" src="../images/img1-12.png" /></p>
+<p>生成式人工智慧面臨的挑戰在於，它必須能夠產生連訓練期間從未出現過的內容。就好比要它生成一首資料庫中不存在的詩，在這裡教授將這項能力稱為「創造力」。</p>
+<p><img alt="" src="../images/img1-10.png" /></p>
+<h2 id="ai-stable-diffusion-midjourney">AI畫圖的原理：從 Stable Diffusion 到 Midjourney</h2>
+<p>除了文字聊天外，生成式AI也可以用來 <strong>「自動畫圖」</strong>。像 <strong>Stable Diffusion</strong>、<strong>Midjourney</strong>、<strong>DALL-E</strong> 等模型，都是透過大量的「文字與圖像」的配對資料進行訓練，學會把文字描述轉換成對應的像素分布，進而 <strong>「憑空」生成一張新圖</strong>。</p>
+<p><img alt="" src="../images/img1-11.png" /></p>
+<h3 id="autoregressive-generation">自迴歸生成 (Autoregressive Generation)</h3>
+<p>跟文字接龍很類似的是，有些模型也嘗試用「像素接龍」的方式來生成圖像，稱為 <strong>Autoregressive Generation</strong>。不過在實務上，如果要逐像素預測，圖片的維度過大，導致效果並不如人意（OpenAI 曾做過相關嘗試，但最後並不普及）。</p>
+<p><img alt="" src="../images/img1-13.png" /></p>
+<hr />
+<h2 id="ai_5">生成式AI的未來發展與應用</h2>
+<p>事實上，<strong>生成式AI並不是現在才有</strong>。早在神經網路技術蓬勃之前，就有許多研究在嘗試讓機器自動生成文本或圖像。只是近年來，由於硬體算力提高、深度學習算法演進，以及海量資料庫的可用性，才讓生成式AI真正綻放光芒。</p>
+<p><img alt="" src="../images/img1-14.png" /></p>
+<h3 id="_4">多領域應用</h3>
+<ul>
+<li><strong>內容創作</strong>：自動寫作、翻譯、繪圖、影音生成  </li>
+<li><strong>語音應用</strong>：Text-to-Speech、音樂生成  </li>
+<li><strong>自動客服</strong>：對話式AI、客服機器人  </li>
+<li><strong>工程領域</strong>：自動產生程式碼或設計圖</li>
+</ul>
+<p>同時，我們也面臨了 <strong>Deepfake</strong> 和假訊息散播的風險。如何在享受創造力的同時，落實適當的監管與倫理規範，是生成式AI必須面對的重要課題之一。</p>
+<h2 id="_5">結論與總結</h2>
+<p>生成式AI的出現，讓機器不再只是被動地「辨識」或「判斷」，而是能<strong>主動「創造」</strong>，並在龐大的可能性空間中，找出最符合需求或最有趣的內容。深度學習所帶來的技術進展，更使這項目標不僅限於理論或少量示範，而是能真正在商業與日常生活中落地。</p>
+<p>然而，越是強大的技術，越需要更全面的考量，包括產生內容的正確性、偏見問題、侵權爭議，以及在社會倫理層面的影響。未來生成式AI只會持續地精進和擴張版圖，我們也期待在「AI 的創造力」與「人類的價值」之間，能取得更好的平衡與合作，讓這股科技進步真正成為全民受益的力量。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

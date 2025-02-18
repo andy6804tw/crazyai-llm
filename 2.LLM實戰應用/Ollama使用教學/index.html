@@ -541,15 +541,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      延伸閱讀
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -820,15 +811,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      延伸閱讀
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1085,51 +1067,6 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <h2 id="_3">總結</h2>
 <p>在這篇文章中，我們已經介紹了 Ollama 這個強大的大型語言模型（LLM）管理工具，不僅能輕鬆安裝、切換與執行各種模型，還提供了 REST API 介面，方便開發者結合不同程式或服務。如果你覺得純指令操作比較麻煩，或想用更友善的視覺介面跟 AI 模型互動，可以嘗試搭配「Open WebUI」來實現。Open WebUI 的操作介面與 ChatGPT 十分相似，除了能聊天，還能進行 AI 繪圖、圖像辨識、RAG 檢索增強生成，以及整理 PDF 檔案內容或搜尋網頁等進階功能。最棒的是，整套流程不用寫任何一行 Python 程式碼就能上手！</p>
 <p>下一篇文章將會進一步示範如何讓 Ollama 與 Open WebUI 整合，讓你在本地端打造功能豐富、使用流暢的 AI 服務。想知道更多細節或尋找更便利的操作方式，就請持續關注下一篇囉！</p>
-<h2 id="_4">延伸閱讀</h2>
-<ul>
-<li><a href="https://www.53ai.com/news/zhinengyingjian/2024103038917.html">教你搭建 Ollama + Gradio 聊天机器人</a></li>
-<li><a href="https://blog.miniasp.com/post/2024/04/17/Run-TAIDE-LX-7B-Chat-4bit-model-in-Ollama">使用 Ollama 執行 TAIDE 的 TAIDE-LX-7B-Chat-4bit 大語言模型</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/21161140014">VLLM 與Ollama：如何選擇適合的輕量級LLM 框架？</a></li>
-<li><a href="https://medium.com/@cch.chichieh/deepseek-本地部屬-llama-cpp-與-ollama-78f24809604f">llama.cpp 與 ollama</a></li>
-<li><a href="https://blog.csdn.net/weixin_42458975/article/details/139465823">區分LLaMA、llama.cpp和Ollama</a></li>
-<li><a href="https://hub.docker.com/r/ollama/ollama">Ollama Docker image</a></li>
-<li><a href="https://ywctech.net/ml-ai/ollama-first-try/#%E6%80%8E%E9%BA%BC%E9%97%9C%E6%8E%89-ollama">五分鐘上手 Ollama - 在本機跑 LLM 語言模型</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10348913">番外編使用 Colab 部署 Ollama 服務</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10357750">講到TIDE 不想讓資料外洩怎麼辦：在本地用 Ollama 搭配 Open WebUI 做一個聊天界面吧</a></li>
-<li>
-<p><a href="https://ivonblog.com/posts/ollama-llm/">這篇提到如何測試影像模型</a></p>
-</li>
-<li>
-<p>LLM 運行與管理工具</p>
-</li>
-<li>llama.cpp</li>
-<li>Ollama</li>
-<li>LM Studio</li>
-<li>vLLM</li>
-<li>LightLLM</li>
-<li>LocalAI</li>
-<li>veGiantModel</li>
-<li>RAG 系統</li>
-<li>RAGFlow</li>
-<li>Anything LLM</li>
-</ul>
-<p>watch -n 0.5 -d nvidia-smi #每隔0.5秒刷新一次
-htop看CPU</p>
-<p>如何找到 Volume 的實體位置？
-- 指令中的 -v ollama:/root/.ollama 會讓模型存放在 Docker Volume 內，而不是主機的 /root/.ollama。
-- 你可以使用 <code>docker volume inspect ollama</code> 來查看實際存放位置。
-<strong>列出 Docker Volumes</strong></p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>ls
-</span></code></pre></div>
-<p>你會看到類似的輸出：</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>DRIVER<span class="w">    </span>VOLUME<span class="w"> </span>NAME
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nb">local</span><span class="w">     </span>ollama
-</span></code></pre></div>
-<p>這表示你的 ollama Volume 已經建立。</p>
-<p><strong>查找 ollama Volume 的具體存放位置</strong></p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>ollama
-</span></code></pre></div>
-<p>其中 Mountpoint 顯示了實體存放位置。</p>
 
 
 

@@ -29,7 +29,11 @@ nav:
     - '1.生成式AI導論/1.1生成式AI是什麼.md'
     - '1.生成式AI導論/1.2今日的生成式人工智慧厲害在哪裡.md'
   - '2.LLM實戰應用':
-    - Ollama使用教學: '2.LLM實戰應用/Ollama使用教學.md'
+    - 'Ollama使用教學': '2.LLM實戰應用/Ollama使用教學.md'
+  - '3. 熱門AI工具使用教學':
+    - 'AI生成圖片-Stable diffusion': '3.熱門AI工具使用教學/AI生成圖片.md'
+    - 'AI生成音樂-Suno 作曲及音樂生成器': '3.熱門AI工具使用教學/AI生成音樂.md'
+
 
 markdown_extensions:
   - admonition

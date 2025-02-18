@@ -10,22 +10,28 @@
         <meta name="author" content="10程式中">
       
       
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/3.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/">
       
       
+        <link rel="prev" href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/">
       
-      <link rel="icon" href="/crazyai-llm/assets/images/favicon.png">
+      
+        <link rel="next" href="../AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
     
     
       
-        <title>全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>AI生成圖片-Stable diffusion - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
-      <link rel="stylesheet" href="/crazyai-llm/assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="/crazyai-llm/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,11 +50,11 @@
       
     
     
-      <link rel="stylesheet" href="/crazyai-llm/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("/crazyai-llm/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -83,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="/crazyai-llm/." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              AI生成圖片-Stable diffusion
             
           </span>
         </div>
@@ -190,7 +196,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/crazyai-llm/." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/crazyai-llm/1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.1%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%98%AF%E4%BB%80%E9%BA%BC/" class="md-nav__link">
+      <a href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.1%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%98%AF%E4%BB%80%E9%BA%BC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -276,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/crazyai-llm/1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/" class="md-nav__link">
+      <a href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -339,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/crazyai-llm/2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -364,17 +370,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -388,7 +396,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             3. 熱門AI工具使用教學
@@ -399,10 +407,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/crazyai-llm/3.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -411,6 +426,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -423,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/crazyai-llm/3.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+      <a href="../AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -472,8 +488,25 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  <h1>AI生成圖片-Stable diffusion</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -511,16 +544,16 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/crazyai-llm/", "features": [], "search": "/crazyai-llm/assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
     
     
-      <script src="/crazyai-llm/assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="/crazyai-llm/javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
-        <script src="/crazyai-llm/javascripts/analytics.js"></script>
+        <script src="../../javascripts/analytics.js"></script>
       
-        <script src="/crazyai-llm/javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       

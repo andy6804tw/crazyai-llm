@@ -7,6 +7,9 @@ Ollama 並非一個大型語言模型，而是協助你快速安裝、管理與�
 Ollama 的使用情境非常廣泛，尤其適合想離線運作 AI 或在本地端保有數據隱私的使用者。例如，你可以用它來測試不同大小、不同架構的模型，包括小型的 7B 參數模型，或是超大型的 70B 參數模型，依照你的硬體資源調整執行策略。它也支援量化技術，讓模型在一般 RAM 配置中依舊能順暢跑起來。
 
 ## Ollama 的核心特色
+
+![](./images/img-ollama-intro-1.png)
+
 **1. 支援多種大型語言模型**  
 Ollama 本身並不限定你只能跑 llama 模型，而是彈性地整合多個 LLM。你可以用它來安裝像是 DeepSeek-R1、Llama、Gemma 等常見的模型，透過簡單的命令就能快速切換或更新。
 
@@ -62,13 +65,15 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 
 以上列出的硬體與系統需求，是為了確保 Ollama 能順利運行、並最大程度發揮效能。如果你的環境都符合這些要求，接下來就能正式進入安裝與測試的階段囉！
 
-> 注意以下教學示範的環境是 Linux，Windows 或 MacOS 可能會有些指令上的差異。
+!!! info
+
+    以下教學操作的環境以 Linux Server 為主，Windows 或 MacOS 的操作方式基本上差不多！
 
 ## Ollama 安裝
 ### 方法一 官方下載安裝包 (初學者建議)
 首先，前往 Ollama [官方網站](https://ollama.com/)，在首頁找到「Download」按鈕，選擇適合自己作業系統的安裝方式。
 
-![](https://i.imgur.com/dLWT9tU.png)
+![](./images/img-ollama-intro-2.png)
 
 本文以 Linux 系統作為展示，在終端機輸入以下指令，一鍵下載並安裝 Ollama：
 
@@ -76,19 +81,25 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
+![](./images/img-ollama-intro-3.png)
+
 安裝完成後，Ollama 服務會自動在背景運行。你可以在終端機輸入 `ollama -v`，若顯示版本資訊或指令列表，即代表安裝成功。
 
 ```sh
 ollama -v
 ```
 
-同時要確認 Ollama server 是否成功被啟動，可以在瀏覽器輸入 `http://localhost:11434` 連線成功將會看到。
-
-亦或是在終端機中輸入以下指令，透過 curl 測試:
+同時要確認 Ollama server 是否成功被啟動，可以在終端機中輸入以下指令，透過 curl 測試:
 
 ```sh
 curl  http://localhost:11434
 ```
+
+![](./images/img-ollama-intro-4.png)
+
+亦或是可以在瀏覽器輸入 `http://localhost:11434` 連線成功將會看到 `Ollama is running` 的字串訊息。
+
+![](./images/img-ollama-intro-5.png)
 
 若沒有被正常啟動服務，可以手動輸入以下指令啟動 Ollama 服務:
 
@@ -96,7 +107,35 @@ curl  http://localhost:11434
 ollama serve
 ```
 
-> 稍後會詳細說明常用的Ollama指令，以及如何下載看測試LLM模型。
+??? note "如何讓 Ollama 可供外部存取"
+    
+    如果你有固定 IP，並希望讓其他電腦可以連線至此台機器，你需要執行以下指令，使 Ollama 監聽所有網路介面：
+
+    ```sh
+    OLLAMA_HOST=0.0.0.0 ollama serve
+    ```
+
+    或者，你可以修改 **Ollama 的 systemd 服務設定**，讓它在 `0.0.0.0:11434` 監聽連線，以便外部設備能夠存取。
+
+若想要終止 Ollama 背景運行，在 Linux 系統可以輸入以下指令停止該程序。
+
+```sh
+sudo systemctl stop ollama
+```
+
+在 Linux 系統中設有開機自動運行腳本，因此手動終止程序後可以再透過以下指令啟動。
+
+```
+sudo systemctl start ollama
+```
+
+如果你在 Windows 上運行 Ollama，可以打開 工作管理員 (Task Manager)，找到 ollama.exe，然後手動結束程式。在 macOS 上，你可以在螢幕右上角的 工具列 找到 Ollama 圖示，點擊後選擇 `Quit` 來終止程式。
+
+!!! info
+
+    - 稍後會詳細說明常用的Ollama指令，以及如何下載和測試LLM模型。
+    - 在完成方法一安裝並確認 Ollama 已成功在背景運行後，可以直接跳轉至[使用 Ollama 下載和運行模型](#ollama_4)來開始使用模型。
+
 
 ### 方法二 使用 Docker 安裝 (專業玩家使用)
 如果你偏好使用容器化的方式部署 Ollama，也可以透過 Docker 來啟動服務。以下以 Ubuntu 為例，示範啟動方式：
@@ -121,7 +160,9 @@ systemctl start docker
 docker --version
 ```
 
-> 如果你的作業系統有GUI介面推薦使用，[Docker Desktop](https://docs.docker.com/get-started/get-docker/) 軟體來管理 Docker 容器。
+!!! note
+
+    如果你的作業系統有GUI介面推薦使用，[Docker Desktop](https://docs.docker.com/get-started/get-docker/) 軟體來管理 Docker 容器。
 
 #### 2. 啟動 Ollama 容器
 ##### 使用 CPU 啟動服務
@@ -140,7 +181,7 @@ nvidia-smi
 
 若成功出現以下畫面，則表示系統已正確配置 GPU 驅動程式。若尚未安裝，您可以參考這篇文章進行設定。
 
-![]()
+![](./images/img-ollama-intro-6.png)
 
 接著，在 Linux 安裝 NVIDIA Container Toolkit 使⁠ Docker 容器能使用 GPU 運算環境。基本上按照[官方安裝步驟](https://hub.docker.com/r/ollama/ollama)就能完成。首先使用 Apt 安裝，這段指令的主要目的是 設定 NVIDIA Container Toolkit 的 APT 軟體庫 (repository)，以便可以使用 apt 來安裝與更新 NVIDIA Container Toolkit。
 
@@ -172,11 +213,15 @@ sudo systemctl restart docker
 sudo docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 ```
 
+![](./images/img-ollama-intro-7.png)
+
 部署成功後，我們可以進入正在運行的 Ollama Docker 容器，並開啟一個互動式 Bash Shell，以便直接在容器內操作。
 
 ```sh
 sudo docker exec -it ollama bash
 ```
+
+![](./images/img-ollama-intro-8.png)
 
 目前為止已經完成 Ollama 的環境安裝，並且啟動了 Ollama 服務。接下來要講解常用的指令，以及如何管理大型語言模型。
 
@@ -187,9 +232,11 @@ Ollama 安裝好之後，在終端機中，執行以下指令下載對應的大�
 ollama pull gemma2:9b
 ```
 
-在 Ollama 官方的 Models 頁面上，提供了多種支援的模型。如果對這些模型較為熟悉，可以根據機器的配置選擇適合的模型，無論是較大的還是較小的版本。
+![](./images/img-ollama-intro-9.png)
 
-![]()
+在 [Ollama 官方的 Models](https://ollama.com/search) 頁面上，提供了多種支援的模型。如果對這些模型較為熟悉，可以根據機器的配置選擇適合的模型，無論是較大的還是較小的版本。
+
+![](./images/img-ollama-intro-10.png)
 
 下載完成後，使用以下指令，透過終端機介面來使用剛剛下載的大型語言模型。
 
@@ -197,10 +244,11 @@ ollama pull gemma2:9b
 ollama run gemma2:9b
 ```
 
+![](./images/img-ollama-intro-11.gif)
+
 如果輸出如上圖所示內容，則表示大語言模型正常運作。輸入 `/bye` 或是 `ctrl+d` 退出問答介面。
 
 ## REST API
-
 除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。
 
 下面範例示範如何使用 `curl` 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 `gemma2:9b`）並傳入對話內容：
@@ -214,6 +262,8 @@ curl http://localhost:11434/api/chat -d '{
   "stream": false
 }'
 ```
+
+![](./images/img-ollama-intro-12.png)
 
 更詳細的 API 參數說明與使用方式，請參考 [Ollama 的官方文件](https://github.com/ollama/ollama/blob/main/docs/api.md)。
 
@@ -231,6 +281,8 @@ curl http://localhost:11434/api/chat -d '{
 | `ollama help`                | 顯示 Ollama CLI 的所有可用指令與參數                     | `ollama help`               | 如果忘記用法或想了解進階功能，可用此指令取得官方幫助資訊                      |
 | 其他常見參數（於 `run` 中使用） | 例如 `--temperature`、`--top_p`、`--max_tokens` 等參數   | `ollama run llama2 --temperature 0.7` | 調整模型生成文字的「創造性」程度、抽樣分佈或輸出長度等，細節可參考官方文件   |
 
+
+`ollama ps` 查看
 
 
 下載完成後我們可以用 `ollama list` 來查看目前本機上有多少個 LLM，下載完的模型都會在系統資料夾中。

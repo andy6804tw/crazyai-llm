@@ -249,23 +249,45 @@ ollama run gemma2:9b
 如果輸出如上圖所示內容，則表示大語言模型正常運作。輸入 `/bye` 或是 `ctrl+d` 退出問答介面。
 
 ## REST API
-除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。
+除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。下面範例示範如何使用 `curl` 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 `gemma2:9b`）並傳入對話內容：
 
-下面範例示範如何使用 `curl` 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 `gemma2:9b`）並傳入對話內容：
+
+**Completion API(單次問答)**
+運行服務後，若要透過 API 來生成內容，可使用以下兩種方式。其中第一種方式會一次性返回解答，類似過去 OpenAI API Service 所提供的 Completion API。
 
 ```sh
-curl http://localhost:11434/api/chat -d '{
+curl http://localhost:11434/api/generate -d '{
   "model": "gemma2:9b",
-  "messages": [
-    { "role": "user", "content": "請問法國的首都?" }
-  ],
+  "system": "你是一位嚴謹的地理老師，請使用繁體中文回答問題。",
+  "prompt": "請問法國的首都？",
   "stream": false
 }'
 ```
 
 ![](./images/img-ollama-intro-12.png)
 
-更詳細的 API 參數說明與使用方式，請參考 [Ollama 的官方文件](https://github.com/ollama/ollama/blob/main/docs/api.md)。
+**Chat Completion API（對話生成）**
+第二種方法是目前主流的對話生成模式，類似於 OpenAI API Service 所提供的 Chat Completion API。簡單來說，Chat Completion 的核心概念就是「補完對話」：我們先給 AI 一組對話內容作為上下文，再設定特定的條件或角色，接著讓 AI 根據這些情境繼續對話，產生後續回應。這樣一來，整段對話就能不斷延伸與發展。
+
+```sh
+curl http://localhost:11434/api/chat -d '{
+  "model": "gemma2:9b",
+  "messages": [
+    { "role": "system", "content": "你是一位嚴謹的地理老師，請使用繁體中文回答問題。" },
+    { "role": "user", "content": "請問美國的首都?" },
+    { "role": "assistant", "content": "美國的首都是 **華盛頓哥倫比亞特區** 。" },
+    { "role": "user", "content": "請問法國的首都?" }
+  ],
+  "stream": false
+}'
+```
+
+![](./images/img-ollama-intro-13.png)
+
+!!! info
+
+    - 更詳細的 API 參數說明與使用方式，請參考 [Ollama 的官方文件](https://github.com/ollama/ollama/blob/main/docs/api.md)。
+    - 或是參考下一篇教學文章： [Ollama API整合OpenAI](Ollama API整合OpenAI.md)
 
 
 ## Ollama 使用技巧
@@ -282,18 +304,57 @@ curl http://localhost:11434/api/chat -d '{
 | 其他常見參數（於 `run` 中使用） | 例如 `--temperature`、`--top_p`、`--max_tokens` 等參數   | `ollama run llama2 --temperature 0.7` | 調整模型生成文字的「創造性」程度、抽樣分佈或輸出長度等，細節可參考官方文件   |
 
 
-`ollama ps` 查看
+`ollama ps` 是一個方便的指令，可以讓你檢查目前正在運行的模型，並觀察它們的資源使用情況，例如 是否使用 GPU 或 CPU。
+
+![](./images/img-ollama-intro-14.png)
+
+我們可以使用 `ollama list` 來查看本機上已下載的 LLM 模型。這些模型會存放在以下系統資料夾中：
+
+- **macOS**: ~/.ollama/models
+- **Linux**: /usr/share/ollama/.ollama/models
+- **Windows**: C:\Users\%username%\.ollama\models
+
+!!! note
+
+    如果你是透過 Docker 運行 Ollama，模型的存放位置會依據 Docker Volume（磁碟掛載） 設定來決定。
+
+![](./images/img-ollama-intro-15.png)
 
 
-下載完成後我們可以用 `ollama list` 來查看目前本機上有多少個 LLM，下載完的模型都會在系統資料夾中。
 
-- macOS: ~/.ollama/models
-- Linux: /usr/share/ollama/.ollama/models
-- Windows: C:\Users\%username%\.ollama\models
+??? note "如何找到 Docker Volume 的實體位置?"
+
+    - 指令中的 -v ollama:/root/.ollama 會讓模型存放在 Docker Volume 內，而不是主機的 /root/.ollama。
+    - 你可以使用 `docker volume inspect ollama` 來查看實際存放位置。
+
+    **列出 Docker Volumes**
+
+    ```sh
+    sudo docker volume ls
+    ```
+
+    你會看到類似的輸出：
+
+    ```sh
+    DRIVER    VOLUME NAME
+    local     ollama
+    ```
+
+    這表示你的 ollama Volume 已經建立。
+
+    **查找 ollama Volume 的具體存放位置**
+
+    ```sh
+    sudo docker volume inspect ollama
+    ```
+
+    其中 `Mountpoint` 顯示了實體存放位置。
 
 
 ## 總結
 在這篇文章中，我們已經介紹了 Ollama 這個強大的大型語言模型（LLM）管理工具，不僅能輕鬆安裝、切換與執行各種模型，還提供了 REST API 介面，方便開發者結合不同程式或服務。如果你覺得純指令操作比較麻煩，或想用更友善的視覺介面跟 AI 模型互動，可以嘗試搭配「Open WebUI」來實現。Open WebUI 的操作介面與 ChatGPT 十分相似，除了能聊天，還能進行 AI 繪圖、圖像辨識、RAG 檢索增強生成，以及整理 PDF 檔案內容或搜尋網頁等進階功能。最棒的是，整套流程不用寫任何一行 Python 程式碼就能上手！
 
 下一篇文章將會進一步示範如何讓 Ollama 與 Open WebUI 整合，讓你在本地端打造功能豐富、使用流暢的 AI 服務。想知道更多細節或尋找更便利的操作方式，就請持續關注下一篇囉！
+
+
 

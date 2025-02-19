@@ -16,7 +16,7 @@
         <link rel="prev" href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/">
       
       
-        <link rel="next" href="../../3.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/">
+        <link rel="next" href="../Ollama%20API%E6%95%B4%E5%90%88OpenAI/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -550,6 +550,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama API整合OpenAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -989,18 +1010,38 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <p><img alt="" src="../images/img-ollama-intro-11.gif" /></p>
 <p>如果輸出如上圖所示內容，則表示大語言模型正常運作。輸入 <code>/bye</code> 或是 <code>ctrl+d</code> 退出問答介面。</p>
 <h2 id="rest-api">REST API</h2>
-<p>除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。</p>
-<p>下面範例示範如何使用 <code>curl</code> 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 <code>gemma2:9b</code>）並傳入對話內容：</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>http://localhost:11434/api/chat<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<p>除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。下面範例示範如何使用 <code>curl</code> 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 <code>gemma2:9b</code>）並傳入對話內容：</p>
+<p><strong>Completion API(單次問答)</strong>
+運行服務後，若要透過 API 來生成內容，可使用以下兩種方式。其中第一種方式會一次性返回解答，類似過去 OpenAI API Service 所提供的 Completion API。</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>http://localhost:11434/api/generate<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="s1">  &quot;model&quot;: &quot;gemma2:9b&quot;,</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="s1">  &quot;messages&quot;: [</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="s1">    { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;請問法國的首都?&quot; }</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="s1">  ],</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="s1">  &quot;stream&quot;: false</span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="s1">}&#39;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="s1">  &quot;system&quot;: &quot;你是一位嚴謹的地理老師，請使用繁體中文回答問題。&quot;,</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="s1">  &quot;prompt&quot;: &quot;請問法國的首都？&quot;,</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="s1">  &quot;stream&quot;: false</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
 <p><img alt="" src="../images/img-ollama-intro-12.png" /></p>
-<p>更詳細的 API 參數說明與使用方式，請參考 <a href="https://github.com/ollama/ollama/blob/main/docs/api.md">Ollama 的官方文件</a>。</p>
+<p><strong>Chat Completion API（對話生成）</strong>
+第二種方法是目前主流的對話生成模式，類似於 OpenAI API Service 所提供的 Chat Completion API。簡單來說，Chat Completion 的核心概念就是「補完對話」：我們先給 AI 一組對話內容作為上下文，再設定特定的條件或角色，接著讓 AI 根據這些情境繼續對話，產生後續回應。這樣一來，整段對話就能不斷延伸與發展。</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>http://localhost:11434/api/chat<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="s1">  &quot;model&quot;: &quot;gemma2:9b&quot;,</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="s1">  &quot;messages&quot;: [</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="s1">    { &quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一位嚴謹的地理老師，請使用繁體中文回答問題。&quot; },</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="s1">    { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;請問美國的首都?&quot; },</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="s1">    { &quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;美國的首都是 **華盛頓哥倫比亞特區** 。&quot; },</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="s1">    { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;請問法國的首都?&quot; }</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="s1">  ],</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="s1">  &quot;stream&quot;: false</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<p><img alt="" src="../images/img-ollama-intro-13.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>更詳細的 API 參數說明與使用方式，請參考 <a href="https://github.com/ollama/ollama/blob/main/docs/api.md">Ollama 的官方文件</a>。</li>
+<li>或是參考下一篇教學文章： <a href="../Ollama%20API%E6%95%B4%E5%90%88OpenAI/">Ollama API整合OpenAI</a></li>
+</ul>
+</div>
 <h2 id="ollama_5">Ollama 使用技巧</h2>
 <p>以下整理幾個 Ollama 常用的指令，方便你快速上手並管理大型語言模型。後續若有進階需求，可再深入查看官方文件或使用 <code>ollama help</code> 指令掌握更多參數與用法。</p>
 <table>
@@ -1057,13 +1098,38 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 </tr>
 </tbody>
 </table>
-<p><code>ollama ps</code> 查看</p>
-<p>下載完成後我們可以用 <code>ollama list</code> 來查看目前本機上有多少個 LLM，下載完的模型都會在系統資料夾中。</p>
+<p><code>ollama ps</code> 是一個方便的指令，可以讓你檢查目前正在運行的模型，並觀察它們的資源使用情況，例如 是否使用 GPU 或 CPU。</p>
+<p><img alt="" src="../images/img-ollama-intro-14.png" /></p>
+<p>我們可以使用 <code>ollama list</code> 來查看本機上已下載的 LLM 模型。這些模型會存放在以下系統資料夾中：</p>
 <ul>
-<li>macOS: ~/.ollama/models</li>
-<li>Linux: /usr/share/ollama/.ollama/models</li>
-<li>Windows: C:\Users\%username%.ollama\models</li>
+<li><strong>macOS</strong>: ~/.ollama/models</li>
+<li><strong>Linux</strong>: /usr/share/ollama/.ollama/models</li>
+<li><strong>Windows</strong>: C:\Users\%username%.ollama\models</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你是透過 Docker 運行 Ollama，模型的存放位置會依據 Docker Volume（磁碟掛載） 設定來決定。</p>
+</div>
+<p><img alt="" src="../images/img-ollama-intro-15.png" /></p>
+<details class="note">
+<summary>如何找到 Docker Volume 的實體位置?</summary>
+<ul>
+<li>指令中的 -v ollama:/root/.ollama 會讓模型存放在 Docker Volume 內，而不是主機的 /root/.ollama。</li>
+<li>你可以使用 <code>docker volume inspect ollama</code> 來查看實際存放位置。</li>
+</ul>
+<p><strong>列出 Docker Volumes</strong></p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</span></code></pre></div>
+<p>你會看到類似的輸出：</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>DRIVER<span class="w">    </span>VOLUME<span class="w"> </span>NAME
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nb">local</span><span class="w">     </span>ollama
+</span></code></pre></div>
+<p>這表示你的 ollama Volume 已經建立。</p>
+<p><strong>查找 ollama Volume 的具體存放位置</strong></p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>ollama
+</span></code></pre></div>
+<p>其中 <code>Mountpoint</code> 顯示了實體存放位置。</p>
+</details>
 <h2 id="_3">總結</h2>
 <p>在這篇文章中，我們已經介紹了 Ollama 這個強大的大型語言模型（LLM）管理工具，不僅能輕鬆安裝、切換與執行各種模型，還提供了 REST API 介面，方便開發者結合不同程式或服務。如果你覺得純指令操作比較麻煩，或想用更友善的視覺介面跟 AI 模型互動，可以嘗試搭配「Open WebUI」來實現。Open WebUI 的操作介面與 ChatGPT 十分相似，除了能聊天，還能進行 AI 繪圖、圖像辨識、RAG 檢索增強生成，以及整理 PDF 檔案內容或搜尋網頁等進階功能。最棒的是，整套流程不用寫任何一行 Python 程式碼就能上手！</p>
 <p>下一篇文章將會進一步示範如何讓 Ollama 與 Open WebUI 整合，讓你在本地端打造功能豐富、使用流暢的 AI 服務。想知道更多細節或尋找更便利的操作方式，就請持續關注下一篇囉！</p>

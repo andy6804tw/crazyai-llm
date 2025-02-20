@@ -173,13 +173,13 @@ sudo docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/o
 ```
 
 ##### 使用 GPU 啟動服務
-如果需要使用 Nvidia GPU 進行加速推論，必須安裝 NVIDIA Container Toolkit ，讓系統能夠使用 GPU。首先確保本機已安裝 Nvidia GPU驅動程式:
+如果需要使用 Nvidia GPU 進行加速推論，必須安裝 NVIDIA Container Toolkit ，讓系統能夠使用 GPU。若不確定自己的 GPU 是否支援，可以先到 [Ollama GuiHub](https://github.com/ollama/ollama/blob/main/docs/gpu.md) 官方的支援列表查看。首先確保本機已安裝 Nvidia GPU驅動程式:
 
 ```sh
 nvidia-smi
 ```
 
-若成功出現以下畫面，則表示系統已正確配置 GPU 驅動程式。若尚未安裝，您可以參考這篇文章進行設定。
+若成功出現以下畫面，則表示系統已正確配置 GPU 驅動程式。若尚未安裝，您可以參考這篇文章進行設定： [Linux 安裝 NVIDIA GPU 驅動完整教學](https://andy6804tw.github.io/2025/02/20/linux-install-nvidia-driver/)。
 
 ![](./images/img-ollama-intro-6.png)
 
@@ -355,6 +355,34 @@ curl http://localhost:11434/api/chat -d '{
 在這篇文章中，我們已經介紹了 Ollama 這個強大的大型語言模型（LLM）管理工具，不僅能輕鬆安裝、切換與執行各種模型，還提供了 REST API 介面，方便開發者結合不同程式或服務。如果你覺得純指令操作比較麻煩，或想用更友善的視覺介面跟 AI 模型互動，可以嘗試搭配「Open WebUI」來實現。Open WebUI 的操作介面與 ChatGPT 十分相似，除了能聊天，還能進行 AI 繪圖、圖像辨識、RAG 檢索增強生成，以及整理 PDF 檔案內容或搜尋網頁等進階功能。最棒的是，整套流程不用寫任何一行 Python 程式碼就能上手！
 
 下一篇文章將會進一步示範如何讓 Ollama 與 Open WebUI 整合，讓你在本地端打造功能豐富、使用流暢的 AI 服務。想知道更多細節或尋找更便利的操作方式，就請持續關注下一篇囉！
+
+
+## 延伸閱讀
+- [教你搭建 Ollama + Gradio 聊天机器人](https://www.53ai.com/news/zhinengyingjian/2024103038917.html)
+- [使用 Ollama 執行 TAIDE 的 TAIDE-LX-7B-Chat-4bit 大語言模型](https://blog.miniasp.com/post/2024/04/17/Run-TAIDE-LX-7B-Chat-4bit-model-in-Ollama)
+- [VLLM 與Ollama：如何選擇適合的輕量級LLM 框架？](https://zhuanlan.zhihu.com/p/21161140014)
+- [llama.cpp 與 ollama](https://medium.com/@cch.chichieh/deepseek-本地部屬-llama-cpp-與-ollama-78f24809604f)
+- [區分LLaMA、llama.cpp和Ollama](https://blog.csdn.net/weixin_42458975/article/details/139465823)
+- [Ollama Docker image](https://hub.docker.com/r/ollama/ollama)
+- [五分鐘上手 Ollama - 在本機跑 LLM 語言模型](https://ywctech.net/ml-ai/ollama-first-try/#%E6%80%8E%E9%BA%BC%E9%97%9C%E6%8E%89-ollama)
+- [講到TIDE 不想讓資料外洩怎麼辦：在本地用 Ollama 搭配 Open WebUI 做一個聊天界面吧](https://ithelp.ithome.com.tw/articles/10357750)
+- [這篇提到如何測試影像模型](https://ivonblog.com/posts/ollama-llm/)
+
+- LLM 運行與管理工具
+  - llama.cpp
+  - Ollama
+  - LM Studio
+  - vLLM
+  - LightLLM
+  - LocalAI
+  - veGiantModel
+- RAG 系統
+  - RAGFlow
+  - Anything LLM
+
+watch -n 0.5 -d nvidia-smi #每隔0.5秒刷新一次
+htop看CPU
+
 
 
 

@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/">
       
       
-        <link rel="prev" href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/">
+        <link rel="prev" href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.3%E8%A8%93%E7%B7%B4%E4%B8%8D%E4%BA%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%3F%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%A8%93%E7%B7%B4%E4%BD%A0%E8%87%AA%E5%B7%B1%28%E4%B8%8A%29/">
       
       
         <link rel="next" href="../Ollama%20API%E6%95%B4%E5%90%88OpenAI/">
@@ -270,7 +270,7 @@
         
   
   <span class="md-ellipsis">
-    生成式AI是什麼？
+    1.1 生成式AI是什麼
   </span>
   
 
@@ -291,7 +291,28 @@
         
   
   <span class="md-ellipsis">
-    今日的生成式人工智慧厲害在哪裡
+    1.2 今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.3%E8%A8%93%E7%B7%B4%E4%B8%8D%E4%BA%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%3F%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%A8%93%E7%B7%B4%E4%BD%A0%E8%87%AA%E5%B7%B1%28%E4%B8%8A%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 訓練不了人工智慧?你可以訓練你自己(上)
   </span>
   
 
@@ -331,7 +352,7 @@
             
   
   <span class="md-ellipsis">
-    2.LLM實戰應用
+    2. LLM實戰應用
   </span>
   
 
@@ -341,7 +362,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            2.LLM實戰應用
+            2. LLM實戰應用
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -968,10 +989,10 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-v<span class="w"> </span>ollama:/root/.ollama<span class="w"> </span>-p<span class="w"> </span><span class="m">11434</span>:11434<span class="w"> </span>--name<span class="w"> </span>ollama<span class="w"> </span>ollama/ollama
 </span></code></pre></div>
 <h5 id="gpu">使用 GPU 啟動服務</h5>
-<p>如果需要使用 Nvidia GPU 進行加速推論，必須安裝 NVIDIA Container Toolkit ，讓系統能夠使用 GPU。首先確保本機已安裝 Nvidia GPU驅動程式:</p>
+<p>如果需要使用 Nvidia GPU 進行加速推論，必須安裝 NVIDIA Container Toolkit ，讓系統能夠使用 GPU。若不確定自己的 GPU 是否支援，可以先到 <a href="https://github.com/ollama/ollama/blob/main/docs/gpu.md">Ollama GuiHub</a> 官方的支援列表查看。首先確保本機已安裝 Nvidia GPU驅動程式:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>nvidia-smi
 </span></code></pre></div>
-<p>若成功出現以下畫面，則表示系統已正確配置 GPU 驅動程式。若尚未安裝，您可以參考這篇文章進行設定。</p>
+<p>若成功出現以下畫面，則表示系統已正確配置 GPU 驅動程式。若尚未安裝，您可以參考這篇文章進行設定： <a href="https://andy6804tw.github.io/2025/02/20/linux-install-nvidia-driver/">Linux 安裝 NVIDIA GPU 驅動完整教學</a>。</p>
 <p><img alt="" src="../images/img-ollama-intro-6.png" /></p>
 <p>接著，在 Linux 安裝 NVIDIA Container Toolkit 使⁠ Docker 容器能使用 GPU 運算環境。基本上按照<a href="https://hub.docker.com/r/ollama/ollama">官方安裝步驟</a>就能完成。首先使用 Apt 安裝，這段指令的主要目的是 設定 NVIDIA Container Toolkit 的 APT 軟體庫 (repository)，以便可以使用 apt 來安裝與更新 NVIDIA Container Toolkit。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/gpgkey<span class="w"> </span><span class="se">\</span>

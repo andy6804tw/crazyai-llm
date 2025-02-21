@@ -253,6 +253,7 @@ ollama run gemma2:9b
 
 
 **Completion API(單次問答)**
+
 運行服務後，若要透過 API 來生成內容，可使用以下兩種方式。其中第一種方式會一次性返回解答，類似過去 OpenAI API Service 所提供的 Completion API。
 
 ```sh
@@ -267,6 +268,7 @@ curl http://localhost:11434/api/generate -d '{
 ![](./images/img-ollama-intro-12.png)
 
 **Chat Completion API（對話生成）**
+
 第二種方法是目前主流的對話生成模式，類似於 OpenAI API Service 所提供的 Chat Completion API。簡單來說，Chat Completion 的核心概念就是「補完對話」：我們先給 AI 一組對話內容作為上下文，再設定特定的條件或角色，接著讓 AI 根據這些情境繼續對話，產生後續回應。這樣一來，整段對話就能不斷延伸與發展。
 
 ```sh
@@ -356,6 +358,33 @@ curl http://localhost:11434/api/chat -d '{
 
 下一篇文章將會進一步示範如何讓 Ollama 與 Open WebUI 整合，讓你在本地端打造功能豐富、使用流暢的 AI 服務。想知道更多細節或尋找更便利的操作方式，就請持續關注下一篇囉！
 
+
+
+## 延伸閱讀
+- [教你搭建 Ollama + Gradio 聊天机器人](https://www.53ai.com/news/zhinengyingjian/2024103038917.html)
+- [使用 Ollama 執行 TAIDE 的 TAIDE-LX-7B-Chat-4bit 大語言模型](https://blog.miniasp.com/post/2024/04/17/Run-TAIDE-LX-7B-Chat-4bit-model-in-Ollama)
+- [VLLM 與Ollama：如何選擇適合的輕量級LLM 框架？](https://zhuanlan.zhihu.com/p/21161140014)
+- [llama.cpp 與 ollama](https://medium.com/@cch.chichieh/deepseek-本地部屬-llama-cpp-與-ollama-78f24809604f)
+- [區分LLaMA、llama.cpp和Ollama](https://blog.csdn.net/weixin_42458975/article/details/139465823)
+- [Ollama Docker image](https://hub.docker.com/r/ollama/ollama)
+- [五分鐘上手 Ollama - 在本機跑 LLM 語言模型](https://ywctech.net/ml-ai/ollama-first-try/#%E6%80%8E%E9%BA%BC%E9%97%9C%E6%8E%89-ollama)
+- [講到TIDE 不想讓資料外洩怎麼辦：在本地用 Ollama 搭配 Open WebUI 做一個聊天界面吧](https://ithelp.ithome.com.tw/articles/10357750)
+- [這篇提到如何測試影像模型](https://ivonblog.com/posts/ollama-llm/)
+
+- LLM 運行與管理工具
+  - llama.cpp
+  - Ollama
+  - LM Studio 
+  - vLLM
+  - LightLLM
+  - LocalAI
+  - veGiantModel
+- RAG 系統
+  - RAGFlow
+  - Anything LLM
+
+watch -n 0.5 -d nvidia-smi #每隔0.5秒刷新一次
+htop看CPU
 
 
 

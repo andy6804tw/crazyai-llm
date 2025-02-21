@@ -562,6 +562,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      延伸閱讀
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -620,7 +629,7 @@
             
   
   <span class="md-ellipsis">
-    3. 熱門AI工具使用教學
+    3. 免費 LLM API 串接資源
   </span>
   
 
@@ -630,7 +639,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            3. 熱門AI工具使用教學
+            3. 免費 LLM API 串接資源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -641,7 +650,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/" class="md-nav__link">
+      <a href="../../3.%E5%85%8D%E8%B2%BBLLM%20API%E4%B8%B2%E6%8E%A5%E8%B3%87%E6%BA%90/GitHub%20Models%E5%85%8D%E8%B2%BB%E8%A9%A6%E7%8E%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. 熱門AI工具使用教學
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. 熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -853,6 +925,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      延伸閱讀
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1032,8 +1113,8 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <p>如果輸出如上圖所示內容，則表示大語言模型正常運作。輸入 <code>/bye</code> 或是 <code>ctrl+d</code> 退出問答介面。</p>
 <h2 id="rest-api">REST API</h2>
 <p>除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。下面範例示範如何使用 <code>curl</code> 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 <code>gemma2:9b</code>）並傳入對話內容：</p>
-<p><strong>Completion API(單次問答)</strong>
-運行服務後，若要透過 API 來生成內容，可使用以下兩種方式。其中第一種方式會一次性返回解答，類似過去 OpenAI API Service 所提供的 Completion API。</p>
+<p><strong>Completion API(單次問答)</strong></p>
+<p>運行服務後，若要透過 API 來生成內容，可使用以下兩種方式。其中第一種方式會一次性返回解答，類似過去 OpenAI API Service 所提供的 Completion API。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>http://localhost:11434/api/generate<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="s1">  &quot;model&quot;: &quot;gemma2:9b&quot;,</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="s1">  &quot;system&quot;: &quot;你是一位嚴謹的地理老師，請使用繁體中文回答問題。&quot;,</span>
@@ -1042,8 +1123,8 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 </span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
 <p><img alt="" src="../images/img-ollama-intro-12.png" /></p>
-<p><strong>Chat Completion API（對話生成）</strong>
-第二種方法是目前主流的對話生成模式，類似於 OpenAI API Service 所提供的 Chat Completion API。簡單來說，Chat Completion 的核心概念就是「補完對話」：我們先給 AI 一組對話內容作為上下文，再設定特定的條件或角色，接著讓 AI 根據這些情境繼續對話，產生後續回應。這樣一來，整段對話就能不斷延伸與發展。</p>
+<p><strong>Chat Completion API（對話生成）</strong></p>
+<p>第二種方法是目前主流的對話生成模式，類似於 OpenAI API Service 所提供的 Chat Completion API。簡單來說，Chat Completion 的核心概念就是「補完對話」：我們先給 AI 一組對話內容作為上下文，再設定特定的條件或角色，接著讓 AI 根據這些情境繼續對話，產生後續回應。這樣一來，整段對話就能不斷延伸與發展。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>http://localhost:11434/api/chat<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="s1">  &quot;model&quot;: &quot;gemma2:9b&quot;,</span>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="s1">  &quot;messages&quot;: [</span>
@@ -1154,6 +1235,35 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <h2 id="_3">總結</h2>
 <p>在這篇文章中，我們已經介紹了 Ollama 這個強大的大型語言模型（LLM）管理工具，不僅能輕鬆安裝、切換與執行各種模型，還提供了 REST API 介面，方便開發者結合不同程式或服務。如果你覺得純指令操作比較麻煩，或想用更友善的視覺介面跟 AI 模型互動，可以嘗試搭配「Open WebUI」來實現。Open WebUI 的操作介面與 ChatGPT 十分相似，除了能聊天，還能進行 AI 繪圖、圖像辨識、RAG 檢索增強生成，以及整理 PDF 檔案內容或搜尋網頁等進階功能。最棒的是，整套流程不用寫任何一行 Python 程式碼就能上手！</p>
 <p>下一篇文章將會進一步示範如何讓 Ollama 與 Open WebUI 整合，讓你在本地端打造功能豐富、使用流暢的 AI 服務。想知道更多細節或尋找更便利的操作方式，就請持續關注下一篇囉！</p>
+<h2 id="_4">延伸閱讀</h2>
+<ul>
+<li><a href="https://www.53ai.com/news/zhinengyingjian/2024103038917.html">教你搭建 Ollama + Gradio 聊天机器人</a></li>
+<li><a href="https://blog.miniasp.com/post/2024/04/17/Run-TAIDE-LX-7B-Chat-4bit-model-in-Ollama">使用 Ollama 執行 TAIDE 的 TAIDE-LX-7B-Chat-4bit 大語言模型</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/21161140014">VLLM 與Ollama：如何選擇適合的輕量級LLM 框架？</a></li>
+<li><a href="https://medium.com/@cch.chichieh/deepseek-本地部屬-llama-cpp-與-ollama-78f24809604f">llama.cpp 與 ollama</a></li>
+<li><a href="https://blog.csdn.net/weixin_42458975/article/details/139465823">區分LLaMA、llama.cpp和Ollama</a></li>
+<li><a href="https://hub.docker.com/r/ollama/ollama">Ollama Docker image</a></li>
+<li><a href="https://ywctech.net/ml-ai/ollama-first-try/#%E6%80%8E%E9%BA%BC%E9%97%9C%E6%8E%89-ollama">五分鐘上手 Ollama - 在本機跑 LLM 語言模型</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10357750">講到TIDE 不想讓資料外洩怎麼辦：在本地用 Ollama 搭配 Open WebUI 做一個聊天界面吧</a></li>
+<li>
+<p><a href="https://ivonblog.com/posts/ollama-llm/">這篇提到如何測試影像模型</a></p>
+</li>
+<li>
+<p>LLM 運行與管理工具</p>
+</li>
+<li>llama.cpp</li>
+<li>Ollama</li>
+<li>LM Studio </li>
+<li>vLLM</li>
+<li>LightLLM</li>
+<li>LocalAI</li>
+<li>veGiantModel</li>
+<li>RAG 系統</li>
+<li>RAGFlow</li>
+<li>Anything LLM</li>
+</ul>
+<p>watch -n 0.5 -d nvidia-smi #每隔0.5秒刷新一次
+htop看CPU</p>
 
 
 

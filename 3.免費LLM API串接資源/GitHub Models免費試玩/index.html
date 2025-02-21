@@ -1,0 +1,1178 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="10程式中">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/3.%E5%85%8D%E8%B2%BBLLM%20API%E4%B8%B2%E6%8E%A5%E8%B3%87%E6%BA%90/GitHub%20Models%E5%85%8D%E8%B2%BB%E8%A9%A6%E7%8E%A9/">
+      
+      
+        <link rel="prev" href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%20API%E6%95%B4%E5%90%88OpenAI/">
+      
+      
+        <link rel="next" href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>GitHub Models 免費試玩 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#github-models-gptllamadeepseek" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GitHub Models 免費試玩
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. 李宏毅 生成式AI導論
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. 李宏毅 生成式AI導論
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.1%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%98%AF%E4%BB%80%E9%BA%BC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 生成式AI是什麼
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.2%E4%BB%8A%E6%97%A5%E7%9A%84%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%8E%B2%E5%AE%B3%E5%9C%A8%E5%93%AA%E8%A3%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%E7%94%9F%E6%88%90%E5%BC%8FAI%E5%B0%8E%E8%AB%96/1.3%E8%A8%93%E7%B7%B4%E4%B8%8D%E4%BA%86%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%3F%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%A8%93%E7%B7%B4%E4%BD%A0%E8%87%AA%E5%B7%B1%28%E4%B8%8A%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 訓練不了人工智慧?你可以訓練你自己(上)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. LLM實戰應用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. LLM實戰應用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama使用教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama API整合OpenAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3. 免費 LLM API 串接資源
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            3. 免費 LLM API 串接資源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#github-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 介紹
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-models_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 的特點
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-models_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 支援的模型清單
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Models 支援的模型清單">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 聊天模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Embedding 模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      免費與付費計畫
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-models_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 使用限制與限流說明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playground-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎮 在 Playground 測試 LLM 模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 在 Playground 測試 LLM 模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何進入 Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-llm-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      👨🏻‍💻 使用 API 測試 LLM 模型 (Colab 教學)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👨🏻‍💻 使用 API 測試 LLM 模型 (Colab 教學)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API 申請步驟
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      總結與下一步建議
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. 熱門AI工具使用教學
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. 熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI生成圖片-Stable diffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI生成音樂-Suno 作曲及音樂生成器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#github-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 介紹
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-models_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 的特點
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-models_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 支援的模型清單
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Models 支援的模型清單">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 聊天模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Embedding 模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      免費與付費計畫
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-models_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Models 使用限制與限流說明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playground-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎮 在 Playground 測試 LLM 模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 在 Playground 測試 LLM 模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何進入 Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-llm-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      👨🏻‍💻 使用 API 測試 LLM 模型 (Colab 教學)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👨🏻‍💻 使用 API 測試 LLM 模型 (Colab 教學)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API 申請步驟
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      總結與下一步建議
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="github-models-gptllamadeepseek">GitHub Models 免費試玩 GPT、Llama、DeepSeek</h1>
+<blockquote>
+<p>帶你玩轉 Playground、API 串接，打造自己的 LLM 專案！</p>
+</blockquote>
+<p>範例程式：<a href="https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/3.免費LLM%20API串接資源/github-basic.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<h2 id="github-models">GitHub Models 介紹</h2>
+<p><a href="https://github.com/marketplace?type=models">GitHub Models</a> 是 GitHub 提供的一項免費服務，讓開發者能夠試用各種大型語言模型 (LLM)，例如 <strong>GPT-4o、Llama 3.3、Phi-3.5</strong> 等。這項服務特別適合個人開發者或小型專案，每日提供一定額度的免費 API 請求，讓使用者可以直接在 GitHub Playground 測試，或是透過 API 串接 GitHub Models 來開發自己的 AI 應用程式。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你正在尋找一個免費的 LLM 測試環境，GitHub Models 絕對值得一試！</p>
+</div>
+<h2 id="github-models_1">GitHub Models 的特點</h2>
+<p>✅ <strong>免費額度</strong>：每天最多可發送 50~150 次 API 請求（依模型而異）<br />
+✅ <strong>Playground</strong>：無需寫程式即可在線上測試模型<br />
+✅ <strong>API 串接</strong>：支援 OpenAI API 格式，與現有的 LLM 應用相容<br />
+✅ <strong>多種模型可選</strong>：支援 GPT-4o、Llama、Phi 等多種 AI 模型  </p>
+<hr />
+<h2 id="github-models_2">GitHub Models 支援的模型清單</h2>
+<p>GitHub Models 提供多種 <strong>大型語言模型 (LLM)</strong> 供開發者試用，涵蓋 <strong>聊天模型、Embedding 模型</strong>，適合不同的 AI 應用場景。</p>
+<p>完整清單可在 <a href="https://github.com/marketplace?type=models">GitHub Models marketplace</a> 查詢，以下是部分熱門模型：</p>
+<h3 id="_1">📌 聊天模型</h3>
+<ul>
+<li>DeepSeek-R1</li>
+<li>OpenAI GPT-4o</li>
+<li>OpenAI GPT-4o mini</li>
+<li>Llama-3.3–70B-Instruct</li>
+<li>Llama-3.2–90B-Vision-Instruct</li>
+<li>Phi-3.5-MoE instruct</li>
+<li>Phi-3.5-vision instruct</li>
+<li>Mistral Large</li>
+<li>Cohere Command R+</li>
+<li>AI21 Jamba 1.5</li>
+<li>JAIS 30b Chat</li>
+<li>...</li>
+</ul>
+<h3 id="embedding">📌 Embedding 模型</h3>
+<ul>
+<li>OpenAI Text Embedding 3</li>
+<li>Cohere Embed v3 Multilingual</li>
+<li>...</li>
+</ul>
+<hr />
+<h2 id="_2">免費與付費計畫</h2>
+<p>GitHub Models <strong>免費用戶 (GitHub Copilot 免費版)</strong> 可以使用部分模型，但如果想使用 <strong>GPT-o1、GPT-o3-mini</strong> 等最新模型，則需要升級到付費計畫 <strong><a href="https://github.com/features/copilot/plans?cft=copilot_li.features_copilot">GitHub Copilot Pro</a></strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>💡 如果你是老師或學生</strong>，可以透過 GitHub Education <strong><a href="https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/用老師-學生身份免費使用-github-copilot-223236e0e0e8">申請免費使用 GitHub Copilot Pro</a></strong>，享受更高級的模型與更多額度，對於學術研究與 AI 學習特別有幫助！</p>
+</div>
+<p><img alt="GitHub Copilot 方案" src="../images/img-github-models-1.webp" /></p>
+<p>點選任一個模型後，可進入模型介紹頁面，查看該模型的支援語言、輸入輸出限制、測試評分等資訊，並直接進入 Playground 測試其回應能力。</p>
+<p><img alt="" src="../images/img-github-models-2.webp" /></p>
+<h2 id="github-models_3">GitHub Models 使用限制與限流說明</h2>
+<p>在開始使用 <strong>GitHub Models</strong> 之前，了解 <strong>速率限制 (Rate Limits)</strong> 非常重要。GitHub Models 依據不同的模型類型，將使用限制分為四個等級：</p>
+<ul>
+<li><strong>Low (低限制)</strong>：適用於部分輕量模型，請求數量較少，適合一般測試用途。</li>
+<li><strong>High (高限制)</strong>：適用於較大型的模型，例如 GPT-4o，速率限制較嚴格。</li>
+<li><strong>Embedding (嵌入式模型)</strong>：適用於向量嵌入 (Embedding) 相關模型，主要用於語意搜尋與相似度計算。</li>
+<li><strong>Custom (自訂限制)</strong>：適用於特殊模型，例如 Azure OpenAI o1-preview、o1/o3-mini，這些模型的使用限制會依據官方公告動態調整。</li>
+</ul>
+<p>這些限制等級會影響每分鐘請求數、每日請求上限、單次請求 Token 數量等規則。你可以在模型介紹頁面 或 Playground 右側的 Rate limit tier 標籤，查詢當下適用的速率限制。以 GPT-4o (屬於 High 限制等級) 為例，免費使用者的請求限制如下：</p>
+<ul>
+<li><strong>每分鐘請求數</strong>：最多 10 次</li>
+<li><strong>每天請求上限</strong>：最多 50 次</li>
+<li><strong>每個請求的 Token 限制</strong>：<ul>
+<li><strong>輸入 (Input)</strong>：最多 8000 Tokens</li>
+<li><strong>輸出 (Output)</strong>：最多 4000 Tokens</li>
+<li><strong>並發請求數 (Concurrent Requests)</strong>：最多 2 個</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>詳細請求限制資訊，請參考官方文件：  <a href="https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits">GitHub Models Rate Limits</a></p>
+</div>
+<p>在本篇文章中，我將帶各位兩種使用的情境：</p>
+<ul>
+<li>直接在 <a href="https://github.com/marketplace/models">GitHub Playground</a> 測試</li>
+<li>申請 <a href="https://github.com/settings/personal-access-tokens">API Token</a> 並在 Colab 串接模型</li>
+</ul>
+<h2 id="playground-llm">🎮 在 Playground 測試 LLM 模型</h2>
+<p>GitHub Models 提供 <strong>Playground</strong>，讓開發者可以無需寫程式，直接測試 LLM 模型的能力。只需選擇一個模型，即可輸入 Prompt 進行互動。</p>
+<p><img alt="GitHub Models Playground 入口" src="../images/img-github-models-3.webp" /></p>
+<h3 id="playground">如何進入 Playground</h3>
+<ol>
+<li><strong>前往 GitHub Models</strong>： <a href="https://github.com/marketplace/models">GitHub Models 入口</a></li>
+<li><strong>選擇模型</strong>：從下拉式選單中選擇一個模型</li>
+<li><strong>開始聊天</strong>：在輸入框輸入 Prompt，與 AI 進行對話</li>
+</ol>
+<p><img alt="" src="../images/img-github-models-4.webp" /></p>
+<p>右側區塊可切換「Parameters」與「Details」：</p>
+<ul>
+<li><strong>Parameters：</strong> 可設定與調整模型參數，如 System prompt、Response format、Max Tokens、Temperature 等。</li>
+<li><strong>Details：</strong> 提供模型的相關說明。</li>
+</ul>
+<p>在 GitHub Models Playground 的參數調整區（右側），使用者可以根據需求客製化 AI 模型的回應方式，透過 System Prompt 設定 AI 的角色與行為，並進一步微調 AI 回應的風格與長度。</p>
+<p><img alt="" src="../images/img-github-models-5.webp" /></p>
+<p>首先，System Prompt (系統提示詞) 允許開發者定義 AI 的角色、專業領域或回應限制。例如，設定 AI 為「地理專家」，它就只會回答地理相關問題，對於其他問題則禮貌拒答。這樣可以確保 AI 的回應更加聚焦，符合特定應用場景的需求。</p>
+<p>此外，開發者還可以透過以下幾個參數調整 AI 的回應方式：</p>
+<ul>
+<li><strong>Max Tokens (最大輸出字數限制)</strong>：設定 AI 回應的最大字數，以控制回應的長短，例如 4096 代表 AI 生成的回應最多包含 4096 個 Token (約等於 3000 多個中文字)。</li>
+<li><strong>Temperature (隨機性控制)</strong>：決定 AI 回應的多樣性，數值範圍 0 ~ 1，較低的值 (如 0.2) 讓 AI 回應更精確、可控，較高的值 (如 0.8) 則讓回應更加有創意或具變化性。</li>
+<li><strong>Top P (機率抽樣限制)</strong>：這個數值決定 AI 在生成答案時，會從多少機率範圍內的詞彙中選擇。數值越低，AI 只會選擇最有可能的詞，使回應更保守、更可預測；數值越高，AI 會考慮更多詞彙選項，使回答更具變化性和創意。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Top-P 與 Temperature 的搭配</strong></p>
+<ul>
+<li><strong>若 Top-P 低、Temperature 高</strong> → 受控範圍內增加變化（比較安全的創意）。</li>
+<li><strong>若 Top-P 高、Temperature 高</strong> → 內容會變得更加 隨機、奔放，適合創作但可能偏離主題。</li>
+<li><strong>若 Top-P 低、Temperature 低</strong> → 生成內容嚴謹正式但較死板。</li>
+</ul>
+</div>
+<p>左側區塊分為「Chat」、「Code」和「Raw」：</p>
+<ul>
+<li><strong>Chat：</strong> 類似使用 ChatGPT，可以與模型進行多輪對話。</li>
+<li><strong>Code：</strong> 展示 API 的使用方式，提供不同程式語言的範例。</li>
+<li><strong>Raw：</strong> 顯示您與模型對話紀錄的原始資料。</li>
+</ul>
+<p>在 GitHub Models Playground，使用者可以點擊 「Compare」按鈕，同時測試兩種不同的 LLM，觀察它們在相同 Prompt 下的回應差異。例如，在比較 GPT-4o 和 DeepSeek-R1 回答「全世界最高的山在哪裡？」時，GPT-4o 提供了精確的數據與測量資訊，而 DeepSeek-R1 則補充了文化背景與生態保護觀點。這種對比方式讓開發者能夠快速了解不同模型的資訊準確度、回應風格與適用場景，幫助選擇最適合的 LLM 來應用於專案中。</p>
+<p><img alt="" src="../images/img-github-models-6.webp" /></p>
+<div class="admonition note">
+<p class="admonition-title">Playground 適合誰？</p>
+<p>如果你是<strong>新手</strong>或是希望<strong>快速測試 LLM 的開發者</strong>，Playground 是最佳選擇，因為不需要寫任何程式碼！</p>
+</div>
+<h2 id="api-llm-colab">👨🏻‍💻 使用 API 測試 LLM 模型 (Colab 教學)</h2>
+<p>如果你希望將 GitHub Models <strong>整合到自己的應用程式</strong>，可以使用 <strong>API 串接</strong> 來發送請求。GitHub Models API <strong>與 OpenAI API 格式相容</strong>，讓開發者能夠無縫轉換至 GitHub 的 LLM 服務。</p>
+<h3 id="api">API 申請步驟</h3>
+<p><strong>1. 建立 GitHub Personal Access Token (PAT)</strong>：</p>
+<ul>
+<li>前往 <a href="https://github.com/settings/personal-access-tokens">GitHub Settings</a></li>
+<li>進入 <strong>Developer settings &gt; Personal access tokens &gt; Fine-grained tokens</strong>
+<img alt="" src="../images/img-github-models-7.webp" /></li>
+<li>點選 「Generate new token」，並選擇 Public Repositories (read-only) 權限</li>
+<li>生成 Token 並<strong>妥善保存</strong>
+<img alt="" src="../images/img-github-models-8.webp" /></li>
+</ul>
+<p><strong>2. 在Google Colab 執行 API 測試</strong></p>
+<p>為了安全起見，不建議直接在程式碼中明碼顯示 Token，而是應該使用 Colab Secrets 來存取（如果是本機開發建議使用dotenv管理環境變數）。</p>
+<p><strong>在 Google Colab 左側選單點擊「🔑 Secrets」</strong></p>
+<ul>
+<li>點擊「+ Add new secret」</li>
+<li><strong>Name</strong> 欄位輸入 <code>GITHUB_TOKEN</code></li>
+<li><strong>Value</strong> 欄位貼上剛剛在 GitHub 生成的 Token</li>
+<li>點擊「access✓」按鈕允許 Colab 存取金鑰</li>
+</ul>
+<p><img alt="" src="../images/img-github-models-9.webp" /></p>
+<p>這個範例程式會自動讀取 GitHub Token，透過 GitHub Models API 呼叫 GPT-4o 來測試 LLM 模型的回應能力。程式首先從 Google Colab 的 Secrets 取得 <code>GITHUB_TOKEN</code>，並使用 OpenAI 客戶端 來連接 GitHub Models 伺服器。</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">userdata</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 驗證模型需要使用 GitHub 的 Personal Access Token (PAT)。</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 你可以在 GitHub 設定中產生 PAT，詳見官方文件：</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://models.inference.ai.azure.com&quot;</span><span class="p">,</span>  <span class="c1"># 設定 API 伺服器的基礎 URL</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">api_key</span><span class="o">=</span><span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;GITHUB_TOKEN&#39;</span><span class="p">),</span>  <span class="c1"># 從 Google Colab 的使用者資料中取得 GitHub Token</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>接著，程式發送一個 聊天請求 (chat completion request)，其中包含 System Prompt，設定 AI 為繁體中文問答助手，並讓使用者詢問「法國的首都？」。最後，AI 會根據模型參數 (如 Temperature、Max Tokens、Top P) 生成回應，並將結果輸出。</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 發送聊天請求</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;你現在是個問答小幫手，並使用繁體中文回答問題。&quot;</span><span class="p">,</span>  <span class="c1"># 設定系統角色，引導 AI 以繁體中文回答</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="p">},</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;請問法國的首都？&quot;</span><span class="p">,</span>  <span class="c1"># 使用者的提問</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="p">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="p">],</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span>  <span class="c1"># 指定使用的 AI 模型為 GPT-4o</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># 設定溫度值，影響回答的隨機性（1 代表較具變化性）</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>  <span class="c1"># 設定回應的最大 Token 數（字數限制）</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">top_p</span><span class="o">=</span><span class="mi">1</span>  <span class="c1"># 設定 Top-p（核取樣），用於控制回應的多樣性</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1"># 印出 AI 的回應內容</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></code></pre></div>
+<p>這個範例展示了如何使用 Colab + GitHub Models API 來快速測試 LLM 模型的對話能力。你也可以試試看將 model 替換成其他模型，例如嘗試近日熱門的 DeepSeek-R1。</p>
+<p><img alt="" src="../images/img-github-models-10.webp" /></p>
+<p>上述範例是一個簡單的單輪對話示範，使用者輸入問題後，AI 依據設定的 System Prompt 回應對應的答案，沒有額外的上下文記憶功能。這種方式適合基礎的 API 測試，確保模型能夠正常運作。除了這種單輪對話模式，GitHub Models 官方教學還提供多種進階範例，讓開發者能夠體驗更完整的 AI 互動方式，例如：</p>
+<ul>
+<li><strong>執行多輪對話 (Run a multi-turn conversation)</strong><ul>
+<li>讓 AI 記住前幾輪的對話內容，維持連貫的交流，例如聊天機器人或客戶支援應用。</li>
+</ul>
+</li>
+<li><strong>串流輸出回應 (Stream the output)</strong><ul>
+<li>讓 AI 逐字輸出回應，而非一次性返回完整答案，適合即時應用，如對話助手或 AI 文章生成。</li>
+</ul>
+</li>
+<li><strong>使用圖片進行對話 (Chat with an image input)</strong><ul>
+<li>除了文字輸入外，也可以讓 AI 分析圖片並提供回應，適用於圖像描述、OCR 文字辨識等應用場景。</li>
+</ul>
+</li>
+<li><strong>工具調用與函式執行 (Identify and invoke tools)</strong><ul>
+<li>讓 AI 能夠識別問題並選擇適當的外部工具來執行特定任務，例如查詢天氣、計算數學公式，甚至與資料庫互動。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/img-github-models-11.webp" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>下一篇文章將會介紹另一個免費LLM資源！</p>
+</div>
+<h2 id="_3">總結與下一步建議</h2>
+<p>透過這篇教學，我們學習了 GitHub Models API 的基本使用方式，包括 Playground 測試及 API 串接，並透過 Google Colab 示範如何讓 LLM 生成回應。值得注意的是，GitHub Models API 不僅支援 OpenAI API 格式，還相容於 LangChain API，這意味著開發者可以直接將 GitHub 提供的 LLM 模型整合進現有的 AI 應用程式，甚至與其他 AI 服務無縫接軌。</p>
+<p>💡 <strong>鼓勵你動手實作！</strong><br />
+✅ <strong>整合 RAG (Retrieval-Augmented Generation)</strong>，結合外部知識庫提升 AI 回答準確性<br />
+✅ <strong>使用 Streamlit 或 Gradio</strong> 封裝成 <strong>聊天應用</strong>，打造一個互動式 AI Chatbot  </p>
+<p>透過這樣的練習，不僅能深化對 LLM 模型的理解，也能為你添加個人作品！現在就開始你的 <strong>GitHub Models AI 專案</strong> 吧！🚀🎯</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

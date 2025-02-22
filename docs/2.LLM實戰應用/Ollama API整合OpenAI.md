@@ -205,6 +205,7 @@ embeddings = client.embeddings.create(
 - **環境設定與客戶端初始化：** 如何指定 API 伺服器與金鑰。
 - **對話生成 (Chat Completions)：** 包含純文字以及文字加影像混合輸入的範例。
 - **單次問答 (Completions)：** 直接利用 prompt 進行文字生成。
+- **執行多輪對話 (Run a multi-turn dialogue)：** 讓AI記錄下彼此的對話內容，維持連鎖的交流，例如聊天機器人或客戶支援應用程式。
 - **模型操作：** 列出所有模型與查詢特定模型資訊。
 - **Embeddings 產生：** 為輸入的文本生成向量表示。
 

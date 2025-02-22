@@ -7,8 +7,6 @@ tags:
 
 # Ollama 使用教學：在自己的電腦上運行大型語言模型
 
-**tags: `Ollama` **
-
 ## 什麼是 Ollama?
 Ollama 並非一個大型語言模型，而是協助你快速安裝、管理與運行各種 LLM 的開源工具。換句話說，它就像一個「語言模型管家」，幫你整合安裝流程、記憶體配置，以及提供 REST API 介面，讓其他程式可以把 Ollama 當成後端 AI 服務來使用。透過 Ollama，你可以更方便地在自己的電腦（或伺服器）上進行模型測試、開發，甚至直接部署應用。
 
@@ -379,21 +377,5 @@ curl http://localhost:11434/api/chat -d '{
 - [五分鐘上手 Ollama - 在本機跑 LLM 語言模型](https://ywctech.net/ml-ai/ollama-first-try/#%E6%80%8E%E9%BA%BC%E9%97%9C%E6%8E%89-ollama)
 - [講到TIDE 不想讓資料外洩怎麼辦：在本地用 Ollama 搭配 Open WebUI 做一個聊天界面吧](https://ithelp.ithome.com.tw/articles/10357750)
 - [這篇提到如何測試影像模型](https://ivonblog.com/posts/ollama-llm/)
-
-- LLM 運行與管理工具
-  - llama.cpp
-  - Ollama
-  - LM Studio 
-  - vLLM
-  - LightLLM
-  - LocalAI
-  - veGiantModel
-- RAG 系統
-  - RAGFlow
-  - Anything LLM
-
-watch -n 0.5 -d nvidia-smi #每隔0.5秒刷新一次
-htop看CPU
-
 
 

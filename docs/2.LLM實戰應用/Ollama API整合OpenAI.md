@@ -7,6 +7,8 @@ tags:
 
 # 使用 Ollama API 整合 OpenAI Python 函式庫
 
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.LLM實戰應用/code/Ollama%20API%20整合%20OpenAI.ipynb)
+
 ## 前言
 Ollama 提供了與 OpenAI API 部分功能的相容，協助現有應用程式連接到 Ollama。這篇教學文件將引導你如何利用 OpenAI 函式庫與 Ollama API 整合，進而快速切換不同家的大型語言模型（LLM）服務。利用 OpenAI 庫的優點在於，它相容市面上大多數 LLM 服務，只需替換 API URL，即可快速整合不同廠商的服務。
 
@@ -35,6 +37,17 @@ client = OpenAI(
 
 **說明：**  
 這段程式碼將 OpenAI 模組引入，並根據指定的 URL 與金鑰建立 `client` 實例，以供後續 API 呼叫使用。
+
+
+!!! note "如何在 Linux 讓 Ollama 服務允許遠端設備存取"
+        目前的教學內容是使用 **localhost** 來做示範，因為執行這段程式的 Python 環境和部署 **Ollama 服務** 的機器是 **同一台電腦**，所以可以直接存取。  
+
+        若有 **不同電腦** 需要 **遠端存取** Ollama 服務，請參考這篇文章進行設定： [如何在 Linux 讓 Ollama 服務允許遠端設備存取](https://andy6804tw.github.io/2025/02/22/ollama-service-remote-access/)
+
+        **設定完成後**，即可透過：
+
+        - **固定 IP** 直接連線存取  
+        - **雲平台提供的 Port Forwarding URL** 來遠端存取服務  
 
 ---
 

@@ -2,7 +2,7 @@
 author: Tsai Yi Lin
 date: 2025-02-18
 tags:
-  - 免費LLM API
+  - Ollama
 ---
 
 # Ollama 使用教學：在自己的電腦上運行大型語言模型

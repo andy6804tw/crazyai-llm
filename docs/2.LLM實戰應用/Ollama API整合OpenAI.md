@@ -2,7 +2,7 @@
 author: Tsai Yi Lin
 date: 2025-02-19
 tags:
-  - 免費LLM API
+  - Ollama
 ---
 
 # 使用 Ollama API 整合 OpenAI Python 函式庫

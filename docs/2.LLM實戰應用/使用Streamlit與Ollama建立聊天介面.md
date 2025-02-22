@@ -7,6 +7,8 @@ tags:
 
 # 在 Colab 使用 Streamlit 與 Ollama 建立聊天介面
 
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.LLM實戰應用/code/使用Streamlit與Ollama建立聊天介面.ipynb)
+
 ## 前言
 本教學將介紹如何在 **Google Colab** 上運行 **Streamlit**，並透過 **Ollama API** 來建立一個簡單的 **聊天介面**。由於 Colab **無法直接執行 `streamlit run`**，我們將使用 **LocalTunnel** 讓本機電腦可以存取 Colab 內運行的 Streamlit 應用。
 
@@ -111,16 +113,19 @@ if user_input := st.chat_input("請輸入您的訊息..."):
 ---
 
 ## 步驟 5：啟動 Streamlit 並讓本機存取
+
+![](./images/img-ollama-streamlit-1.png)
+
 執行以下指令：
 
 ```bash
-!streamlit run basic.py &>./logs.txt & npx localtunnel --port 8501 & curl ipv4.icanhazip.com
+!streamlit run basic.py &>./logs.txt & npx --yes localtunnel --port 8501 & curl ipv4.icanhazip.com
 ```
 
 📌 **指令說明**
 
 - `!streamlit run basic.py &>./logs.txt &` → **在背景運行 Streamlit**，並將日誌輸出到 `logs.txt`
-- `npx localtunnel --port 8501` → **開放公開網址**，讓本機存取 Colab 內的 Streamlit
+- `npx --yes localtunnel --port 8501` → **開放公開網址**，讓本機存取 Colab 內的 Streamlit
 - `curl ipv4.icanhazip.com` → **顯示 Colab 機器的外部 IP**
 
 ---
@@ -130,6 +135,12 @@ if user_input := st.chat_input("請輸入您的訊息..."):
 ```
 your url is: https://random-name.loca.lt
 ```
+
+在 **Colab** 執行該命令後，應該會顯示類似以下的輸出內容：
+
+![](./images/img-ollama-streamlit-3.png)
+
+請**複製 IP 位址**（例如 **35.106.17.127**），然後**點擊產生的 URL**，即可進入應用程式的頁面。
 
 !!! info
 

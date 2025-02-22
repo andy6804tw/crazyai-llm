@@ -12,6 +12,8 @@ tags:
 ## 前言
 本教學將介紹如何在 **Google Colab** 上運行 **Streamlit**，並透過 **Ollama API** 來建立一個簡單的 **聊天介面**。由於 Colab **無法直接執行 `streamlit run`**，我們將使用 **LocalTunnel** 讓本機電腦可以存取 Colab 內運行的 Streamlit 應用。
 
+![](./images/img-ollama-streamlit-2.png)
+
 此外，Ollama 服務可以運行在 **本機端**，也可以使用 **遠端伺服器或其他 LLM API（如 OpenAI、FastChat）** 來提供回應。
 
 ---

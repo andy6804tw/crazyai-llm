@@ -25,6 +25,7 @@ edit_uri: ""
 # Copyright
 copyright: 'Copyright © 2024 - 2025 10程式中'
 nav:
+  - '目錄': './tags.md'
   - '1. 李宏毅 生成式AI導論':
     - '1.1 生成式AI是什麼': '1.生成式AI導論/1.1生成式AI是什麼.md'
     - '1.2 今日的生成式人工智慧厲害在哪裡': '1.生成式AI導論/1.2今日的生成式人工智慧厲害在哪裡.md'
@@ -60,6 +61,6 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 plugins:
-  # - tags:
-  #     tags_file: tags.md
+  - tags:
+      tags_file: tags.md
   - search

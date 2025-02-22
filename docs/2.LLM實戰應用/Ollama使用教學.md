@@ -1,4 +1,14 @@
+---
+author: Tsai Yi Lin
+date: 2025-02-18
+tags:
+  - 免費LLM API
+---
+
 # Ollama 使用教學：在自己的電腦上運行大型語言模型
+
+**tags: `Ollama` **
+
 ## 什麼是 Ollama?
 Ollama 並非一個大型語言模型，而是協助你快速安裝、管理與運行各種 LLM 的開源工具。換句話說，它就像一個「語言模型管家」，幫你整合安裝流程、記憶體配置，以及提供 REST API 介面，讓其他程式可以把 Ollama 當成後端 AI 服務來使用。透過 Ollama，你可以更方便地在自己的電腦（或伺服器）上進行模型測試、開發，甚至直接部署應用。
 
@@ -305,8 +315,7 @@ curl http://localhost:11434/api/chat -d '{
 | `ollama help`                | 顯示 Ollama CLI 的所有可用指令與參數                     | `ollama help`               | 如果忘記用法或想了解進階功能，可用此指令取得官方幫助資訊                      |
 | 其他常見參數（於 `run` 中使用） | 例如 `--temperature`、`--top_p`、`--max_tokens` 等參數   | `ollama run llama2 --temperature 0.7` | 調整模型生成文字的「創造性」程度、抽樣分佈或輸出長度等，細節可參考官方文件   |
 
-
-`ollama ps` 是一個方便的指令，可以讓你檢查目前正在運行的模型，並觀察它們的資源使用情況，例如 是否使用 GPU 或 CPU。
+若需要確認 Ollama 是否有使用到 CPU 或 GPU，也可使用 `ollama ps` 指令來查看詳細資訊。更多相關說明，請參考官方文件：[Ollama FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.md#how-can-i-tell-if-my-model-was-loaded-onto-the-gpu)。
 
 ![](./images/img-ollama-intro-14.png)
 

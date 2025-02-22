@@ -1,9 +1,12 @@
 ---
-title: 利用 Ollama API 整合 OpenAI Python 函式庫的完整教學
-author: Yi Lin Tsai
+author: Tsai Yi Lin
 date: 2025-02-19
+tags:
+  - 免費LLM API
 ---
-# 利用 Ollama API 整合 OpenAI Python 函式庫的完整教學
+
+# 使用 Ollama API 整合 OpenAI Python 函式庫
+
 ## 前言
 Ollama 提供了與 OpenAI API 部分功能的相容，協助現有應用程式連接到 Ollama。這篇教學文件將引導你如何利用 OpenAI 函式庫與 Ollama API 整合，進而快速切換不同家的大型語言模型（LLM）服務。利用 OpenAI 庫的優點在於，它相容市面上大多數 LLM 服務，只需替換 API URL，即可快速整合不同廠商的服務。
 
@@ -120,7 +123,7 @@ print(completion.choices[0].text)
 ```
 
 **說明：**  
-此方法僅傳送一個 prompt，模型將依據輸入內容生成補全回應。
+此方法僅傳送一個 prompt，模型將依據輸入內容生成回應。
 
 ---
 
@@ -187,8 +190,8 @@ embeddings = client.embeddings.create(
 在這篇教學文件中，我們介紹了如何利用 OpenAI Python 函式庫與 Ollama API 介面進行應用整合，涵蓋的重點包括：
 
 - **環境設定與客戶端初始化：** 如何指定 API 伺服器與金鑰。
-- **聊天補全 (Chat Completions)：** 包含純文字以及文字加影像混合輸入的範例。
-- **傳統文字補全 (Completions)：** 直接利用 prompt 進行文字生成。
+- **對話生成 (Chat Completions)：** 包含純文字以及文字加影像混合輸入的範例。
+- **單次問答 (Completions)：** 直接利用 prompt 進行文字生成。
 - **模型操作：** 列出所有模型與查詢特定模型資訊。
 - **Embeddings 產生：** 為輸入的文本生成向量表示。
 

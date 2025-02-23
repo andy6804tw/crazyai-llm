@@ -1,4 +1,5 @@
 # 利用 Google Colab 部署 Ollama 服務
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.LLM實戰應用/code/使用Colab部署Ollama服務.ipynb)
 
 ## 前言
 Ollama 服務提供一個統一的介面，讓你能夠輕鬆管理與呼叫各式語言模型，無論是在測試環境還是實際應用中，都能發揮極佳效能。對於手上沒有 GPU 運算資源，卻又想試玩地端大型語言模型的朋友，利用 Colab 平台進行概念驗證不失為一個好方法。透過 Colab 的免費運算資源，你可以快速驗證 Ollama 的功能與表現，進而應用於開發或原型設計。
@@ -74,6 +75,12 @@ chat_completion = client.chat.completions.create(
 print(chat_completion.choices[0].message.content)
 ```
 
+輸出結果：
+
+```
+巴黎是法國的首都。 🇫🇷  
+```
+
 這樣就能夠透過 API 輕鬆整合 Ollama，進行各種聊天互動應用的開發。
 
 ## 檢查 Ollama 運作狀態
@@ -84,6 +91,11 @@ print(chat_completion.choices[0].message.content)
 ```
 
 此指令會顯示目前 Ollama 服務的運作狀態與資源使用情形，讓你可以方便地進行監控與調整。
+
+```
+NAME         ID              SIZE      PROCESSOR    UNTIL              
+gemma2:9b    ff02c3702f32    9.4 GB    100% GPU     4 minutes from now 
+```
 
 ## 結語
 透過上述步驟，我們已成功在 Google Colab 上部署並啟動了 Ollama 服務。雖然 Colab 的環境有其限制，但對於初學者及概念驗證來說，這無疑是一個快速入門的好工具。未來若要進一步發展或投入正式應用，建議選擇更穩定且資源充足的環境，以獲得最佳的效能表現。若在部署過程中遇到問題，不妨參考 Ollama 官方文件或加入相關社群交流求助。

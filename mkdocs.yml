@@ -33,7 +33,9 @@ nav:
   - '2. LLM實戰應用':
     - 'Ollama使用教學': '2.LLM實戰應用/Ollama使用教學.md'
     - 'Ollama API整合OpenAI': '2.LLM實戰應用/Ollama API整合OpenAI.md'
+    - '用Colab部署Ollama服務': '2.LLM實戰應用/使用Colab部署Ollama服務.md'
     - '使用Streamlit與Ollama建立聊天介面': '2.LLM實戰應用/使用Streamlit與Ollama建立聊天介面.md'
+
   - '3. 免費 LLM API 串接資源':
     - 'GitHub Models 免費試玩': '3.免費LLM API串接資源/GitHub Models免費試玩.md'
   - '4. 熱門AI工具使用教學':

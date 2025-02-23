@@ -1,1 +1,0 @@
-- [番外編使用 Colab 部署 Ollama 服務](https://ithelp.ithome.com.tw/articles/10348913)

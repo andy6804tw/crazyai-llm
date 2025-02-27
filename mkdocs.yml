@@ -30,8 +30,8 @@ nav:
     - '1.1 生成式AI是什麼': '1.intro-generative-ai/1.1what-is-generative-ai.md.md'
     - '1.2 今日的生成式人工智慧厲害在哪裡': '1.intro-generative-ai/1.2why-generative-ai-is-powerful.md'
     - '1.3 訓練不了人工智慧?你可以訓練你自己(上)': '1.intro-generative-ai/1.3cant-train-ai-train-yourself-part1.md'
-    - '1.4 訓練不了人工智慧?你可以訓練你自己(中)': '1.intro-generative-ai/1.4cant-train-ai-train-yourself-part1.md'
-    - '1.5 訓練不了人工智慧?你可以訓練你自己(下)': '1.intro-generative-ai/1.5cant-train-ai-train-yourself-part1.md'
+    - '1.4 訓練不了人工智慧?你可以訓練你自己(中)': '1.intro-generative-ai/1.4cant-train-ai-train-yourself-part2.md'
+    - '1.5 訓練不了人工智慧?你可以訓練你自己(下)': '1.intro-generative-ai/1.5cant-train-ai-train-yourself-part3.md'
     - '1.6 大型語言模型修練史(第一階段)': '1.intro-generative-ai/1.6llm-history-phase1-self-learning.md'
 
   - '2. LLM實戰應用':

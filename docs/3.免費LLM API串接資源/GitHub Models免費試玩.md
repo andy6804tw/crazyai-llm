@@ -9,7 +9,7 @@ tags:
 # GitHub Models 免費試玩 GPT、Llama、DeepSeek
 > 帶你玩轉 Playground、API 串接，打造自己的 LLM 專案！
 
-範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/3.免費LLM%20API串接資源/github-basic.ipynb)
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/3.免費LLM%20API串接資源/code/github-basic.ipynb)
 
 ## GitHub Models 介紹
 

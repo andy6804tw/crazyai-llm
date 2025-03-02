@@ -1,0 +1,1402 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Tsai Yi Lin">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/1.intro-generative-ai/1.7llm-history-phase2/">
+      
+      
+        <link rel="prev" href="../1.6llm-history-phase1/">
+      
+      
+        <link rel="next" href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>1.7 大型語言模型修練史(第二階段) - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.7 大型語言模型修練史(第二階段)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    目錄
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. 李宏毅 生成式AI導論
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. 李宏毅 生成式AI導論
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1what-is-generative-ai.md/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 生成式AI是什麼
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2why-generative-ai-is-powerful/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3cant-train-ai-train-yourself-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 訓練不了人工智慧?你可以訓練你自己(上)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4cant-train-ai-train-yourself-part2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 訓練不了人工智慧?你可以訓練你自己(中)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5cant-train-ai-train-yourself-part3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 訓練不了人工智慧?你可以訓練你自己(下)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.6llm-history-phase1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6 大型語言模型修練史(第一階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1.7 大型語言模型修練史(第二階段)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1.7 大型語言模型修練史(第二階段)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chatgpt-llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      兼談對 ChatGPT 做逆向工程與 LLaMA 時代的開始
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 人類老師教導與 Instruction Fine-tuning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 預訓練與微調：從大規模數據到精細調控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adapter 技術與參數調控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 舉一反三：模型泛化能力的展現
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Fine-tuning 路線：打造專才與通才
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Fine-tuning 路線：打造專才與通才">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 路線一：打造一堆專才模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 路線二：直接打造一個通才模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 路線二：直接打造一個通才模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Google在通才上的發展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 OpenAI在通才上的發展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3 Meta在通才上的發展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Instruction Fine-tuning 與資料品質的重要性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Instruction Fine-tuning 與資料品質的重要性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 我們自己可以做Instruction Fine-tuning嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 逆向工程的做法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 開源 LLaMA 與全民微調的時代
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      結語
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. LLM實戰應用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. LLM實戰應用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama使用教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama API整合OpenAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/%E4%BD%BF%E7%94%A8Colab%E9%83%A8%E7%BD%B2Ollama%E6%9C%8D%E5%8B%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用Colab部署Ollama服務
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.LLM%E5%AF%A6%E6%88%B0%E6%87%89%E7%94%A8/%E4%BD%BF%E7%94%A8Streamlit%E8%88%87Ollama%E5%BB%BA%E7%AB%8B%E8%81%8A%E5%A4%A9%E4%BB%8B%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用Streamlit與Ollama建立聊天介面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3. 免費 LLM API 串接資源
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. 免費 LLM API 串接資源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%E5%85%8D%E8%B2%BBLLM%20API%E4%B8%B2%E6%8E%A5%E8%B3%87%E6%BA%90/GitHub%20Models%E5%85%8D%E8%B2%BB%E8%A9%A6%E7%8E%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. 熱門AI工具使用教學
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. 熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-Raphael%E5%85%8D%E8%B2%BBAI%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI生成圖片-Raphael免費AI圖像生成工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI生成音樂-Suno 作曲及音樂生成器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chatgpt-llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      兼談對 ChatGPT 做逆向工程與 LLaMA 時代的開始
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 人類老師教導與 Instruction Fine-tuning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 預訓練與微調：從大規模數據到精細調控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adapter 技術與參數調控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 舉一反三：模型泛化能力的展現
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Fine-tuning 路線：打造專才與通才
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Fine-tuning 路線：打造專才與通才">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 路線一：打造一堆專才模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 路線二：直接打造一個通才模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 路線二：直接打造一個通才模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 Google在通才上的發展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 OpenAI在通才上的發展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3 Meta在通才上的發展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Instruction Fine-tuning 與資料品質的重要性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Instruction Fine-tuning 與資料品質的重要性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 我們自己可以做Instruction Fine-tuning嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 逆向工程的做法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 開源 LLaMA 與全民微調的時代
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      結語
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">李宏毅</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#ntu-2024" class="md-tag">NTU 生成式導論 2024</a>
+    
+  
+</nav>
+
+
+
+<h1 id="_1">大型語言模型修練史 — 第二階段: 名師指點，發揮潛力</h1>
+<h2 id="chatgpt-llama">兼談對 ChatGPT 做逆向工程與 LLaMA 時代的開始</h2>
+<blockquote>
+<p>李宏毅 生成式導論 2024 第7講</p>
+</blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q9cNkUPXUB8?si=S32Orb4Zyl-Bp-ry" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>本講將深入探討大型語言模型如何從海量資料中自我學習，並通過持續的參數調整與最佳化過程，逐步累積知識與能力。這些模型不僅能夠精準捕捉語言結構與文法規律，更在多樣化應用中展現出卓越效能，從自動生成文本到複雜語言理解任務，都證明了深度學習技術的巨大潛力。</p>
+<p>這部分文章將分為三篇，分別剖析大型語言模型的三個修煉階段：</p>
+<p><img alt="" src="../images/img6-1.png" /></p>
+<ul>
+<li>
+<p>第一階段：自我學習，累積實力</p>
+<ul>
+<li>透過海量資料進行文字接龍訓練，持續調整與優化參數，逐步打下穩固的內功基礎。</li>
+</ul>
+</li>
+<li>
+<p>第二階段：名師指點，發揮潛力</p>
+<ul>
+<li>結合人類專業指導與精緻化資料，讓模型得以更精準地應用已學知識，並克服過去的侷限。</li>
+</ul>
+</li>
+<li>
+<p>第三階段：參與實戰，打磨技巧</p>
+<ul>
+<li>將模型投入真實世界情境，經由反覆驗證與調整，最終形成能靈活應對各種任務的強大能力。</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info<p>所有的階段都是在學文字接龍，只是訓練資料不同。</p>
+</p>
+</div>
+<p>本文著重第二階段「名師指點，發揮潛力」。整合了語言模型從海量文本預訓練到利用人類標註資料進行 Instruction Fine-tuning 的核心技術，並探討如何藉由微調過程讓模型從單一任務「專才」逐步轉變為能夠應對多任務的「通才」。</p>
+<hr />
+<h2 id="1-instruction-fine-tuning">1. 人類老師教導與 Instruction Fine-tuning</h2>
+<p>在語言模型的第二階段訓練中，關鍵在於利用人類提供的標註資料來調整模型的回應。人類老師事先構思出可能的使用情境與問題，並提供對應的正確答案，將這些問答轉換為模型可用來做文字接龍訓練的資料格式。例如，若問題是「臺灣最高的山是哪座？」，正確答案則為「玉山」。資料中通常會明確標示出哪部分屬於使用者輸入，哪部分屬於模型回應，這樣的格式能夠幫助模型在遇到相似情境時，產生符合預期的回覆。</p>
+<p><img alt="" src="../images/img7-1.png" /></p>
+<p>此外，正因為資料需由人類準備，故其數量通常較有限，這也是後續需要結合大規模預訓練參數的重要原因。</p>
+<p><img alt="image" src="../images/img7-2.png" /></p>
+<p>資料中將使用者與 AI 的部分做了明確標記，避免出現模糊不清的情況，讓模型在文字接龍時能夠準確判斷何時應該結束回應，何時需要補充更多內容。在上圖中提到的另一個範例裡，當問題是「你是誰？」時，GPT並不是接著問題後面的文字進行延續，而是直接開始回答。這很可能是因為在訓練過程中，模型就已經接收到這類標記符號的資訊。</p>
+<hr />
+<h2 id="2">2. 預訓練與微調：從大規模數據到精細調控</h2>
+<p>由於僅靠人類老師提供的標註資料量遠遠不足以覆蓋各種情境，因此第一階段預訓練便成為關鍵。預訓練階段透過從網路上爬取的大量文本數據，讓模型學習到語言的基本規則與複雜結構，形成一組強大的初始參數。這些參數能捕捉到語言中的深層規律，進而在第二階段微調時提供良好的基礎，使得微調後的參數與預訓練參數不會相差過大，從而保留了模型原有的泛化能力。</p>
+<p><img alt="image" src="../images/img7-3.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>在微調過程中，模型僅對少量人類標註的資料做「微調」，這個步驟即稱為 Fine-tuning，而預訓練則稱為 Pre-train。</p>
+</p>
+</div>
+<p>為了防止微調時產生過大的變化，進一步影響模型在未見任務上的表現，常採用一種技術 —— <strong>Adapter</strong>。透過 Adapter（例如 LoRA 技術），可以在不改動原有預訓練參數的情況下，僅針對新增的少量參數進行最佳化，而達到有效降低運算量與保留初始模型知識的目的。</p>
+<p><img alt="image" src="../images/img7-4.png" /></p>
+<p>近年來，Adapter 技術在大型語言模型的微調領域蓬勃發展，出現了各種創新的做法與變體。透過這些 Adapter 技術，開發者可以根據任務特性與硬體資源限制，選擇適合的「參數插入方式」。它們的共同目標，都是在保留預訓練模型大量知識的前提下，使用極少量新參數達到高效率微調，並能快速應用於多種場景。</p>
+<p><img alt="" src="../images/img7-5.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考文獻： <a href="https://arxiv.org/abs/2210.06175">Exploring Efficient-tuning Methods in Self-supervised Speech Models</a></li>
+</ul>
+</p>
+</div>
+<hr />
+<h2 id="3-adapter">3. Adapter 技術與參數調控</h2>
+<p>Adapter 技術的核心概念在於，當模型進行最佳化時，不直接改動預訓練獲得的參數，而是在模型結構中額外加入少量的可訓練參數。這樣做不僅降低了調參的計算量，也使得模型的調整保持在一個合理的範圍內，而避免出現學習到不合理的特徵（例如見「最」就答「玉山」的情況）。</p>
+<p><img alt="image" src="../images/img7-6.png" /></p>
+<p>實務上，這種方法可以使得新參數與初始參數保持較高的相似性，並確保模型能夠從大量預訓練中學到的複雜規則中獲益，進而具備更好的舉一反三能力。</p>
+<hr />
+<h2 id="4">4. 舉一反三：模型泛化能力的展現</h2>
+<p>預訓練階段不僅僅是累積數據，更多的是讓模型學習如何做文字接龍，掌握語言的內在結構與邏輯。這使得模型在面對新的、未見過的任務時，仍能依據已學到的複雜規則做出合理的回應。例如，模型在學習到「臺灣最高的山是玉山」的同時，也能自然而然地理解「世界最高的山是聖母峰」這樣的知識遷移現象。</p>
+<p><img alt="image" src="https://hackmd.io/_uploads/HJUg0IezA.png" /></p>
+<p>在GPT出現之前，曾有一款名為BERT的模型在104種語言上進行預訓練。只要訓練它某一種語言的任務，它就能在其他語言上展現出相似的能力。舉例來說，如果教它英文的閱讀測驗，當它學會英文後，同時也具備中文的能力。實驗結果顯示，某些模型經過多語言預訓練後，即使只用單一語言的標註資料進行微調，也能在其他語言上達到相近的表現。這種「舉一反三」的特性，正體現了預訓練參數在泛化上的強大效力，也是大規模語言模型備受矚目的原因之一。</p>
+<p><img alt="image" src="../images/img7-8.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考文獻： <a href="https://arxiv.org/abs/1909.09587">Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model</a></li>
+</ul>
+</p>
+</div>
+<p>這項實驗來自一篇2019年的論文。實驗中，先用104種語言的資料進行預訓練，再利用英文問答資料做微調，最後以中文問答進行測試。結果顯示，得到的F1分數與第一個QANet差不多，證明只要有良好的預訓練模型，再搭配適當的微調，模型就能展現出優異的舉一反三能力。</p>
+<hr />
+<h2 id="5-fine-tuning">5. Fine-tuning 路線：打造專才與通才</h2>
+<p>在大規模語言模型的應用裡，微調（Fine-tuning）是一種常見且重要的調整方式。就微調的策略而言，主要可以分成兩條路線：</p>
+<ol>
+<li>
+<p><strong>打造多個「專才」模型</strong><br />
+   先把預訓練好的模型，針對不同領域或任務需求進行調整，從而產生多個各司其職的「專才」模型（像是翻譯專才、摘要專才、編修專才等等）。</p>
+</li>
+<li>
+<p><strong>發展一個「通才」模型</strong><br />
+   直接把預訓練好的模型，進一步打造成「通才」，讓同一個模型就能同時應付多種任務。</p>
+</li>
+</ol>
+<p><img alt="image" src="../images/img7-9.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>這兩條路線各有優勢，至於要選哪一種，通常就得看實際的應用需求和資源考量。</p>
+</p>
+</div>
+<h3 id="51">5.1 路線一：打造一堆專才模型</h3>
+<p>專才路線即針對單一任務進行微調，讓模型在特定領域（如翻譯或編修）上達到極高的精準度。例如，收集大量翻譯資料進行微調，讓模型專注於翻譯工作；或是收集編修相關資料，使模型成為語法編修的專家。這類模型在各自專長的任務上表現極佳，但僅限於單一任務。</p>
+<p><img alt="image" src="../images/img7-10.png" /></p>
+<p>BERT 本身就是走「專才路線」的代表。它先在第一階段透過大規模語料進行預訓練，學到通用的語言知識，接著再針對不同任務（像是情感分類、序列標注、問答系統等等）各自進行微調，產生一堆「專才」模型。這種方法強調為每個任務打造一個專門的解決方案，也正是 BERT 在許多 NLP 領域能大放異彩的關鍵。從 BERT 系列模型的實驗結果來看，即使不同任務的專才模型表現已經逼近甚至超越人類水準，但相對來說，應用範圍還是比較受限。</p>
+<p><img alt="" src="../images/img7-11.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>延伸閱讀： <a href="http://youtube.com/watch?v=gh0hewYkjgo">【機器學習2021】自督導式學習 (Self-supervised Learning) (二) – BERT簡介</a></li>
+</ul>
+</p>
+</div>
+<h3 id="52">5.2 路線二：直接打造一個通才模型</h3>
+<p>通才路線的目標是構建一個多任務模型，能夠同時應對翻譯、摘要、編修等多種任務。此方法通常需要集合來自各個任務的標註資料，讓模型在微調時能學習到不同任務之間的共通知識，進而展現出舉一反三的能力。實驗中，通才模型在未曾見過的任務上依然能夠正確回應，顯示出其強大的泛化能力。</p>
+<p><img alt="image" src="../images/img7-12.png" /></p>
+<p>第一篇論文提出的想法是：如果無法一次蒐集所有任務所需的大量資料，那就有什麼教什麼──有翻譯資料就先教翻譯，有編修資料就教編修。然而，這種作法可能會遇到「學了新的就忘了舊的」問題，因此論文中提出了「複習」的概念，藉此避免模型在學習新任務時遺忘先前已習得的知識。</p>
+<p><img alt="" src="../images/img7-13.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文： <a href="https://arxiv.org/abs/1909.03329">LAMOL: LAnguage MOdeling for Lifelong Language Learning</a>  </li>
+</ul>
+</p>
+</div>
+<h4 id="521-google">5.2.1 Google在通才上的發展</h4>
+<p>後來，許多研究團隊也陸續朝「通才」的方向邁進。最知名的案例之一就是 Google 推出的 FLAN（Fine-Tuned Language Net）模型。它透過大量且多樣化的任務進行訓練，並對語言模型做 Instruction Fine-Tuning，這大約是 2021 年左右的研究成果。 同年 10 月，社群又出現了另一個名為 T0 的模型，做法跟 FLAN 類似：同樣是蒐集一大堆任務，針對模型進行微調，希望能打造一個多功能的「通才」模型。</p>
+<p><img alt="" src="../images/img7-14.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文： <a href="https://arxiv.org/abs/2109.01652">Finetuned Language Models Are Zero-Shot Learners</a>  </li>
+<li>參考論文： <a href="https://arxiv.org/abs/2110.08207">Multitask Prompted Training Enables Zero-Shot Task Generalization</a></li>
+</ul>
+</p>
+</div>
+<p>在 FLAN 的原始論文裡，他們把 FLAN 跟 GPT-3 進行比較。先前提過，GPT-3 在實際應用時常常會出現「不受控」的情況，因此表現並不算太穩定。圖表中，黃色的柱狀代表原始的 GPT-3，紅色則是 GPT-3 加上 In-Context Learning（也就是在提示中給模型一些範例），而藍色則是做過大量 Instruction Fine-Tuning 的 FLAN。結果顯示，面對三個 FLAN 沒見過的新任務時，FLAN 的表現都勝過 GPT-3。實際上，通才模型在指令微調後，其在各種未見過的任務上均能展現出顯著提升的正確率，甚至超越部分專才模型。</p>
+<p><img alt="image" src="../images/img7-15.png" /></p>
+<p>之後，Google 又在 2022 年 10 月進一步擴大任務規模，收集了多達 1800 個任務（注意這是 1800 種任務，不是 1800 筆資料；像「翻譯」算一種任務、「摘要」算另一種任務，而每個任務裡面還可能包含上萬筆資料），同樣對語言模型做 Instruction Fine-Tuning。實驗結果相當不錯：若把縱軸視為模型在從未見過的任務上之正確率、橫軸視為模型大小，可以看到不論模型大小如何，只要訓練的任務數越多（顏色越深），模型在新任務上的表現就越好。另一張圖則顯示，當訓練的任務數目增加時，模型在沒看過的任務上也能持續進步。</p>
+<p><img alt="" src="../images/img7-16.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文： <a href="https://arxiv.org/abs/2210.11416">Scaling Instruction-Finetuned Language Models</a></li>
+</ul>
+</p>
+</div>
+<p>在左圖裡，橫軸代表模型大小（參數數量），縱軸則是模型在沒看過的任務上所達到的正確率。結果顯示，如果比較相同大小的模型，當它們在預訓練階段看到的任務越多，效能就越好。右圖的橫軸則是預訓練時所使用的任務數量，縱軸同樣是模型在沒看過的任務上達到的正確率，每一條線分別代表不同參數量的模型。可以看到，隨著預訓練任務數量的增加，模型在沒看過的任務上也能達到更高的正確率。</p>
+<p><img alt="" src="../images/img7-17.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>上一堂課提到那個擁有 5400 億參數的 PaLM，如此龐大的模型，起初在回答問題時常常「不乖乖回應」，甚至還會一直反問你更多問題；可是一旦做過 Instruction Fine Tuning 後，它就穩定下來，能夠好好回答你的問題了。</p>
+</p>
+</div>
+<h4 id="522-openai">5.2.2 OpenAI在通才上的發展</h4>
+<p>OpenAI 在 2022 年 3 月發表了 InstructGPT 這篇論文，主要是對 GPT-3 做 Instruction Fine Tuning。實驗顯示，跟原始的 GPT-3 或加入 In-Context Learning 的 GPT-3 相比，InstructGPT 的使用者滿意度顯著提升；而且在論文中，他們也指出 InstructGPT 表現甚至超越了 Google 的 FLAN 以及 Hugging Face 的 T0。</p>
+<p><img alt="" src="../images/img7-18.png" /></p>
+<p>其中一個關鍵原因是：FLAN 透過模板把現有的 NLP 資料集轉成一問一答的形式，但這些問題往往偏向研究用的「死板」格式。相對之下，OpenAI 早在 2020 年就已經讓 GPT-3 上線，蒐集到許多真實使用者的提問，再請標記人員產生對應的正確答案。由於這些數據更貼近人類實際的使用情境，也更能涵蓋多元的提問形式，因而使 InstructGPT 的表現比只用模板產生問題的 FLAN 更勝一籌。</p>
+<p><img alt="" src="../images/img7-19.png" /></p>
+<h4 id="523-meta">5.2.3 Meta在通才上的發展</h4>
+<p>在 InstructGPT 這篇論文裡，OpenAI 發現 Instruction Fine Tuning 才是真正的「畫龍點睛」。很多人以為這類微調需要海量資料，但事實上他們只用了上萬筆就讓模型表現大幅提升。不只 OpenAI，如 Meta 推出的開源語言模型 LLaMA2 也只用了 2.7 萬筆資料，還特別強調「Quality is all you need」。後來他們又發表了 LIMA，只用 1000 筆作者自行編寫的資料進行微調，結果在 43% 的情況下能和 GPT-4 打成平手或甚至勝過 GPT-4，顯示少量且高品質的資料依然能打造出不錯的模型。</p>
+<p><img alt="" src="../images/img7-20.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文： <a href="">lama 2: Open Foundation and Fine-Tuned Chat Models</a></li>
+<li>參考論文： <a href="">LIMA: Less Is More for Alignment</a></li>
+</ul>
+</p>
+</div>
+<hr />
+<h2 id="6-instruction-fine-tuning">6. Instruction Fine-tuning 與資料品質的重要性</h2>
+<p>Instruction Fine-tuning 的關鍵在於資料品質，而非僅僅追求資料量。研究顯示，僅需上萬筆甚至更少的高品質標註資料，就足以大幅改善模型的回應準確性。與此同時，真實使用者的問題數據具有不可替代的價值——真實數據能夠反映使用情境的多樣性，使模型在面對各種變形任務時依然能給出正確答案。</p>
+<h3 id="61-instruction-fine-tuning">6.1 我們自己可以做Instruction Fine-tuning嗎？</h3>
+<p>既然 Instruction Fine Tuning 不需要太多資料，那是不是每個人都能自己來做呢？ 答案並沒有那麼簡單，因為關鍵不在「數量」而在「品質」。如果沒有像 OpenAI 那樣的線上服務，無法蒐集到真實使用者提出的多元問題，就很難獲得高品質的微調資料。換句話說，沒有高品質的指令與對應答案，想自行做出像 InstructGPT 那樣的成果，幾乎是不可能的事。</p>
+<p><img alt="image" src="../images/img7-21.png" /></p>
+<h3 id="62">6.2 逆向工程的做法</h3>
+<p>有些人看到了 Instruction Fine Tuning 不需要太多資料，就想「那我可不可以自己做呢？」但問題在於，你沒有高品質的 Instruction Fine Tuning 資料──不像 OpenAI 有線上服務可以蒐集真實使用者的問題。於是就有人想到：<strong>「以 ChatGPT 為師」</strong>，也就是對 ChatGPT 進行逆向工程，嘗試推測它的 Instruction Fine Tuning 資料是什麼。</p>
+<p><img alt="" src="../images/img7-22.png" /></p>
+<p>做法大致如下：  </p>
+<ol>
+<li>先問 ChatGPT：大型語言模型能做哪些事？ChatGPT 會列出各種可能的應用情境，例如幫忙寫郵件、做摘要、協助安排行程等等。  </li>
+<li>再讓 ChatGPT 幫你想，針對某個特定任務（像是撰寫郵件），使用者可能會提出哪些具體需求或問題（例如邀請老師來演講、提醒繳交報告等等）。  </li>
+<li>最後，直接把這些 ChatGPT 幻想出來的問題丟回去給它，讓它提供答案。這樣一來，你就能取得「問題＋答案」的資料，拿來做自己的 Instruction Fine Tuning。</li>
+</ol>
+<p>當然，也有人質疑：從 ChatGPT 逆向工程得到的資料，品質到底夠不夠好？有研究顯示，這些資料可能沒有想像中那麼優質，但「聊勝於無」。雖然 OpenAI 在使用條款裡明確寫著「不得利用 ChatGPT 生成的資料來打造與其競爭的模型」，但不少小團隊還是默默這麼做，畢竟若自己手上完全沒有資料，這也是能取得 Instruction Fine Tuning 資料的一種方法。</p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考文獻： <a href="https://arxiv.org/abs/2212.10560">Self-Instruct: Aligning Language Models with Self-Generated Instructions</a>  </li>
+<li>參考文獻： <a href="https://arxiv.org/abs/2305.15717">The False Promise of Imitating Proprietary LLMs</a></li>
+</ul>
+</p>
+</div>
+<hr />
+<h2 id="7-llama">7. 開源 LLaMA 與全民微調的時代</h2>
+<p>到目前為止，我們已經有了兩種Instruction fine tuning資料：一種是由人類標註的，另一種是從ChatGPT獲取的。但這還不足以開始進行Instruction fine tuning，因為我們缺乏預訓練的參數。像OpenAI的GPT-3和Google的PALM都有完整的預訓練參數，而我們卻沒有這些資源，整個局面因此陷入僵局，沒有人能夠自行打造大型語言模型。直到有一天，Meta釋出了Llama系列模型，徹底改變了生態。Llama第一代在2023年2月發布，第二代則在2023年7月推出。第三代則在2024年4月推出。</p>
+<p><img alt="image" src="../images/img7-23.png" /></p>
+<p>第一代釋出後，引發了學術界與工業界的廣泛關注，世界頓時迎來了解放；兩週後，斯坦福利用Llama預訓練模型和約5萬筆從ChatGPT API獲取的資料，成功打造了Alpaca。隨後，美國其他學校又聯手從一個對話分享平台上獲取了7萬筆資料，對Llama進行Instruction fine tuning，推出了Vicuna。</p>
+<p><img alt="image" src="../images/img7-24.png" /></p>
+<p>這些模型都是以 LLaMA 作為初始參數，再搭配少量的 Instruction Fine-tuning 資料，從而構建出具有強大實用性的通才模型。如今，借助開源資源和低廉的計算成本，每個人都可以自行微調大型語言模型，實現個性化應用。各版本的 Llama 層出不窮，每個人都能利用這些公開的預訓練參數打造專屬的模型，這正是我們在作業五和作業六中要實踐的，也鼓勵大家親自嘗試打造自己的語言模型。</p>
+<p><img alt="image" src="../images/img7-25.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考文獻： <a href="https://arxiv.org/abs/2303.18223">A Survey of Large Language Models</a></li>
+</ul>
+</p>
+</div>
+<hr />
+<h2 id="_2">結語</h2>
+<p>從預訓練到微調，再從專才到通才，大型語言模型的演進不僅展示了深度學習在自然語言處理領域的突破，也顯示出優質資料與精細調控的重要性。通過 Instruction Fine-tuning，模型能夠在極少量高品質標註資料的輔助下，達到驚人的泛化能力和靈活性。隨著 LLaMA 等開源模型的釋出，未來每個人都有機會參與到這場技術革命中，為各種實際應用場景提供定制化解決方案。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

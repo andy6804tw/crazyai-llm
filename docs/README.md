@@ -33,6 +33,6 @@
 !!! info "使用推薦碼連結註冊"
 
         使用我的推薦碼連結註冊可獲得3美金試用額度：
-        [https://glows.ai/invite/Glows-db95n19q](https://glows.ai/invite/Glows-db95n19q)
+        [https://glows.ai/invite/Glows-db95n19q](https://reurl.cc/DKG1bQ)
 
 快來和我們一起，開啟大語言模型的實戰新世界！

@@ -8,6 +8,8 @@ tags:
 
 # Groq 免費體驗 Llama API 與超高速推理技術
 
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/3.免費LLM%20API串接資源/code/groq-demo.ipynb)
+
 ## Groq 介紹
 隨著 LLM 應用日益普及，越來越多的開發者開始尋找既快速又省成本的語言模型平台。Groq 就是一個相當佛心的平台，提供免費線上使用的開源語言模型服務。不同於傳統依賴 GPU 的運算模式，Groq 採用自家研發的 LPU（Language Processing Unit），能以更低的硬體資源提供極速推理，極大地提升工作效率。本文將從註冊帳號、模型選擇、API 整合到語音轉文字功能，逐步介紹如何運用 Groq 平台打造高效 AI 應用。
 

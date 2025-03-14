@@ -34,6 +34,7 @@ nav:
     - '1.5 訓練不了人工智慧?你可以訓練你自己(下)': '1.intro-generative-ai/1.5cant-train-ai-train-yourself-part3.md'
     - '1.6 大型語言模型修練史(第一階段)': '1.intro-generative-ai/1.6llm-history-phase1.md'
     - '1.7 大型語言模型修練史(第二階段)': '1.intro-generative-ai/1.7llm-history-phase2.md'
+    - '1.8 大型語言模型修練史(第三階段)': '1.intro-generative-ai/1.8llm-history-phase3.md'
     - '1.9 以大型語言模型打造的 AI Agent': '1.intro-generative-ai/1.9llm-ai-agent.md'
 
   - '2. LLM實戰應用':

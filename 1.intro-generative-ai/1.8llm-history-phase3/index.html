@@ -10,13 +10,13 @@
         <meta name="author" content="Tsai Yi Lin">
       
       
-        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/1.intro-generative-ai/1.7llm-history-phase2/">
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/1.intro-generative-ai/1.8llm-history-phase3/">
       
       
-        <link rel="prev" href="../1.6llm-history-phase1/">
+        <link rel="prev" href="../1.7llm-history-phase2/">
       
       
-        <link rel="next" href="../1.8llm-history-phase3/">
+        <link rel="next" href="../1.9llm-ai-agent/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>1.7 大型語言模型修練史(第二階段) - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>1.8 大型語言模型修練史(第三階段) - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1.7 大型語言模型修練史(第二階段)
+              1.8 大型語言模型修練史(第三階段)
             
           </span>
         </div>
@@ -411,6 +411,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.7llm-history-phase2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.7 大型語言模型修練史(第二階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -427,7 +448,7 @@
           
   
   <span class="md-ellipsis">
-    1.7 大型語言模型修練史(第二階段)
+    1.8 大型語言模型修練史(第三階段)
   </span>
   
 
@@ -438,7 +459,7 @@
         
   
   <span class="md-ellipsis">
-    1.7 大型語言模型修練史(第二階段)
+    1.8 大型語言模型修練史(第三階段)
   </span>
   
 
@@ -460,153 +481,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#chatgpt-llama" class="md-nav__link">
+  <a href="#reinforcement-learning-from-human-feedback-rlhf" class="md-nav__link">
     <span class="md-ellipsis">
-      兼談對 ChatGPT 做逆向工程與 LLaMA 時代的開始
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-instruction-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 人類老師教導與 Instruction Fine-tuning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 預訓練與微調：從大規模數據到精細調控
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-adapter" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Adapter 技術與參數調控
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 舉一反三：模型泛化能力的展現
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Fine-tuning 路線：打造專才與通才
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Fine-tuning 路線：打造專才與通才">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 路線一：打造一堆專才模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 路線二：直接打造一個通才模型
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 路線二：直接打造一個通才模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-google" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.1 Google在通才上的發展
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#522-openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.2 OpenAI在通才上的發展
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#523-meta" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.3 Meta在通才上的發展
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-instruction-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Instruction Fine-tuning 與資料品質的重要性
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Instruction Fine-tuning 與資料品質的重要性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-instruction-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.1 我們自己可以做Instruction Fine-tuning嗎？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.2 逆向工程的做法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-llama" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 開源 LLaMA 與全民微調的時代
+      (Reinforcement Learning from Human Feedback, RLHF)
     </span>
   </a>
   
@@ -615,7 +492,130 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      結語
+      回顧前兩階段
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與增強式學習的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與 Instruction Fine-tuning 的比較
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      語言模型與下圍棋的類比
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reward-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      回饋模型 (Reward Model)：建立與應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlaif" class="md-nav__link">
+    <span class="md-ellipsis">
+      虛擬人類學習與 RLAIF 的未來趨勢
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度向虛擬人類學習不是好事
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="過度向虛擬人類學習不是好事">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度學習虛擬回饋可能引起的行為後遺症
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      由AI來提供語言模型回饋(語言模型評價語言模型)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的挑戰與權衡
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的難題
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      目前進度與未來展望
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      總結
     </span>
   </a>
   
@@ -625,27 +625,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../1.8llm-history-phase3/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    1.8 大型語言模型修練史(第三階段)
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1021,153 +1000,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#chatgpt-llama" class="md-nav__link">
+  <a href="#reinforcement-learning-from-human-feedback-rlhf" class="md-nav__link">
     <span class="md-ellipsis">
-      兼談對 ChatGPT 做逆向工程與 LLaMA 時代的開始
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-instruction-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 人類老師教導與 Instruction Fine-tuning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 預訓練與微調：從大規模數據到精細調控
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-adapter" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Adapter 技術與參數調控
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 舉一反三：模型泛化能力的展現
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Fine-tuning 路線：打造專才與通才
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Fine-tuning 路線：打造專才與通才">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 路線一：打造一堆專才模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 路線二：直接打造一個通才模型
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 路線二：直接打造一個通才模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-google" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.1 Google在通才上的發展
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#522-openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.2 OpenAI在通才上的發展
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#523-meta" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2.3 Meta在通才上的發展
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-instruction-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Instruction Fine-tuning 與資料品質的重要性
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Instruction Fine-tuning 與資料品質的重要性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-instruction-fine-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.1 我們自己可以做Instruction Fine-tuning嗎？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#62" class="md-nav__link">
-    <span class="md-ellipsis">
-      6.2 逆向工程的做法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-llama" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 開源 LLaMA 與全民微調的時代
+      (Reinforcement Learning from Human Feedback, RLHF)
     </span>
   </a>
   
@@ -1176,7 +1011,130 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      結語
+      回顧前兩階段
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與增強式學習的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與 Instruction Fine-tuning 的比較
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      語言模型與下圍棋的類比
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reward-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      回饋模型 (Reward Model)：建立與應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlaif" class="md-nav__link">
+    <span class="md-ellipsis">
+      虛擬人類學習與 RLAIF 的未來趨勢
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度向虛擬人類學習不是好事
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="過度向虛擬人類學習不是好事">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度學習虛擬回饋可能引起的行為後遺症
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      由AI來提供語言模型回饋(語言模型評價語言模型)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的挑戰與權衡
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的難題
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      目前進度與未來展望
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      總結
     </span>
   </a>
   
@@ -1214,13 +1172,30 @@
 
 
 
-<h1 id="_1">大型語言模型修練史 — 第二階段: 名師指點，發揮潛力</h1>
-<h2 id="chatgpt-llama">兼談對 ChatGPT 做逆向工程與 LLaMA 時代的開始</h2>
+<h1 id="_1">大型語言模型修練史 — 第三階段：參與實戰，打磨技巧</h1>
+<h2 id="reinforcement-learning-from-human-feedback-rlhf">(Reinforcement Learning from Human Feedback, RLHF)</h2>
 <blockquote>
-<p>李宏毅 生成式導論 2024 第7講</p>
+<p>李宏毅 生成式導論 2024 第8講</p>
 </blockquote>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q9cNkUPXUB8?si=S32Orb4Zyl-Bp-ry" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v12IKvF6Cj8?si=4cAGfkic-rUkN_nv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<details class="info">
+<summary>老師叮嚀</summary>
+<ul>
+<li>
+<p>9:30 在這段課程錄影中，為了更清楚地比較 Alpha Go 的訓練過程與大型語言模型的訓練方式，我對 Alpha Go 的實際推論與訓練過程進行了大幅度的簡化。例如，我並未提及 Value Network 和 MCTS 等概念。如果您希望深入了解 Alpha Go 的訓練與推論過程，建議您閱讀原始論文。</p>
+</li>
+<li>
+<p>13:30 需要注意的是，本段課程主要講述的是 Alpha Go 中 Policy Network 的訓練方式。事實上，Alpha Go 還包含了 Value Network 的訓練，用於估算棋局的勝率。這引發了一個有趣的思考：是否可以在大型語言模型的 RLHF中引入類似的概念？</p>
+</li>
+<li>
+<p>19:50 在翻譯術語時，Reward Model 可能譯為「報酬模型」或「獎勵模型」比較合適</p>
+</li>
+<li>
+<p>34:00 有關人生道路的抉擇不建議詢問大型語言模型</p>
+</li>
+</ul>
+</details>
 <p>本講將深入探討大型語言模型如何從海量資料中自我學習，並通過持續的參數調整與最佳化過程，逐步累積知識與能力。這些模型不僅能夠精準捕捉語言結構與文法規律，更在多樣化應用中展現出卓越效能，從自動生成文本到複雜語言理解任務，都證明了深度學習技術的巨大潛力。</p>
 <p>這部分文章將分為三篇，分別剖析大型語言模型的三個修煉階段：</p>
 <p><img alt="" src="../images/img6-1.png" /></p>
@@ -1238,7 +1213,7 @@
 </ul>
 </li>
 <li>
-<p>第三階段：參與實戰，打磨技巧</p>
+<p>第三階段：參與實戰，打磨技巧 </p>
 <ul>
 <li>將模型投入真實世界情境，經由反覆驗證與調整，最終形成能靈活應對各種任務的強大能力。</li>
 </ul>
@@ -1248,171 +1223,183 @@
 <p class="admonition-title">Info<p>所有的階段都是在學文字接龍，只是訓練資料不同。</p>
 </p>
 </div>
-<p>本文著重第二階段「名師指點，發揮潛力」。整合了語言模型從海量文本預訓練到利用人類標註資料進行 Instruction Fine-tuning 的核心技術，並探討如何藉由微調過程讓模型從單一任務「專才」逐步轉變為能夠應對多任務的「通才」。</p>
+<p>在大模型訓練的第三階段，核心在於讓模型與使用者互動並根據回饋進行微調，這一過程稱為增強式學習（RLHF）。使用者在提供回饋的過程中，會根據新舊答案的比較選擇較佳者，進而幫助模型優化生成機率。</p>
 <hr />
-<h2 id="1-instruction-fine-tuning">1. 人類老師教導與 Instruction Fine-tuning</h2>
-<p>在語言模型的第二階段訓練中，關鍵在於利用人類提供的標註資料來調整模型的回應。人類老師事先構思出可能的使用情境與問題，並提供對應的正確答案，將這些問答轉換為模型可用來做文字接龍訓練的資料格式。例如，若問題是「臺灣最高的山是哪座？」，正確答案則為「玉山」。資料中通常會明確標示出哪部分屬於使用者輸入，哪部分屬於模型回應，這樣的格式能夠幫助模型在遇到相似情境時，產生符合預期的回覆。</p>
-<p><img alt="" src="../images/img7-1.png" /></p>
-<p>此外，正因為資料需由人類準備，故其數量通常較有限，這也是後續需要結合大規模預訓練參數的重要原因。</p>
-<p><img alt="image" src="../images/img7-2.png" /></p>
-<p>資料中將使用者與 AI 的部分做了明確標記，避免出現模糊不清的情況，讓模型在文字接龍時能夠準確判斷何時應該結束回應，何時需要補充更多內容。在上圖中提到的另一個範例裡，當問題是「你是誰？」時，GPT並不是接著問題後面的文字進行延續，而是直接開始回答。這很可能是因為在訓練過程中，模型就已經接收到這類標記符號的資訊。</p>
-<hr />
-<h2 id="2">2. 預訓練與微調：從大規模數據到精細調控</h2>
-<p>由於僅靠人類老師提供的標註資料量遠遠不足以覆蓋各種情境，因此第一階段預訓練便成為關鍵。預訓練階段透過從網路上爬取的大量文本數據，讓模型學習到語言的基本規則與複雜結構，形成一組強大的初始參數。這些參數能捕捉到語言中的深層規律，進而在第二階段微調時提供良好的基礎，使得微調後的參數與預訓練參數不會相差過大，從而保留了模型原有的泛化能力。</p>
-<p><img alt="image" src="../images/img7-3.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<p>在微調過程中，模型僅對少量人類標註的資料做「微調」，這個步驟即稱為 Fine-tuning，而預訓練則稱為 Pre-train。</p>
-</p>
-</div>
-<p>為了防止微調時產生過大的變化，進一步影響模型在未見任務上的表現，常採用一種技術 —— <strong>Adapter</strong>。透過 Adapter（例如 LoRA 技術），可以在不改動原有預訓練參數的情況下，僅針對新增的少量參數進行最佳化，而達到有效降低運算量與保留初始模型知識的目的。</p>
-<p><img alt="image" src="../images/img7-4.png" /></p>
-<p>近年來，Adapter 技術在大型語言模型的微調領域蓬勃發展，出現了各種創新的做法與變體。透過這些 Adapter 技術，開發者可以根據任務特性與硬體資源限制，選擇適合的「參數插入方式」。它們的共同目標，都是在保留預訓練模型大量知識的前提下，使用極少量新參數達到高效率微調，並能快速應用於多種場景。</p>
-<p><img alt="" src="../images/img7-5.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li>參考文獻： <a href="https://arxiv.org/abs/2210.06175">Exploring Efficient-tuning Methods in Self-supervised Speech Models</a></li>
-</ul>
-</p>
-</div>
-<hr />
-<h2 id="3-adapter">3. Adapter 技術與參數調控</h2>
-<p>Adapter 技術的核心概念在於，當模型進行最佳化時，不直接改動預訓練獲得的參數，而是在模型結構中額外加入少量的可訓練參數。這樣做不僅降低了調參的計算量，也使得模型的調整保持在一個合理的範圍內，而避免出現學習到不合理的特徵（例如見「最」就答「玉山」的情況）。</p>
-<p><img alt="image" src="../images/img7-6.png" /></p>
-<p>實務上，這種方法可以使得新參數與初始參數保持較高的相似性，並確保模型能夠從大量預訓練中學到的複雜規則中獲益，進而具備更好的舉一反三能力。</p>
-<hr />
-<h2 id="4">4. 舉一反三：模型泛化能力的展現</h2>
-<p>預訓練階段不僅僅是累積數據，更多的是讓模型學習如何做文字接龍，掌握語言的內在結構與邏輯。這使得模型在面對新的、未見過的任務時，仍能依據已學到的複雜規則做出合理的回應。例如，模型在學習到「臺灣最高的山是玉山」的同時，也能自然而然地理解「世界最高的山是聖母峰」這樣的知識遷移現象。</p>
-<p><img alt="image" src="https://hackmd.io/_uploads/HJUg0IezA.png" /></p>
-<p>在GPT出現之前，曾有一款名為BERT的模型在104種語言上進行預訓練。只要訓練它某一種語言的任務，它就能在其他語言上展現出相似的能力。舉例來說，如果教它英文的閱讀測驗，當它學會英文後，同時也具備中文的能力。實驗結果顯示，某些模型經過多語言預訓練後，即使只用單一語言的標註資料進行微調，也能在其他語言上達到相近的表現。這種「舉一反三」的特性，正體現了預訓練參數在泛化上的強大效力，也是大規模語言模型備受矚目的原因之一。</p>
-<p><img alt="image" src="../images/img7-8.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li>參考文獻： <a href="https://arxiv.org/abs/1909.09587">Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model</a></li>
-</ul>
-</p>
-</div>
-<p>這項實驗來自一篇2019年的論文。實驗中，先用104種語言的資料進行預訓練，再利用英文問答資料做微調，最後以中文問答進行測試。結果顯示，得到的F1分數與第一個QANet差不多，證明只要有良好的預訓練模型，再搭配適當的微調，模型就能展現出優異的舉一反三能力。</p>
-<hr />
-<h2 id="5-fine-tuning">5. Fine-tuning 路線：打造專才與通才</h2>
-<p>在大規模語言模型的應用裡，微調（Fine-tuning）是一種常見且重要的調整方式。就微調的策略而言，主要可以分成兩條路線：</p>
-<ol>
+<h2 id="_2">回顧前兩階段</h2>
+<p>在前三個階段的訓練過程中，第一階段是自督導學習，第二階段是讓人類提供答案進行督導學習，而第三階段則完全基於人類回饋進行調整，重點不在於每一個細節的正確性，而在於最終結果的優劣。</p>
+<p><img alt="" src="../images/img8-1.png" /></p>
+<p>簡單回顧整個訓練流程：</p>
+<ul>
 <li>
-<p><strong>打造多個「專才」模型</strong><br />
-   先把預訓練好的模型，針對不同領域或任務需求進行調整，從而產生多個各司其職的「專才」模型（像是翻譯專才、摘要專才、編修專才等等）。</p>
+<p><strong>第一階段（Pretrain）</strong><br />
+  利用大量網路資料進行自監督預訓練，無需太多人類介入。</p>
 </li>
 <li>
-<p><strong>發展一個「通才」模型</strong><br />
-   直接把預訓練好的模型，進一步打造成「通才」，讓同一個模型就能同時應付多種任務。</p>
+<p><strong>第二階段（Instruction Fine-tuning）</strong><br />
+  透過人類提供正確的問題和答案進行督導式學習，重點在於逐步預測下一個 Token。</p>
 </li>
-</ol>
-<p><img alt="image" src="../images/img7-9.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<p>這兩條路線各有優勢，至於要選哪一種，通常就得看實際的應用需求和資源考量。</p>
-</p>
-</div>
-<h3 id="51">5.1 路線一：打造一堆專才模型</h3>
-<p>專才路線即針對單一任務進行微調，讓模型在特定領域（如翻譯或編修）上達到極高的精準度。例如，收集大量翻譯資料進行微調，讓模型專注於翻譯工作；或是收集編修相關資料，使模型成為語法編修的專家。這類模型在各自專長的任務上表現極佳，但僅限於單一任務。</p>
-<p><img alt="image" src="../images/img7-10.png" /></p>
-<p>BERT 本身就是走「專才路線」的代表。它先在第一階段透過大規模語料進行預訓練，學到通用的語言知識，接著再針對不同任務（像是情感分類、序列標注、問答系統等等）各自進行微調，產生一堆「專才」模型。這種方法強調為每個任務打造一個專門的解決方案，也正是 BERT 在許多 NLP 領域能大放異彩的關鍵。從 BERT 系列模型的實驗結果來看，即使不同任務的專才模型表現已經逼近甚至超越人類水準，但相對來說，應用範圍還是比較受限。</p>
-<p><img alt="" src="../images/img7-11.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li>延伸閱讀： <a href="http://youtube.com/watch?v=gh0hewYkjgo">【機器學習2021】自督導式學習 (Self-supervised Learning) (二) – BERT簡介</a></li>
+<li>
+<p><strong>第三階段（RLHF）</strong><br />
+  不直接告知正確答案，而是根據完整回答之間的比較回饋來調整模型，重點在於整體回答品質。</p>
+</li>
 </ul>
+<h2 id="rlhf">RLHF 與增強式學習的基本概念</h2>
+<p>在使用模型時，若對回答不滿意，可點擊「重新來一次」，這時候系統會詢問使用者：新舊答案哪個更好。這種回饋資訊成為模型微調的依據，其核心理念在於：
+- <strong>提高優良回答的出現機率</strong>：當回饋指示某回答較佳時，模型就調整參數使此回答更可能被生成。
+- <strong>降低不佳回答的生成機率</strong>：反之，若回饋認為某回答較差，則模型會降低生成此回答的概率。</p>
+<p><img alt="" src="../images/img8-2.png" /></p>
+<p>此外，RLHF 的實現通常採用演算法如 PPO（Proximal Policy Optimization），其目標在於讓模型在整體生成結果上達到更好的表現，而不只是逐步預測下一個 Token。</p>
+<hr />
+<h2 id="rlhf-instruction-fine-tuning">RLHF 與 Instruction Fine-tuning 的比較</h2>
+<p>從產生訓練資料的角度來看，Instruction Fine-tuning 與 RLHF 都需要人類參與，但在 Instruction Fine-tuning 階段，人類需要自行提出問題並提供正確答案，因此較為辛苦；而在 RLHF 階段，模型會先生成多個答案，人類只需選擇較好的回答，過程更輕鬆。</p>
+<p><img alt="" src="../images/img8-3.png" /></p>
+<p>兩種方法皆需要人類介入，但其差異在於：
+- <strong>Instruction Fine-tuning</strong>：需要人類直接產出正確答案，強調「每一步」的正確連接（即下一個 Token 的生成），整個過程依賴監督學習。
+- <strong>RLHF</strong>：只需要人類在多個候選回答中選出較佳的那一個，重點在於「整體結果」的優劣比較，這使得人類能輕鬆給出偏好，而無需創造正確答案。</p>
+<p><img alt="" src="../images/img8-4.png" /></p>
+<p>RLHF 的優點在於，人類創作正確答案往往困難，但評判答案優劣卻相對容易。舉例來說，若要寫一首讚揚大型語言模型的七言絕句，Instruction Fine-tuning 階段要求人類自行撰寫正確詩句，而這需要很高的創作能力；而在 RLHF 階段，模型先生成兩首詩，再由人類快速選出較佳者（例如：一首不符格式、一首符合格式），以此提供回饋。這說明，對人類而言，評判答案比創作正確答案要簡單得多。</p>
+<p><img alt="" src="../images/img8-5.png" /></p>
+<p>從模型學習的角度來看，Instruction Fine-tuning 主要訓練模型如何預測下一個字，假設每一步都是正確的，最終結果也會正確；但這個假設不總成立，因為模型只關注局部預測。相比之下，RLHF 接收的是完整答案之間的比較回饋，促使模型採用全局思考，專注於生成整體最佳答案，而非僅僅每一步的正確性。</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>總結來說，Instruction Fine-tuning 著眼於「過程」，而 RLHF 著眼於「結果」，讓模型學習如何在整體生成中顧及人類偏好。</p>
 </p>
 </div>
-<h3 id="52">5.2 路線二：直接打造一個通才模型</h3>
-<p>通才路線的目標是構建一個多任務模型，能夠同時應對翻譯、摘要、編修等多種任務。此方法通常需要集合來自各個任務的標註資料，讓模型在微調時能學習到不同任務之間的共通知識，進而展現出舉一反三的能力。實驗中，通才模型在未曾見過的任務上依然能夠正確回應，顯示出其強大的泛化能力。</p>
-<p><img alt="image" src="../images/img7-12.png" /></p>
-<p>第一篇論文提出的想法是：如果無法一次蒐集所有任務所需的大量資料，那就有什麼教什麼──有翻譯資料就先教翻譯，有編修資料就教編修。然而，這種作法可能會遇到「學了新的就忘了舊的」問題，因此論文中提出了「複習」的概念，藉此避免模型在學習新任務時遺忘先前已習得的知識。</p>
-<p><img alt="" src="../images/img7-13.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li>參考論文： <a href="https://arxiv.org/abs/1909.03329">LAMOL: LAnguage MOdeling for Lifelong Language Learning</a>  </li>
+<hr />
+<h2 id="reinforcement-learning-rl">增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用</h2>
+<p><img alt="" src="../images/img8-6.png" /></p>
+<p>增強式學習的概念在於，透過回饋信號微調模型參數，使得生成的完整回答更符合使用者期待。當人類告知某回答較佳時，模型會調整參數以提高該回答出現的機率；反之，降低較差回答的生成機率。這與傳統的逐步預測不同，RLHF 關注的是整體生成結果的品質。</p>
+<p><img alt="" src="../images/img8-7.png" /></p>
+<p>過去語言模型主要只依靠「下一步預測」來生成文字，但這種方法缺乏全局考量。透過 RLHF，模型不再只專注於單一步驟，而是能夠以整體生成的回答作為評估依據，進而達到更一致且符合人類偏好的表現。</p>
+<hr />
+<h2 id="_3">語言模型與下圍棋的類比</h2>
+<p>將語言模型的生成過程類比為下棋，兩者在本質上都屬於生成式學習，但每一步卻可視為一個分類問題：</p>
+<ul>
+<li><strong>語言模型</strong>：根據目前的輸入句子預測下一個 Token。</li>
+<li><strong>AlphaGo</strong>：根據當前棋盤狀況預測下一步落子位置。</li>
 </ul>
+<p><img alt="" src="../images/img8-8.png" />  </p>
+<p>AlphaGo的對弈過程是，它先根據當前棋局決定下一步落子，接著對手根據更新後的棋局回應，再由AlphaGo依據最新局勢選擇下一步。類似地，語言模型讀取未完成的句子後，會根據機率分佈選擇一個Token並接在輸入後，隨著上下文更新再生成下一個Token。</p>
+<p><img alt="" src="../images/img8-9.png" /></p>
+<p>AlphaGo與對手的互動可以看作是一場棋局接龍，這與語言模型的文字接龍有著異曲同工之妙。AlphaGo首先下第一步，對手接著下第二步，然後AlphaGo根據前兩步決定第三步，如此循環。語言模型則根據當前輸入生成一個token，再依序生成下一個，直至句子結束。雖然整體上看這兩者屬於生成式學習，但每一步實際上都是在解一個分類問題，即在未完成的棋局或句子中選擇最佳的落子或token。</p>
+<p><img alt="" src="../images/img8-10.png" /></p>
+<p>AlphaGo的學習分為兩個階段：首先，它通過模仿棋譜學習，即根據人類棋局模仿下法，這類似於語言模型在預訓練與指令微調階段中學習如何根據人類示範生成下一個字；但僅靠模仿只能應付一般對手。要打敗頂尖高手，AlphaGo必須進行強化學習：與對手對弈後，根據勝負反饋調整各步棋的概率。同樣，語言模型在強化學習階段會生成多個答案，經由人類評判哪個更優，進而調整生成策略，提高好答案出現的機率，降低差答案的機率。這兩者在初期均依賴模仿學習，而在後期則通過強化學習不斷優化策略，達到更高的表現。</p>
+<p><img alt="" src="../images/img8-11.png" /></p>
+<p>語言模型的回饋方式與下圍棋截然不同。在圍棋中，一局結束後，勝負由既定規則明確判定；而語言模型的答案品質往往缺乏明確標準，因此常讓模型生成多個答案，由人類排序比較哪個較佳。直接評斷單一答案的好壞不易，因為答案的優劣是相對且模糊的。這也是為什麼文獻中普遍採用多答案比較的方式來獲取回饋。</p>
+<p><img alt="" src="../images/img8-12.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>在下圍棋中，每一步落子都有明確的勝負標準；而語言模型的每一步雖然都是分類問題，但最終的評價卻取決於整個回答的品質，這就需要通過多候選答案比較來進行回饋。</p>
 </p>
 </div>
-<h4 id="521-google">5.2.1 Google在通才上的發展</h4>
-<p>後來，許多研究團隊也陸續朝「通才」的方向邁進。最知名的案例之一就是 Google 推出的 FLAN（Fine-Tuned Language Net）模型。它透過大量且多樣化的任務進行訓練，並對語言模型做 Instruction Fine-Tuning，這大約是 2021 年左右的研究成果。 同年 10 月，社群又出現了另一個名為 T0 的模型，做法跟 FLAN 類似：同樣是蒐集一大堆任務，針對模型進行微調，希望能打造一個多功能的「通才」模型。</p>
-<p><img alt="" src="../images/img7-14.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li>參考論文： <a href="https://arxiv.org/abs/2109.01652">Finetuned Language Models Are Zero-Shot Learners</a>  </li>
-<li>參考論文： <a href="https://arxiv.org/abs/2110.08207">Multitask Prompted Training Enables Zero-Shot Task Generalization</a></li>
+<p>AlphaGo 的 RL 不依賴人工介入，因為圍棋規則自帶明確的勝負判斷，AlphaGo 可以透過與自身不同版本對弈來進行學習。而語言模型的 RL 則需要人類來評價生成句子的好壞，因為沒有客觀標準可判斷。為了彌補這一點，語言模型會建立一個「回饋模型」，模擬人類評分，從而使模型能在有限的人類回饋下學習並提升回答品質。</p>
+<details class="內有芙莉蓮故事">
+<summary>內有芙莉蓮故事</summary>
+<p><strong>虛擬人類回饋：最大化有限回饋效用的挑戰</strong></p>
+<p>語言模型的增強學習與下圍棋有很大不同。圍棋勝負由固定規則決定，而語言模型則依賴有限的人類回饋來評估答案好壞。但由於人類的時間和精力有限，如何最大化這些回饋的效用就成為一大挑戰。李老師借用《芙莉蓮》的故事：雖然勇者辛梅爾僅短暫出現，但他的存在對芙莉蓮的決策影響深遠。類似地，我們可以用有限的人類回饋來構建一個“虛擬人類”，使模型在需要回饋時，能夠想像出“如果是人類會怎麼評價”，從而更有效地調整生成策略。</p>
+<p><img alt="" src="../images/img8-13.png" /></p>
+</details>
+<hr />
+<h2 id="reward-model">回饋模型 (Reward Model)：建立與應用</h2>
+<p>Reward model 是用來模擬人類偏好的工具。訓練過程中，首先收集人類的反饋數據——讓人類比較不同答案並指出哪個較佳。接著，訓練一個模型，使其在輸入同一個問題和答案後能夠輸出一個分數，並滿足：若答案 A 優於答案 B，則 score(A) &gt; score(B)。訓練完成後，語言模型可以生成多個候選答案，再將這些答案輸入 reward model 進行評分，最終挑選分數最高的答案展示給用戶，從而模擬人類的偏好。</p>
+<p><img alt="" src="../images/img8-14.png" /></p>
+<p>為了更有效地利用人類回饋，建立一個能夠模擬人類偏好的「回饋模型」成為關鍵。其基本流程如下：</p>
+<ul>
+<li>收集人類對多個候選答案的偏好數據。</li>
+<li>訓練回饋模型，使其在輸入問題與答案後能輸出一個分數，代表該答案符合人類偏好的程度。</li>
+<li>在實際應用中，語言模型可同時產生多個答案，將這些答案交給回饋模型評分，選出分數最高者作為最終回應。</li>
 </ul>
-</p>
-</div>
-<p>在 FLAN 的原始論文裡，他們把 FLAN 跟 GPT-3 進行比較。先前提過，GPT-3 在實際應用時常常會出現「不受控」的情況，因此表現並不算太穩定。圖表中，黃色的柱狀代表原始的 GPT-3，紅色則是 GPT-3 加上 In-Context Learning（也就是在提示中給模型一些範例），而藍色則是做過大量 Instruction Fine-Tuning 的 FLAN。結果顯示，面對三個 FLAN 沒見過的新任務時，FLAN 的表現都勝過 GPT-3。實際上，通才模型在指令微調後，其在各種未見過的任務上均能展現出顯著提升的正確率，甚至超越部分專才模型。</p>
-<p><img alt="image" src="../images/img7-15.png" /></p>
-<p>之後，Google 又在 2022 年 10 月進一步擴大任務規模，收集了多達 1800 個任務（注意這是 1800 種任務，不是 1800 筆資料；像「翻譯」算一種任務、「摘要」算另一種任務，而每個任務裡面還可能包含上萬筆資料），同樣對語言模型做 Instruction Fine-Tuning。實驗結果相當不錯：若把縱軸視為模型在從未見過的任務上之正確率、橫軸視為模型大小，可以看到不論模型大小如何，只要訓練的任務數越多（顏色越深），模型在新任務上的表現就越好。另一張圖則顯示，當訓練的任務數目增加時，模型在沒看過的任務上也能持續進步。</p>
-<p><img alt="" src="../images/img7-16.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li>參考論文： <a href="https://arxiv.org/abs/2210.11416">Scaling Instruction-Finetuned Language Models</a></li>
+<p><img alt="" src="../images/img8-15.png" /></p>
+<p>這種方法可以不必每次都依賴人類直接介入，而是利用已訓練好的回饋模型進行自我學習和參數微調。</p>
+<hr />
+<h2 id="rlaif">虛擬人類學習與 RLAIF 的未來趨勢</h2>
+<p>一種更佳的作法是讓語言模型直接從回饋模型學習，將語言模型的輸入與輸出作為回饋模型的輸入來評分，再利用回饋結果進行參數微調：若評分偏低則降低該回答出現的機率，反之則提高。這樣一來，語言模型無須等待人類回應即可直接學習。隨著模型能力的提升，除了真實的人類回饋外，近年也開始探索利用 AI 模型自行提供回饋（RLAIF: Reinforcement Learning from AI Feedback），其優點包括：</p>
+<ul>
+<li>減少人類回饋的成本與局限。</li>
+<li>同一模型可以在生成回答的同時，自行評估並進行反饋調整。</li>
 </ul>
-</p>
-</div>
-<p>在左圖裡，橫軸代表模型大小（參數數量），縱軸則是模型在沒看過的任務上所達到的正確率。結果顯示，如果比較相同大小的模型，當它們在預訓練階段看到的任務越多，效能就越好。右圖的橫軸則是預訓練時所使用的任務數量，縱軸同樣是模型在沒看過的任務上達到的正確率，每一條線分別代表不同參數量的模型。可以看到，隨著預訓練任務數量的增加，模型在沒看過的任務上也能達到更高的正確率。</p>
-<p><img alt="" src="../images/img7-17.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note<p>上一堂課提到那個擁有 5400 億參數的 PaLM，如此龐大的模型，起初在回答問題時常常「不乖乖回應」，甚至還會一直反問你更多問題；可是一旦做過 Instruction Fine Tuning 後，它就穩定下來，能夠好好回答你的問題了。</p>
-</p>
-</div>
-<h4 id="522-openai">5.2.2 OpenAI在通才上的發展</h4>
-<p>OpenAI 在 2022 年 3 月發表了 InstructGPT 這篇論文，主要是對 GPT-3 做 Instruction Fine Tuning。實驗顯示，跟原始的 GPT-3 或加入 In-Context Learning 的 GPT-3 相比，InstructGPT 的使用者滿意度顯著提升；而且在論文中，他們也指出 InstructGPT 表現甚至超越了 Google 的 FLAN 以及 Hugging Face 的 T0。</p>
-<p><img alt="" src="../images/img7-18.png" /></p>
-<p>其中一個關鍵原因是：FLAN 透過模板把現有的 NLP 資料集轉成一問一答的形式，但這些問題往往偏向研究用的「死板」格式。相對之下，OpenAI 早在 2020 年就已經讓 GPT-3 上線，蒐集到許多真實使用者的提問，再請標記人員產生對應的正確答案。由於這些數據更貼近人類實際的使用情境，也更能涵蓋多元的提問形式，因而使 InstructGPT 的表現比只用模板產生問題的 FLAN 更勝一籌。</p>
-<p><img alt="" src="../images/img7-19.png" /></p>
-<h4 id="523-meta">5.2.3 Meta在通才上的發展</h4>
-<p>在 InstructGPT 這篇論文裡，OpenAI 發現 Instruction Fine Tuning 才是真正的「畫龍點睛」。很多人以為這類微調需要海量資料，但事實上他們只用了上萬筆就讓模型表現大幅提升。不只 OpenAI，如 Meta 推出的開源語言模型 LLaMA2 也只用了 2.7 萬筆資料，還特別強調「Quality is all you need」。後來他們又發表了 LIMA，只用 1000 筆作者自行編寫的資料進行微調，結果在 43% 的情況下能和 GPT-4 打成平手或甚至勝過 GPT-4，顯示少量且高品質的資料依然能打造出不錯的模型。</p>
-<p><img alt="" src="../images/img7-20.png" /></p>
+<p><img alt="" src="../images/img8-16.png" /></p>
+<p>Instruct GPT 這篇論文（2022 年 3 月發表）比較了僅進行 Instruction Fine Tuning（SFT）的模型與使用 PPO 進行 RLHF 微調的模型，結果顯示，經過 RLHF 訓練的模型表現更佳。實驗中，不同顏色的曲線代表了不同階段：藍色表示第一階段的預訓練模型，綠色代表第二階段的指令微調模型，而紅色和黃色則代表第三階段的 RLHF 模型。研究發現，即使是最小的 1.3B 模型，在經過 RLHF 調校後，其效能也能超越僅完成預訓練的大型 175B 模型，充分證明了在有限的人類回饋支持下，Instruction Fine Tuning 與 RLHF 對模型性能提升的重要性。</p>
+<p><img alt="" src="../images/img8-17.png" /></p>
+<p>這種自我回饋的方法正逐步被探索，但同時也面臨如何避免「自我強化偏差」的挑戰，即模型可能因過度依賴內部回饋而產生不自然或重複的語言行為。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
-<li>參考論文： <a href="">lama 2: Open Foundation and Fine-Tuned Chat Models</a></li>
-<li>參考論文： <a href="">LIMA: Less Is More for Alignment</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a></li>
 </ul>
 </p>
 </div>
 <hr />
-<h2 id="6-instruction-fine-tuning">6. Instruction Fine-tuning 與資料品質的重要性</h2>
-<p>Instruction Fine-tuning 的關鍵在於資料品質，而非僅僅追求資料量。研究顯示，僅需上萬筆甚至更少的高品質標註資料，就足以大幅改善模型的回應準確性。與此同時，真實使用者的問題數據具有不可替代的價值——真實數據能夠反映使用情境的多樣性，使模型在面對各種變形任務時依然能給出正確答案。</p>
-<h3 id="61-instruction-fine-tuning">6.1 我們自己可以做Instruction Fine-tuning嗎？</h3>
-<p>既然 Instruction Fine Tuning 不需要太多資料，那是不是每個人都能自己來做呢？ 答案並沒有那麼簡單，因為關鍵不在「數量」而在「品質」。如果沒有像 OpenAI 那樣的線上服務，無法蒐集到真實使用者提出的多元問題，就很難獲得高品質的微調資料。換句話說，沒有高品質的指令與對應答案，想自行做出像 InstructGPT 那樣的成果，幾乎是不可能的事。</p>
-<p><img alt="image" src="../images/img7-21.png" /></p>
-<h3 id="62">6.2 逆向工程的做法</h3>
-<p>有些人看到了 Instruction Fine Tuning 不需要太多資料，就想「那我可不可以自己做呢？」但問題在於，你沒有高品質的 Instruction Fine Tuning 資料──不像 OpenAI 有線上服務可以蒐集真實使用者的問題。於是就有人想到：<strong>「以 ChatGPT 為師」</strong>，也就是對 ChatGPT 進行逆向工程，嘗試推測它的 Instruction Fine Tuning 資料是什麼。</p>
-<p><img alt="" src="../images/img7-22.png" /></p>
-<p>做法大致如下：  </p>
-<ol>
-<li>先問 ChatGPT：大型語言模型能做哪些事？ChatGPT 會列出各種可能的應用情境，例如幫忙寫郵件、做摘要、協助安排行程等等。  </li>
-<li>再讓 ChatGPT 幫你想，針對某個特定任務（像是撰寫郵件），使用者可能會提出哪些具體需求或問題（例如邀請老師來演講、提醒繳交報告等等）。  </li>
-<li>最後，直接把這些 ChatGPT 幻想出來的問題丟回去給它，讓它提供答案。這樣一來，你就能取得「問題＋答案」的資料，拿來做自己的 Instruction Fine Tuning。</li>
-</ol>
-<p>當然，也有人質疑：從 ChatGPT 逆向工程得到的資料，品質到底夠不夠好？有研究顯示，這些資料可能沒有想像中那麼優質，但「聊勝於無」。雖然 OpenAI 在使用條款裡明確寫著「不得利用 ChatGPT 生成的資料來打造與其競爭的模型」，但不少小團隊還是默默這麼做，畢竟若自己手上完全沒有資料，這也是能取得 Instruction Fine Tuning 資料的一種方法。</p>
+<h2 id="_4">過度向虛擬人類學習不是好事</h2>
+<p>根據2020年的一篇OpenAI論文及相關筆記顯示，過度依賴虛擬人類（reward model）學習可能會對模型產生有害影響。論文中的實驗以摘要任務為例，通過一個圖表展示，橫軸表示模型從虛擬人類那裡學習的深度（愈往右表示越深），而縱軸則代表偏好程度：虛線顯示reward model的評價，實線則反映真實人類的偏好。結果顯示，隨著模型過度學習，reward model會越來越偏好其輸出，但這些輸出不一定能獲得真實人類的認同，反而可能使人類的喜好下降。這一發現提醒我們，在利用虛擬回饋時必須謹慎，以免偏離真實人類需求。</p>
+<p><img alt="" src="../images/img8-18.png" /></p>
+<p>當模型過度依賴虛擬人類回饋時，其生成的摘要會展現出奇怪的特徵。例如摘要結尾總是帶有 "please"，而中間則常常出現三個問號。這可能是因為虛擬人類本身只是一個模型，在回饋學習過程中吸收了不尋常的偏好，進而引導語言模型產生異常的輸出。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
-<li>參考文獻： <a href="https://arxiv.org/abs/2212.10560">Self-Instruct: Aligning Language Models with Self-Generated Instructions</a>  </li>
-<li>參考文獻： <a href="https://arxiv.org/abs/2305.15717">The False Promise of Imitating Proprietary LLMs</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2009.01325">Learning to summarize from human feedback</a></li>
 </ul>
 </p>
 </div>
-<hr />
-<h2 id="7-llama">7. 開源 LLaMA 與全民微調的時代</h2>
-<p>到目前為止，我們已經有了兩種Instruction fine tuning資料：一種是由人類標註的，另一種是從ChatGPT獲取的。但這還不足以開始進行Instruction fine tuning，因為我們缺乏預訓練的參數。像OpenAI的GPT-3和Google的PALM都有完整的預訓練參數，而我們卻沒有這些資源，整個局面因此陷入僵局，沒有人能夠自行打造大型語言模型。直到有一天，Meta釋出了Llama系列模型，徹底改變了生態。Llama第一代在2023年2月發布，第二代則在2023年7月推出。第三代則在2024年4月推出。</p>
-<p><img alt="image" src="../images/img7-23.png" /></p>
-<p>第一代釋出後，引發了學術界與工業界的廣泛關注，世界頓時迎來了解放；兩週後，斯坦福利用Llama預訓練模型和約5萬筆從ChatGPT API獲取的資料，成功打造了Alpaca。隨後，美國其他學校又聯手從一個對話分享平台上獲取了7萬筆資料，對Llama進行Instruction fine tuning，推出了Vicuna。</p>
-<p><img alt="image" src="../images/img7-24.png" /></p>
-<p>這些模型都是以 LLaMA 作為初始參數，再搭配少量的 Instruction Fine-tuning 資料，從而構建出具有強大實用性的通才模型。如今，借助開源資源和低廉的計算成本，每個人都可以自行微調大型語言模型，實現個性化應用。各版本的 Llama 層出不窮，每個人都能利用這些公開的預訓練參數打造專屬的模型，這正是我們在作業五和作業六中要實踐的，也鼓勵大家親自嘗試打造自己的語言模型。</p>
-<p><img alt="image" src="../images/img7-25.png" /></p>
+<h3 id="_5">過度學習虛擬回饋可能引起的行為後遺症</h3>
+<p>有觀點認為，ChatGPT 許多不盡如人意的表現，可能源自於過度依賴虛擬回饋模型學習。這一說法來自 OpenAI 共同創辦人 John Sormont 在 ICML 會議上的分享，他指出，過度學習虛擬人類（reward model）的回饋，可能使模型表現出一些讓人不喜歡的行為，例如過於冗長的條列回答、頻繁道歉、常以 “As an AI language model” 為開頭、語言過於模稜兩可，甚至常拒絕滿足用戶要求。這些行為均可能是虛擬老師過度介入後產生的後遺症。</p>
+<ul>
+<li><strong>冗長饒舌：</strong> 回答時會詳細列舉，例如以 12345 條列，並以 "overall" 結尾。</li>
+<li><strong>過度道歉：</strong> 模型經常在回答中表現出頻繁道歉的傾向。</li>
+<li><strong>固定格式：</strong> 喜歡以 "As an AI language model" 作為開頭。</li>
+<li><strong>模稜兩可：</strong> 回答內容常常過於含糊，不夠明確。</li>
+<li><strong>頻繁拒絕：</strong> 模型過於常見地拒絕滿足使用者的要求。</li>
+</ul>
+<p>由於虛擬老師學習存在缺點，許多研究者正致力於開發不依賴虛擬人類的新演算法，如 DPO 和 KTO。這些方法旨在避免因過度依賴虛擬老師而導致的偏差，雖然目前尚未完全驗證它們能否完全取代傳統方法，但最新論文已展現出這一方向的潛力。相關參考資料供大家參考。(作業會展示DPO方法)</p>
+<p><img alt="" src="../images/img8-19.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
-<li>參考文獻： <a href="https://arxiv.org/abs/2303.18223">A Survey of Large Language Models</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization: Your Language Model is Secretly a Reward Model</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2402.01306">KTO: Model Alignment as Prospect Theoretic Optimization</a></li>
 </ul>
 </p>
 </div>
+<h2 id="ai">由AI來提供語言模型回饋(語言模型評價語言模型)</h2>
+<p>隨著AI能力的提升，傳統依賴人類回饋（RLHF）來訓練語言模型的方法面臨挑戰，因為人類回饋既昂貴又有限。近年來，研究者開始探索由AI自身提供回饋（RLAIF）的可能性，例如利用GPT-4這類超強模型來評估其他模型的輸出，甚至讓同一模型互相評價。這種方法利用語言模型的自我反省能力判斷答案的好壞，已在Claude的《Constitutional AI》論文及Meta的Self-rewarding模型中有所應用。換句話說，若取得人類回饋太麻煩，就有可能用先進的語言模型來替代，從而提高訓練效率和整體表現。</p>
+<p><img alt="" src="../images/img8-20.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2212.08073">Constitutional AI: Harmlessness from AI Feedback</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2304.03277">Instruction Tuning with GPT-4</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2309.00267">RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2401.10020">Self-Rewarding Language Models</a></li>
+</ul>
+</p>
+</div>
+<h2 id="_6">增強式學習的挑戰與權衡</h2>
+<p>增強式學習面臨一個根本性的挑戰：如何定義「好」。由於「好」沒有固定標準，因此當人類被要求評價一個答案時，不同角度會產生衝突。例如，若語言模型回答「我不能教你製作火藥」以保障安全，這從安全角度來看是正確的，但從幫助性角度看，卻可能被認為是不夠有用的。為了解決這個問題，部分研究（如 Llama 的論文）嘗試訓練兩個不同的 reward model：一個從安全性評分，另一個從幫助性評分，並以一定策略結合兩者。</p>
+<p><img alt="" src="../images/img8-21.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2307.09288">Llama 2: Open Foundation and Fine-Tuned Chat Models</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2204.05862">Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback</a></li>
+</ul>
+</p>
+</div>
+<p>然而，不同模型對安全標準的定義也不盡相同，如 GPT-4、Gemini 與 Claude Dream 分別對製作玩具槍的回答就存在顯著差異。這些現象凸顯出，在增強式學習中確定什麼是「好」仍然是一個見仁見智、充滿挑戰的問題。</p>
+<p><img alt="" src="../images/img8-22.png" /></p>
+<h2 id="_7">增強式學習的難題</h2>
+<p>隨著語言模型變得越來越強大，未來的增強式學習可能會面臨一個重大挑戰。當模型需要處理連人類也難以評斷好壞的問題時，如何獲得正確的回饋。舉例來說，當詢問「應該念博班還是工作」這類複雜問題時，GPT-4可能會給出模棱兩可的答案，甚至在不同情境下做出截然不同的選擇，而人類的評價往往帶有偏見且缺乏統一標準。這意味著，如果回饋基於這種不穩定的判斷，模型就可能被引導向錯誤的方向，進而無法持續進步。這一問題至今仍無明確解答，成為未來增強式學習亟待突破的難題。</p>
+<p><img alt="" src="../images/img8-23.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info<p>有關學術問題，一律讀博班就對了!</p>
+</p>
+</div>
 <hr />
-<h2 id="_2">結語</h2>
-<p>從預訓練到微調，再從專才到通才，大型語言模型的演進不僅展示了深度學習在自然語言處理領域的突破，也顯示出優質資料與精細調控的重要性。通過 Instruction Fine-tuning，模型能夠在極少量高品質標註資料的輔助下，達到驚人的泛化能力和靈活性。隨著 LLaMA 等開源模型的釋出，未來每個人都有機會參與到這場技術革命中，為各種實際應用場景提供定制化解決方案。</p>
+<h2 id="_8">目前進度與未來展望</h2>
+<p>總結來說，語言模型的訓練分為三個階段。第一階段是 Pretrain，也稱為 Foundation Model，它作為後續訓練的基石；第二階段是 Instruction Fine Tuning；第三階段則是 RLHF。後兩個階段均引入了人類教師進行調整，旨在讓模型對齊人類的偏好與需求。至此，我們已完整介紹了語言模型的訓練過程。</p>
+<p><img alt="" src="../images/img8-23.png" /></p>
+<p>目前，透過 RLHF 訓練得到的模型已能在多數應用中達到令人滿意的效果，但仍面臨以下問題：</p>
+<ul>
+<li>如何更精準地捕捉「好」與「壞」的標準。</li>
+<li>如何在有限的回饋數據中最大化學習效果。</li>
+<li>如何避免模型過度依賴虛擬回饋而偏離真實人類偏好。</li>
+</ul>
+<p>未來，隨著 AI 自我反省與自我回饋技術（如 RLAIF）的發展，語言模型有望在降低人工回饋成本的同時，持續優化回應品質與安全性。</p>
+<hr />
+<h2 id="_9">總結</h2>
+<p>本文綜合了預訓練、指令微調與 RLHF 三個階段的訓練流程，探討了如何利用人類與虛擬回饋來進行模型微調，並透過與下圍棋的類比解釋了語言模型生成過程中的每一步實際上都是一個分類問題，但整體生成卻屬於生成式學習。透過回饋模型（Reward Model）的建立與應用，模型能夠更貼近使用者的偏好，進一步提升生成結果的品質。儘管在實現過程中存在安全性、助益性以及回饋數據有限性等挑戰，但現有實驗已證明，經過 RLHF 微調後的模型具有顯著效能提升，未來隨著 AI 自我回饋技術的發展，語言模型在應用中將更趨完善。</p>
 
 
 

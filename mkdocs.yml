@@ -38,14 +38,15 @@ nav:
     - '1.9 以大型語言模型打造的 AI Agent': '1.intro-generative-ai/1.9llm-ai-agent.md'
 
   - '2. LLM實戰應用':
-    - 'Ollama使用教學': '2.LLM實戰應用/Ollama使用教學.md'
-    - 'Ollama API整合OpenAI': '2.LLM實戰應用/Ollama API整合OpenAI.md'
-    - '用Colab部署Ollama服務': '2.LLM實戰應用/使用Colab部署Ollama服務.md'
-    - '使用Streamlit與Ollama建立聊天介面': '2.LLM實戰應用/使用Streamlit與Ollama建立聊天介面.md'
+    - 'Ollama使用教學': '2.llm-practical/Ollama使用教學.md'
+    - 'Ollama API整合OpenAI': '2.llm-practical/Ollama API整合OpenAI.md'
+    - '用Colab部署Ollama服務': '2.llm-practical/使用Colab部署Ollama服務.md'
+    - '使用Streamlit與Ollama建立聊天介面': '2.llm-practical/使用Streamlit與Ollama建立聊天介面.md'
+    - 'OpenAI Agents SDK多代理人工作流程教學': '2.llm-practical/openai-agents-sdk-tutorial.md'
 
   - '3. 免費 LLM API 串接資源':
-    - 'GitHub Models 免費試玩': '3.免費LLM API串接資源/GitHub Models免費試玩.md'
-    - 'Groq 免費體驗 Llama API': '3.免費LLM API串接資源/Groq 免費體驗 Llama API 與超高速推理技術.md'
+    - 'GitHub Models 免費試玩': '3.free-llm-api-integration-resources/github-models-tutorial.md'
+    - 'Groq 免費體驗 Llama API': '3.free-llm-api-integration-resources/groq-tutorial.md'
 
   - '4. 熱門AI工具使用教學':
     - 'AI生成圖片-Raphael免費AI圖像生成工具': '4.熱門AI工具使用教學/AI圖片生成-Raphael免費AI圖像生成工具.md'

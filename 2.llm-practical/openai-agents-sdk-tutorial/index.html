@@ -1376,9 +1376,10 @@
 <h2 id="functions">範例三：Functions（函式工具）範例</h2>
 <p>OpenAI 其實提供了 Responses API（需要付費）來實現 WebSearch、FileSearch、Computer Use 等功能；然而，我們也能自己撰寫函式並串接第三方服務，達到類似效果，而且不需付官方費用。</p>
 <h3 id="_3">安裝與簡單測試</h3>
-<p>這裡示範使用 <strong>Tavily</strong>（每月有 1000 次免費呼叫）進行網路搜尋。</p>
+<p>這裡示範使用 <strong>Tavily</strong>（每月有 1000 次免費呼叫）進行網路搜尋。若還沒有帳號，請先至 <a href="https://app.tavily.com">Tavily 官方網站</a> 註冊並在後台建立一組 <strong>API Key</strong>。</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>!pip<span class="w"> </span>install<span class="w"> </span>tavily-python<span class="w"> </span>-q
 </span></code></pre></div>
+<p><img alt="" src="../images/openai-agents-sdk-5.png" /></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">tavily</span> <span class="kn">import</span> <span class="n">TavilyClient</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">TAVILY_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YourTavilyKey&quot;</span> <span class="c1"># 請自行填入</span>

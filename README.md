@@ -1,4 +1,6 @@
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fandy6804tw%2Fcrazyai-llm&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.sh/andy6804tw.github.io/crazyai-llm.svg?view=today-total&style=flat-square)](https://hits.sh/andy6804tw.github.io/crazyai-llm/)
+
+[![](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fandy6804tw%2Fcrazyai-llm&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # 全民瘋AI系列 [大語言模型應用與實戰]
 

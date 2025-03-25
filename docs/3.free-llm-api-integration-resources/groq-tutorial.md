@@ -6,7 +6,7 @@ tags:
   - 免費LLM API
 ---
 
-# groq-tutorial
+# Groq 免費體驗 Llama API 與超高速推理技術
 
 範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/3.free-llm-api-integration-resources/code/groq-demo.ipynb)
 

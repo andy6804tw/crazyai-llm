@@ -201,12 +201,13 @@ print("最終回覆：", result.final_output)
 OpenAI 其實提供了 Responses API（需要付費）來實現 WebSearch、FileSearch、Computer Use 等功能；然而，我們也能自己撰寫函式並串接第三方服務，達到類似效果，而且不需付官方費用。
 
 ### 安裝與簡單測試
-
-這裡示範使用 **Tavily**（每月有 1000 次免費呼叫）進行網路搜尋。
+這裡示範使用 **Tavily**（每月有 1000 次免費呼叫）進行網路搜尋。若還沒有帳號，請先至 [Tavily 官方網站](https://app.tavily.com) 註冊並在後台建立一組 **API Key**。
 
 ```bash
 !pip install tavily-python -q
 ```
+
+![](./images/openai-agents-sdk-5.png)
 
 ```python
 from tavily import TavilyClient

@@ -9,6 +9,8 @@ tags:
 # 使用 OpenAI Responses API 與 Agents SDK：多代理人工作流程教學
 > 帶你免費就能試玩 OpenAI Agents SDK
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xWKzjvhBl3k?si=fMcFfVPjB3QLwZkm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.llm-practical/code/OpenAI_Agents_SDK_tutorial.ipynb)
 
 OpenAI 最近又端出了 **Responses API** 以及 **Agents SDK**，讓開發者能在「三分鐘內打造專屬 AI 小幫手」！以前若要做一個能自行執行多步驟流程的 AI Agent，通常得花大量時間串接各種工具並教大模型如何使用，非常耗時。現在，OpenAI 新發表的 Agent API 幫你的 AI 接好「手跟腳」，出廠就能直接上工！

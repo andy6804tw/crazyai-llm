@@ -43,6 +43,7 @@ nav:
     - '用Colab部署Ollama服務': '2.llm-practical/使用Colab部署Ollama服務.md'
     - '使用Streamlit與Ollama建立聊天介面': '2.llm-practical/使用Streamlit與Ollama建立聊天介面.md'
     - 'OpenAI Agents SDK多代理人工作流程教學': '2.llm-practical/openai-agents-sdk-tutorial.md'
+    - '深入理解 MCP 搭配簡易實作': '2.llm-practical/mcp-tutorial.md'
 
   - '3. 免費 LLM API 串接資源':
     - 'GitHub Models 免費試玩': '3.free-llm-api-integration-resources/github-models-tutorial.md'

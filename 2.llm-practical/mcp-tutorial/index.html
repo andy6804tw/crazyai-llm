@@ -672,7 +672,7 @@
         <li class="md-nav__item">
   <a href="#mcp" class="md-nav__link">
     <span class="md-ellipsis">
-      一文搞懂最近很熱門的MCP
+      一文搞懂最近熱門的MCP
     </span>
   </a>
   
@@ -804,6 +804,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCP 應用於 Claude Desktop (簡單實作)
+    </span>
+  </a>
   
 </li>
       
@@ -1041,7 +1050,7 @@
         <li class="md-nav__item">
   <a href="#mcp" class="md-nav__link">
     <span class="md-ellipsis">
-      一文搞懂最近很熱門的MCP
+      一文搞懂最近熱門的MCP
     </span>
   </a>
   
@@ -1176,6 +1185,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mcp-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCP 應用於 Claude Desktop (簡單實作)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1203,7 +1221,7 @@
 
 
 <h1 id="mcpmodel-context-protocol">深入理解 MCP（Model Context Protocol）搭配簡易實作</h1>
-<h2 id="mcp">一文搞懂最近很熱門的MCP</h2>
+<h2 id="mcp">一文搞懂最近熱門的MCP</h2>
 <p>隨著大語言模型逐漸成為各種工具與應用的核心，引入外部資源與工具來增強模型能力已成為普遍的技術需求。本文將深入探討MCP（Model Context Protocol），並透過實際範例詳解如何從零開始建立並連結 MCP 工具至主流 AI 應用。</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c6w2ioosYKE?si=LFYaNC9voKECSbv5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -1263,12 +1281,75 @@
 <h3 id="ai-agent">什麼是 AI agent？</h3>
 <p>AI Agent 是一個能夠代替人類執行一系列操作以達成特定目標的智能系統。與傳統使用者單次輸入 prompt，然後讓 LLM 生成回應的互動模式不同，AI Agent 更像是一位具備目標導向的自主執行者。它會根據目標進行任務分析，將複雜任務拆分為多個子任務，再依照計劃自動做出決策與執行，直到最終完成任務。雖然有時候也稱為智能體、代理人，但為了避免過於抽象，我們更傾向於使用「AI Agent」這一術語，強調它在實際應用中的具體行動與任務完成能力。</p>
 <p><img alt="" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*BqYzqyhAbmUeWezS.png" /></p>
+<blockquote>
+<p><a href="https://lilianweng.github.io/posts/2023-06-23-agent/">圖片來源</a></p>
+</blockquote>
 <h3 id="ai-agent-function-calling">AI Agent 與 Function Calling 的關係</h3>
 <p>在執行任務的過程中，AI Agent 通常需要與外部系統互動，比如存取資料、調用其他服務等。這時，Function Calling 就扮演了一個重要的角色(又稱Tool Use)。它作為一種接口，使得 AI Agent 能夠調用各種外部工具或資源。換句話說，Function Calling 為 AI Agent 提供了擴展其功能的能力，使其不僅僅局限於內部的語言生成，而是能夠進一步完成更複雜的操作，像是數據檢索、記錄更新等。</p>
 <h3 id="ai-agent-llm">AI Agent 與 LLM 模型的關係</h3>
 <p>AI Agent 的核心運作離不開大型語言模型的支撐。LLM 模型負責進行語言理解與生成，協助 Agent 進行任務分析、計劃制定以及步驟拆解。簡單來說，AI Agent 是以任務目標為導向的決策者，而 LLM 則是提供「思考」與回應的引擎。兩者密切合作：Agent 依賴 LLM 來產生合理的操作方案，並透過內部機制執行分解後的子任務，最終實現自動化的工作流程。</p>
 <h3 id="mcp-function-calling">MCP 跟 Function Calling 差異在哪？</h3>
 <p>回到與本文的主題，雖然 MCP 與 Function Calling 都旨在幫助 AI 系統調用外部工具，但它們在設計理念上存在明顯不同。傳統的 Function Calling 通常需要將特定函式直接嵌入應用程式中，這種方式耦合度較高，每增加一項功能就可能需要撰寫對應的新程式碼。相比之下，MCP 提供了一個標準化的通訊協定，它解耦了 AI 主機與外部服務的關係。只要遵循 MCP 規範，開發者就可以讓 AI 應用透過統一接口調用多個 MCP 伺服器上的功能，而無需對每個外部 API 進行獨立整合。這樣不僅大幅簡化了開發流程，還提高了整體系統的擴展性與靈活性。</p>
+<h2 id="mcp-claude-desktop">MCP 應用於 Claude Desktop (簡單實作)</h2>
+<p>如果對於Python環境搭建需求可以先參考 =&gt; <a href="https://andy6804tw.github.io/crazyai-python/1.%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A/1.1%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97/">環境安裝指南</a>
+延伸閱讀： <a href="https://andy6804tw.github.io/2025/03/31/python-env-tools-comparison/">Python 環境建置與套件管理工具：pip、conda、mamba、uv 詳細比較</a></p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">mcp.server.fastmcp</span> <span class="kn">import</span> <span class="n">FastMCP</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 建立一個 MCP 伺服器，這裡設定名稱為 &quot;MCP-demo&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">mcp</span> <span class="o">=</span> <span class="n">FastMCP</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MCP-demo&quot;</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 定義一個工具函式，用來計算傳入字串中 &#39;r&#39; 字母的出現次數</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nd">@mcp</span><span class="o">.</span><span class="n">tool</span><span class="p">()</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span> <span class="nf">count_r</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="sd">    計算傳入字串中 &#39;r&#39; 字母出現的次數</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="sd">    參數:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="sd">        word (str): 要檢查的字串</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="sd">    回傳:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="sd">        int: &#39;r&#39; 字母的數量，若輸入不是字串則回傳 0</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="k">return</span> <span class="mi">0</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="c1"># 轉成小寫後計算 &#39;r&#39; 的數量</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="k">return</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># 定義一個資源函式，當客戶端請求 URI 為 &quot;docs://document&quot; 時，會回傳文件內容</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nd">@mcp</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;docs://document&quot;</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">def</span> <span class="nf">get_all_langgraph_docs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="sd">    取得所有文件內容，回傳檔案內的文字</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="sd">    參數: 無</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="sd">    回傳:</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="sd">        str: LangGraph 文件的內容；若讀取失敗則回傳錯誤訊息</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="c1"># 設定本地文件所在的路徑</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;/Users/yilintsai/Desktop/Demo/&#39;</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="n">doc_path</span> <span class="o">=</span> <span class="n">PATH</span> <span class="o">+</span> <span class="s2">&quot;doc.txt&quot;</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">doc_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>            <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;讀取檔案錯誤：</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    <span class="c1"># 啟動 MCP 伺服器，這裡使用 stdio 作為傳輸方式</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="n">mcp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="s1">&#39;stdio&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@@@的首都在台北
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>@@@的英文名稱為Taiwan
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>@@@最著名的美食為小籠包
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  &quot;mcpServers&quot;: {
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    &quot;MCP-demo&quot;: {
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      &quot;command&quot;: &quot;/Users/yilintsai/Desktop/MCP-countr/.venv/bin/python&quot;,
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>      &quot;args&quot;: [
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        &quot;/Users/yilintsai/Desktop/MCP-countr/server.py&quot;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>      ]
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    }
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  }
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>}
+</span></code></pre></div>
 
 
 

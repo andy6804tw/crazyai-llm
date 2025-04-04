@@ -39,6 +39,7 @@ nav:
   - '📚5-Day Gen AI Intensive':
     - '課程介紹': 'google-genai-course/2025-03-30-course-intro.md'
     - 'Day 1:大型語言模型基礎與提示工程': 'google-genai-course/2025-03-31-day1.md'
+    - 'Day 2:Embeddings 與向量資料庫': 'google-genai-course/2025-04-01-day2.md'
   - '2. LLM實戰應用':
     - 'Ollama使用教學': '2.llm-practical/Ollama使用教學.md'
     - 'Ollama API整合OpenAI': '2.llm-practical/Ollama API整合OpenAI.md'

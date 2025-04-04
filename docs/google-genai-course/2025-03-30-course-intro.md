@@ -44,7 +44,7 @@
     * 學習與 `LLM` 進行最佳互動的提示工程技巧。
 * **Day 2: 嵌入與向量儲存/資料庫 (`Embeddings and Vector Stores/Databases`)**
     * 學習嵌入 (`embeddings`) 和向量資料庫 (`vector databases`) 的概念基礎，包括嵌入方法、向量搜尋演算法，以及它們在 `LLMs` 中的實際應用與權衡。
-* **Day 3: 生成式 AI 代理程式 (`Generative AI Agents`)**
+* **Day 3: 生成式 AI 代理人 (`Generative AI Agents`)**
     * 學習建構複雜的 AI 代理程式 (`agents`)，理解其核心組件、迭代開發過程以及近期的發展。
 * **Day 4: 領域特定大型語言模型 (`Domain-Specific LLMs`)**
     * 深入探討特定領域 `LLM` 的創建與應用，例如 `SecLM` (資安) 和 `Med-PaLM` (醫療)，並聽取建構這些模型的 Google 研究人員的見解。

@@ -26,7 +26,7 @@ edit_uri: ""
 copyright: 'Copyright © 2024 - 2025 10程式中'
 nav:
   - '目錄': './tags.md'
-  - '1. 李宏毅 生成式AI導論':
+  - '📚李宏毅生成式AI導論(2024)':
     - '1.1 生成式AI是什麼': '1.intro-generative-ai/1.1what-is-generative-ai.md.md'
     - '1.2 今日的生成式人工智慧厲害在哪裡': '1.intro-generative-ai/1.2why-generative-ai-is-powerful.md'
     - '1.3 訓練不了人工智慧?你可以訓練你自己(上)': '1.intro-generative-ai/1.3cant-train-ai-train-yourself-part1.md'
@@ -36,7 +36,9 @@ nav:
     - '1.7 大型語言模型修練史(第二階段)': '1.intro-generative-ai/1.7llm-history-phase2.md'
     - '1.8 大型語言模型修練史(第三階段)': '1.intro-generative-ai/1.8llm-history-phase3.md'
     - '1.9 以大型語言模型打造的 AI Agent': '1.intro-generative-ai/1.9llm-ai-agent.md'
-
+  - '📚5-Day Gen AI Intensive':
+    - '課程介紹': 'google-genai-course/2025-03-30-course-intro.md'
+    - 'Day 1:大型語言模型基礎與提示工程': 'google-genai-course/2025-03-31-day1.md'
   - '2. LLM實戰應用':
     - 'Ollama使用教學': '2.llm-practical/Ollama使用教學.md'
     - 'Ollama API整合OpenAI': '2.llm-practical/Ollama API整合OpenAI.md'

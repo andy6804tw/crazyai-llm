@@ -5,3 +5,4 @@ anaconda_projects
 site
 material/*
 .env
+code

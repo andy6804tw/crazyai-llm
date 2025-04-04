@@ -1,0 +1,1339 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="10程式中">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/google-genai-course/2025-03-30-course-intro/">
+      
+      
+        <link rel="prev" href="../../1.intro-generative-ai/1.9llm-ai-agent/">
+      
+      
+        <link rel="next" href="../2025-03-31-day1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>課程介紹 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-day-gen-ai-intensive-course-with-google" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              課程介紹
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    目錄
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📚李宏毅生成式AI導論(2024)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚李宏毅生成式AI導論(2024)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.1what-is-generative-ai.md/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 生成式AI是什麼
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.2why-generative-ai-is-powerful/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.3cant-train-ai-train-yourself-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 訓練不了人工智慧?你可以訓練你自己(上)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.4cant-train-ai-train-yourself-part2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 訓練不了人工智慧?你可以訓練你自己(中)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.5cant-train-ai-train-yourself-part3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 訓練不了人工智慧?你可以訓練你自己(下)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.6llm-history-phase1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6 大型語言模型修練史(第一階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.7llm-history-phase2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.7 大型語言模型修練史(第二階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.8llm-history-phase3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.8 大型語言模型修練史(第三階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.intro-generative-ai/1.9llm-ai-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.9 以大型語言模型打造的 AI Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📚5-Day Gen AI Intensive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            📚5-Day Gen AI Intensive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    課程介紹
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    課程介紹
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#google-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google 生成式AI五日學習營
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程目標與特色
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程運作方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程大綱 (每日主題)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他重要資訊
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025-03-31-day1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 1]大型語言模型基礎與提示工程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025-04-01-day2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 2]Embeddings 與向量資料庫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025-04-02-day3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 3]生成式 AI 代理人
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025-04-03-day4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 4]領域專用大型語言模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025-04-04-day5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 5] 生成式 AI 的 MLOps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. LLM實戰應用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            2. LLM實戰應用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.llm-practical/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama使用教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.llm-practical/Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama API整合OpenAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.llm-practical/%E4%BD%BF%E7%94%A8Colab%E9%83%A8%E7%BD%B2Ollama%E6%9C%8D%E5%8B%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用Colab部署Ollama服務
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.llm-practical/%E4%BD%BF%E7%94%A8Streamlit%E8%88%87Ollama%E5%BB%BA%E7%AB%8B%E8%81%8A%E5%A4%A9%E4%BB%8B%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用Streamlit與Ollama建立聊天介面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.llm-practical/openai-agents-sdk-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenAI Agents SDK多代理人工作流程教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.llm-practical/mcp-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深入理解 MCP 搭配簡易實作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3. 免費 LLM API 串接資源
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            3. 免費 LLM API 串接資源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.free-llm-api-integration-resources/github-models-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.free-llm-api-integration-resources/groq-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groq 免費體驗 Llama API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. 熱門AI工具使用教學
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            4. 熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-Raphael%E5%85%8D%E8%B2%BBAI%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI生成圖片-Raphael免費AI圖像生成工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82-%E7%94%A8Suno.ai%E8%BC%95%E9%AC%86%E6%89%93%E9%80%A0%E5%B1%AC%E6%96%BC%E4%BD%A0%E7%9A%84AI%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI生成音樂-Suno作曲及音樂生成器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.%E7%86%B1%E9%96%80AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/%E5%88%A9%E7%94%A8%20Google%20NotebookLM%20%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    利用 Google NotebookLM 打造高效學習筆記
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#google-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google 生成式AI五日學習營
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程目標與特色
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程運作方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      課程大綱 (每日主題)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他重要資訊
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="5-day-gen-ai-intensive-course-with-google">5-Day Gen AI Intensive Course with Google</h1>
+<h2 id="google-ai">Google 生成式AI五日學習營</h2>
+<p>這是一門由 Google ML 研究人員與工程師團隊設計的 <strong>免費</strong> 線上密集課程，旨在幫助開發者深入了解生成式 AI (<code>Generative AI</code>, <code>Gen AI</code>) 的基礎技術與方法。</p>
+<p><strong>課程名稱：</strong> <strong>5-Day Gen AI Intensive Course with Google</strong>
+<strong>課程時間：</strong> 2025 3月31日 (週一) - 4月4日 (週五) </p>
+<h2 id="_1">課程目標與特色</h2>
+<ol>
+<li><strong>深入學習：</strong> 提供生成式 AI 的深度概念分析與實作程式碼範例。</li>
+<li><strong>內容更新：</strong> 這是繼去年廣受歡迎的課程後再次舉辦，內容包含更新的白皮書、新的講者、涵蓋 <code>Gemini 2.0</code> 模型和最新 <code>Python SDK</code> 的 <code>Codelab</code>。</li>
+<li><strong>實務導向：</strong> 包含動手做的 <code>Codelab</code> 練習，讓學習者能更有信心地進行 <code>Gen AI</code> 專案。</li>
+<li><strong>Capstone 專案 (新)：</strong> 新增了可選的期末專案 (<code>Capstone Project</code>)，讓學員應用所學知識，建立作品集，並有機會贏得 <code>Kaggle</code> 證書、徽章、紀念品及社群媒體曝光等獎勵。</li>
+<li><strong>專家互動：</strong> 提供與 Google 專家和其他學習者交流的機會。</li>
+</ol>
+<h2 id="_2">課程運作方式</h2>
+<p>每天，註冊的參與者會在其收件匣收到：</p>
+<ol>
+<li>📚 <strong>每日作業 (<code>Daily Assignments</code>):</strong><ul>
+<li>最新的相關白皮書。</li>
+<li>由 <code>NotebookLM</code> 生成的配套 Podcast。</li>
+<li>在 <code>AI Studio</code> 中進行的配套 <code>Codelab</code> 實作練習。</li>
+</ul>
+</li>
+<li>💬 <strong>Discord 討論區 (<code>Discord Discussion Threads</code>):</strong><ul>
+<li>在 <code>Kaggle</code> 的 <code>Discord</code> 伺服器上設有專屬頻道，針對當日閱讀內容進行集中討論。</li>
+<li>提供釐清疑問、提出問題、與其他學習者和 Google 專家交流的平台。</li>
+</ul>
+</li>
+<li>🎥 <strong>每日直播研討會與 AMA (<code>Daily Livestream Seminars and AMAs</code>):</strong><ul>
+<li>每天在 <code>Kaggle</code> 的 YouTube 頻道進行直播。</li>
+<li>由白皮書作者和課程貢獻者深入探討主題，並回答即時提問。</li>
+<li>直播會錄影，錯過者可之後觀看。</li>
+</ul>
+</li>
+<li>🆕 <strong>頂石專案 (<code>Capstone project</code>):</strong><ul>
+<li>參與者需在 5 天課程中至少完成一個 <code>Codelab</code>，並在最後完成 <code>Capstone</code> 專案，以爭取獎項。</li>
+<li>專案細節會在課程中說明，並於第 5 天結束時正式啟動。</li>
+<li>專案提交截止日期為 4 月 20 日 (週日) 23:59 PT。</li>
+<li><strong>參與此專案是可選的 (<code>Optional</code>)。</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="_3">課程大綱 (每日主題)</h2>
+<ul>
+<li><strong>Day 1: 基礎模型與提示工程 (<code>Foundational Models &amp; Prompt Engineering</code>)</strong><ul>
+<li>探索大型語言模型 (<code>LLMs</code>) 的演進，從 <code>Transformers</code> 到微調 (<code>fine-tuning</code>)、推論加速 (<code>inference acceleration</code>) 和推理模型 (<code>reasoning models</code>) 等技術。</li>
+<li>學習與 <code>LLM</code> 進行最佳互動的提示工程技巧。</li>
+</ul>
+</li>
+<li><strong>Day 2: 嵌入與向量儲存/資料庫 (<code>Embeddings and Vector Stores/Databases</code>)</strong><ul>
+<li>學習嵌入 (<code>embeddings</code>) 和向量資料庫 (<code>vector databases</code>) 的概念基礎，包括嵌入方法、向量搜尋演算法，以及它們在 <code>LLMs</code> 中的實際應用與權衡。</li>
+</ul>
+</li>
+<li><strong>Day 3: 生成式 AI 代理人 (<code>Generative AI Agents</code>)</strong><ul>
+<li>學習建構複雜的 AI 代理程式 (<code>agents</code>)，理解其核心組件、迭代開發過程以及近期的發展。</li>
+</ul>
+</li>
+<li><strong>Day 4: 領域特定大型語言模型 (<code>Domain-Specific LLMs</code>)</strong><ul>
+<li>深入探討特定領域 <code>LLM</code> 的創建與應用，例如 <code>SecLM</code> (資安) 和 <code>Med-PaLM</code> (醫療)，並聽取建構這些模型的 Google 研究人員的見解。</li>
+</ul>
+</li>
+<li><strong>Day 5: 生成式 AI 的 MLOps (<code>MLOps for Generative AI</code>)</strong><ul>
+<li>探索如何調整 <code>MLOps</code> 實踐以適應生成式 AI，並利用 <code>Vertex AI</code> 的工具來處理基礎模型和 <code>Gen AI</code> 應用。</li>
+<li><strong>頂石專案 (<code>Capstone Project</code>) 正式啟動。</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="_4">其他重要資訊</h2>
+<ul>
+<li><strong>先備知識：</strong> 課程適合想深入了解 <code>Gen AI</code> 基礎知識的任何人。內容涵蓋從初學者的提示基礎到進階的代理程式實作。建議具備一些 <code>Python</code> 知識和 <code>Gen AI</code> 基礎概念（如提示）會有幫助，但非硬性要求。官方也推薦了一些基礎課程供預習。</li>
+<li><strong>時間投入：</strong> 每日作業約需 1-2 小時，每日直播約 45-60 分鐘。</li>
+<li><strong>費用：</strong> <strong>完全免費</strong>，僅需 <code>Kaggle</code> 帳號和相容的 <code>AI Studio</code> 帳號。</li>
+<li><strong>證書與獎勵：</strong> 所有參與者都有機會獲得 <code>Kaggle</code> 個人檔案徽章及可下載分享的證書。完成 <code>Capstone</code> 專案者可獲得徽章和證書。專案前 10 名優勝者將獲得額外獎品與曝光。</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://rsvp.withgoogle.com/events/google-generative-ai-intensive_2025q1">Join the 5-Day Gen AI Intensive Course with Google</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLqFaTIg4myu-lbBTrUpoQQIzZZxvrOaP5">Youtube Livestream playlist</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

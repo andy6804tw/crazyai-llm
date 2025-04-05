@@ -7,16 +7,16 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="10程式中">
+        <meta name="author" content="Tsai Yi Lin">
       
       
-        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/google-genai-course/2025-04-01-day2/">
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/free-llm-api-integration-resources/groq-tutorial/">
       
       
-        <link rel="prev" href="../2025-03-31-day1/">
+        <link rel="prev" href="../github-models-tutorial/">
       
       
-        <link rel="next" href="../2025-04-02-day3/">
+        <link rel="next" href="../../aigc-tools/AI%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-Raphael%E5%85%8D%E8%B2%BBAI%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>[Day 2]Embeddings 與向量資料庫 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>groq-tutorial - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#day-2-embeddings" class="md-skip">
+        <a href="#groq-llama-api" class="md-skip">
           跳轉到
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [Day 2]Embeddings 與向量資料庫
+              groq-tutorial
             
           </span>
         </div>
@@ -479,19 +479,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -505,7 +503,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             📚5-Day Gen AI Intensive
@@ -519,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2025-03-30-course-intro/" class="md-nav__link">
+      <a href="../../google-genai-course/2025-03-30-course-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2025-03-31-day1/" class="md-nav__link">
+      <a href="../../google-genai-course/2025-03-31-day1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -558,30 +556,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    [Day 2]Embeddings 與向量資料庫
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-01-day2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -590,155 +568,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      本單元內容
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Day 2 直播精華整理
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#qa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q&amp;A 專家問答
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Q&A 專家問答">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q1-embeddings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q1：如何產生能捕捉細微語意差異的 embeddings？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q2-vector" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q2：整合 Vector 搜尋與現有資料庫的架構取捨有哪些考量？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q3：嵌入模型升級時需注意的問題
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q4-rag" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q4：在 RAG 系統中，文件與查詢若使用不同嵌入模型會產生什麼影響？
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pop-quiz" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz 課後練習
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pop Quiz 課後練習">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q3
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q4
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q5
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -751,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2025-04-02-day3/" class="md-nav__link">
+      <a href="../../google-genai-course/2025-04-02-day3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -772,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2025-04-03-day4/" class="md-nav__link">
+      <a href="../../google-genai-course/2025-04-03-day4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -793,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2025-04-04-day5/" class="md-nav__link">
+      <a href="../../google-genai-course/2025-04-04-day5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -986,17 +815,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1010,7 +841,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             🤖免費 LLM API 串接資源
@@ -1024,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../free-llm-api-integration-resources/github-models-tutorial/" class="md-nav__link">
+      <a href="../github-models-tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,10 +873,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../free-llm-api-integration-resources/groq-tutorial/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Groq 免費體驗 Llama API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1054,6 +905,227 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#groq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groq 介紹
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groq_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groq 使用限制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Groq 使用限制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 請求次數限制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Token 數量限制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 其他模型的限制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 註冊與帳號建立
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模型選擇與性能測試
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groq-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Groq API 使用教學
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Groq API 使用教學">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 取得 API Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-dify" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 整合至第三方應用 - Dify
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 整合至第三方應用 - Dify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dify" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 進入 Dify 設定頁面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-groqcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 新增 GroqCloud 為模型供應商
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-open-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 整合至第三方應用 - Open WebUI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 整合至第三方應用 - Open WebUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 進入 Open WebUI 設定頁面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-groq-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 設定 Groq API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-python-groq-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 透過 Python 呼叫 Groq API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-groq-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Groq 的 Whisper 語音轉文字功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Groq 的 Whisper 語音轉文字功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 選擇 Whisper 模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      結語
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1198,131 +1270,203 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#groq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groq 介紹
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groq_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groq 使用限制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Groq 使用限制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 請求次數限制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Token 數量限制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 其他模型的限制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 註冊與帳號建立
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模型選擇與性能測試
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groq-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Groq API 使用教學
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Groq API 使用教學">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 取得 API Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-dify" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 整合至第三方應用 - Dify
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 整合至第三方應用 - Dify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dify" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 進入 Dify 設定頁面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-groqcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 新增 GroqCloud 為模型供應商
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-open-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 整合至第三方應用 - Open WebUI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 整合至第三方應用 - Open WebUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 進入 Open WebUI 設定頁面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-groq-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 設定 Groq API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-python-groq-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 透過 Python 呼叫 Groq API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-groq-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Groq 的 Whisper 語音轉文字功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Groq 的 Whisper 語音轉文字功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 選擇 Whisper 模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      本單元內容
+      結語
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Day 2 直播精華整理
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#qa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q&amp;A 專家問答
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Q&A 專家問答">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q1-embeddings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q1：如何產生能捕捉細微語意差異的 embeddings？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q2-vector" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q2：整合 Vector 搜尋與現有資料庫的架構取捨有哪些考量？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q3：嵌入模型升級時需注意的問題
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q4-rag" class="md-nav__link">
-    <span class="md-ellipsis">
-      Q4：在 RAG 系統中，文件與查詢若使用不同嵌入模型會產生什麼影響？
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pop-quiz" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz 課後練習
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pop Quiz 課後練習">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q3
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q4
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop-quiz-q5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pop Quiz Q5
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1339,158 +1483,176 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#llm-api" class="md-tag">免費LLM API</a>
+    
+  
+</nav>
 
 
-<h1 id="day-2-embeddings">[Day 2] Embeddings 與向量資料庫</h1>
-<p>在第二天的課程中，你將學習與了解 embeddings 與向量資料庫（或向量資料庫/資料庫）的基本概念及其應用。透過本單元，你不僅會掌握如何利用這些技術將即時或專業資料引入大型語言模型（LLM）的應用，還能學習到利用向量的幾何特性來分類與比較文字資料，以及如何評估 embeddings 的效果。</p>
-<h2 id="_1">本單元內容</h2>
+
+<h1 id="groq-llama-api">Groq 免費體驗 Llama API 與超高速推理技術</h1>
+<p>範例程式：<a href="https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/3.free-llm-api-integration-resources/code/groq-demo.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<h2 id="groq">Groq 介紹</h2>
+<p>隨著 LLM 應用日益普及，越來越多的開發者開始尋找既快速又省成本的語言模型平台。Groq 就是一個相當佛心的平台，提供免費線上使用的開源語言模型服務。不同於傳統依賴 GPU 的運算模式，Groq 採用自家研發的 LPU（Language Processing Unit），能以更低的硬體資源提供極速推理，極大地提升工作效率。本文將從註冊帳號、模型選擇、API 整合到語音轉文字功能，逐步介紹如何運用 Groq 平台打造高效 AI 應用。</p>
+<p><img alt="" src="../images/img-groq-1.png" /></p>
+<h2 id="groq_1">Groq 使用限制</h2>
+<p>Groq API 提供多種開源大型語言模型（LLM），但每個模型都有特定的<a href="https://console.groq.com/dashboard/limits">使用限制</a>，例如 <strong>請求次數</strong> 及 <strong>Token 數量</strong>。</p>
+<p><img alt="" src="../images/img-groq-10.png" /></p>
+<p>以下以 <strong>Llama3-8B-8192</strong> 模型為例，說明 Groq API 的使用限制。</p>
+<h3 id="1">1. <strong>請求次數限制</strong></h3>
 <ul>
-<li>
-<p><strong>🎙️ Podcast 聆聽</strong><br />
-    收聽本單元的Podcast 摘要，先行瞭解 embeddings 與向量資料庫的基本原理。  </p>
-</li>
-<li>
-<p><strong>📄 白皮書閱讀</strong><br />
-    閱讀「Embeddings and Vector Stores/ Databases」白皮書，進一步深入學習相關理論與技術細節。</p>
-</li>
-<li>
-<p><strong>💻 Kaggle 實作練習</strong><br />
-    透過實作練習，你將完成以下項目：</p>
-<ol>
-<li><strong>建立 RAG 問答系統：</strong>  <ul>
-<li>利用自訂文件構建一個基於 RAG（Retrieval-Augmented Generation）的問答系統，從自訂資料中檢索並生成答案。</li>
+<li><strong>每分鐘請求數</strong>（Requests per minute）：30 次  </li>
+<li><strong>每日請求數</strong>（Requests per day）：14,400 次</li>
 </ul>
-</li>
-<li><strong>探索文字相似度：</strong>  <ul>
-<li>使用 embeddings 技術分析與比較文字資料之間的相似性，瞭解向量如何反映文字間的語意關係。</li>
+<h3 id="2-token">2. <strong>Token 數量限制</strong></h3>
+<ul>
+<li><strong>每分鐘 Token 限制</strong>（Tokens per minute）：6,000 Tokens  </li>
+<li><strong>每日 Token 限制</strong>（Tokens per day）：500,000 Tokens</li>
 </ul>
-</li>
-<li><strong>使用 Keras 建立神經分類網路：</strong>  <ul>
-<li>透過 embeddings 作為輸入特徵，利用 Keras 建立一個神經網路進行文本分類，掌握如何將向量技術應用於實際任務中。</li>
+<h3 id="3">3. <strong>其他模型的限制</strong></h3>
+<p>不同模型的使用限制略有不同，例如：</p>
+<ul>
+<li><strong>部分模型的每日請求次數較低</strong>（如 <code>qwen-2.5-32b</code> 限制為 1,000 次/日）。</li>
+<li><strong>某些模型 Token 無上限</strong>（如 <code>deepspeed-r1-distill-qwen-32b</code>）。</li>
+<li><strong>部分 Vision 模型請求數較低</strong>（如 <code>llama-3.2-90b-vision-preview</code> 每分鐘限制為 15 次）。</li>
 </ul>
-</li>
-</ol>
-</li>
+<p>這些限制確保 Groq API 在免費提供高速推理的同時，也能維持穩定的服務品質。如果需要更高的額度，可以使用付費方案進行升級。</p>
+<hr />
+<h2 id="1_1">1. 註冊與帳號建立</h2>
+<p>首先，請至 <a href="https://console.groq.com/login">Groq 官方網站</a> 進入登入畫面。Groq 平台支援使用 Google 帳號直接登入，省去繁瑣的手機驗證步驟，讓你能夠快速建立帳號並立即體驗各項服務。</p>
+<h2 id="2">2. 模型選擇與性能測試</h2>
+<p>登入後，右上角的模型選單提供多種選擇，目前主要包含：</p>
+<ul>
+<li><strong>Llama</strong></li>
+<li><strong>Gemma 7B</strong></li>
+<li><strong>Mixtral 8x7B</strong></li>
+<li><strong>Qwen</strong></li>
+<li><strong>Deepseek</strong></li>
 </ul>
+<p><img alt="" src="../images/img-groq-2.png" /></p>
+<p>選擇你想要使用的模型後，就能夠在平台上直接進行文字輸入測試。Groq 在推理速度上表現驚人，測試 Llama3-8b-8192 結果可達每秒 1200 至 1300 Tokens，相較於一般家用高階顯示卡的性能，速度快了數十倍，十分適合追求高效運算的專案應用。</p>
 <div class="admonition info">
-<p class="admonition-title">本日學習重點<p>今天的課程主要讓你瞭解以下內容：</p>
-<ul>
-<li>
-<p><strong>概念基礎：</strong><br />
-了解 embeddings 與向量資料庫的核心概念，並學習這些技術如何幫助你將即時或專業資料整合進 LLM 應用中。</p>
-</li>
-<li>
-<p><strong>向量的幾何應用：</strong><br />
-探索向量資料在分類與比較文字方面的能力，從中瞭解如何透過數學與幾何方法處理語意資訊。</p>
-</li>
-<li>
-<p><strong>評估方法：</strong><br />
-學習如何評估 embeddings 的效能，確保在實際應用中能夠取得準確且高效的結果。</p>
-</li>
-</ul>
-<p>透過今天的課程，你將獲得應用 embeddings 與向量資料庫的實作能力，能夠將豐富的資料整合進你的大型語言模型應用中，並利用向量技術進行更精確的資料分類、比較與檢索。</p>
+<p class="admonition-title">Info<p>有網友在 RTX 4090 上測試各種 Llama 模型的 Benchmarks: <a href="https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference">參考</a></p>
 </p>
 </div>
-<hr />
-<h2 id="day-2">Day 2 直播精華整理</h2>
-<p>今天的直播主要聚焦在 <strong>embeddings 與向量資料庫</strong> 的技術與應用。專家們從基本概念開始，詳細解釋了 embeddings 如何將文本、圖片等數據轉換成數值向量，並利用向量間的距離衡量語意相似性。此外，也探討了如何利用近似最鄰居搜尋演算法（如 SCAN 與 HNSW）快速查詢數十億個向量資料，進而應用於檢索增強生成（RAG）等工作流程。以下依序整理出直播中的主要問答重點與 Pop Quiz 課後練習精華整理。</p>
-<h2 id="qa">Q&amp;A 專家問答</h2>
-<h3 id="q1-embeddings">Q1：如何產生能捕捉細微語意差異的 embeddings？</h3>
-<p><strong>問題內容：</strong><br />
-如何針對專業領域或多模態資料，生成能夠捕捉細微語意的 embeddings？另外，不同的 embedding 模型選擇會如何影響下游向量搜尋的效能？</p>
-<p><strong>專家觀點：</strong><br />
-- <strong>Andre</strong> 提到，最新的進展包括在 embedding 模型開發階段整合 LLM 的能力，利用 LLM 作為預訓練後盾，以充分理解多語言與多模態資訊，並透過資料策展及高品質訓練範例來提升模型效能。<br />
-- <strong>Howard</strong> 補充說，針對圖片與多模態資料，模型近期推出的 TIPS（Text Image Retraining with Facial Awareness）技術能夠彌補傳統模型在空間感知上的不足，並強調選擇合適的嵌入模型對檢索準確性至關重要。</p>
-<hr />
-<h3 id="q2-vector">Q2：整合 Vector 搜尋與現有資料庫的架構取捨有哪些考量？</h3>
-<p><strong>問題內容：</strong><br />
-在將 Vector 搜尋功能整合至現有資料庫（例如 Alloy DB）與專用向量資料庫之間，主要的架構考量包括哪些面向？（如延遲、吞吐量、成本、資料一致性與開發者易用性）</p>
-<p><strong>專家觀點：</strong><br />
-- <strong>Alan Lee</strong> 說明 Alloy DB 作為一個 Postgres 相容的資料庫，不僅具備傳統資料庫的成熟企業級功能，還整合了 SCAN 演算法實現高效向量索引。<br />
-- 他強調，企業在選擇時需綜合考慮：
-  - <strong>效能與延遲：</strong> 現有資料庫的向量搜尋能力可能已能滿足大部分需求，但對於特定高性能要求的應用，專用向量資料庫可能更具優勢。
-  - <strong>資料一致性與整合：</strong> 傳統關聯式資料庫能提供強一致性，而專用向量資料庫在處理非結構化資料時則能在效能上有所突破。</p>
-<hr />
-<h3 id="q3">Q3：嵌入模型升級時需注意的問題</h3>
-<p><strong>問題內容：</strong><br />
-當更新至新版本嵌入模型時，是否必須重新生成資料庫中所有已存在的 embeddings？有無更佳的更新方法？</p>
-<p><strong>專家觀點：</strong><br />
-- <strong>專家回應</strong> 表示，由於不同版本的嵌入模型之間不具備相容性，因此在升級時必須對現有資料重新生成 embeddings，就像不同程式語言或函式庫之間存在版本差異一樣。<br />
-- 同時，建立完善的評估機制來檢測新舊模型間的匹配程度非常重要，有助於確保系統整體效能不受影響。</p>
-<hr />
-<h3 id="q4-rag">Q4：在 RAG 系統中，文件與查詢若使用不同嵌入模型會產生什麼影響？</h3>
-<p><strong>問題內容：</strong><br />
-在 Retrieval Augmented Generation 系統中，若文件與查詢使用不同的嵌入模型，會對檢索結果或生成答案的品質產生哪些影響？</p>
-<p><strong>專家觀點：</strong><br />
-- <strong>Shiai 與 Patricia</strong> 強調，關鍵在於文件與查詢必須使用相同的嵌入模型，這樣才能確保它們被映射到同一語意空間，準確反映彼此的相似度。<br />
-- 若使用不同模型，可能導致檢索結果不一致，進而影響最終回答的準確性與穩定性。</p>
-<hr />
-<h2 id="pop-quiz">Pop Quiz 課後練習</h2>
-<h3 id="pop-quiz-q1">Pop Quiz Q1</h3>
-<p>哪一種應用並非適合使用嵌入技術？</p>
-<p>(A) Retrieval Augmented Generation (RAG)<br />
-(B) 簡單的規則基礎系統<br />
-(C) 異常檢測<br />
-(D) 推薦系統  </p>
-<details class="答案">
-<summary>答案</summary>
-<p><strong>正確答案：</strong> B. 簡單的規則基礎系統</p>
-<p><strong>解釋：</strong> 嵌入技術主要用於捕捉數據中的深層語意，對於僅依賴固定規則的系統，其效用並不顯著。</p>
-</details>
-<hr />
-<h3 id="pop-quiz-q2">Pop Quiz Q2</h3>
-<p>SCAN 演算法相較於其他近似最鄰居搜尋方法的主要優勢是？</p>
-<p>(A) 廣泛開源可用<br />
-(B) 專為高維資料設計，具備優秀的速度與準確度平衡<br />
-(C) 僅回傳精確匹配結果<br />
-(D) 基於簡單的雜湊技術，計算開銷低  </p>
-<details class="答案">
-<summary>答案</summary>
-<p><strong>正確答案：</strong> B. 專為高維資料設計，具備優秀的速度與準確度平衡</p>
-<p><strong>解釋：</strong> SCAN 演算法能在處理高維向量時，取得出色的速度和準確性，適合大規模數據檢索。</p>
-</details>
-<hr />
-<h3 id="pop-quiz-q3">Pop Quiz Q3</h3>
-<p>Bag of Words 模型生成文件嵌入的主要缺陷是什麼？</p>
-<p>(A) 忽略詞序與語意<br />
-(B) 計算量大且需要大量資料<br />
-(C) 無法用於語意搜尋或主題發現<br />
-(D) 僅適用於短文檔，無法捕捉長程依賴  </p>
-<details class="答案">
-<summary>答案</summary>
-<p><strong>正確答案：</strong> A. 忽略詞序與語意</p>
-<p><strong>解釋：</strong> Bag of Words 模型僅統計詞頻，無法捕捉詞語間的順序與深層語意，因此在生成嵌入時效果有限。</p>
-</details>
-<hr />
-<h3 id="pop-quiz-q4">Pop Quiz Q4</h3>
-<p>在嵌入應用中常見的挑戰是什麼？應該如何解決？</p>
-<p>(A) 嵌入無法處理大型資料集，必須縮小資料集<br />
-(B) 嵌入總是優於傳統搜尋，不需結合全文檢索<br />
-(C) 嵌入可能無法充分捕捉字面資訊，因此應與全文檢索結合<br />
-(D) 嵌入會頻繁變動，需要阻止更新  </p>
-<details class="答案">
-<summary>答案</summary>
-<p><strong>正確答案：</strong> C. 嵌入可能無法充分捕捉字面資訊，因此應與全文檢索結合</p>
-<p><strong>解釋：</strong> 為了補足嵌入在捕捉字面細節上的不足，通常需要與全文檢索技術搭配，才能提升檢索的精確性。</p>
-</details>
-<hr />
-<h3 id="pop-quiz-q5">Pop Quiz Q5</h3>
-<p>使用 Locality Sensitive Hashing (LSH) 在向量搜尋中的主要優勢是什麼？</p>
-<p>(A) 保證找到精確的最近鄰<br />
-(B) 透過將相似項目分組到同一雜湊桶中來減少搜尋空間<br />
-(C) 僅適用於高維向量的方法<br />
-(D) 永遠提供最佳速度與準確度平衡  </p>
-<details class="答案">
-<summary>答案</summary>
-<p><strong>正確答案：</strong> B. 透過將相似項目分組到同一雜湊桶中來減少搜尋空間</p>
-<p><strong>解釋：</strong> LSH 可有效降低搜尋空間，透過雜湊分組快速篩選出相似資料，加速檢索過程。</p>
-</details>
+<h2 id="3-groq-api">3. Groq API 使用教學</h2>
+<p>除了網頁介面外，Groq 也提供 OpenAI 兼容的免費 API，方便開發者整合至各種第三方應用或專案中。以下是基本操作流程：</p>
+<h3 id="31-api-key">3.1 取得 API Key</h3>
+<p>點選「API Keys」選項後，再按下「Create API Key」按鈕，輸入你喜歡的名稱並按下「Submit」，即可獲得專屬的 API Key。請注意，API Key 僅會在建立後的視窗中顯示，關閉後便無法再次查閱，因此建議妥善保存。</p>
+<p><img alt="" src="../images/img-groq-3.png" /></p>
+<p>將取得的 API Base URL 與 API Key 貼入你所使用的第三方應用中（例如 Dify、Open WebUI 等聊天介面工具），即可立即開始調用 Groq 模型服務，享受免費且超高速的推理體驗。</p>
+<h3 id="32-dify">3.2 整合至第三方應用 - Dify</h3>
+<p>Dify 是一個 AI 應用開發平台，可透過 OpenAI 兼容 API 整合 Groq 的 Llama 3 模型。以下是將 Groq API 整合到 Dify 的步驟：</p>
+<h4 id="1-dify"><strong>1. 進入 Dify 設定頁面</strong></h4>
+<ol>
+<li>登入 <a href="https://cloud.dify.ai/">Dify</a> 平台。  </li>
+<li>在右上角點擊你的帳號，選擇 <strong>Settings</strong>（設定）。  </li>
+<li>進入設定頁面後，即可管理模型供應商。</li>
+</ol>
+<p><img alt="" src="../images/img-groq-4.png" /></p>
+<h4 id="2-groqcloud"><strong>2. 新增 GroqCloud 為模型供應商</strong></h4>
+<ol>
+<li>在 <strong>Settings</strong>（設定）頁面，選擇 <strong>Model Provider</strong>（模型供應商）。  </li>
+<li>在可用的模型列表中，找到 <strong>GroqCloud</strong>。  </li>
+<li>點擊 <strong>Install</strong> 按鈕，將 GroqCloud 安裝到 Dify 平台。</li>
+<li>安裝完成後，點擊 <strong>Setup</strong>（設定）。  </li>
+<li>在 API 設定欄位中，輸入你的 <strong>Groq API Key</strong>（可從 GroqCloud 後台獲取）。  </li>
+<li>完成後點擊 <strong>Save</strong>，即完成整合。</li>
+</ol>
+<p><img alt="" src="../images/img-groq-5.png" /></p>
+<p>完成 API 設定後，你就可以在 Dify 平台內選擇 <strong>Llama 3 8B</strong> 或 <strong>Llama 3 70B</strong> 作為推理模型，並在聊天機器人或 AI 應用中進行測試。 這樣，你就成功在 Dify 平台上整合了 Groq 提供的超高速 Llama 3 API！</p>
+<h3 id="33-open-webui">3.3 整合至第三方應用 - Open WebUI</h3>
+<p><strong>Open WebUI</strong> 是一款開源的 Web 介面，支援 OpenAI 兼容 API，可以輕鬆整合 <strong>Groq API</strong>，免費使用 Llama 3 等開源模型。以下是詳細的整合步驟。</p>
+<h4 id="1-open-webui"><strong>1. 進入 Open WebUI 設定頁面</strong></h4>
+<ol>
+<li>開啟 <a href="https://github.com/open-webui/open-webui">Open WebUI</a>。</li>
+<li>在左側選單中，點擊 <strong>Settings → Admin Settings → Connections</strong>。</li>
+<li>在「Manage OpenAI API Connections」區塊，點選 + 新增 LLM API 供應商。</li>
+</ol>
+<p><img alt="" src="../images/img-groq-8.png" /></p>
+<h4 id="2-groq-api"><strong>2. 設定 Groq API</strong></h4>
+<ol>
+<li><strong>API Base URL</strong> 輸入：<br />
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://api.groq.com/openai/v1
+</span></code></pre></div></li>
+<li><strong>API Key</strong> 輸入你的 <strong>Groq API Key</strong>（可從 GroqCloud 後台獲取）。</li>
+<li><strong>開啟開關</strong> 以啟用 Groq API，然後點擊 <strong>Save</strong>。</li>
+</ol>
+<p><img alt="" src="../images/img-groq-6.png" /></p>
+<p>完成 API 設定後，你可以直接在 Open WebUI 中使用 <strong>Groq 提供的 Llama 3 模型</strong>，進行聊天、文本生成或其他 AI 應用。 這樣，你就成功在 Open WebUI 上整合 <strong>Groq API</strong>，並能夠免費使用超高速的推理服務！</p>
+<p><img alt="" src="../images/img-groq-7.png" /></p>
+<h3 id="34-python-groq-api">3.4 透過 Python 呼叫 Groq API</h3>
+<p>Groq 提供官方的 <strong>Chat 聊天介面</strong>，可以直接透過網頁進行對話測試。但如果希望將 API 整合到專案中，Groq 也提供 <strong>Curl、JavaScript、Python</strong> 等程式碼範例，開發者可以直接複製使用。</p>
+<p><img alt="" src="../images/img-groq-9.png" /></p>
+<p>接著，我們將示範如何使用 <strong>Python</strong> 來調用 <strong>Groq API</strong>，並進行簡單的聊天測試。首先，請先安裝 <code>groq</code> 套件：</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>groq
+</span></code></pre></div>
+<p>下方範例展示如何透過 Python 呼叫 Groq API，並與 Llama 3 模型進行對話：</p>
+<ul>
+<li><code>api_key</code>：請替換成 <strong>你的 Groq API Key</strong>。</li>
+<li><code>model="llama3-8b-8192"</code>：選擇要使用的模型，可換成 <code>llama3-70b-8192</code> 等其他模型。</li>
+<li><code>messages</code>：<ul>
+<li>第一個 <code>system</code> 角色：設定 AI 的行為，如「請用繁體中文回答」。</li>
+<li>第二個 <code>user</code> 角色：使用者輸入的問題（例如：「請問法國的首都？」）。</li>
+</ul>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">groq</span> <span class="kn">import</span> <span class="n">Groq</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">Groq</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;你的API_KEY&quot;</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">chat_completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="p">{</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;你現在是個問答小幫手，並使用繁體中文回答問題。&quot;</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="p">},</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="p">{</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;請問法國的首都？&quot;</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="p">}</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="p">],</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3-8b-8192&quot;</span><span class="p">,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">)</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">chat_completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note<p>在這個範例中，API 預設 <strong><code>stream=False</code></strong>，即 <strong>一次性回傳完整回應</strong>，而不是流式輸出（Streaming）。如果需要流式回應（類似 ChatGPT 輸出方式），可額外設定 <code>stream=True</code>。</p>
+</p>
+</div>
+<p>以上是一個簡單的 API 範例，還有其他不同的模型，例如具有思維鏈的 Deepseek 或是多模態的 <code>llama-3.2-90b-vision-preview</code>，可支援文字與影像混合輸入的聊天。同時，Groq 平台還提供了免費的 OpenAI 兼容 API，能讓開發者直接無痛轉移現有的 OpenAI 寫法。若想快速上手，也可以參考文章上方的 Colab 範例程式做進一步測試與開發。</p>
+<h2 id="4-groq-whisper">4. Groq 的 Whisper 語音轉文字功能</h2>
+<p>除了文字生成，Groq 平台還支援 Whisper 語音轉文字模型，非常適合需要快速將語音內容轉錄成文字的應用場景。從下表可以看到 API 使用限制大致相同。</p>
+<p><img alt="" src="../images/img-groq-11.png" /></p>
+<ul>
+<li><strong>每分鐘請求數</strong>：20 次  </li>
+<li><strong>每日請求數</strong>：2,000 次  </li>
+<li><strong>每小時可處理音訊秒數</strong>：7,200 秒（2 小時）  </li>
+<li><strong>每日可處理音訊秒數</strong>：28,800 秒（8 小時）</li>
+</ul>
+<h3 id="41-whisper">4.1 選擇 Whisper 模型</h3>
+<p>在 GroqCloud 上方的「Playground」頁面中，選擇「whisper-large-v3」模型，這是目前提供的語音轉文字模型。點選錄音或上傳檔案按鈕，選擇欲轉錄的音檔。平台會依據檔案內容迅速進行處理。點擊「Submit」後，Groq 的轉錄速度極快，例如 8 分鐘的音檔僅需約 4-5 秒即可完成轉錄，讓你迅速取得文字內容。</p>
+<p><img alt="" src="../images/img-groq-12.png" /></p>
+<p>目前平台產出的字幕格式可能無法直接使用，可以透過 ChatGPT 將 JSON 格式的轉錄結果轉換成 SRT 字幕檔，方便後續應用。</p>
+<h2 id="_1">結語</h2>
+<p>今天和大家分享了這個免費的 LLM API 資源，不妨利用它做一個小專案來試試看，親身體驗一下在本地端或網頁上運行大型語言模型的樂趣。希望這篇介紹能讓你快速上手，也期待能激發更多創意專案，善用 Groq 等免費平台，讓 AI 技術更貼近日常生活。</p>
+<p><img alt="" src="../images/img-groq-13.png" /></p>
 
 
 
 
 
 
+
+  
+  
 
 
 

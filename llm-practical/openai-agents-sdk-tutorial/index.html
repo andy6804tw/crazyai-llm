@@ -1,0 +1,1730 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Tsai Yi Lin">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/llm-practical/openai-agents-sdk-tutorial/">
+      
+      
+        <link rel="prev" href="../%E4%BD%BF%E7%94%A8Streamlit%E8%88%87Ollama%E5%BB%BA%E7%AB%8B%E8%81%8A%E5%A4%A9%E4%BB%8B%E9%9D%A2/">
+      
+      
+        <link rel="next" href="../mcp-tutorial/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>OpenAI Agents SDK多代理人工作流程教學 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openai-responses-api-agents-sdk" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenAI Agents SDK多代理人工作流程教學
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    目錄
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📚李宏毅生成式AI導論(2024)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚李宏毅生成式AI導論(2024)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/1.what-is-generative-ai.md/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.生成式AI是什麼
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/2.why-generative-ai-is-powerful/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/3.cant-train-ai-train-yourself-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.訓練不了人工智慧?你可以訓練你自己(上)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/4.cant-train-ai-train-yourself-part2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.訓練不了人工智慧?你可以訓練你自己(中)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/5.cant-train-ai-train-yourself-part3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.訓練不了人工智慧?你可以訓練你自己(下)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/6.llm-history-phase1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.大型語言模型修練史(第一階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/7.llm-history-phase2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.大型語言模型修練史(第二階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/8.llm-history-phase3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.大型語言模型修練史(第三階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/9.llm-ai-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.以大型語言模型打造的 AI Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📚5-Day Gen AI Intensive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            📚5-Day Gen AI Intensive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-03-30-course-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    課程介紹
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-03-31-day1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 1]大型語言模型基礎與提示工程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-01-day2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 2]Embeddings 與向量資料庫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-02-day3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 3]生成式 AI 代理人
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-03-day4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 4]領域專用大型語言模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-04-day5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 5] 生成式 AI 的 MLOps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💻LLM實戰應用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💻LLM實戰應用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama使用教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama API整合OpenAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8Colab%E9%83%A8%E7%BD%B2Ollama%E6%9C%8D%E5%8B%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用Colab部署Ollama服務
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8Streamlit%E8%88%87Ollama%E5%BB%BA%E7%AB%8B%E8%81%8A%E5%A4%A9%E4%BB%8B%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用Streamlit與Ollama建立聊天介面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OpenAI Agents SDK多代理人工作流程教學
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OpenAI Agents SDK多代理人工作流程教學
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#responses-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responses API 簡介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agents SDK 簡介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openai-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      註冊 OpenAI Platform
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groqllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      註冊 Groq(免費LLM方案)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例一：Hello World
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="範例一：Hello World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法與使用時機
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例二：Handoffs（交接）範例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="範例二：Handoffs（交接）範例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法與使用時機
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例三：Functions（函式工具）範例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="範例三：Functions（函式工具）範例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      安裝與簡單測試
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agents-sdk_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      整合到 Agents SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法與使用時機
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      筆者心得感想
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      結語
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深入理解 MCP 搭配簡易實作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🤖免費 LLM API 串接資源
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🤖免費 LLM API 串接資源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../free-llm-api-integration-resources/github-models-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../free-llm-api-integration-resources/groq-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groq 免費體驗 Llama API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🛠️熱門AI工具使用教學
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            🛠️熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aigc-tools/AI%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-Raphael%E5%85%8D%E8%B2%BBAI%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🖼️Raphael免費AI圖像生成工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aigc-tools/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82-%E7%94%A8Suno.ai%E8%BC%95%E9%AC%86%E6%89%93%E9%80%A0%E5%B1%AC%E6%96%BC%E4%BD%A0%E7%9A%84AI%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🎵Suno作曲及音樂生成器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aigc-tools/%E5%88%A9%E7%94%A8%20Google%20NotebookLM%20%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📝利用 Google NotebookLM 打造高效學習筆記
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#responses-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responses API 簡介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agents SDK 簡介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openai-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      註冊 OpenAI Platform
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groqllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      註冊 Groq(免費LLM方案)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例一：Hello World
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="範例一：Hello World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法與使用時機
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例二：Handoffs（交接）範例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="範例二：Handoffs（交接）範例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法與使用時機
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      範例三：Functions（函式工具）範例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="範例三：Functions（函式工具）範例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      安裝與簡單測試
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agents-sdk_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      整合到 Agents SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法與使用時機
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      筆者心得感想
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      結語
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#openai" class="md-tag">OpenAI</a>
+    
+  
+</nav>
+
+
+
+<h1 id="openai-responses-api-agents-sdk">使用 OpenAI Responses API 與 Agents SDK：多代理人工作流程教學</h1>
+<blockquote>
+<p>帶你免費就能試玩 OpenAI Agents SDK</p>
+</blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xWKzjvhBl3k?si=fMcFfVPjB3QLwZkm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>範例程式：<a href="https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.llm-practical/code/OpenAI_Agents_SDK_tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>OpenAI 最近又端出了 <strong>Responses API</strong> 以及 <strong>Agents SDK</strong>，讓開發者能在「三分鐘內打造專屬 AI 小幫手」！以前若要做一個能自行執行多步驟流程的 AI Agent，通常得花大量時間串接各種工具並教大模型如何使用，非常耗時。現在，OpenAI 新發表的 Agent API 幫你的 AI 接好「手跟腳」，出廠就能直接上工！</p>
+<h2 id="responses-api">Responses API 簡介</h2>
+<p>這次的 <strong>Responses API</strong> 內建了 <strong>WebSearch</strong>、<strong>FileSearch</strong> 和 <strong>Computer Use</strong> 等工具，還搭配專門為搜尋任務微調過的 <strong>GPT-4o</strong> 模型，能夠大幅降低「亂掰」或產生幻覺的機率。對於需要串接私有資料庫的企業，更能把內部文件或資料庫檔案一併上傳，讓 Agent 馬上成為「知識庫」。此外，<strong>Computer Use</strong> 工具甚至能遠端操作電腦或瀏覽器，處理各種繁雜的工作。</p>
+<table>
+<thead>
+<tr>
+<th>工具名稱</th>
+<th>功能描述</th>
+<th>應用場景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web Search Tool</td>
+<td>- 即時整合搜尋 <br> - 採用 GPT-4.0 Search Preview 模型 <br> - 簡易問答約 90% 準確度</td>
+<td>- 需要最新網路資訊的應用 <br> - 例如新聞搜尋</td>
+</tr>
+<tr>
+<td>File Search Tool</td>
+<td>- 檔案檢索與讀寫 <br> - 內建即時記憶體存取 <br> - 適用於處理文件與使用者偏好</td>
+<td>- 企業內部文件快搜 <br> - 個人化推薦</td>
+</tr>
+<tr>
+<td>Computer Use Tool</td>
+<td>- 控制電腦操作（如迴圈、資料調用、Operator 技術等）</td>
+<td>- 自動化作業 <br> - 預排班、營運自動化</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/openai-agents-sdk-1.gif" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>延伸閱讀： <a href="https://platform.openai.com/docs/guides/responses-vs-chat-completions">Responses vs. Chat Completions</a></li>
+<li>延伸閱讀： <a href="https://cookbook.openai.com/examples/responses_api/responses_example">Web Search and States with Responses API</a></li>
+</ul>
+</p>
+</div>
+<h2 id="agents-sdk">Agents SDK 簡介</h2>
+<p>同時，OpenAI 也釋出了 <strong>Agents SDK</strong>，讓多個 Agent 可以透過工作流程編排進行無縫合作。例如，一個 Agent 負責旅遊行程規劃，另一個就能照著行程表幫你訂票、購物，一次搞定！目前各家 AI 大廠都在拚「Agent」，這被視為 AGI 的第三階段。未來，或許真的會出現一大波「AI 同事」，分擔企業中許多重複性或繁瑣的工作。</p>
+<p>OpenAI 將實驗性的 Swarm SDK 升級為 Agents SDK，新增了以下功能：</p>
+<ul>
+<li>代理人之間的任務交接控制 (Handoffs)</li>
+<li>安全防護機制 (Guardrails)</li>
+<li>後台管理追蹤、除錯與優化 (Tracing &amp; Observability)</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info<p>在本文中，我們將展示如何在 <strong>不付費購買 OpenAI API</strong> 的情況下，使用 <strong>Groq</strong> 這類第三方免費模型服務來執行 Agents SDK。並且透過 OpenAI 提供的可觀測性（Observability）功能，將代理人執行紀錄上傳到 OpenAI 後台進行除錯和分析。</p>
+</p>
+</div>
+<hr />
+<h2 id="openai-platform">註冊 OpenAI Platform</h2>
+<p>前往 <a href="https://platform.openai.com/">OpenAI Platform</a>，註冊 OpenAI 帳號登入。在左側選單中點擊「API keys」，再點擊右上角的「Create new secret key」。此時會產生一組新的 API 金鑰，請務必先複製或下載保存，因為只會顯示一次。</p>
+<p><img alt="" src="../images/openai-agents-sdk-2.png" /></p>
+<p>雖然我們會使用 Groq 服務作為模型後端，但若你想體驗 <strong>Tracing</strong> 功能（將代理人互動記錄上傳到 OpenAI 後台做視覺化與除錯），依然需要在 OpenAI platform 建立一個專案，並呼叫 <code>set_tracing_export_api_key('&lt;YourOpenAIKey&gt;')</code>。若你不需要這項功能，只要把金鑰留空字串即可，Agents SDK 就不會上傳到 OpenAI。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">agents</span> <span class="kn">import</span> <span class="n">set_tracing_export_api_key</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 如果不想上傳到 OpenAI，就保持空字串</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">set_tracing_export_api_key</span><span class="p">(</span><span class="s1">&#39;YourOpenAIKey&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="groqllm">註冊 Groq(免費LLM方案)</h2>
+<p>如果手邊沒有付費 OpenAI 的 LLM 模型 API 不妨可以使用免費的資源先玩玩看。Groq 的使用方式與介紹可以參考另一篇文章：<a href="../3.free-llm-api-integration-resources/groq-tutorial.md">Groq 使用教學</a>。</p>
+<p><img alt="" src="../3.free-llm-api-integration-resources/images/img-groq-3.png" /></p>
+<p>申請完成後，將 Groq 金鑰貼到你的程式碼中。</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">GROQ_API_KEY</span> <span class="o">=</span> <span class="s1">&#39;YourGroqKey&#39;</span> <span class="c1"># 請自行填入</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note<p>只要平台提供與 OpenAI Chat Completions 相容的 API 端點，Agents SDK 都能順利整合。除了 Groq，也可以使用像是 <a href="../3.free-llm-api-integration-resources/github-models-tutorial.md">GitHub Models</a>、Google Gemini、<a href="../Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/">Ollama</a> 等其他服務都是不錯的選擇。</p>
+</p>
+</div>
+<hr />
+<h2 id="hello-world">範例一：Hello World</h2>
+<p>以下程式展示了最基本的「Hello World」示範：建立一個簡單的助理代理人，並使用 <strong>Groq</strong> 提供的免費模型（以 <code>llama3-8b-8192</code> 為例）來產生回覆。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">agents</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Runner</span><span class="p">,</span> <span class="n">AsyncOpenAI</span><span class="p">,</span> <span class="n">OpenAIChatCompletionsModel</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># 初始化 Groq Client</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">groq_client</span> <span class="o">=</span> <span class="n">AsyncOpenAI</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://api.groq.com/openai/v1&#39;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">api_key</span><span class="o">=</span><span class="n">GROQ_API_KEY</span><span class="p">,</span> <span class="c1"># 填入對應的金鑰</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># 建立一個簡單的助理代理人</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Assistant&quot;</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">instructions</span><span class="o">=</span><span class="s2">&quot;你是一位有用的助理，請使用繁體中文回答問題。&quot;</span><span class="p">,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">model</span><span class="o">=</span><span class="n">OpenAIChatCompletionsModel</span><span class="p">(</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama3-8b-8192&quot;</span><span class="p">,</span> <span class="c1"># 指定使用 Groq 上的 llama3-8b-8192 模型</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="n">openai_client</span><span class="o">=</span><span class="n">groq_client</span><span class="p">,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">)</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;用Python實作費式數列&quot;</span><span class="p">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">final_output</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_1">用法與使用時機</h3>
+<ul>
+<li><strong>`groq_client`</strong>：不走官方 OpenAI API，而是把 <code>base_url</code> 指向 Groq 的端點。</li>
+<li><strong>`Agent(...)`</strong>：定義一個基本代理人，指定要說繁體中文，並設定模型來源為 Groq。</li>
+<li><strong>`Runner.run(...)`</strong>：啟動代理人，傳入使用者問題並等待回覆。</li>
+</ul>
+<p>若只想測試單一代理人且不需要多步驟工作流程，這樣的範例就已經能滿足最基本的對話需求。</p>
+<hr />
+<h2 id="handoffs">範例二：Handoffs（交接）範例</h2>
+<p>以下示範如何利用 <strong>handoff</strong> 機制，讓不同領域的代理人可以分工合作。例如，「英文老師」負責英文相關問題，而「歷史老師」負責歷史事件背景。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">agents</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Runner</span><span class="p">,</span> <span class="n">AsyncOpenAI</span><span class="p">,</span> <span class="n">OpenAIChatCompletionsModel</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># 初始化 Groq Client</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">groq_client</span> <span class="o">=</span> <span class="n">AsyncOpenAI</span><span class="p">(</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://api.groq.com/openai/v1&#39;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">api_key</span><span class="o">=</span><span class="n">GROQ_API_KEY</span><span class="p">,</span> <span class="c1"># 填入對應的金鑰</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># 定義英文老師代理人，負責解答英文相關問題</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">english_teacher</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;English Tutor&quot;</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">handoff_description</span><span class="o">=</span><span class="s2">&quot;負責回答英文文法、單字與閱讀理解等問題&quot;</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">instructions</span><span class="o">=</span><span class="s2">&quot;你是一位專業的英文老師，請詳細解釋英文文法、單字用法，並舉例說明，幫助學生理解英文內容。並使用繁體中文回答問題。&quot;</span><span class="p">,</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">model</span><span class="o">=</span><span class="n">OpenAIChatCompletionsModel</span><span class="p">(</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;qwen-2.5-32b&quot;</span><span class="p">,</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="n">openai_client</span><span class="o">=</span><span class="n">groq_client</span><span class="p">,</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="p">)</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># 定義歷史老師代理人，負責解答歷史事件與背景問題</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">history_teacher</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;History Tutor&quot;</span><span class="p">,</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">handoff_description</span><span class="o">=</span><span class="s2">&quot;負責回答歷史事件、人物和背景問題。&quot;</span><span class="p">,</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">instructions</span><span class="o">=</span><span class="s2">&quot;你是一位博學的歷史老師，請針對使用者的歷史問題提供詳盡的背景介紹、事件解釋及相關細節。並使用繁體中文回答問題。&quot;</span><span class="p">,</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="n">model</span><span class="o">=</span><span class="n">OpenAIChatCompletionsModel</span><span class="p">(</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;qwen-2.5-32b&quot;</span><span class="p">,</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="n">openai_client</span><span class="o">=</span><span class="n">groq_client</span><span class="p">,</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="p">)</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="c1"># 定義分流代理人，根據使用者問題內容自動判斷並轉交給最合適的老師</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="n">triage_assistant</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Triage Agent&quot;</span><span class="p">,</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="n">instructions</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="s2">請根據以下規則判斷使用者問題的屬性：</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="s2">1. 若問題涉及英文文法、詞彙或閱讀理解，請轉交給「English Tutor」；</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="s2">2. 若問題涉及歷史事件、人物或背景，請轉交給「History Tutor」。</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="s2">請根據使用者提問內容，自動選擇最適合的代理人。</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="s2">若提問非兩個領域的問題，則拒絕回答。</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="n">handoffs</span><span class="o">=</span><span class="p">[</span><span class="n">english_teacher</span><span class="p">,</span> <span class="n">history_teacher</span><span class="p">],</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="n">model</span><span class="o">=</span><span class="n">OpenAIChatCompletionsModel</span><span class="p">(</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;qwen-2.5-32b&quot;</span><span class="p">,</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>        <span class="n">openai_client</span><span class="o">=</span><span class="n">groq_client</span><span class="p">,</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    <span class="p">)</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="p">)</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="n">sample_question</span> <span class="o">=</span> <span class="s2">&quot;請問美國獨立戰爭中有哪些重要事件？&quot;</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">triage_assistant</span><span class="p">,</span> <span class="n">sample_question</span><span class="p">)</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最終回覆：&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">final_output</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_2">用法與使用時機</h3>
+<ul>
+<li><strong>多代理人協同</strong>：一個代理人負責英文問題，另一個專攻歷史問題，能避免單一代理人「萬能卻不專精」的情況。</li>
+<li><strong>`handoffs`</strong>：在 <code>triage_assistant</code> 裡指定可交接的代理人清單。當程式執行時，分流代理人會依照指令內容自動決定要交給哪一個老師。</li>
+<li><strong>彈性應用</strong>：若再增加更多領域（例如數學、科學），就能讓每個科目專家各司其職，提升回答的精準度。</li>
+</ul>
+<p>在這段程式執行後，你可以在 <strong>OpenAI Platform</strong> 後台的 <strong>Traces</strong> 頁面，觀察到整個工作流程：</p>
+<ol>
+<li><strong>Triage Agent</strong> 先讀取使用者提問，判斷問題屬於「歷史領域」。  </li>
+<li>它便透過 <strong>handoff</strong> 機制，將工作任務交接給 <strong>History Tutor</strong>。  </li>
+<li><strong>History Tutor</strong> 收到任務後，負責產生關於「美國獨立戰爭」的詳細回覆，並最終將回答返回給使用者。</li>
+</ol>
+<p><img alt="" src="../images/openai-agents-sdk-3.png" /></p>
+<p>在 Traces 頁面上，每個步驟都會以時間順序顯示，包括：</p>
+<ul>
+<li><strong>Agent workflow</strong>：顯示是哪個代理人在執行任務。  </li>
+<li><strong>Handoff</strong>：顯示交接行為，從 Triage Agent 轉給 History Tutor。  </li>
+<li><strong>Execution</strong>：列出執行過程所花費的時間與 Token 使用量，方便日後除錯或分析效能。</li>
+</ul>
+<p><img alt="" src="../images/openai-agents-sdk-4.png" /></p>
+<hr />
+<h2 id="functions">範例三：Functions（函式工具）範例</h2>
+<p>OpenAI 其實提供了 Responses API（需要付費）來實現 WebSearch、FileSearch、Computer Use 等功能；然而，我們也能自己撰寫函式並串接第三方服務，達到類似效果，而且不需付官方費用。</p>
+<h3 id="_3">安裝與簡單測試</h3>
+<p>這裡示範使用 <strong>Tavily</strong>（每月有 1000 次免費呼叫）進行網路搜尋。若還沒有帳號，請先至 <a href="https://app.tavily.com">Tavily 官方網站</a> 註冊並在後台建立一組 <strong>API Key</strong>。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>!pip<span class="w"> </span>install<span class="w"> </span>tavily-python<span class="w"> </span>-q
+</span></code></pre></div>
+<p><img alt="" src="../images/openai-agents-sdk-5.png" /></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">tavily</span> <span class="kn">import</span> <span class="n">TavilyClient</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">TAVILY_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YourTavilyKey&quot;</span> <span class="c1"># 請自行填入</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">tavily_client</span> <span class="o">=</span> <span class="n">TavilyClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">TAVILY_API_KEY</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">response</span> <span class="o">=</span> <span class="n">tavily_client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;請問今天的體育新聞?&quot;</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span></code></pre></div>
+<p>若成功，就能取得搜尋結果及連結。</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>如果不想使用官方的付費 WebSearch，常見的替代方案有:</p>
+<ul>
+<li><strong>Exa.ai</strong>：整合多個資料來源，快速擴充搜尋範圍。</li>
+<li><strong>Tavily</strong>：提供簡易網路搜尋問答，並有免費額度可使用。</li>
+<li><strong>SerpAPI</strong>：直接取得 Google 等主流搜尋引擎的 JSON 化結果。</li>
+</ul>
+</p>
+</div>
+<h3 id="agents-sdk_1">整合到 Agents SDK</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">json</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">Any</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">from</span> <span class="nn">agents</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Runner</span><span class="p">,</span> <span class="n">function_tool</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kn">from</span> <span class="nn">agents.models</span> <span class="kn">import</span> <span class="n">OpenAIChatCompletionsModel</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kn">from</span> <span class="nn">agents.clients</span> <span class="kn">import</span> <span class="n">AsyncOpenAI</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kn">from</span> <span class="nn">tavily</span> <span class="kn">import</span> <span class="n">TavilyClient</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">TAVILY_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YourTavilyKey&quot;</span>  <span class="c1"># 請自行填入</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nd">@function_tool</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">tavily_search</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="sd">    使用 Tavily API 進行網路搜尋，並回傳結果。</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="n">tavily_client</span> <span class="o">=</span> <span class="n">TavilyClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">TAVILY_API_KEY</span><span class="p">)</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tavily search with query </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">tavily_client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="n">groq_client</span> <span class="o">=</span> <span class="n">AsyncOpenAI</span><span class="p">(</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;https://api.groq.com/openai/v1&#39;</span><span class="p">,</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    <span class="n">api_key</span><span class="o">=</span><span class="n">TAVILY_API_KEY</span><span class="p">,</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="p">)</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="n">tavily_search_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Assistant&quot;</span><span class="p">,</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    <span class="n">instructions</span><span class="o">=</span><span class="s2">&quot;使用繁體中文回答問題。&quot;</span><span class="p">,</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">tavily_search</span><span class="p">],</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    <span class="n">model</span><span class="o">=</span><span class="n">OpenAIChatCompletionsModel</span><span class="p">(</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;qwen-2.5-32b&quot;</span><span class="p">,</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>        <span class="n">openai_client</span><span class="o">=</span><span class="n">groq_client</span><span class="p">,</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>    <span class="p">)</span>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="p">)</span>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tavily_search_agent</span><span class="p">,</span> <span class="s2">&quot;請問今天的體育新聞?&quot;</span><span class="p">)</span>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">final_output</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_4">用法與使用時機</h3>
+<ul>
+<li><strong><code>@function_tool</code></strong>：將自定義的函式標記為代理人可用的工具，代理人可在對話過程中自動決定是否呼叫此函式。</li>
+<li><strong>整合第三方 API</strong>：類似官方提供的 WebSearch，但我們改用 Tavily API，以免支付官方費用。</li>
+<li><strong>彈性與擴充</strong>：可依照需求再增加更多工具函式，如翻譯、計算、檔案讀寫等，擴大代理人的應用範圍。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note<p>因為我們現在用的是阿里巴巴發布的 Qwen 2.5，雖然我有指定模型要用繁體中文回答，不過有時候還是會出現簡體中文（這是正常現象）。如果想要獲得更好的繁體中文回答品質，建議可以自行架設 Ollama，並下載部署專門針對繁體中文進行 Instruction Fine-Tuning 的模型，例如 Llama-3-Taiwan、TAIDE 等在地化語言模型。</p>
+<ul>
+<li>延伸閱讀： <a href="https://medium.com/@andy6804tw/2024-ai-技術大回顧-9aea9f4b77d9#9462">盤點台灣開源的繁體中文LLM</a></li>
+</ul>
+</p>
+</div>
+<hr />
+<h2 id="_5">筆者心得感想</h2>
+<p>面對未來 Agent 與多工具標準之爭，OpenAI 也在這場「AI 世界的 USB 接口」競賽中率先推出自家方案。無論最後誰能成為主流標準，對開發者來說，靈活選擇與串接各家服務的能力才是關鍵。趕快動手試試看，讓你的專案率先擁抱多代理人的新時代吧！</p>
+<p>不過，要讓 Agent 接入外部資料、操作各種 App，現在仍缺乏一個「通用標準協議」。像 <strong>Anthropic</strong> 推出的 <strong>MCP 協議</strong> 就被譽為「AI 世界的 USB 接口」，能讓大模型即插即用各種外部工具。面對這波「標準之爭」，OpenAI 也推出自家版本的接口(就好比蘋果的Lightning)。至於誰能成為 AI 時代的 USB-C，讓我們拭目以待。</p>
+<details class="note">
+<summary>名詞解釋：近日火紅的 MCP 是什麼？</summary>
+<p>MCP（Model Context Protocol）由 Claude 的母公司 Anthropic 所提出，目標是讓大型語言模型（LLM）擁有「控制」與「觀察」的能力。原本只能進行文字輸入輸出的 LLM，現在只要依照 MCP 規範輸出特定文字，就能被 MCP 解讀為指令，進一步與支援 MCP 的軟硬體互動，彷彿「文字變成咒語」一般。MCP 也正在重塑 AI 代理的生態系統，讓 AI Agent 可以根據上下文決定使用哪些工具、以何種順序串接，同時引入人機協作功能。2025 年將是 MCP 發展的關鍵一年，市場統一、多步驟執行協議正式化，以及 AI 代理認證的無縫化都將是值得關注的重大進展。</p>
+<p><img alt="" src="https://i.imgur.com/PtZfhsS.png" /></p>
+</details>
+<hr />
+<h2 id="_6">結語</h2>
+<p>透過 <strong>OpenAI Agents SDK</strong>，開發者不僅可以利用官方的 Responses API（付費），也能整合像 <strong>Groq</strong>、<strong>Tavily</strong> 這類免費或第三方的服務，打造各種功能強大的多代理人系統。再加上可選的 <strong>Tracing</strong>（可觀測性）機制，你能清楚掌握代理人之間的交互與工作流程，方便後續調校與除錯。</p>
+<ul>
+<li><strong>不必綁死 OpenAI</strong>：只要對方提供類似 <strong>OpenAI Chat Completions</strong> 的 API 端點，就能直接串接，對於有成本考量的團隊尤其實用。  </li>
+<li><strong>多代理人協作</strong>：利用 <strong>handoffs</strong> 機制，能把任務分配給不同專家代理人。  </li>
+<li><strong>自定義工具</strong>：任何第三方服務或自家 API，都能包裝成函式工具，供代理人呼叫使用。</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

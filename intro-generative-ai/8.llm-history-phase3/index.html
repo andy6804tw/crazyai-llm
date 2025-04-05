@@ -1,0 +1,1683 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Tsai Yi Lin">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/intro-generative-ai/8.llm-history-phase3/">
+      
+      
+        <link rel="prev" href="../7.llm-history-phase2/">
+      
+      
+        <link rel="next" href="../9.llm-ai-agent/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>8.大型語言模型修練史(第三階段) - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8.大型語言模型修練史(第三階段)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    目錄
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📚李宏毅生成式AI導論(2024)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚李宏毅生成式AI導論(2024)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.what-is-generative-ai.md/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.生成式AI是什麼
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.why-generative-ai-is-powerful/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.今日的生成式人工智慧厲害在哪裡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.cant-train-ai-train-yourself-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.訓練不了人工智慧?你可以訓練你自己(上)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.cant-train-ai-train-yourself-part2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.訓練不了人工智慧?你可以訓練你自己(中)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.cant-train-ai-train-yourself-part3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.訓練不了人工智慧?你可以訓練你自己(下)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.llm-history-phase1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.大型語言模型修練史(第一階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.llm-history-phase2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.大型語言模型修練史(第二階段)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    8.大型語言模型修練史(第三階段)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    8.大型語言模型修練史(第三階段)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-from-human-feedback-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Reinforcement Learning from Human Feedback, RLHF)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      回顧前兩階段
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與增強式學習的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與 Instruction Fine-tuning 的比較
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      語言模型與下圍棋的類比
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reward-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      回饋模型 (Reward Model)：建立與應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlaif" class="md-nav__link">
+    <span class="md-ellipsis">
+      虛擬人類學習與 RLAIF 的未來趨勢
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度向虛擬人類學習不是好事
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="過度向虛擬人類學習不是好事">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度學習虛擬回饋可能引起的行為後遺症
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      由AI來提供語言模型回饋(語言模型評價語言模型)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的挑戰與權衡
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的難題
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      目前進度與未來展望
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      總結
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.llm-ai-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.以大型語言模型打造的 AI Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    📚5-Day Gen AI Intensive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            📚5-Day Gen AI Intensive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-03-30-course-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    課程介紹
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-03-31-day1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 1]大型語言模型基礎與提示工程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-01-day2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 2]Embeddings 與向量資料庫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-02-day3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 3]生成式 AI 代理人
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-03-day4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 4]領域專用大型語言模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../google-genai-course/2025-04-04-day5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Day 5] 生成式 AI 的 MLOps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    💻LLM實戰應用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💻LLM實戰應用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama使用教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ollama API整合OpenAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/%E4%BD%BF%E7%94%A8Colab%E9%83%A8%E7%BD%B2Ollama%E6%9C%8D%E5%8B%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用Colab部署Ollama服務
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/%E4%BD%BF%E7%94%A8Streamlit%E8%88%87Ollama%E5%BB%BA%E7%AB%8B%E8%81%8A%E5%A4%A9%E4%BB%8B%E9%9D%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用Streamlit與Ollama建立聊天介面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/openai-agents-sdk-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenAI Agents SDK多代理人工作流程教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/mcp-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深入理解 MCP 搭配簡易實作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🤖免費 LLM API 串接資源
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🤖免費 LLM API 串接資源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../free-llm-api-integration-resources/github-models-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../free-llm-api-integration-resources/groq-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groq 免費體驗 Llama API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    🛠️熱門AI工具使用教學
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            🛠️熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aigc-tools/AI%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-Raphael%E5%85%8D%E8%B2%BBAI%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🖼️Raphael免費AI圖像生成工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aigc-tools/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82-%E7%94%A8Suno.ai%E8%BC%95%E9%AC%86%E6%89%93%E9%80%A0%E5%B1%AC%E6%96%BC%E4%BD%A0%E7%9A%84AI%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🎵Suno作曲及音樂生成器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aigc-tools/%E5%88%A9%E7%94%A8%20Google%20NotebookLM%20%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📝利用 Google NotebookLM 打造高效學習筆記
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-from-human-feedback-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Reinforcement Learning from Human Feedback, RLHF)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      回顧前兩階段
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與增強式學習的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlhf-instruction-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      RLHF 與 Instruction Fine-tuning 的比較
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinforcement-learning-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      語言模型與下圍棋的類比
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reward-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      回饋模型 (Reward Model)：建立與應用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rlaif" class="md-nav__link">
+    <span class="md-ellipsis">
+      虛擬人類學習與 RLAIF 的未來趨勢
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度向虛擬人類學習不是好事
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="過度向虛擬人類學習不是好事">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      過度學習虛擬回饋可能引起的行為後遺症
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      由AI來提供語言模型回饋(語言模型評價語言模型)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的挑戰與權衡
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      增強式學習的難題
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      目前進度與未來展望
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      總結
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">李宏毅</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#ntu-2024" class="md-tag">NTU 生成式導論 2024</a>
+    
+  
+</nav>
+
+
+
+<h1 id="_1">大型語言模型修練史 — 第三階段：參與實戰，打磨技巧</h1>
+<h2 id="reinforcement-learning-from-human-feedback-rlhf">(Reinforcement Learning from Human Feedback, RLHF)</h2>
+<blockquote>
+<p>李宏毅 生成式導論 2024 第8講</p>
+</blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v12IKvF6Cj8?si=4cAGfkic-rUkN_nv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<details class="info">
+<summary>老師叮嚀</summary>
+<ul>
+<li>
+<p>9:30 在這段課程錄影中，為了更清楚地比較 Alpha Go 的訓練過程與大型語言模型的訓練方式，我對 Alpha Go 的實際推論與訓練過程進行了大幅度的簡化。例如，我並未提及 Value Network 和 MCTS 等概念。如果您希望深入了解 Alpha Go 的訓練與推論過程，建議您閱讀原始論文。</p>
+</li>
+<li>
+<p>13:30 需要注意的是，本段課程主要講述的是 Alpha Go 中 Policy Network 的訓練方式。事實上，Alpha Go 還包含了 Value Network 的訓練，用於估算棋局的勝率。這引發了一個有趣的思考：是否可以在大型語言模型的 RLHF中引入類似的概念？</p>
+</li>
+<li>
+<p>19:50 在翻譯術語時，Reward Model 可能譯為「報酬模型」或「獎勵模型」比較合適</p>
+</li>
+<li>
+<p>34:00 有關人生道路的抉擇不建議詢問大型語言模型</p>
+</li>
+</ul>
+</details>
+<p>本講將深入探討大型語言模型如何從海量資料中自我學習，並通過持續的參數調整與最佳化過程，逐步累積知識與能力。這些模型不僅能夠精準捕捉語言結構與文法規律，更在多樣化應用中展現出卓越效能，從自動生成文本到複雜語言理解任務，都證明了深度學習技術的巨大潛力。</p>
+<p>這部分文章將分為三篇，分別剖析大型語言模型的三個修煉階段：</p>
+<p><img alt="" src="../images/img6-1.png" /></p>
+<ul>
+<li>
+<p>第一階段：自我學習，累積實力</p>
+<ul>
+<li>透過海量資料進行文字接龍訓練，持續調整與優化參數，逐步打下穩固的內功基礎。</li>
+</ul>
+</li>
+<li>
+<p>第二階段：名師指點，發揮潛力</p>
+<ul>
+<li>結合人類專業指導與精緻化資料，讓模型得以更精準地應用已學知識，並克服過去的侷限。</li>
+</ul>
+</li>
+<li>
+<p>第三階段：參與實戰，打磨技巧 </p>
+<ul>
+<li>將模型投入真實世界情境，經由反覆驗證與調整，最終形成能靈活應對各種任務的強大能力。</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info<p>所有的階段都是在學文字接龍，只是訓練資料不同。</p>
+</p>
+</div>
+<p>在大模型訓練的第三階段，核心在於讓模型與使用者互動並根據回饋進行微調，這一過程稱為增強式學習（RLHF）。使用者在提供回饋的過程中，會根據新舊答案的比較選擇較佳者，進而幫助模型優化生成機率。</p>
+<hr />
+<h2 id="_2">回顧前兩階段</h2>
+<p>在前三個階段的訓練過程中，第一階段是自督導學習，第二階段是讓人類提供答案進行督導學習，而第三階段則完全基於人類回饋進行調整，重點不在於每一個細節的正確性，而在於最終結果的優劣。</p>
+<p><img alt="" src="../images/img8-1.png" /></p>
+<p>簡單回顧整個訓練流程：</p>
+<ul>
+<li>
+<p><strong>第一階段（Pretrain）</strong><br />
+  利用大量網路資料進行自監督預訓練，無需太多人類介入。</p>
+</li>
+<li>
+<p><strong>第二階段（Instruction Fine-tuning）</strong><br />
+  透過人類提供正確的問題和答案進行督導式學習，重點在於逐步預測下一個 Token。</p>
+</li>
+<li>
+<p><strong>第三階段（RLHF）</strong><br />
+  不直接告知正確答案，而是根據完整回答之間的比較回饋來調整模型，重點在於整體回答品質。</p>
+</li>
+</ul>
+<h2 id="rlhf">RLHF 與增強式學習的基本概念</h2>
+<p>在使用模型時，若對回答不滿意，可點擊「重新來一次」，這時候系統會詢問使用者：新舊答案哪個更好。這種回饋資訊成為模型微調的依據，其核心理念在於：
+- <strong>提高優良回答的出現機率</strong>：當回饋指示某回答較佳時，模型就調整參數使此回答更可能被生成。
+- <strong>降低不佳回答的生成機率</strong>：反之，若回饋認為某回答較差，則模型會降低生成此回答的概率。</p>
+<p><img alt="" src="../images/img8-2.png" /></p>
+<p>此外，RLHF 的實現通常採用演算法如 PPO（Proximal Policy Optimization），其目標在於讓模型在整體生成結果上達到更好的表現，而不只是逐步預測下一個 Token。</p>
+<hr />
+<h2 id="rlhf-instruction-fine-tuning">RLHF 與 Instruction Fine-tuning 的比較</h2>
+<p>從產生訓練資料的角度來看，Instruction Fine-tuning 與 RLHF 都需要人類參與，但在 Instruction Fine-tuning 階段，人類需要自行提出問題並提供正確答案，因此較為辛苦；而在 RLHF 階段，模型會先生成多個答案，人類只需選擇較好的回答，過程更輕鬆。</p>
+<p><img alt="" src="../images/img8-3.png" /></p>
+<p>兩種方法皆需要人類介入，但其差異在於：
+- <strong>Instruction Fine-tuning</strong>：需要人類直接產出正確答案，強調「每一步」的正確連接（即下一個 Token 的生成），整個過程依賴監督學習。
+- <strong>RLHF</strong>：只需要人類在多個候選回答中選出較佳的那一個，重點在於「整體結果」的優劣比較，這使得人類能輕鬆給出偏好，而無需創造正確答案。</p>
+<p><img alt="" src="../images/img8-4.png" /></p>
+<p>RLHF 的優點在於，人類創作正確答案往往困難，但評判答案優劣卻相對容易。舉例來說，若要寫一首讚揚大型語言模型的七言絕句，Instruction Fine-tuning 階段要求人類自行撰寫正確詩句，而這需要很高的創作能力；而在 RLHF 階段，模型先生成兩首詩，再由人類快速選出較佳者（例如：一首不符格式、一首符合格式），以此提供回饋。這說明，對人類而言，評判答案比創作正確答案要簡單得多。</p>
+<p><img alt="" src="../images/img8-5.png" /></p>
+<p>從模型學習的角度來看，Instruction Fine-tuning 主要訓練模型如何預測下一個字，假設每一步都是正確的，最終結果也會正確；但這個假設不總成立，因為模型只關注局部預測。相比之下，RLHF 接收的是完整答案之間的比較回饋，促使模型採用全局思考，專注於生成整體最佳答案，而非僅僅每一步的正確性。</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>總結來說，Instruction Fine-tuning 著眼於「過程」，而 RLHF 著眼於「結果」，讓模型學習如何在整體生成中顧及人類偏好。</p>
+</p>
+</div>
+<hr />
+<h2 id="reinforcement-learning-rl">增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用</h2>
+<p><img alt="" src="../images/img8-6.png" /></p>
+<p>增強式學習的概念在於，透過回饋信號微調模型參數，使得生成的完整回答更符合使用者期待。當人類告知某回答較佳時，模型會調整參數以提高該回答出現的機率；反之，降低較差回答的生成機率。這與傳統的逐步預測不同，RLHF 關注的是整體生成結果的品質。</p>
+<p><img alt="" src="../images/img8-7.png" /></p>
+<p>過去語言模型主要只依靠「下一步預測」來生成文字，但這種方法缺乏全局考量。透過 RLHF，模型不再只專注於單一步驟，而是能夠以整體生成的回答作為評估依據，進而達到更一致且符合人類偏好的表現。</p>
+<hr />
+<h2 id="_3">語言模型與下圍棋的類比</h2>
+<p>將語言模型的生成過程類比為下棋，兩者在本質上都屬於生成式學習，但每一步卻可視為一個分類問題：</p>
+<ul>
+<li><strong>語言模型</strong>：根據目前的輸入句子預測下一個 Token。</li>
+<li><strong>AlphaGo</strong>：根據當前棋盤狀況預測下一步落子位置。</li>
+</ul>
+<p><img alt="" src="../images/img8-8.png" />  </p>
+<p>AlphaGo的對弈過程是，它先根據當前棋局決定下一步落子，接著對手根據更新後的棋局回應，再由AlphaGo依據最新局勢選擇下一步。類似地，語言模型讀取未完成的句子後，會根據機率分佈選擇一個Token並接在輸入後，隨著上下文更新再生成下一個Token。</p>
+<p><img alt="" src="../images/img8-9.png" /></p>
+<p>AlphaGo與對手的互動可以看作是一場棋局接龍，這與語言模型的文字接龍有著異曲同工之妙。AlphaGo首先下第一步，對手接著下第二步，然後AlphaGo根據前兩步決定第三步，如此循環。語言模型則根據當前輸入生成一個token，再依序生成下一個，直至句子結束。雖然整體上看這兩者屬於生成式學習，但每一步實際上都是在解一個分類問題，即在未完成的棋局或句子中選擇最佳的落子或token。</p>
+<p><img alt="" src="../images/img8-10.png" /></p>
+<p>AlphaGo的學習分為兩個階段：首先，它通過模仿棋譜學習，即根據人類棋局模仿下法，這類似於語言模型在預訓練與指令微調階段中學習如何根據人類示範生成下一個字；但僅靠模仿只能應付一般對手。要打敗頂尖高手，AlphaGo必須進行強化學習：與對手對弈後，根據勝負反饋調整各步棋的概率。同樣，語言模型在強化學習階段會生成多個答案，經由人類評判哪個更優，進而調整生成策略，提高好答案出現的機率，降低差答案的機率。這兩者在初期均依賴模仿學習，而在後期則通過強化學習不斷優化策略，達到更高的表現。</p>
+<p><img alt="" src="../images/img8-11.png" /></p>
+<p>語言模型的回饋方式與下圍棋截然不同。在圍棋中，一局結束後，勝負由既定規則明確判定；而語言模型的答案品質往往缺乏明確標準，因此常讓模型生成多個答案，由人類排序比較哪個較佳。直接評斷單一答案的好壞不易，因為答案的優劣是相對且模糊的。這也是為什麼文獻中普遍採用多答案比較的方式來獲取回饋。</p>
+<p><img alt="" src="../images/img8-12.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>在下圍棋中，每一步落子都有明確的勝負標準；而語言模型的每一步雖然都是分類問題，但最終的評價卻取決於整個回答的品質，這就需要通過多候選答案比較來進行回饋。</p>
+</p>
+</div>
+<p>AlphaGo 的 RL 不依賴人工介入，因為圍棋規則自帶明確的勝負判斷，AlphaGo 可以透過與自身不同版本對弈來進行學習。而語言模型的 RL 則需要人類來評價生成句子的好壞，因為沒有客觀標準可判斷。為了彌補這一點，語言模型會建立一個「回饋模型」，模擬人類評分，從而使模型能在有限的人類回饋下學習並提升回答品質。</p>
+<details class="內有芙莉蓮故事">
+<summary>內有芙莉蓮故事</summary>
+<p><strong>虛擬人類回饋：最大化有限回饋效用的挑戰</strong></p>
+<p>語言模型的增強學習與下圍棋有很大不同。圍棋勝負由固定規則決定，而語言模型則依賴有限的人類回饋來評估答案好壞。但由於人類的時間和精力有限，如何最大化這些回饋的效用就成為一大挑戰。李老師借用《芙莉蓮》的故事：雖然勇者辛梅爾僅短暫出現，但他的存在對芙莉蓮的決策影響深遠。類似地，我們可以用有限的人類回饋來構建一個“虛擬人類”，使模型在需要回饋時，能夠想像出“如果是人類會怎麼評價”，從而更有效地調整生成策略。</p>
+<p><img alt="" src="../images/img8-13.png" /></p>
+</details>
+<hr />
+<h2 id="reward-model">回饋模型 (Reward Model)：建立與應用</h2>
+<p>Reward model 是用來模擬人類偏好的工具。訓練過程中，首先收集人類的反饋數據——讓人類比較不同答案並指出哪個較佳。接著，訓練一個模型，使其在輸入同一個問題和答案後能夠輸出一個分數，並滿足：若答案 A 優於答案 B，則 score(A) &gt; score(B)。訓練完成後，語言模型可以生成多個候選答案，再將這些答案輸入 reward model 進行評分，最終挑選分數最高的答案展示給用戶，從而模擬人類的偏好。</p>
+<p><img alt="" src="../images/img8-14.png" /></p>
+<p>為了更有效地利用人類回饋，建立一個能夠模擬人類偏好的「回饋模型」成為關鍵。其基本流程如下：</p>
+<ul>
+<li>收集人類對多個候選答案的偏好數據。</li>
+<li>訓練回饋模型，使其在輸入問題與答案後能輸出一個分數，代表該答案符合人類偏好的程度。</li>
+<li>在實際應用中，語言模型可同時產生多個答案，將這些答案交給回饋模型評分，選出分數最高者作為最終回應。</li>
+</ul>
+<p><img alt="" src="../images/img8-15.png" /></p>
+<p>這種方法可以不必每次都依賴人類直接介入，而是利用已訓練好的回饋模型進行自我學習和參數微調。</p>
+<hr />
+<h2 id="rlaif">虛擬人類學習與 RLAIF 的未來趨勢</h2>
+<p>一種更佳的作法是讓語言模型直接從回饋模型學習，將語言模型的輸入與輸出作為回饋模型的輸入來評分，再利用回饋結果進行參數微調：若評分偏低則降低該回答出現的機率，反之則提高。這樣一來，語言模型無須等待人類回應即可直接學習。隨著模型能力的提升，除了真實的人類回饋外，近年也開始探索利用 AI 模型自行提供回饋（RLAIF: Reinforcement Learning from AI Feedback），其優點包括：</p>
+<ul>
+<li>減少人類回饋的成本與局限。</li>
+<li>同一模型可以在生成回答的同時，自行評估並進行反饋調整。</li>
+</ul>
+<p><img alt="" src="../images/img8-16.png" /></p>
+<p>Instruct GPT 這篇論文（2022 年 3 月發表）比較了僅進行 Instruction Fine Tuning（SFT）的模型與使用 PPO 進行 RLHF 微調的模型，結果顯示，經過 RLHF 訓練的模型表現更佳。實驗中，不同顏色的曲線代表了不同階段：藍色表示第一階段的預訓練模型，綠色代表第二階段的指令微調模型，而紅色和黃色則代表第三階段的 RLHF 模型。研究發現，即使是最小的 1.3B 模型，在經過 RLHF 調校後，其效能也能超越僅完成預訓練的大型 175B 模型，充分證明了在有限的人類回饋支持下，Instruction Fine Tuning 與 RLHF 對模型性能提升的重要性。</p>
+<p><img alt="" src="../images/img8-17.png" /></p>
+<p>這種自我回饋的方法正逐步被探索，但同時也面臨如何避免「自我強化偏差」的挑戰，即模型可能因過度依賴內部回饋而產生不自然或重複的語言行為。</p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a></li>
+</ul>
+</p>
+</div>
+<hr />
+<h2 id="_4">過度向虛擬人類學習不是好事</h2>
+<p>根據2020年的一篇OpenAI論文及相關筆記顯示，過度依賴虛擬人類（reward model）學習可能會對模型產生有害影響。論文中的實驗以摘要任務為例，通過一個圖表展示，橫軸表示模型從虛擬人類那裡學習的深度（愈往右表示越深），而縱軸則代表偏好程度：虛線顯示reward model的評價，實線則反映真實人類的偏好。結果顯示，隨著模型過度學習，reward model會越來越偏好其輸出，但這些輸出不一定能獲得真實人類的認同，反而可能使人類的喜好下降。這一發現提醒我們，在利用虛擬回饋時必須謹慎，以免偏離真實人類需求。</p>
+<p><img alt="" src="../images/img8-18.png" /></p>
+<p>當模型過度依賴虛擬人類回饋時，其生成的摘要會展現出奇怪的特徵。例如摘要結尾總是帶有 "please"，而中間則常常出現三個問號。這可能是因為虛擬人類本身只是一個模型，在回饋學習過程中吸收了不尋常的偏好，進而引導語言模型產生異常的輸出。</p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2009.01325">Learning to summarize from human feedback</a></li>
+</ul>
+</p>
+</div>
+<h3 id="_5">過度學習虛擬回饋可能引起的行為後遺症</h3>
+<p>有觀點認為，ChatGPT 許多不盡如人意的表現，可能源自於過度依賴虛擬回饋模型學習。這一說法來自 OpenAI 共同創辦人 John Sormont 在 ICML 會議上的分享，他指出，過度學習虛擬人類（reward model）的回饋，可能使模型表現出一些讓人不喜歡的行為，例如過於冗長的條列回答、頻繁道歉、常以 “As an AI language model” 為開頭、語言過於模稜兩可，甚至常拒絕滿足用戶要求。這些行為均可能是虛擬老師過度介入後產生的後遺症。</p>
+<ul>
+<li><strong>冗長饒舌：</strong> 回答時會詳細列舉，例如以 12345 條列，並以 "overall" 結尾。</li>
+<li><strong>過度道歉：</strong> 模型經常在回答中表現出頻繁道歉的傾向。</li>
+<li><strong>固定格式：</strong> 喜歡以 "As an AI language model" 作為開頭。</li>
+<li><strong>模稜兩可：</strong> 回答內容常常過於含糊，不夠明確。</li>
+<li><strong>頻繁拒絕：</strong> 模型過於常見地拒絕滿足使用者的要求。</li>
+</ul>
+<p>由於虛擬老師學習存在缺點，許多研究者正致力於開發不依賴虛擬人類的新演算法，如 DPO 和 KTO。這些方法旨在避免因過度依賴虛擬老師而導致的偏差，雖然目前尚未完全驗證它們能否完全取代傳統方法，但最新論文已展現出這一方向的潛力。相關參考資料供大家參考。(作業會展示DPO方法)</p>
+<p><img alt="" src="../images/img8-19.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization: Your Language Model is Secretly a Reward Model</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2402.01306">KTO: Model Alignment as Prospect Theoretic Optimization</a></li>
+</ul>
+</p>
+</div>
+<h2 id="ai">由AI來提供語言模型回饋(語言模型評價語言模型)</h2>
+<p>隨著AI能力的提升，傳統依賴人類回饋（RLHF）來訓練語言模型的方法面臨挑戰，因為人類回饋既昂貴又有限。近年來，研究者開始探索由AI自身提供回饋（RLAIF）的可能性，例如利用GPT-4這類超強模型來評估其他模型的輸出，甚至讓同一模型互相評價。這種方法利用語言模型的自我反省能力判斷答案的好壞，已在Claude的《Constitutional AI》論文及Meta的Self-rewarding模型中有所應用。換句話說，若取得人類回饋太麻煩，就有可能用先進的語言模型來替代，從而提高訓練效率和整體表現。</p>
+<p><img alt="" src="../images/img8-20.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2212.08073">Constitutional AI: Harmlessness from AI Feedback</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2304.03277">Instruction Tuning with GPT-4</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2309.00267">RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2401.10020">Self-Rewarding Language Models</a></li>
+</ul>
+</p>
+</div>
+<h2 id="_6">增強式學習的挑戰與權衡</h2>
+<p>增強式學習面臨一個根本性的挑戰：如何定義「好」。由於「好」沒有固定標準，因此當人類被要求評價一個答案時，不同角度會產生衝突。例如，若語言模型回答「我不能教你製作火藥」以保障安全，這從安全角度來看是正確的，但從幫助性角度看，卻可能被認為是不夠有用的。為了解決這個問題，部分研究（如 Llama 的論文）嘗試訓練兩個不同的 reward model：一個從安全性評分，另一個從幫助性評分，並以一定策略結合兩者。</p>
+<p><img alt="" src="../images/img8-21.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2307.09288">Llama 2: Open Foundation and Fine-Tuned Chat Models</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2204.05862">Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback</a></li>
+</ul>
+</p>
+</div>
+<p>然而，不同模型對安全標準的定義也不盡相同，如 GPT-4、Gemini 與 Claude Dream 分別對製作玩具槍的回答就存在顯著差異。這些現象凸顯出，在增強式學習中確定什麼是「好」仍然是一個見仁見智、充滿挑戰的問題。</p>
+<p><img alt="" src="../images/img8-22.png" /></p>
+<h2 id="_7">增強式學習的難題</h2>
+<p>隨著語言模型變得越來越強大，未來的增強式學習可能會面臨一個重大挑戰。當模型需要處理連人類也難以評斷好壞的問題時，如何獲得正確的回饋。舉例來說，當詢問「應該念博班還是工作」這類複雜問題時，GPT-4可能會給出模棱兩可的答案，甚至在不同情境下做出截然不同的選擇，而人類的評價往往帶有偏見且缺乏統一標準。這意味著，如果回饋基於這種不穩定的判斷，模型就可能被引導向錯誤的方向，進而無法持續進步。這一問題至今仍無明確解答，成為未來增強式學習亟待突破的難題。</p>
+<p><img alt="" src="../images/img8-23.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info<p>有關學術問題，一律讀博班就對了!</p>
+</p>
+</div>
+<hr />
+<h2 id="_8">目前進度與未來展望</h2>
+<p>總結來說，語言模型的訓練分為三個階段。第一階段是 Pretrain，也稱為 Foundation Model，它作為後續訓練的基石；第二階段是 Instruction Fine Tuning；第三階段則是 RLHF。後兩個階段均引入了人類教師進行調整，旨在讓模型對齊人類的偏好與需求。至此，我們已完整介紹了語言模型的訓練過程。</p>
+<p><img alt="" src="../images/img8-23.png" /></p>
+<p>目前，透過 RLHF 訓練得到的模型已能在多數應用中達到令人滿意的效果，但仍面臨以下問題：</p>
+<ul>
+<li>如何更精準地捕捉「好」與「壞」的標準。</li>
+<li>如何在有限的回饋數據中最大化學習效果。</li>
+<li>如何避免模型過度依賴虛擬回饋而偏離真實人類偏好。</li>
+</ul>
+<p>未來，隨著 AI 自我反省與自我回饋技術（如 RLAIF）的發展，語言模型有望在降低人工回饋成本的同時，持續優化回應品質與安全性。</p>
+<hr />
+<h2 id="_9">總結</h2>
+<p>本文綜合了預訓練、指令微調與 RLHF 三個階段的訓練流程，探討了如何利用人類與虛擬回饋來進行模型微調，並透過與下圍棋的類比解釋了語言模型生成過程中的每一步實際上都是一個分類問題，但整體生成卻屬於生成式學習。透過回饋模型（Reward Model）的建立與應用，模型能夠更貼近使用者的偏好，進一步提升生成結果的品質。儘管在實現過程中存在安全性、助益性以及回饋數據有限性等挑戰，但現有實驗已證明，經過 RLHF 微調後的模型具有顯著效能提升，未來隨著 AI 自我回饋技術的發展，語言模型在應用中將更趨完善。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,5 +1,5 @@
 # 利用 Google Colab 部署 Ollama 服務
-範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.llm-practical/code/使用Colab部署Ollama服務.ipynb)
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/llm-practical/code/使用Colab部署Ollama服務.ipynb)
 
 ## 前言
 Ollama 服務提供一個統一的介面，讓你能夠輕鬆管理與呼叫各式語言模型，無論是在測試環境還是實際應用中，都能發揮極佳效能。對於手上沒有 GPU 運算資源，卻又想試玩地端大型語言模型的朋友，利用 Colab 平台進行概念驗證不失為一個好方法。透過 Colab 的免費運算資源，你可以快速驗證 Ollama 的功能與表現，進而應用於開發或原型設計。

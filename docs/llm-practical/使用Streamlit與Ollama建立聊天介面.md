@@ -7,7 +7,7 @@ tags:
 
 # 在 Colab 使用 Streamlit 與 Ollama 建立聊天介面
 
-範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/2.llm-practical/code/使用Streamlit與Ollama建立聊天介面.ipynb)
+範例程式：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andy6804tw/crazyai-llm/blob/main/docs/llm-practical/code/使用Streamlit與Ollama建立聊天介面.ipynb)
 
 ## 前言
 本教學將介紹如何在 **Google Colab** 上運行 **Streamlit**，並透過 **Ollama API** 來建立一個簡單的 **聊天介面**。由於 Colab **無法直接執行 `streamlit run`**，我們將使用 **LocalTunnel** 讓本機電腦可以存取 Colab 內運行的 Streamlit 應用。

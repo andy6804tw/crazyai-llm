@@ -41,7 +41,7 @@ nav:
     - '[Day 1]大型語言模型基礎與提示工程': 'google-genai-course/2025-03-31-day1.md'
     - '[Day 2]Embeddings 與向量資料庫': 'google-genai-course/2025-04-01-day2.md'
     - '[Day 3]生成式 AI 代理人': 'google-genai-course/2025-04-02-day3.md'
-    - '[Day 4]領域專用大型語言模型': 'google-genai-course/2025-04-03-day4.md'
+    - '[Day 4]特定領域大型語言模型': 'google-genai-course/2025-04-03-day4.md'
     - '[Day 5] 生成式 AI 的 MLOps': 'google-genai-course/2025-04-04-day5.md'
 
   - '💻LLM實戰應用':

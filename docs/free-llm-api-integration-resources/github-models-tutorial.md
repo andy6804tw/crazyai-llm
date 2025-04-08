@@ -211,9 +211,9 @@ response = client.chat.completions.create(
         }
     ],
     model="gpt-4o",  # 指定使用的 AI 模型為 GPT-4o
-    temperature=1,  # 設定溫度值，影響回答的隨機性（1 代表較具變化性）
+    temperature=1,  # 設定溫度值，影響回答的隨機性
     max_tokens=4096,  # 設定回應的最大 Token 數（字數限制）
-    top_p=1  # 設定 Top-p（核取樣），用於控制回應的多樣性
+    top_p=1  # 設定 Top-p，用於控制回應的多樣性
 )
 
 # 印出 AI 的回應內容

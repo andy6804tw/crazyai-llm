@@ -42,6 +42,7 @@ if user_input := st.chat_input("請輸入您的訊息..."):
         temperature=1.0,
         top_p=1.0,
         max_tokens=1000,
+        streaming=True
     )
 
     # 獲取助理回應內容

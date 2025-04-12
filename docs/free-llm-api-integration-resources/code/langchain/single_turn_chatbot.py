@@ -8,7 +8,7 @@ from langchain.schema import SystemMessage, HumanMessage
 load_dotenv()
 
 # 設定 OpenAI API 金鑰與模型端點
-token = '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' # 請在 .env 檔中設定 API 金鑰，或直接填入金鑰字串
+token = '' # 請在 .env 檔中設定 API 金鑰，或直接填入金鑰字串
 endpoint = "https://models.inference.ai.azure.com"
 model_name = "gpt-4o"
 

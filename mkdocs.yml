@@ -42,7 +42,7 @@ nav:
     - '[Day 2]Embeddings 與向量資料庫': 'google-genai-course/2025-04-01-day2.md'
     - '[Day 3]生成式 AI 代理人': 'google-genai-course/2025-04-02-day3.md'
     - '[Day 4]特定領域大型語言模型': 'google-genai-course/2025-04-03-day4.md'
-    - '[Day 5] 生成式 AI 的 MLOps': 'google-genai-course/2025-04-04-day5.md'
+    - '[Day 5]生成式 AI 的 MLOps': 'google-genai-course/2025-04-04-day5.md'
 
   - '💻LLM實戰應用':
     - 'Ollama使用教學': 'llm-practical/Ollama使用教學.md'
@@ -60,6 +60,9 @@ nav:
     - '🖼️Raphael免費AI圖像生成工具': 'aigc-tools/AI圖片生成-Raphael免費AI圖像生成工具.md'
     - '🎵Suno作曲及音樂生成器': 'aigc-tools/AI生成音樂-用Suno.ai輕鬆打造屬於你的AI音樂.md'
     - '📝利用 Google NotebookLM 打造高效學習筆記': 'aigc-tools/利用 Google NotebookLM 打造高效學習筆記.md'
+
+  - '用Dify打造專屬AI助理':
+    - '使用 Dify 打造 AI 客服知識庫': 'dify-tutorial/knowledge-retrieval.md'
 
 markdown_extensions:
   - admonition

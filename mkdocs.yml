@@ -63,6 +63,7 @@ nav:
 
   - '用Dify打造專屬AI助理':
     - '使用 Dify 打造 AI 客服知識庫': 'dify-tutorial/knowledge-retrieval.md'
+    - '使用 Dify 工作流打造 RAG AI 客服系統': 'dify-tutorial/workflow-rag-chatbot-tutorial.md'
 
 markdown_extensions:
   - admonition

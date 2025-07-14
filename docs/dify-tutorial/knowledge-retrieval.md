@@ -172,13 +172,23 @@ Dify 提供三種知識庫查詢方式：
 
 ---
 
-## 八、整合客服流程（預告）
+## 整合客服流程（預告）
+本文教學先介紹如何建立 Dify 知識庫。[下一篇](./workflow-rag-chatbot-tutorial.md)，我們將說明如何將知識庫整合到客服流程中，並實作出一個完整的 AI 客服對話系統。
 
-本文教學先介紹如何建立 Dify 知識庫。下一篇，我們將說明如何將知識庫整合到客服流程中，並實作出一個完整的 AI 客服對話系統。
+![](./images/img-workflow-rag-chatbot-tutorial-9.png)
 
 ---
 
 ## 總結
+大家可以根據需求選擇合適的 Embedding 模型。本文所採用的 multilingual‑e5‑large 適合於中短文本的快速 embedding(輸入的 tokens 上限只有 512 tokens 偏少)，但對於長文本或需精確檢索的任務，建議使用更強大的 BGE‑M3（具多功能 retrieval）搭配 BGE‑Reranker‑V2‑M3 做 reranker，能兼顧效率與效果。
+
+| 任務類型                          | 建議模型組合                   | 解說                                          |
+| ----------------------------- | --------------------------- | ------------------------------------------- |
+| 中短篇 embedding / 多語 clustering | multilingual‑e5‑large       | 快速初始化，適合資源有限的小型應用                           |
+| 長文本 retrieval                 | BGE‑M3                      | context up to 8192 ，支援 dense/sparse/ColBERT |
+| 精細重排序                         | BGE‑M3 + BGE‑Reranker‑V2‑M3 | embedding + cross‑encoder reranking 提升結果    |
+
+
 
 使用 Dify 建立 AI 客服知識庫具備以下優勢：
 
@@ -188,7 +198,3 @@ Dify 提供三種知識庫查詢方式：
 * 模型如 Voyage 提供高性價比方案
 
 掌握了 Dify + Embedding + Rerank + RAG 的精髓，就能打造真正能理解語意、提供準確回答的 AI 客服系統。
-
----
-
-如果你需要這篇文章的 Markdown 格式或想進一步設計圖解，也可以告訴我幫你製作。是否需要幫你產出教學圖卡或封面圖片？

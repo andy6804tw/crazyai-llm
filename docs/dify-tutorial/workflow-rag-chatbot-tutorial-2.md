@@ -30,44 +30,66 @@
 ### 2. 下一步問題建議
 開啟此功能後 AI 會根據用戶已提出的問題與回答，提供延伸相關問題，協助用戶快速獲得更多資訊。
 
-
+![](./images/img-workflow-rag-chatbot-tutorial-2-4.png)
 
 ### 3. 語音轉文字
 除了手動輸入訊息，也可以透過麥克風錄音當使用者聲音轉換成輸入的prompt。
 
 ![](./images/img-workflow-rag-chatbot-tutorial-2-5.png)
 
-### 4. 檔案上傳
+不過，在啟用此功能之前，必須先在 Dify 平台啟用 Groq 並設定 API 金鑰，詳細步驟請參考[這篇文章](../free-llm-api-integration-resources/groq-tutorial.md)。完成啟用後，即可免費調用 Whisper 模型，輕鬆將語音轉為文字。
 
-允許用戶上傳圖片或文件作為問題說明，目前系統有些限制暫僅支援圖片，日後版本可能修正。
+![](./images/img-workflow-rag-chatbot-tutorial-2-6.png)
+
+### 4. 檔案上傳
+允許用戶上傳圖片或文件作為問題說明，可設定檔案允許格式(包含URL形式解析功能)並且限制上傳數量與大小。同時必須在LLM節點的 User 使用者欄位添加 `{{#sys.files#}}` 這樣機器人才能讀取到使用者所上傳的檔案。
+
+![](./images/img-workflow-rag-chatbot-tutorial-2-7.png)
+
+![](./images/img-workflow-rag-chatbot-tutorial-2-8.png)
 
 ### 5. 引用與歸屬
+開啟此功能後，用戶提問時會顯示知識庫相關來源供參考。
 
-設定後，用戶提問時會顯示知識庫相關來源供參考。客服系統若不需要顯示過多資訊，建議關閉避免增加 Token 消耗。
+![](./images/img-workflow-rag-chatbot-tutorial-2-9.png)
 
 ### 6. 內容審查（禁用字設定）
-
-可設定禁用的關鍵字，避免不適當的內容輸入與輸出。此外也支援 OpenAI Moderation 模型進行內容審核，過濾敏感詞。
+可設定禁用的關鍵字，避免不適當的內容輸入與輸出。此外也支援 OpenAI Moderation 模型進行內容審核(查需要在 模型供應商 中配置 OpenAI API 金鑰。)，過濾敏感詞。
 
 ## 三、日誌與標註功能優化
-
 Dify 提供日誌管理，用於查看用戶對話內容並進行標註管理。
+
+![](./images/img-workflow-rag-chatbot-tutorial-2-10.png)
 
 * **日誌功能**：記錄所有客服對話與用戶滿意度（按讚或不滿意），便於後續分析與改善。
 
 * **標註功能**：可以將特定的問題與回答進行編輯，標記後的回答未來會優先使用，並能快速回應類似問題。
 
+![](./images/img-workflow-rag-chatbot-tutorial-2-11.png)
+
+
+
 ### 如何使用標註優化回答？
+標註回覆功能開啟後，管理者只要在彈出視窗中設定一個介於 0.8～1.0 的分數閾值（數值越高表示只在更精準匹配時才觸發）以及選擇一款 Embedding 模型（例如 intfloat/multilingual-e5-large），系統就會先把使用者的提問透過該模型轉成向量，跟所有人工標註的問題計算餘弦相似度，只有當相似度達到設定的閾值時才會直接回傳對應的標註答案，否則再走 AI 備援生成流程；如此一來，常見且標準化的問題都能穩定回覆，同時又保留 AI 回答的彈性與廣度。
 
 1. 點擊「日誌與標註」，選擇有價值的對話進行標註。
 2. 標註的回答可進行手動優化與編輯。
-3. 配置標註回覆的 embedded 模型（推薦使用 OpenAI Embedded），設定命中分數閥值（建議 0.8\~0.9），提高問題匹配精準度。
+3. 配置標註回覆的 embedded 模型，設定命中分數閥值，提高問題匹配精準度。
 
-透過這種方法，常見問題或固定格式回覆（如客服電話或聯繫方式）能快速自動回應。
+![](./images/img-workflow-rag-chatbot-tutorial-2-12.png)
+
+透過這種方法，常見問題或固定格式回覆能快速自動回應。
+
+![](./images/img-workflow-rag-chatbot-tutorial-2-13.png)
+
+從後台可以看到這個提問的命中次數與分數是多少。
+
+![](./images/img-workflow-rag-chatbot-tutorial-2-14.png)
 
 ### 批次管理標註資料
-
 除了手動新增標註外，也可透過 Excel 表格批次匯入問答資料，大幅提升維護效率。
+
+![](./images/img-workflow-rag-chatbot-tutorial-2-15.png)
 
 ## 四、設定完成與效果驗證
 

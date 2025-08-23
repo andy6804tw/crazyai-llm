@@ -62,9 +62,9 @@ set_tracing_export_api_key('YourOpenAIKey')
 ```
 
 ## 註冊 Groq(免費LLM方案)
-如果手邊沒有付費 OpenAI 的 LLM 模型 API 不妨可以使用免費的資源先玩玩看。Groq 的使用方式與介紹可以參考另一篇文章：[Groq 使用教學](../3.free-llm-api-integration-resources/groq-tutorial.md)。
+如果手邊沒有付費 OpenAI 的 LLM 模型 API 不妨可以使用免費的資源先玩玩看。Groq 的使用方式與介紹可以參考另一篇文章：[Groq 使用教學](../free-llm-api-integration-resources/groq-tutorial.md)。
 
-![](../3.free-llm-api-integration-resources/images/img-groq-3.png)
+![](../free-llm-api-integration-resources/images/img-groq-3.png)
 
 申請完成後，將 Groq 金鑰貼到你的程式碼中。
 
@@ -74,7 +74,7 @@ GROQ_API_KEY = 'YourGroqKey' # 請自行填入
 
 !!! note
 
-        只要平台提供與 OpenAI Chat Completions 相容的 API 端點，Agents SDK 都能順利整合。除了 Groq，也可以使用像是 [GitHub Models](../3.free-llm-api-integration-resources/github-models-tutorial.md)、Google Gemini、[Ollama](./Ollama使用教學.md) 等其他服務都是不錯的選擇。
+        只要平台提供與 OpenAI Chat Completions 相容的 API 端點，Agents SDK 都能順利整合。除了 Groq，也可以使用像是 [GitHub Models](../free-llm-api-integration-resources/github-models-tutorial.md)、Google Gemini、[Ollama](./Ollama使用教學.md) 等其他服務都是不錯的選擇。
 
 
 

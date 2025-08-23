@@ -173,7 +173,7 @@ Dify 提供三種知識庫查詢方式：
 ---
 
 ## 整合客服流程（預告）
-本文教學先介紹如何建立 Dify 知識庫。[下一篇](./workflow-rag-chatbot-tutorial.md)，我們將說明如何將知識庫整合到客服流程中，並實作出一個完整的 AI 客服對話系統。
+本文教學先介紹如何建立 Dify 知識庫。[下一篇](./workflow-rag-chatbot-tutorial-1.md)，我們將說明如何將知識庫整合到客服流程中，並實作出一個完整的 AI 客服對話系統。
 
 ![](./images/img-workflow-rag-chatbot-tutorial-9.png)
 

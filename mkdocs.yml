@@ -65,6 +65,7 @@ nav:
     - '使用 Dify 打造 AI 客服知識庫': 'dify-tutorial/knowledge-retrieval.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(基礎篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-1.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(進階篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-2.md'
+    - 'Dify Agent 教學': 'dify-tutorial/agent-tutorial.md'
 
 markdown_extensions:
   - admonition
@@ -90,3 +91,4 @@ plugins:
   - tags:
       tags_file: tags.md
   - search
+  - glightbox

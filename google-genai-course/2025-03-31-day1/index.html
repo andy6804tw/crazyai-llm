@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1029,6 +1038,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1314,6 +1344,27 @@
   
   <span class="md-ellipsis">
     使用 Dify 工作流打造 RAG AI 客服系統(進階篇)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
   </span>
   
 
@@ -1631,7 +1682,7 @@
 <hr />
 <h2 id="day-1_1">Day 1 直播精華整理</h2>
 <p>目前生成式 AI 正處於爆發發展的時代，不僅模型架構與運算能力日新月異，提示工程也從早期的摸索轉向更有系統化的設計。在這五天的密集課程中，專家們從 Google、Kaggle 與 DeepMind 帶來了許多前瞻觀點與實戰經驗，今天的直播 Q&amp;A 更是直擊技術核心與未來挑戰。以下依序整理出直播中的主要問答重點。</p>
-<p><img alt="" src="../images/img-day1-1.png" /></p>
+<p><a class="glightbox" href="../images/img-day1-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-day1-1.png" /></a></p>
 <h2 id="qa">Q&amp;A 專家問答</h2>
 <h3 id="q1ai-studio">Q1：AI Studio 的定位與能力</h3>
 <p><strong>問題內容：</strong><br />
@@ -1857,5 +1908,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

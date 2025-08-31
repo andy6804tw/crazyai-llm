@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1065,6 +1074,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1350,6 +1380,27 @@
   
   <span class="md-ellipsis">
     使用 Dify 工作流打造 RAG AI 客服系統(進階篇)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
   </span>
   
 
@@ -1658,7 +1709,7 @@
 <p>所以，與其糾結於 prompt 的格式，不如專注於如何提升自己與 AI 協作的能力，才能真正發揮 AI 的最大價值！🚀</p>
 </div>
 <p>現今的語言模型只要能夠清楚描述問題，就能獲得對應的回應，因此可視為一位線上新人助理。這位助理具備一般人的知識與理解能力，但因為第一次認識你，對你的細節資訊一無所知，故在某些情境下可能無法精準回應。因此，提供明確前提或額外資訊對於獲得更準確答案是很重要的。</p>
-<p><img alt="" src="../images/img3-1.png" /></p>
+<p><a class="glightbox" href="../images/img3-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-1.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
@@ -1689,9 +1740,9 @@
 <hr />
 <h2 id="1">1. 神奇咒語</h2>
 <p>神奇咒語是指在提示中加入特定語句，藉此激發模型進行更深入的推理或展現更佳的生成效果。這些提示雖不保證對所有模型、所有任務都有效，但在許多應用中能顯著提升表現。</p>
-<p><img alt="" src="../images/img3-16.png" /></p>
+<p><a class="glightbox" href="../images/img3-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-16.png" /></a></p>
 <h3 id="11-chain-of-thought-cot">1.1 叫模型思考 — Chain of Thought (CoT)</h3>
-<p><img alt="" src="../images/img3-2.png" /></p>
+<p><a class="glightbox" href="../images/img3-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-2.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   在提問時加入如「Let's think step by step」等指令，促使模型展開多步推理。</li>
@@ -1708,7 +1759,7 @@
 </ul>
 </div>
 <h3 id="12">1.2 請模型解釋自己的答案</h3>
-<p><img alt="" src="../images/img3-3.png" /></p>
+<p><a class="glightbox" href="../images/img3-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-3.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   要求模型在給出最終答案前先解釋推理過程，可使最終回答更貼近人類評分標準。</li>
@@ -1723,7 +1774,7 @@
 </ul>
 </div>
 <h3 id="13">1.3 情緒刺激（情緒勒索）</h3>
-<p><img alt="" src="../images/img3-4.png" /></p>
+<p><a class="glightbox" href="../images/img3-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-4.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   加入「這件事對我的人生很重要」等語句，利用情緒刺激來激發模型更強的表現。</li>
@@ -1737,7 +1788,7 @@
 </ul>
 </div>
 <h3 id="14-ai">1.4 用 AI 自動搜尋神奇咒語</h3>
-<p><img alt="" src="../images/img3-5.png" /></p>
+<p><a class="glightbox" href="../images/img3-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-5.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   透過增強式學習 (Reinforcement Learning) 訓練一個專門搜尋有效提示語的模型，自動發掘更強效的咒語。</li>
@@ -1751,7 +1802,7 @@
 </ul>
 </div>
 <p>隨著語言模型的快速演進，許多過去被視為「神奇咒語」的提示手法，在新版模型上已經不再像以前那樣有效。這是因為最新的模型版本在內部推理和語言處理能力方面普遍得到大幅提升，不需要過度依賴特定關鍵詞或特殊提示就能完成更複雜的任務。換句話說，過去在舊模型上或許能顯著提高正確率的「神奇咒語」，在新模型中只能提供有限的幫助，甚至完全不再產生明顯的效果。</p>
-<p><img alt="" src="../images/img3-7.png" /></p>
+<p><a class="glightbox" href="../images/img3-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-7.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -1759,7 +1810,7 @@
 </ul>
 </div>
 <h3 id="15-prompt">1.5 提示語排行榜（Prompt）</h3>
-<p><img alt="" src="../images/img3-6.png" /></p>
+<p><a class="glightbox" href="../images/img3-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-6.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   除了對模型進行排名，還可以對不同提示語進行評比，從而篩選出能最大程度提升模型表現的提示。  </li>
@@ -1769,9 +1820,9 @@
 <hr />
 <h2 id="2">2. 提供額外資訊</h2>
 <p>提供額外資訊的方法著眼於通過補充上下文與背景，使模型能更精確地理解問題，從而生成更準確的回答。這種方法不改變模型參數，而是改變輸入內容，引導模型產生最佳輸出。</p>
-<p><img alt="" src="../images/img3-8.png" /></p>
+<p><a class="glightbox" href="../images/img3-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-8.png" /></a></p>
 <h3 id="21">2.1 把前提講清楚</h3>
-<p><img alt="" src="../images/img3-9.png" /></p>
+<p><a class="glightbox" href="../images/img3-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-9.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   清楚地闡述問題背景與前提，避免模型因理解不全而產生誤判。例如，NTU 既可代表「臺灣大學」也可代表「南洋理工大學」，根據使用者的背景不同，模型的回答也應隨之調整。</li>
@@ -1780,7 +1831,7 @@
 </ul>
 <h3 id="22-ai">2.2 提供生成式 AI 不清楚的資訊</h3>
 <p>假設我們向模型詢問有關 GPT 的資訊，舊版本的模型可能並未詳盡收錄這些內容，因此無法提供完整的相關資料。</p>
-<p><img alt="" src="../images/img3-10.png" /></p>
+<p><a class="glightbox" href="../images/img3-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-10.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   當模型對某些專業知識或最新資訊了解不足時，先搜尋並整理相關資料，再將這些資料餵入模型中，使其能生成更精確的答案。</li>
@@ -1789,7 +1840,7 @@
 </ul>
 <h3 id="23-in-context-learning">2.3 提供範例（In-Context Learning）</h3>
 <p>假設我們想做情感分析，但模型可能不理解「情感分析」的概念。這時，我們可以給它一些範例，讓模型知道該如何辨識情感。這種利用範例進行教導的方式稱為 In-context learning。雖然這個詞包含「learning」，但並不代表模型真的被重新訓練，也沒有任何參數被改變。</p>
-<p><img alt="" src="../images/img3-11.png" /></p>
+<p><a class="glightbox" href="../images/img3-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-11.png" /></a></p>
 <p>那要如何判斷模型是否「真的懂」這些範例呢？方法很簡單：故意把正面情緒的範例改為負面、負面改為正面，若模型真的理解，就應該能根據新的情感標籤做出相應的改變。然而，根據參考文獻的結果顯示，模型並沒有真正看懂這些範例。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1799,7 +1850,7 @@
 </ul>
 </div>
 <p>另一篇論文針對更強的模型進行相同的範例測試，並用下圖說明模型能力強弱：顏色越深，表示模型能力越強。結果顯示，模型能力越強，就越能依照我們給定的範例來回答問題；如果範例本身是錯的，模型也會根據錯誤範例作出錯誤回答——從邏輯上看，這代表模型「正確」地遵循了我們提供的範例。因此，該研究的結論是：模型能力越強，就越能「讀懂」並嚴格依照範例來作答。</p>
-<p><img alt="" src="../images/img3-12.png" /></p>
+<p><a class="glightbox" href="../images/img3-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-12.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -1808,7 +1859,7 @@
 </div>
 <h4 id="gemini-15-in-context-learning">Gemini 1.5 In-context Learning 案例</h4>
 <p>根據 Google 的說法，Gemini 具備非常強大的 in-context learning 能力。研究人員在測試一種名為 Kalamang 的語言時，發現僅約 200 人能夠理解這門語言。透過給予模型一本 Kalamang 的文法書和字典，再搭配適當的指令進行詢問，結果顯示模型竟能成功翻譯這種語言，展現了令人驚艷的推理與理解能力。</p>
-<p><img alt="" src="../images/img3-13.png" /></p>
+<p><a class="glightbox" href="../images/img3-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-13.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -1816,7 +1867,7 @@
 </ul>
 </div>
 <p>下表比較了不同模型在翻譯 Kalamang 語言時的表現，評分以六分為滿分。可以看到，在沒有範例輔助的情況下，各模型的翻譯成果普遍不理想；其中，括號內的分數是模型自我評估，括號外的分數則是人類評分。然而，當我們給予文法書與字典後，模型的表現有明顯躍升，最終在人工評分部分可以拿到 4.36 分。儘管仍與人類翻譯有一段差距，但能力已經大幅提升。</p>
-<p><img alt="" src="../images/img3-14.png" /></p>
+<p><a class="glightbox" href="../images/img3-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-14.png" /></a></p>
 <ul>
 <li><strong>技巧說明</strong>：<br />
   以翻譯極少人使用的卡拉蒙語為例，當模型僅憑自身知識時無法正確翻譯，但提供包含文法書與字典的豐富教材後，其翻譯表現大幅提升。  </li>
@@ -1825,7 +1876,7 @@
 <p class="admonition-title">Note</p>
 <p>需要注意的是，in-context learning 並未對模型進行任何額外訓練，也沒有改變任何參數；因此，這次翻譯成功純粹來自我們給定的範例。一旦下次再詢問模型而未提供這些範例，模型仍然無法理解或翻譯卡拉蒙語。</p>
 </div>
-<p><img alt="" src="../images/img3-15.png" /></p>
+<p><a class="glightbox" href="../images/img3-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img3-15.png" /></a></p>
 <details class="note">
 <summary>In-Context Learning 與 RAG（檢索增強生成）差別</summary>
 <h4 id="1-in-context-learning">1. In-Context Learning（上下文學習）</h4>
@@ -1948,5 +1999,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

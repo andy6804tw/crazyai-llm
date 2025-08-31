@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1011,6 +1020,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1305,6 +1335,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1560,7 +1611,7 @@
 </div>
 <h2 id="day-5">Day 5 直播精華整理</h2>
 <p>在最後一天的內容，討論如何運用 MLOps 將生成式 AI 應用落地生產。這一天的內容主要聚焦於利用 Vertex AI 平台實現 Gen AI 的全生命周期管理，從數據準備、模型適配、評估與監控，到部署與治理。講者們回顧了前幾天所學的基礎模型、嵌入式表示、代理系統以及領域專屬模型，並進一步探討了如何將這些技術組合起來，打造出既高效又可持續運營的 AI 產品。同時，專家們也就細分領域（如醫療、資安）中專業模型的微調策略、代理與混合架構、數據對齊與即時更新等挑戰進行了深入討論。</p>
-<p><img alt="" src="../images/img-day5-1.png" /></p>
+<p><a class="glightbox" href="../images/img-day5-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-day5-1.png" /></a></p>
 <h2 id="qa">Q&amp;A 專家問答</h2>
 <h3 id="q1-ai">Q1：最新技術如何協助生產化生成式 AI 代理？</h3>
 <p><strong>問題內容：</strong><br />
@@ -1770,5 +1821,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

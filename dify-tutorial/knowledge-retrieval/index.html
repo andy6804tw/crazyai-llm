@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -804,6 +813,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1281,6 +1311,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1482,13 +1533,13 @@
 <li><strong>切分（Split）</strong>：以 Text Splitter 將大型文件切成可被模型處理的小段落，避免超過上下文視窗限制。  </li>
 <li><strong>存儲（Store）</strong>：將切分後的段落利用 Embeddings 轉成向量，並儲存在 VectorStore（例如 Qdrant、Chroma、FAISS）中以便後續檢索。</li>
 </ul>
-<p><img alt="" src="../images/img-knowledge-retrieval-00.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-00.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-00.png" /></a></p>
 <ul>
 <li><strong>檢索與生成（Retrieval &amp; Generation）</strong>  </li>
 <li><strong>檢索（Retrieve）</strong>：用 Retriever 根據使用者提問搜尋最相關的向量段落。  </li>
 <li><strong>生成（Generate）</strong>：將檢索到的段落與使用者問題一起送入 ChatModel（或 LLM），讓模型生成回答。</li>
 </ul>
-<p><img alt="" src="../images/img-knowledge-retrieval-01.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-01.png" /></a></p>
 <hr />
 <h2 id="dify">認識 Dify 知識庫的架構</h2>
 <p>在 Dify 中，<strong>知識庫（Knowledge Base）</strong>其實是由兩個主要部分構成：</p>
@@ -1499,7 +1550,7 @@
 <hr />
 <h2 id="_1">匯入資料的三種方式</h2>
 <p>當你進入 Dify 後台頁面後，如圖所示，只要點選上方的 「知識庫」 分頁（見紅色框標示處），就可以進入知識庫管理介面。</p>
-<p><img alt="" src="../images/img-knowledge-retrieval-1.jpg" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-1.jpg" /></a></p>
 <p>接著，點擊左側 「Create Knowledge」（見紅色箭頭所指處），即可開始建立你自己的 AI 知識庫。這裡你可以上傳自己的 FAQ、產品說明、技術文檔等資料，進行向量化與查詢設定。</p>
 <div class="admonition info">
 <p class="admonition-title">Info<p>關於知識庫的數量限制：</p>
@@ -1519,13 +1570,13 @@
 <li><strong>從 Notion 匯入</strong></li>
 <li><strong>網站爬蟲匯入</strong></li>
 </ul>
-<p><img alt="" src="../images/img-knowledge-retrieval-2.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-2.png" /></a></p>
 <p>本教學聚焦在「<strong>檔案匯入</strong>」最適合客服用的問答格式。你可以簡單準備一個 PDF 文件或是 Excel 表格紀錄問答。儲存為 <code>.csv</code> 檔後，就可以直接在 Dify 中匯入。</p>
-<p><img alt="" src="../images/img-knowledge-retrieval-3.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-3.png" /></a></p>
 <hr />
 <h2 id="embedding">資料分塊與向量化（Embedding）</h2>
 <p>在匯入資料後，Dify 會自動將問答一筆筆當作一個區塊（Chunk）。這對於客服系統特別合適，因為每筆資料原本就是一問一答。</p>
-<p><img alt="" src="../images/img-knowledge-retrieval-4.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-4.png" /></a></p>
 <p>接著，系統會幫你進行「向量化（Embedding）」。這一步是將文字轉成數學向量，方便模型比對相似內容。建議選擇「<strong>高品質模式</strong>」，使用 AI 模型進行語意處理，而非關鍵字比對。</p>
 <div class="admonition info">
 <p class="admonition-title">Info<ul>
@@ -1590,29 +1641,29 @@
 <li>點擊 <strong>Create new token</strong>，選擇 <strong>Fine-grained</strong>，勾選「Make calls to Inference Providers」權限，並命名（例如 <code>dify</code>）。</li>
 <li>建立後，複製該 Token，待會要填入 Dify。</li>
 </ol>
-<p><img alt="" src="../images/img-knowledge-retrieval-8.png" />
-<img alt="" src="../images/img-knowledge-retrieval-9.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-8.png" /></a>
+<a class="glightbox" href="../images/img-knowledge-retrieval-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-9.png" /></a></p>
 <h3 id="dify-hugging-face">在 Dify 後台新增 Hugging Face 模型供應商</h3>
 <p>以下是在 Dify 上設定 Hugging Face 並使用自訂 Embedding 模型的步驟，請依序操作：</p>
 <ol>
 <li>
 <p>在建立知識庫的頁面中點選<code>Embedding 模型</code>欄位。點擊<code>Model Provider</code>設置
-<img alt="" src="../images/img-knowledge-retrieval-5.jpg" /></p>
+<a class="glightbox" href="../images/img-knowledge-retrieval-5.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-5.jpg" /></a></p>
 <blockquote>
 <p>亦可進入 Dify 後台，點右上角用戶大頭貼 → <strong>Settings（設定）</strong> → <strong>Model Provider（模型供應商）</strong></p>
 </blockquote>
 </li>
 <li>
 <p>在列表中找到 <strong>Hugging Face Hub</strong>，點 <strong>Install（安裝）</strong>，完成後回到模型供應商頁面
-<img alt="" src="../images/img-knowledge-retrieval-6.png" /></p>
+<a class="glightbox" href="../images/img-knowledge-retrieval-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-6.png" /></a></p>
 </li>
 <li>
 <p>找到 <strong>Hugging Face Model</strong> 欄位，按下 <strong>新增模型</strong>（見下圖範例）
-<img alt="" src="../images/img-knowledge-retrieval-7.jpg" /></p>
+<a class="glightbox" href="../images/img-knowledge-retrieval-7.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-7.jpg" /></a></p>
 </li>
 <li>
 <p>設定 <strong>Hugging Face Text Embedding</strong> 模型
-<img alt="" src="../images/img-knowledge-retrieval-10.png" />
+<a class="glightbox" href="../images/img-knowledge-retrieval-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-10.png" /></a>
     在「新增 Hugging Face Model」彈窗中，依下列欄位填寫：</p>
 <table>
 <thead>
@@ -1649,7 +1700,7 @@
 <li>展開 <strong>Embedding 模型</strong> 下拉選單，將看到剛剛新增的模型名稱</li>
 <li>檢索設定選擇<strong>向量檢索</strong></li>
 </ol>
-<p><img alt="" src="../images/img-knowledge-retrieval-11.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-11.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info<ul>
 <li>
@@ -1664,7 +1715,7 @@
 </p>
 </div>
 <p>完成分數與筆數設定後，點擊「儲存並處理」，Dify 就會自動將匯入的文件向量化並存入向量資料庫，後續查詢即可快速命中相關內容。</p>
-<p><img alt="" src="../images/img-knowledge-retrieval-12.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-12.png" /></a></p>
 <h2 id="_4">新增或擴充知識資料</h2>
 <p>除了匯入完整 CSV 檔案外，你也可以：</p>
 <ul>
@@ -1672,7 +1723,7 @@
 <li>上傳額外的 Excel/CSV/PDF 等文件進行擴充知識</li>
 </ul>
 <p>每筆資料都會經過自動向量化與關鍵字提取，非常方便管理與搜尋。</p>
-<p><img alt="" src="../images/img-knowledge-retrieval-13.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-13.png" /></a></p>
 <hr />
 <h2 id="_5">實測查詢效果</h2>
 <p>完成知識庫設定後，即可在 Dify 後台進行「召回測試」。輸入問題如：</p>
@@ -1681,11 +1732,11 @@
 <li>「營業時間？」</li>
 </ul>
 <p>系統將從向量資料庫中找出語意相近的問答，進行智能匹配並顯示相關回答。</p>
-<p><img alt="" src="../images/img-knowledge-retrieval-14.png" /></p>
+<p><a class="glightbox" href="../images/img-knowledge-retrieval-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-knowledge-retrieval-14.png" /></a></p>
 <hr />
 <h2 id="_6">整合客服流程（預告）</h2>
 <p>本文教學先介紹如何建立 Dify 知識庫。<a href="../chatflow-rag-chatbot-tutorial-1/">下一篇</a>，我們將說明如何將知識庫整合到客服流程中，並實作出一個完整的 AI 客服對話系統。</p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-9.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-9.png" /></a></p>
 <hr />
 <h2 id="_7">總結</h2>
 <p>大家可以根據需求選擇合適的 Embedding 模型。本文所採用的 multilingual‑e5‑large 適合於中短文本的快速 embedding(輸入的 tokens 上限只有 512 tokens 偏少)，但對於長文本或需精確檢索的任務，建議使用更強大的 BGE‑M3（具多功能 retrieval）搭配 BGE‑Reranker‑V2‑M3 做 reranker，能兼顧效率與效果。</p>
@@ -1789,5 +1840,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

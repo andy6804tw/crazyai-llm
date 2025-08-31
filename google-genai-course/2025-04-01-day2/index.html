@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1011,6 +1020,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1305,6 +1335,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1588,7 +1639,7 @@
 <hr />
 <h2 id="day-2">Day 2 直播精華整理</h2>
 <p>嵌入是數據（如文字、圖片）的數值向量表示，能將不同數據映射到同一語意空間，用距離代表語意相似度，方便比較與作為下游任務的輸入。 我們探討了文字嵌入（從 word2vec 到 BERT、Gemini）、圖片與多模態嵌入，以及結構化數據和圖形的嵌入方法。 訓練常使用雙編碼器與對比損失，評估則看精確度與召回率等指標。 為了快速搜尋數十億向量，我們介紹了近似最近鄰 (ANN) 演算法（如 ScaNN、HNSW），它們犧牲微小精度換取巨大速度提升。 向量資料庫正是利用這些演算法來高效儲存、管理、查詢嵌入。 最後，我們討論了應用，如搜尋、推薦、檢索增強生成 (RAG) 等，嵌入為 RAG 提供了生成更真實、有根據答案所需的上下文。</p>
-<p><img alt="" src="../images/img-day2-1.png" /></p>
+<p><a class="glightbox" href="../images/img-day2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-day2-1.png" /></a></p>
 <h2 id="qa">Q&amp;A 專家問答</h2>
 <h3 id="q1">Q1：嵌入技術的進展與最佳實踐</h3>
 <p><strong>問題內容：</strong><br />
@@ -1795,5 +1846,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

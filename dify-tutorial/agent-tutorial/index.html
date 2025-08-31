@@ -13,6 +13,8 @@
         <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/dify-tutorial/agent-tutorial/">
       
       
+        <link rel="prev" href="../chatflow-rag-chatbot-tutorial-2/">
+      
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Dify Agent 教學：打造一個能思考又能動手的 AI 助理 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>Dify Agent 教學 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
@@ -57,7 +59,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -110,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dify Agent 教學：打造一個能思考又能動手的 AI 助理
+              Dify Agent 教學
             
           </span>
         </div>
@@ -800,6 +811,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1000,17 +1032,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1024,7 +1058,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             用Dify打造專屬AI助理
@@ -1089,6 +1123,193 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 為什麼要用 Agent？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dify-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Dify Agent 的組成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 實作範例任務
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 實作範例任務">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rag-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 建立一個具有 RAG 問答的 Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-agent-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 讓 Agent 能夠呼叫外部 API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 讓 Agent 能夠呼叫外部 API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1. 建立一個簡單的 FastAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-dify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2. 在 Dify 新增自定義工具
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 補充：什麼是 Function Calling？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔎 補充：什麼是 Function Calling？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-3-agent-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3. 測試 Agent 呼叫 API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 發佈專案
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 總結
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      後記補充
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1192,6 +1413,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 補充：什麼是 Function Calling？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔎 補充：什麼是 Function Calling？">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#step-3-agent-api" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1214,7 +1450,25 @@
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 總結
+      4. 發佈專案
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 總結
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      後記補充
     </span>
   </a>
   
@@ -1236,7 +1490,8 @@
 
 
 <h1 id="dify-agent-ai">Dify Agent 教學：打造一個能思考又能動手的 AI 助理</h1>
-<p>在上一篇文章，我們已經學會如何在 <strong>Dify 建立知識庫</strong>，並以上傳電商常見問題資料，完成了一個 <strong>電商問答知識庫</strong>。今天，我們要更進一步，帶你認識 <strong>Dify Agent</strong>，並實作一個能「懂知識」又能「動手查資料」的小任務。</p>
+<p>在上一篇文章，我們已經學會如何在 <strong><a href="../knowledge-retrieval/">Dify 建立知識庫</a></strong>，並以上傳電商常見問題資料，完成了一個 <strong>電商問答知識庫</strong>。今天，我們要更進一步，帶你認識 <strong>Dify Agent</strong>，並實作一個能「懂知識」又能「動手查資料」的小任務。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-00.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-00.png" /></a></p>
 <hr />
 <h2 id="1-agent">1. 為什麼要用 Agent？</h2>
 <p>單純的 RAG（檢索增強生成）可以回答知識，但它沒辦法幫你「執行任務」。
@@ -1254,7 +1509,15 @@
 <li><strong>Knowledge Base（知識庫）</strong>：RAG 檢索文件答案</li>
 <li><strong>Tool（工具）</strong>：讓 Agent 能「動手」，例如呼叫 API、查資料庫</li>
 </ul>
-<p>我們今天的任務就是把這三個東西串起來，做一個小型的 <strong>AI 助理</strong>。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-01.png" /></a></p>
+<p>我們今天的任務就是把這三個東西串起來，做一個小型的 <strong>AI 電商助理</strong>。首先進入 Dify 後台 → 左側選單點 「應用（Apps）」 → 右上角 「建立應用（Create App）」。 在建立視窗選 「空白應用（Blank）」，類型選 「Agent」。 輸入應用名稱（例：電商助手 Agent）與說明，按建立。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-02.png" /></a></p>
+<p>在 Model 區塊中，我們需要選擇一個支援 Tool Calling 的對話模型。這裡以 Google Gemini 為例，它具備 Function Calling 的能力，可以根據需求自動呼叫外部工具。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-03.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>在 Agent 設定 中也能調整 最大迭代次數（Max Iterations）。這個參數決定 Agent 在解決一個問題時，最多允許嘗試多少次「思考與工具呼叫」的循環。預設為 10 次，也就是說如果 Agent 在 10 次內仍無法得到答案，系統就會中止，避免陷入無限迴圈或過度嘗試。</p>
+</p>
+</div>
 <hr />
 <h2 id="3">3. 實作範例任務</h2>
 <p>接下來我們要完成一個任務：</p>
@@ -1263,56 +1526,114 @@
 <li>當使用者問「幫我查 user_id=2 的名字」 → Agent 要去 <strong>API 工具</strong> 查詢</li>
 </ul>
 <h3 id="31-rag-agent">3.1 建立一個具有 RAG 問答的 Agent</h3>
-<ol>
-<li>在 Dify 後台，建立一個 <strong>Agent 應用</strong></li>
-<li>在知識庫選擇 <strong>上一篇文章建好的電商問答知識庫</strong></li>
-<li>
-<p>測試一下：</p>
-</li>
-<li>
-<p>問「你們網站可以刷信用卡嗎？」</p>
-</li>
-<li>Agent 會從知識庫找到答案 → 「可以，我們支援信用卡付款。」</li>
-</ol>
+<p>在 Knowledge / Datasets 區塊點 Add → 直接選擇之前已建好的「<a href="../knowledge-retrieval/">電商問答知識庫</a>」。接著在<strong>提示詞</strong>欄位輸入以下內容指引Agent。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>當使用者提問有關電商的QA請先透過外部文件查詢相關資訊。
+</span></code></pre></div>
+<p>選擇好知識來源後我們就能簡單的測試一下：</p>
+<ul>
+<li>問「你們網站可以刷信用卡嗎？」</li>
+<li>Agent 會從知識庫找到答案 → 「目前我們僅支援信用卡與LINE Pay付款。」</li>
+</ul>
+<p><a class="glightbox" href="../images/img-agent-tutorial-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-04.png" /></a></p>
 <p>這樣就完成了第一步，讓 Agent 具備 <strong>RAG 問答能力</strong>。</p>
 <hr />
 <h3 id="32-agent-api">3.2 讓 Agent 能夠呼叫外部 API</h3>
-<p>接著，我們要讓 Agent 具備「動手」能力，幫我們查詢用戶資料。</p>
+<p>接著，我們要讓 Agent 具備「動手」能力，幫我們查詢用戶資料。我們做一個 商品庫存查詢 API，讓 Agent 能引導客人先看商品類別、再看該類別有哪些商品，或直接用商品名稱查庫存。</p>
 <h4 id="step-1-fastapi">Step 1. 建立一個簡單的 FastAPI</h4>
-<p>先寫一個小小的 API 服務：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/userinfo&quot;</span><span class="p">)</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">get_userinfo</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">dummy_users</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">}</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">dummy_users</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">)}</span>
-</span></code></pre></div>
-<p>啟動伺服器：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uvicorn<span class="w"> </span>main:app<span class="w"> </span>--reload
-</span></code></pre></div>
-<p>然後在瀏覽器輸入：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>http://localhost:8000/openapi.json
+<p>先寫一個小小的 API 服務，提供商品類別、商品清單與庫存查詢的 API，便於 Agent 工具呼叫。大家可以開啟我事先寫好的 Colab 範例程式。快速部署我事先準備的商品庫存查詢的 API。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-05.png" /></a></p>
+<p>在 Colab 啟動伺服器後會得到一串臨時的 API 連結網址。在此連結後面加上 <code>/openapi.json</code> 可以得到 API 的規格(dify設定需要用到)。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># 例如：
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>https://huge-dragons-appear.loca.lt/openapi.json
 </span></code></pre></div>
 <p>你會看到一坨 JSON Schema。這就是 FastAPI 自動生成的 <strong>OpenAPI 規格</strong>，裡面包含了 API 的路由、參數、回傳格式等等。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-06.png" /></a></p>
 <hr />
 <h4 id="step-2-dify">Step 2. 在 Dify 新增自定義工具</h4>
+<p>接著此步驟要把剛剛建立的 API URL 與 OpenAPI 規格匯入 Dify（建立自訂工具）。</p>
 <ol>
-<li>進入 <strong>工具 → 建立自定義工具</strong></li>
-<li>把剛剛的 <strong>OpenAPI JSON</strong> 貼上去</li>
-<li>你應該會看到「可用工具」那邊多了一些東西，就是我們在程式中定義的 <code>/userinfo</code> API</li>
+<li>進入 <strong>Dify 後台 → 工具（Tools） → 建立自定義工具</strong></li>
 </ol>
+<p><a class="glightbox" href="../images/img-agent-tutorial-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-07.png" /></a></p>
+<ol>
+<li>選擇 <strong>OpenAPI</strong> 匯入方式，將 <code>http://xxx/openapi.json</code> 的內容貼上</li>
+</ol>
+<p><a class="glightbox" href="../images/img-agent-tutorial-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-08.png" /></a></p>
+<blockquote>
+<p>同時記住要在 servers 的 URL 替換成你自己的伺服器位置。</p>
+</blockquote>
+<p>設定完成後可以點選測試呼叫看看 API 是否能成功的呼叫 FastAPI 的結果。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-09.png" /></a></p>
+<ol>
+<li>
+<p>儲存後，回到 Agent 設定你會在「可用工具」看到：</p>
+</li>
+<li>
+<p>提供可用商品類別</p>
+</li>
+<li>依類別列出商品名稱</li>
+<li>直接查商品庫存</li>
+</ol>
+<p><a class="glightbox" href="../images/img-agent-tutorial-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-10.png" /></a></p>
+<blockquote>
+<p>這三個工具的參數與描述都來自你的 FastAPI 程式碼，因此 <strong>Function Calling / Tool Calling</strong> 的模型（如 Google Gemini）能自動理解何時呼叫、要帶哪些參數。</p>
+</blockquote>
+<p>建議的系統提示詞 (System Prompt)。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>你是電商客服 Agent，回覆使用繁體中文。
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>【決策規則】
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1) 只要是電商常見問答（付款、發票、退換貨、配送、保固、門市、會員/點數、活動）→ 一律先用知識庫（RAG）檢索外部文件後作答。
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2) 檢索未命中或信心不足 → 明確說明當前系統無法解決您的問題。
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>3) 需要即時/動態資訊（商品、庫存）→ 使用工具，不得臆測。
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   - 未指定任何資訊時**一律先呼叫** GET /categories 提示可選類別。
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>   - 無此商品時請呼叫 GET /categories 提示可選類別
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>   - 若使用者提供類別但未指商品 → 呼叫 GET /products?category=… 列出清單並引導再選。
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>   - 已指定商品 → 呼叫 GET /inventory?product_name=… 回覆「數量＋單位」。
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>4) 同時包含政策＋庫存的問題 → 先用 RAG 說明政策，再呼叫工具查庫存，合併回覆。
+</span></code></pre></div>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Note<h3 id="function-calling">🔎 補充：什麼是 Function Calling？</h3>
+<p>要讓 LLM 能「看懂問題」並且「知道該呼叫哪個工具」，核心關鍵就是 <strong>Function Calling（函數調用）</strong> 技術。</p>
+<p>Function Calling 的流程可以簡單理解為四個步驟：</p>
+<ol>
+<li><strong>用戶提示</strong>：使用者輸入自然語言，例如「查詢 iPhone 15 的庫存」。</li>
+<li><strong>函數觸發</strong>：LLM 解析語意，判斷這需要呼叫 <code>get_inventory(product_name)</code> 這個函數。</li>
+<li><strong>函數執行</strong>：LLM 不是直接回答，而是生成一段 JSON 物件，例如：</li>
+</ol>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_inventory&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iPhone 15&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>系統會依據這段 JSON 去執行對應的 API。
+4. <strong>響應交付</strong>：API 回傳查詢結果（如「庫存 12 台」），LLM 再把結果轉換成自然語言回覆給使用者。</p>
+<p>這樣，LLM 不僅能回答知識庫的靜態內容，還能 <strong>即時呼叫外部工具或 API</strong>，完成各種動態任務。</p>
+<p>常見應用場景包含：</p>
+<ul>
+<li><strong>查詢即時數據</strong>：像「現在台北天氣如何？」會被轉換成 <code>get_weather(location="Taipei")</code>。</li>
+<li><strong>資料抽取與標註</strong>：例如從文章中提取人名，轉換成 <code>extract_entities(type="person")</code>。</li>
+<li><strong>資料庫/系統操作</strong>：自然語言指令直接轉為 API 或 SQL 呼叫，例如「幫我查 user_id=2 的姓名」。</li>
+</ul>
+<p>👉 簡單來說，<strong>Function Calling 就是 LLM 與外部世界的橋樑</strong>：
+它讓文字對話能自動轉換成程式呼叫，進而完成超越文字回答的功能。</p>
+</p>
+</div>
 <hr />
 <h4 id="step-3-agent-api">Step 3. 測試 Agent 呼叫 API</h4>
-<p>現在我們回到 Agent，重新測試：</p>
+<p>現在我們回到 Agent 的除錯與預覽，重新測試：</p>
 <ul>
-<li>問：「幫我查 user_id=2 的名字」</li>
-<li>Agent 會自己判斷要呼叫 <code>/userinfo?user_id=2</code></li>
-<li>回答你：「這個使用者的名字是 Bob」</li>
+<li>問：「查詢商品庫存」</li>
+<li>Agent 會自己判斷要呼叫工具並近一步的詢問類別和產品名稱，最終回答該商品的庫存量</li>
 </ul>
+<p><a class="glightbox" href="../images/img-agent-tutorial-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-11.png" /></a></p>
+<p>試著同時提出兩個問題，看看 Agent 會怎麼回應。從結果可以發現，它會嘗試去推測問題的意思，並且給出引導。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-12.png" /></a></p>
+<h2 id="4">4. 發佈專案</h2>
+<p>當你完成所有設定後，點選右上角的藍色「發佈」按鈕，選擇「發佈更新」，即可讓應用正式啟用。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-13.png" /></a></p>
 <hr />
-<h2 id="4">4. 總結</h2>
+<h2 id="5">5. 總結</h2>
 <p>到這裡，我們完成了一個結合 <strong>知識庫 + API 工具</strong> 的 Dify Agent：</p>
 <ul>
 <li>知識問答 → 查知識庫</li>
@@ -1324,6 +1645,13 @@
 <li>工業 PdM：結合知識庫 + 即時感測數據 API</li>
 <li>文件助理：結合知識庫 + Excel/DB 操作</li>
 </ul>
+<h2 id="_1">後記補充</h2>
+<p>在本文示範中，我是用 <strong>Python + FastAPI</strong> 來快速建立一個範例 API。但實務上，你的 API <strong>不一定要使用 FastAPI</strong> —— 不管是 <strong>Node.js (Express)</strong>、<strong>Java (Spring Boot)</strong>、<strong>Go (Gin)</strong>，甚至現成的第三方服務，只要它能輸出或對應到 <strong>OpenAPI 規格</strong>，就可以直接匯入 Dify 的自定義工具。</p>
+<p>如果你的 API 並沒有現成的 OpenAPI 文件，也不用擔心。OpenAI 很貼心地推出了一個專門協助撰寫 <strong>OpenAPI Schema (YAML)</strong> 的小幫手<a href="https://chatgpt.com/g/g-TYEliDU6A-actionsgpt">ActionsGPT</a>。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-14.png" /></a></p>
+<p>實務上，我會直接把我的 API 程式碼或功能描述丟給這個機器人，請它幫我產生一個完整的 <strong>OpenAPI YAML</strong> 文件。只要生成出來的 YAML 或 JSON 符合 OpenAPI 規格，就能被 Dify 接受。</p>
+<p><a class="glightbox" href="../images/img-agent-tutorial-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-agent-tutorial-15.png" /></a></p>
+<p>也就是說，不論你用什麼語言或框架來寫 API，只要最後能拿到一份符合 <strong>OpenAPI Spec</strong> 的 JSON 或 YAML，就能順利整合進 Dify Agent。</p>
 
 
 
@@ -1390,5 +1718,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

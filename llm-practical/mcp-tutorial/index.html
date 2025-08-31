@@ -16,7 +16,7 @@
         <link rel="prev" href="../openai-agents-sdk-tutorial/">
       
       
-        <link rel="next" href="../../free-llm-api-integration-resources/github-models-tutorial/">
+        <link rel="next" href="../qdrant-image-similarity-search/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -993,6 +1002,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1287,6 +1317,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1500,7 +1551,7 @@
 
 <h2 id="mcp_1">什麼是 MCP？</h2>
 <p>MCP 全名為 Model Context Protocol，中文稱作「模型上下文協定」，是一種開放標準協定，由開發知名 AI 模型「Claude」的美國新創公司 Anthropic 於 2024 年 11 月所推出。MCP 提供一種標準化的方式，讓 AI 模型可以向外部工具或服務請求數據並使用相關功能。這個協議提供了一個統一介面，可將自訂工具與資源整合至不同的 AI 應用中，從而讓開發者可以輕鬆連結各種自定義工具（例如文件檢索、資料庫查詢）至 Cursor、Windsurf、Claude Desktop、GitHub Copilot 等多種平台。目前已有數個工具和供應商支援 MCP，這使得其應用範圍更加豐富且靈活。</p>
-<p><img alt="" src="https://image-cdn.learnin.tw/bnextmedia/image/album/2025-03/img-1742897469-53390.jpg?w=900&amp;output=webp" /></p>
+<p><a class="glightbox" href="https://image-cdn.learnin.tw/bnextmedia/image/album/2025-03/img-1742897469-53390.jpg?w=900&amp;output=webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://image-cdn.learnin.tw/bnextmedia/image/album/2025-03/img-1742897469-53390.jpg?w=900&amp;output=webp" /></a></p>
 <blockquote>
 <p><a href="https://www.bnext.com.tw/article/82706/what-is-mcp?">圖片來源</a></p>
 </blockquote>
@@ -1524,10 +1575,10 @@
 </div>
 <h2 id="mcp_3">MCP 解決什麼問題？</h2>
 <p>在未啟用 MCP 前，大型語言模型（LLM）無法直接存取 GitHub 的最新 commit、Google 日曆資訊、Gmail 信件等外部訊息。雖然 Tool use (function calling) 的概念可以在某些特定框架中實現資料調用，但這種方法通常受限於框架綁定，難以快速移植到其他應用，且常面臨呼叫失敗或錯誤處理不足的問題。有了 MCP，透過一個中介伺服器，LLM 能夠統一存取並處理這些外部資料，並進一步生成摘要或其他回應。這不僅簡化了資料調用的流程，還大幅提升了系統的穩定性與擴展性。</p>
-<p><img alt="" src="https://i.imgur.com/e3pUS1Z.png" /></p>
+<p><a class="glightbox" href="https://i.imgur.com/e3pUS1Z.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://i.imgur.com/e3pUS1Z.png" /></a></p>
 <h2 id="mcp_4">MCP 如何運作？</h2>
 <p>MCP 的設計遵循客戶端-伺服器架構，將 AI 應用程式和數據連接器的角色清楚區分。其主要組成部分包括：</p>
-<p><img alt="" src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4d25a162-5cc0-42cb-a7d9-a63a3210279a_1086x1280.gif" /></p>
+<p><a class="glightbox" href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4d25a162-5cc0-42cb-a7d9-a63a3210279a_1086x1280.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4d25a162-5cc0-42cb-a7d9-a63a3210279a_1086x1280.gif" /></a></p>
 <blockquote>
 <p><a href="https://blog.dailydoseofds.com/p/visual-guide-to-model-context-protocol">圖片來源</a></p>
 </blockquote>
@@ -1553,7 +1604,7 @@
 <p>由於 LLM 的相關議題範圍極廣，涉及眾多專有名詞，為了讓大家能夠更清楚地理解這些概念，以下整理了各個概念之間的差異與關聯。</p>
 <h3 id="ai-agent">什麼是 AI agent？</h3>
 <p>AI Agent 是一個能夠代替人類執行一系列操作以達成特定目標的智能系統。與傳統使用者單次輸入 prompt，然後讓 LLM 生成回應的互動模式不同，AI Agent 更像是一位具備目標導向的自主執行者。它會根據目標進行任務分析，將複雜任務拆分為多個子任務，再依照計劃自動做出決策與執行，直到最終完成任務。雖然有時候也稱為智能體、代理人，但為了避免過於抽象，我們更傾向於使用「AI Agent」這一術語，強調它在實際應用中的具體行動與任務完成能力。</p>
-<p><img alt="" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*BqYzqyhAbmUeWezS.png" /></p>
+<p><a class="glightbox" href="https://miro.medium.com/v2/resize:fit:720/format:webp/0*BqYzqyhAbmUeWezS.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*BqYzqyhAbmUeWezS.png" /></a></p>
 <blockquote>
 <p><a href="https://lilianweng.github.io/posts/2023-06-23-agent/">圖片來源</a></p>
 </blockquote>
@@ -1692,5 +1743,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

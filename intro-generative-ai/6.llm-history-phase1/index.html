@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -984,6 +993,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1278,6 +1308,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1489,7 +1540,7 @@
 
 <p>本講將深入探討大型語言模型如何從海量資料中自我學習，並通過持續的參數調整與最佳化過程，逐步累積知識與能力。這些模型不僅能夠精準捕捉語言結構與文法規律，更在多樣化應用中展現出卓越效能，從自動生成文本到複雜語言理解任務，都證明了深度學習技術的巨大潛力。</p>
 <p>這部分文章將分為三篇，分別剖析大型語言模型的三個修煉階段：</p>
-<p><img alt="" src="../images/img6-1.png" /></p>
+<p><a class="glightbox" href="../images/img6-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-1.png" /></a></p>
 <ul>
 <li>
 <p>第一階段：自我學習，累積實力</p>
@@ -1518,7 +1569,7 @@
 <hr />
 <h3 id="_2">背景知識：文字接龍</h3>
 <p>大型語言模型的核心任務即是文字接龍：根據已輸入的未完成句子，逐步生成後續文字。這個生成過程中，每一次輸出都稱為一個 <em>token</em>（在本課程中假設一個中文字就是一個 token）。</p>
-<p><img alt="" src="../images/img6-2.png" /></p>
+<p><a class="glightbox" href="../images/img6-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-2.png" /></a></p>
 <p>從基本原理上看，模型實際上是一個函式，輸入一段文字，輸出下一個 token。這個函式由數十億個未知參數構成，而這些參數的具體數值則由訓練資料自動學習得出。</p>
 <hr />
 <h3 id="_3">背景知識：機器如何學會做文字接龍？</h3>
@@ -1533,7 +1584,7 @@
    當模型完成訓練後，便可以利用得到的參數進行文字接龍，即根據新的未完成句子產生連貫的文字。</p>
 </li>
 </ol>
-<p><img alt="" src="../images/img6-3.png" /></p>
+<p><a class="glightbox" href="../images/img6-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-3.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>在此過程中，模型本質上只依賴訓練資料來「學習」如何接龍，而無法理解資料背後更深層的意義或世界知識。</p>
 </p>
@@ -1551,8 +1602,8 @@
   有時候即使訓練資料上的結果看似成功，模型在遇到未曾見過的資料時卻表現不佳，這就是所謂的過擬合。例如，若訓練資料中所有貓的圖片均為黑色，而所有狗的圖片均為黃色，模型可能會僅依據顏色來判斷，導致遇到黃色貓時出錯。這反映出僅依賴訓練資料而忽略資料多樣性的問題。</p>
 </li>
 </ul>
-<p><img alt="" src="../images/img6-4.png" /></p>
-<p><img alt="" src="../images/img6-5.png" /></p>
+<p><a class="glightbox" href="../images/img6-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-4.png" /></a></p>
+<p><a class="glightbox" href="../images/img6-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-5.png" /></a></p>
 <p>為了讓模型找到更合理的參數，有幾種策略：</p>
 <ul>
 <li>
@@ -1567,7 +1618,7 @@
 <hr />
 <h3 id="_5">學習所需資料量與知識層次</h3>
 <p>要學會文字接龍，涉及兩個層面：語言知識和世界知識。語言知識方面，根據相關文獻，所需資料量並不龐大。然而，要真正做好文字接龍，模型必須對世界知識有所理解。</p>
-<p><img alt="" src="../images/img6-6.png" /></p>
+<p><a class="glightbox" href="../images/img6-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-6.png" /></a></p>
 <ul>
 <li>
 <p><strong>語言知識</strong>：<br />
@@ -1588,7 +1639,7 @@
 <hr />
 <h3 id="_6">任何文字資料都可以拿來學文字接龍？</h3>
 <p>實際上，任何來源的文字資料都能用來訓練語言模型。現今網路上充斥著各式各樣的資料，這些資料可直接用於教模型如何進行文字接龍。這種依賴海量資料的學習方式稱為 <strong>Self-supervised Learning（自督導式學習）</strong>，即模型透過從網路爬取的大量資料自我學習，幾乎不需要人工標記。</p>
-<p><img alt="" src="../images/img6-7.png" /></p>
+<p><a class="glightbox" href="../images/img6-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-7.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>此處的訓練是 "train from scratch"，因為有近乎無窮無盡的資料，所以比較不用擔心 overfitting 的問題。</p>
 </p>
@@ -1601,7 +1652,7 @@
 <li>移除不必要的 HTML 符號與格式。</li>
 <li>利用資料品質分類器篩選高品質資料（例如教科書或維基百科內容），使模型能重複接觸這些資料以加深學習效果。</li>
 </ul>
-<p><img alt="" src="../images/img6-8.png" /></p>
+<p><a class="glightbox" href="../images/img6-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-8.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/pdf/2112.11446">Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher</a></li>
@@ -1609,7 +1660,7 @@
 </p>
 </div>
 <p>此外，重複資料的去除也是一項重要工作。有研究指出，網路爬取的資料中可能出現極高頻率的重複內容（例如某婚禮公司業配文重複出現數萬次），若不清理會使模型過度偏向某些特定訊息。</p>
-<p><img alt="" src="../images/img6-9.png" /></p>
+<p><a class="glightbox" href="../images/img6-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-9.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/pdf/2107.06499">Deduplicating Training Data Makes Language Models Better</a></li>
@@ -1621,7 +1672,7 @@
 <p>以下將簡要回顧 OpenAI 在 ChatGPT 問世之前推出的三代 GPT 系列模型，從起步階段到大規模進階，帶領大家了解這些模型如何一步步累積能力。大型語言模型的發展歷程，是一個不斷突破規模與效能的過程。從最初的 GPT-1 到 GPT-3，參數規模呈指數級增長，訓練資料量也大幅擴展。然而，僅靠增大模型並無法保證智能的飛躍，每一代 GPT 都面臨新的挑戰與瓶頸，推動研究者持續改進技術，使模型在理解力、生成能力與泛化性上逐步提升。</p>
 <h3 id="gpt-1">GPT-1：起步階段</h3>
 <p>在 GPT-1 時期，模型雖能生成連貫的文字，但仍無法在複雜任務中展現優異表現。當時的重點在於初步驗證 Transformer 架構在語言生成上的潛力，並為後續的 GPT 版本奠定雛形。</p>
-<p><img alt="" src="../images/img6-10.png" /></p>
+<p><a class="glightbox" href="../images/img6-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-10.png" /></a></p>
 <ul>
 <li><strong>參數量</strong>：約 117M</li>
 <li><strong>訓練資料量</strong>： 約 700 本書的文字內容，資料規模有限。</li>
@@ -1629,7 +1680,7 @@
 </ul>
 <h3 id="gpt-2">GPT-2：初步擴展</h3>
 <p>儘管 GPT-2 在當時引起了廣泛關注，但在理解深層語意與精準回答特定問題方面，仍存在明顯的局限。模型常出現「亂回答」或「內容不一致」的情況，顯示出單純擴大模型與資料量並不足以解決所有問題。</p>
-<p><img alt="" src="../images/img6-11.png" /></p>
+<p><a class="glightbox" href="../images/img6-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-11.png" /></a></p>
 <ul>
 <li><strong>參數量</strong>：約 15 億</li>
 <li><strong>訓練資料量</strong>：約 40GB</li>
@@ -1637,7 +1688,7 @@
 </ul>
 <h4 id="gpt-3">GPT-3：大規模進階</h4>
 <p>然而，GPT-3 仍面臨一些挑戰：在某些特定任務上的正確率僅約 50%，顯示模型在「記憶」龐大資訊後，仍難以在複雜情境下充分理解或運用知識。此階段為之後 ChatGPT 等對話式模型奠定基礎，但同時也突顯出要真正實現高水平的語言理解與推理，除了擴充模型規模與訓練資料，還需要進一步的訓練策略與人類指導。</p>
-<p><img alt="" src="../images/img6-12.png" /></p>
+<p><a class="glightbox" href="../images/img6-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-12.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/pdf/2005.14165">Language Models are Few-Shot Learners</a></li>
@@ -1652,11 +1703,11 @@
 <hr />
 <h3 id="_8">模型規模與效能挑戰</h3>
 <p>更大規模的模型並非萬能。實驗顯示，即便將模型放大數倍，其回答問題的準確度仍可能受限於資料品質、最佳化策略與資料多樣性。這也說明了語言模型修煉過程中，僅僅依靠算力與參數量並不足以保證最終效能，資料清理與超參數調整同樣重要。</p>
-<p><img alt="" src="../images/img6-13.png" /></p>
+<p><a class="glightbox" href="../images/img6-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-13.png" /></a></p>
 <hr />
 <h3 id="_9">模型回答問題的局限</h3>
 <p>語言模型回答問題時，常出現不精確或不一致的現象，主要原因在於模型僅依據「文字接龍」學習，缺乏專門的問答訓練。雖然可從海量網路資料中獲取訊息，但不會主動驗證正確性，易在面對新情境時產生偏差或混淆。此外，模型掌握的多是字詞與文法規律，並未真正理解問題的意圖或世界知識，因此需要額外的教導與回饋機制，才能讓其回答更精準、穩定。</p>
-<p><img alt="" src="../images/img6-14.png" /></p>
+<p><a class="glightbox" href="../images/img6-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-14.png" /></a></p>
 <p>以「台灣最高的山是哪一座？」為例，網路上可能同時出現了完整的解答、討論區中的不完整對話、甚至是引導讀者自行留言回答的文章。當模型接觸到這些參差不齊的資料時，並不會分辨哪些是正確答案，哪些僅是互動或噪音資訊，導致在回答時可能混淆各種文本片段，或生成似是而非的敘述。</p>
 <p>此外，模型對真實世界的理解仍相當有限：</p>
 <ul>
@@ -1666,7 +1717,7 @@
 </ul>
 <h3 id="_10">從自我學習到人類指導</h3>
 <p>第一階段的自我學習使模型從網路上大量爬取資料，自行學習文字接龍，但這種方式使得模型僅能「記住」資料，而無法真正掌握如何正確應用知識。進一步的提升需要第二階段，由人類提供指導，調整模型輸出，使其能更好地回答問題並展現出真正的理解力。</p>
-<p><img alt="" src="../images/img6-15.png" /></p>
+<p><a class="glightbox" href="../images/img6-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img6-15.png" /></a></p>
 <p>因此，若想讓語言模型真正具備穩定且正確的答題能力，後續仍需加入明確的「教導」過程，例如專門的問答資料、對話式訓練、以及人類回饋強化學習等，才能讓模型不只擁有「大量資訊」，更能在回答問題時展現真正的理解與應用。</p>
 <hr />
 <h2 id="_11">結語</h2>
@@ -1740,5 +1791,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

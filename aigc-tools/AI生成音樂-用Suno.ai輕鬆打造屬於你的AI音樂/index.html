@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -804,6 +813,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1227,6 +1257,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1381,7 +1432,7 @@
 
 <h1 id="sunoai-ai">用 Suno.ai 輕鬆打造屬於你的AI音樂</h1>
 <p>在AI音樂創作工具百家爭鳴的時代，<a href="https://suno.com/">Suno.ai</a> 以其極簡且強大的功能，讓新手也能快速產出令人驚艷的音樂作品。不論你是音樂新手還是經驗豐富的創作者，只要掌握幾個簡單步驟，就能輕鬆完成一首高品質的歌曲。</p>
-<p><img alt="" src="../images/img-suno-6.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-6.png" /></a></p>
 <h2 id="sunoai">Suno.ai 簡介</h2>
 <p>Suno.ai 是一款專門用於AI生成音樂的平台，只需輸入文字或歌詞提示，它便能即時生成旋律、伴奏甚至完整的歌曲。免費版每天能產生10首歌曲，每首歌曲的長度最多達4分鐘，完全滿足一般創作需求。</p>
 <ul>
@@ -1409,7 +1460,7 @@
 </div>
 <h3 id="_2">模式一：文字提示詞生成</h3>
 <p>直接在輸入框輸入你想要的音樂風格或主題，例如：「輕鬆愉快的爵士樂」。由於此範例是產生爵士樂曲因此我將 Instrumental 按鈕開啟。接著按下「Generate」按鈕後，系統將提供兩個不同版本的歌曲供聆聽。生成完成後，點擊歌曲旁邊的選項按鈕（三個點），即可選擇下載並分享你的創作成果。</p>
-<p><img alt="" src="../images/img-suno-1.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-1.png" /></a></p>
 <p>我們來聽聽看生成的結果：</p>
 <iframe src="https://suno.com/embed/b4230d60-26c6-4c25-980a-25e0bbb45293" width="760" height="240"><a href="https://suno.com/song/b4230d60-26c6-4c25-980a-25e0bbb45293">Listen on Suno</a></iframe>
 
@@ -1417,15 +1468,15 @@
 <iframe src="https://suno.com/embed/bdaa5867-e1e8-4d96-a523-187f38513268" width="760" height="240"><a href="https://suno.com/song/bdaa5867-e1e8-4d96-a523-187f38513268">Listen on Suno</a></iframe>
 
 <p>如果你對生成的歌詞、曲風或樂器不滿意，你可以點擊「Reuse Prompt」來做客製化調整。</p>
-<p><img alt="" src="../images/img-suno-2.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-2.png" /></a></p>
 <p>如果你想要更多掌控權，可以輸入自己的歌詞並且制定想要的音樂風格與主唱性別，Suno.ai 會根據內容創作相應的旋律。</p>
 <h3 id="_3">模式二：自訂歌詞生成</h3>
 <p>點選開啟「Custom」自訂開關，輸入歌詞並設定細節。我們在輸入框貼上你自己寫的歌詞，或是透過AI協作產生一個客製化的歌詞內容。</p>
-<p><img alt="" src="../images/img-suno-3.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-3.png" /></a></p>
 <p>以下選擇 Full Song 協作模式，告訴機器人你想要怎樣的歌詞創作。例如我想要一首有關熱血棒球夢的歌曲。</p>
-<p><img alt="" src="../images/img-suno-5.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-5.png" /></a></p>
 <p>接著設定音樂風格、歌曲結構（如副歌、主歌等）以及人聲、樂器、節奏等元素。例如這邊我下這幾個關鍵字 <code>rock, passionate, drum, fast, male vocals, bouncy, bright</code>。按下「Generate」按鈕後，系統將提供兩個不同版本的歌曲。</p>
-<p><img alt="" src="../images/img-suno-4.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-4.png" /></a></p>
 <iframe src="https://suno.com/embed/b0e50784-1d21-4b7b-a1dc-b19f7bbec82d" width="760" height="240"><a href="https://suno.com/song/b0e50784-1d21-4b7b-a1dc-b19f7bbec82d">Listen on Suno</a></iframe>
 
 <p>我們來聽聽另一個版本。</p>
@@ -1447,7 +1498,7 @@
 <p>運用這些關鍵字，讓你的創作更具個性化。亦或是把你的曲目風格想法告訴 ChatGPT 讓它幫你生成個些關鍵字。</p>
 <h2 id="extend">進階玩法：使用 Extend 功能重新詮釋歌曲風格</h2>
 <p>除了透過提示詞和自訂歌詞外，Suno.ai 還支援 Extend 功能，允許你上傳自己喜歡的歌曲片段（約60秒），讓 AI 保留原曲的特色，再根據你的需求重新創作。</p>
-<p><img alt="" src="../images/img-suno-7.png" /></p>
+<p><a class="glightbox" href="../images/img-suno-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-suno-7.png" /></a></p>
 <p>舉例來說，若你喜歡徐佳瑩的《身騎白馬》，可上傳約60秒的歌曲音檔，並輸入原本相同的歌詞，接著透過 ChatGPT 幫忙生成相近的音樂風格描述：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Mandopop, Chinese Pop Ballad, Folk Pop, Fusion Pop, Acoustic Ballad, Oriental Contemporary, Melodic Pop, Storytelling Pop, sentimental, romantic, nostalgic, passionate, bittersweet, Female Vocals
 </span></code></pre></div>
@@ -1546,5 +1597,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

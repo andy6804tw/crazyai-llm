@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -993,6 +1002,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1287,6 +1317,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1512,7 +1563,7 @@
 <p>目前，大多數人使用 AI 時僅限於單一步驟的應用，例如：
 - 輸入一句話讓 AI 翻譯或回答問題
 - 請求生成一張圖片</p>
-<p><img alt="多數人使用AI的方式" src="../images/img9-1.png" /></p>
+<p><a class="glightbox" href="../images/img9-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="多數人使用AI的方式" src="../images/img9-1.png" /></a></p>
 <p>這種方式雖然便捷，但只發揮了語言模型的一部分能力，遠未涵蓋 AI 在解決複雜任務上的潛力。</p>
 <hr />
 <h2 id="ai_1">人類與 AI：多步驟複雜任務的挑戰</h2>
@@ -1520,7 +1571,7 @@
 - 調查大家的空閒時間
 - 根據統計結果訂位
 - 若原訂餐廳無法提供服務，則快速調整計劃並更換餐廳</p>
-<p><img alt="人類可以做需要多步驟的複雜任務" src="../images/img9-2.png" /></p>
+<p><a class="glightbox" href="../images/img9-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="人類可以做需要多步驟的複雜任務" src="../images/img9-2.png" /></a></p>
 <p>這些步驟必須依序進行，且在過程中需根據現實狀況不斷調整。若能讓 AI 具備這樣的能力，它就可以成為我們的 <strong>AI Agent</strong>，協助完成從計劃到執行的全流程任務。</p>
 <hr />
 <h2 id="ai-agent_1">AI Agent 的概念與運作原理</h2>
@@ -1552,13 +1603,13 @@
 <li><strong>執行與反饋</strong><br />
    Agent 根據計畫執行具體行動（可能透過自然語言、程式碼或直接控制機器），並在行動後更新其對環境的認知，從而重新調整後續計畫。</li>
 </ol>
-<p><img alt="" src="../images/img9-3.png" /></p>
+<p><a class="glightbox" href="../images/img9-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img9-3.png" /></a></p>
 <p>此外，系統中常區分為：</p>
 <ul>
 <li><strong>Slow Agent</strong>：負責生成人類可理解的自然語言計畫；</li>
 <li><strong>Fast Agent</strong>：根據這些計畫，直接執行具體動作或產生相應程式碼。</li>
 </ul>
-<p><img alt="" src="../images/img9-4.png" /></p>
+<p><a class="glightbox" href="../images/img9-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img9-4.png" /></a></p>
 <p>這種分工可以使 AI Agent 在解決複雜任務時既能保持靈活性，又能確保行動的準確執行。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
@@ -1569,7 +1620,7 @@
 <hr />
 <h2 id="ai-agent_2">其他 AI Agent 的應用實例</h2>
 <h3 id="ai_2">由 AI 村民組成的虛擬村莊</h3>
-<p><img alt="由 AI 村民組成的虛擬村莊" src="../images/img9-5.png" /></p>
+<p><a class="glightbox" href="../images/img9-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="由 AI 村民組成的虛擬村莊" src="../images/img9-5.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考影片: <a href="https://youtu.be/G44Lkj7XDsA?si=cMbKG3tqPbIgnnBq">讓 AI 村民組成虛擬村莊會發生甚麼事？</a></li>
@@ -1579,7 +1630,7 @@
 </div>
 <p>在這種應用中，每個 AI 村民都是獨立的 Agent，能夠根據自身記憶與環境互動，模擬出類似人類的行為模式。</p>
 <h3 id="minecraft-ai">會自己玩 Minecraft 的 AI</h3>
-<p><img alt="會自己玩 Minecraft 的 AI" src="../images/img9-6.png" /></p>
+<p><a class="glightbox" href="../images/img9-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="會自己玩 Minecraft 的 AI" src="../images/img9-6.png" /></a></p>
 <p>該系統展示了 AI Agent 在虛擬世界中自主學習與探索的能力，從簡單工具的製作到最終達成高階目標（如擊敗終界龍），顯示了多步驟任務的逐步完成過程。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
@@ -1588,9 +1639,9 @@
 </p>
 </div>
 <h3 id="_3">由語言模型操控的機器人</h3>
-<p><img alt="由語言模型操控的機器人" src="../images/img9-7.png" />
+<p><a class="glightbox" href="../images/img9-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="由語言模型操控的機器人" src="../images/img9-7.png" /></a>
 透過大型語言模型解析人類自然語言指令，並進一步規劃、執行機器人的動作。傳統機器人若要接收並理解人類指令，往往需要事先定義良好的指令集（如特定的關鍵字或程式 API）。然而，伴隨大型語言模型的崛起，機器人不再需要死板的指令格式；反之，能夠「聽懂」並「推理」自然語言，並在內部將人類語句轉譯成行為計畫或動作序列。</p>
-<p><img alt="由語言模型操控的機器人" src="../images/img9-8.png" /></p>
+<p><a class="glightbox" href="../images/img9-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="由語言模型操控的機器人" src="../images/img9-8.png" /></a></p>
 <p>此一新趨勢結合了自然語言處理與機器人學的領域，能為機器人帶來更高層次的靈活度與通用性。例如，在家居服務、餐廳服務、倉儲物流等場景，使用者只需用口語或文字的方式說出「請幫我拿一罐可樂」，機器人便可自動拆解任務、定位可樂位置、執行抓取並遞送的行為。</p>
 <div class="admonition info">
 <p class="admonition-title">Info<ul>
@@ -1599,7 +1650,7 @@
 </p>
 </div>
 <h3 id="_4">用大型語言模型開自駕車</h3>
-<p><img alt="用大型語言模型開自駕車" src="../images/img9-9.png" /></p>
+<p><a class="glightbox" href="../images/img9-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="用大型語言模型開自駕車" src="../images/img9-9.png" /></a></p>
 <p>在自駕車應用中，語言模型不僅負責生成行動計畫，還能透過分析天氣、交通等資訊，生成控制程式碼，實現安全駕駛與即時調整。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
@@ -1609,7 +1660,7 @@
 </div>
 <hr />
 <h2 id="chatgpt">有記憶的 ChatGPT 與個人化體驗</h2>
-<p><img alt="有記憶的 ChatGPT" src="../images/img9-10.png" /></p>
+<p><a class="glightbox" href="../images/img9-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="有記憶的 ChatGPT" src="../images/img9-10.png" /></a></p>
 <p>一般情況下，ChatGPT 的記憶僅存在於單一對話中，每次新對話都需重新開始。未來，隨著記憶功能的進一步開發，AI Agent 將能根據累積的經驗進行更個人化且連續的互動，提升整體的應用效能與體驗。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
@@ -1618,7 +1669,7 @@
 </p>
 </div>
 <p>目前在 2025 的 ChatGPT 中，系統現在會自動將部分重要訊息存放於「全域（Global）記憶」中，代表跨對話也能共享使用者的偏好或個人化設定。這樣一來，使用者不再需要在每個新對話都重新輸入相同的背景或指令，大幅提升了互動效率與個人化體驗。</p>
-<p><img alt="有記憶的 ChatGPT" src="../images/img9-11.png" /></p>
+<p><a class="glightbox" href="../images/img9-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="有記憶的 ChatGPT" src="../images/img9-11.png" /></a></p>
 <p>此外，在付費版本（如 ChatGPT Plus、企業版）中，除了跨對話的「全域記憶」外，還提供了「<strong>專案（Project）</strong>」功能，讓使用者能針對不同主題或任務建立獨立的工作空間。每個專案都能設定專屬的 <strong>系統指令</strong>、<strong>資料檔案</strong>以及<strong>使用者自訂規則</strong>，並與其他專案或全域設定互不干擾。這樣的設計可避免不同任務之間的資訊混淆，並確保對話上下文和資料在該專案中能得到更專業、精準的處理。</p>
 <ul>
 <li>
@@ -1635,11 +1686,11 @@
 </li>
 </ul>
 <p>透過這樣的「專案」機制，使用者能夠同時進行多個領域的深度討論，而不用擔心彼此干擾或重複提供背景資訊，讓 ChatGPT 的互動體驗更高效、清晰，也更貼合專案化或團隊化的工作模式。</p>
-<p><img alt="有記憶的 ChatGPT" src="../images/img9-12.png" /></p>
+<p><a class="glightbox" href="../images/img9-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="有記憶的 ChatGPT" src="../images/img9-12.png" /></a></p>
 <p>未來，隨著記憶功能的進一步開發，AI Agent 將能更加有效地累積經驗，並在不同對話之間進行連續且個人化的互動，為使用者帶來更流暢與智能化的溝通體驗。</p>
 <hr />
 <h2 id="ai-agent_3">案例分享：福利蓮一級魔法使考試中的 AI Agent</h2>
-<p><img alt="" src="../images/img9-14.png" /></p>
+<p><a class="glightbox" href="../images/img9-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img9-14.png" /></a></p>
 <p>在一級魔法使考試中，考生在進入危險迷宮前會獲得一個裝在瓶子裡的「逃脫用哥列姆」。這個哥列姆由大型語言模型驅動，具備以下能力：</p>
 <ul>
 <li>
@@ -1660,12 +1711,12 @@
 <p>如果環境狀況發生變化（例如複製體再次襲擊），哥列姆能夠即時更新計畫，將保護優先順序調整為保持高度環境警覺。這種透過反思更新行動計畫的能力，正是 AI Agent 所追求的靈活性與智慧。</p>
 </li>
 </ul>
-<p><img alt="" src="../images/img9-15.png" /></p>
+<p><a class="glightbox" href="../images/img9-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img9-15.png" /></a></p>
 <p>這個例子展示了如何利用大型語言模型不僅生成自然語言指令，還能通過動態計畫、記憶更新和行動反饋，在不確定且複雜的環境中完成任務。</p>
 <hr />
 <h2 id="_5">延伸閱讀</h2>
 <p>如果你想更了解 AI agent 的相關資訊，這邊提供了一篇 overview paper。從以下這張圖可以看到，作者構想出了一個未來世界，當中各種AI agent 能夠自主地互動、合作，並解決日常任務。AI agent的發展將不僅改變我們的生活方式，也提供許多新的可能性與應用場景。</p>
-<p><img alt="" src="../images/img9-13.png" /></p>
+<p><a class="glightbox" href="../images/img9-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img9-13.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/abs/2309.07864">Reflexion: Language Agents with Verbal Reinforcement Learning</a></li>
@@ -1744,5 +1795,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -990,6 +999,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1284,6 +1314,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1523,7 +1574,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="../images/openai-agents-sdk-1.gif" /></p>
+<p><a class="glightbox" href="../images/openai-agents-sdk-1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/openai-agents-sdk-1.gif" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>延伸閱讀： <a href="https://platform.openai.com/docs/guides/responses-vs-chat-completions">Responses vs. Chat Completions</a></li>
@@ -1546,7 +1597,7 @@
 <hr />
 <h2 id="openai-platform">註冊 OpenAI Platform</h2>
 <p>前往 <a href="https://platform.openai.com/">OpenAI Platform</a>，註冊 OpenAI 帳號登入。在左側選單中點擊「API keys」，再點擊右上角的「Create new secret key」。此時會產生一組新的 API 金鑰，請務必先複製或下載保存，因為只會顯示一次。</p>
-<p><img alt="" src="../images/openai-agents-sdk-2.png" /></p>
+<p><a class="glightbox" href="../images/openai-agents-sdk-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/openai-agents-sdk-2.png" /></a></p>
 <p>雖然我們會使用 Groq 服務作為模型後端，但若你想體驗 <strong>Tracing</strong> 功能（將代理人互動記錄上傳到 OpenAI 後台做視覺化與除錯），依然需要在 OpenAI platform 建立一個專案，並呼叫 <code>set_tracing_export_api_key('&lt;YourOpenAIKey&gt;')</code>。若你不需要這項功能，只要把金鑰留空字串即可，Agents SDK 就不會上傳到 OpenAI。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">agents</span> <span class="kn">import</span> <span class="n">set_tracing_export_api_key</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -1554,13 +1605,13 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">set_tracing_export_api_key</span><span class="p">(</span><span class="s1">&#39;YourOpenAIKey&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="groqllm">註冊 Groq(免費LLM方案)</h2>
-<p>如果手邊沒有付費 OpenAI 的 LLM 模型 API 不妨可以使用免費的資源先玩玩看。Groq 的使用方式與介紹可以參考另一篇文章：<a href="../3.free-llm-api-integration-resources/groq-tutorial.md">Groq 使用教學</a>。</p>
-<p><img alt="" src="../3.free-llm-api-integration-resources/images/img-groq-3.png" /></p>
+<p>如果手邊沒有付費 OpenAI 的 LLM 模型 API 不妨可以使用免費的資源先玩玩看。Groq 的使用方式與介紹可以參考另一篇文章：<a href="../../free-llm-api-integration-resources/groq-tutorial/">Groq 使用教學</a>。</p>
+<p><a class="glightbox" href="../../free-llm-api-integration-resources/images/img-groq-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../free-llm-api-integration-resources/images/img-groq-3.png" /></a></p>
 <p>申請完成後，將 Groq 金鑰貼到你的程式碼中。</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">GROQ_API_KEY</span> <span class="o">=</span> <span class="s1">&#39;YourGroqKey&#39;</span> <span class="c1"># 請自行填入</span>
 </span></code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Note<p>只要平台提供與 OpenAI Chat Completions 相容的 API 端點，Agents SDK 都能順利整合。除了 Groq，也可以使用像是 <a href="../3.free-llm-api-integration-resources/github-models-tutorial.md">GitHub Models</a>、Google Gemini、<a href="../Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/">Ollama</a> 等其他服務都是不錯的選擇。</p>
+<p class="admonition-title">Note<p>只要平台提供與 OpenAI Chat Completions 相容的 API 端點，Agents SDK 都能順利整合。除了 Groq，也可以使用像是 <a href="../../free-llm-api-integration-resources/github-models-tutorial/">GitHub Models</a>、Google Gemini、<a href="../Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/">Ollama</a> 等其他服務都是不錯的選擇。</p>
 </p>
 </div>
 <hr />
@@ -1660,14 +1711,14 @@
 <li>它便透過 <strong>handoff</strong> 機制，將工作任務交接給 <strong>History Tutor</strong>。  </li>
 <li><strong>History Tutor</strong> 收到任務後，負責產生關於「美國獨立戰爭」的詳細回覆，並最終將回答返回給使用者。</li>
 </ol>
-<p><img alt="" src="../images/openai-agents-sdk-3.png" /></p>
+<p><a class="glightbox" href="../images/openai-agents-sdk-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/openai-agents-sdk-3.png" /></a></p>
 <p>在 Traces 頁面上，每個步驟都會以時間順序顯示，包括：</p>
 <ul>
 <li><strong>Agent workflow</strong>：顯示是哪個代理人在執行任務。  </li>
 <li><strong>Handoff</strong>：顯示交接行為，從 Triage Agent 轉給 History Tutor。  </li>
 <li><strong>Execution</strong>：列出執行過程所花費的時間與 Token 使用量，方便日後除錯或分析效能。</li>
 </ul>
-<p><img alt="" src="../images/openai-agents-sdk-4.png" /></p>
+<p><a class="glightbox" href="../images/openai-agents-sdk-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/openai-agents-sdk-4.png" /></a></p>
 <hr />
 <h2 id="functions">範例三：Functions（函式工具）範例</h2>
 <p>OpenAI 其實提供了 Responses API（需要付費）來實現 WebSearch、FileSearch、Computer Use 等功能；然而，我們也能自己撰寫函式並串接第三方服務，達到類似效果，而且不需付官方費用。</p>
@@ -1675,7 +1726,7 @@
 <p>這裡示範使用 <strong>Tavily</strong>（每月有 1000 次免費呼叫）進行網路搜尋。若還沒有帳號，請先至 <a href="https://app.tavily.com">Tavily 官方網站</a> 註冊並在後台建立一組 <strong>API Key</strong>。</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>!pip<span class="w"> </span>install<span class="w"> </span>tavily-python<span class="w"> </span>-q
 </span></code></pre></div>
-<p><img alt="" src="../images/openai-agents-sdk-5.png" /></p>
+<p><a class="glightbox" href="../images/openai-agents-sdk-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/openai-agents-sdk-5.png" /></a></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">tavily</span> <span class="kn">import</span> <span class="n">TavilyClient</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">TAVILY_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YourTavilyKey&quot;</span> <span class="c1"># 請自行填入</span>
@@ -1752,7 +1803,7 @@
 <details class="note">
 <summary>名詞解釋：近日火紅的 MCP 是什麼？</summary>
 <p>MCP（Model Context Protocol）由 Claude 的母公司 Anthropic 所提出，目標是讓大型語言模型（LLM）擁有「控制」與「觀察」的能力。原本只能進行文字輸入輸出的 LLM，現在只要依照 MCP 規範輸出特定文字，就能被 MCP 解讀為指令，進一步與支援 MCP 的軟硬體互動，彷彿「文字變成咒語」一般。MCP 也正在重塑 AI 代理的生態系統，讓 AI Agent 可以根據上下文決定使用哪些工具、以何種順序串接，同時引入人機協作功能。2025 年將是 MCP 發展的關鍵一年，市場統一、多步驟執行協議正式化，以及 AI 代理認證的無縫化都將是值得關注的重大進展。</p>
-<p><img alt="" src="https://i.imgur.com/PtZfhsS.png" /></p>
+<p><a class="glightbox" href="https://i.imgur.com/PtZfhsS.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://i.imgur.com/PtZfhsS.png" /></a></p>
 </details>
 <hr />
 <h2 id="_6">結語</h2>
@@ -1831,5 +1882,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

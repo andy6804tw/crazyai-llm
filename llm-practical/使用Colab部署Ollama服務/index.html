@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -909,6 +918,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1203,6 +1233,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1326,7 +1377,7 @@
 <p>在 Colab Notebook 中，首先我們要下載並安裝 Ollama。可以透過以下指令輕鬆完成安裝：</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>!curl<span class="w"> </span>-fsSL<span class="w"> </span>https://ollama.com/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-colab-1.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-colab-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-colab-1.png" /></a></p>
 <p>安裝過程中你可能會看到一些紅色警告訊息，其原因在於 Ollama 在 Linux 系統中安裝後，預設會利用 systemd 自動啟動背景服務。但由於 Colab 環境並未支援 systemd，所以會顯示「systemd is not running」的警告。這個警告屬正常現象，接下來我們只需手動設定 Ollama 以背景程式方式運行即可。</p>
 <h2 id="ollama_1">手動背景執行 Ollama</h2>
 <p>由於 Colab 只有單一畫面，我們需要利用背景運行機制來啟動 Ollama 服務。這裡採用 <code>nohup</code> 指令，將原本在終端機上輸出的 log 訊息轉存至 <code>ollama.log</code> 檔案中，方便日後查閱運行紀錄。請使用以下指令：</p>
@@ -1447,5 +1498,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

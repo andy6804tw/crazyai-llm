@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -999,6 +1008,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1293,6 +1323,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1508,10 +1559,10 @@
 <h1 id="ollama">Ollama 使用教學：在自己的電腦上運行大型語言模型</h1>
 <h2 id="ollama_1">什麼是 Ollama?</h2>
 <p>Ollama 並非一個大型語言模型，而是協助你快速安裝、管理與運行各種 LLM 的開源工具。換句話說，它就像一個「語言模型管家」，幫你整合安裝流程、記憶體配置，以及提供 REST API 介面，讓其他程式可以把 Ollama 當成後端 AI 服務來使用。透過 Ollama，你可以更方便地在自己的電腦（或伺服器）上進行模型測試、開發，甚至直接部署應用。</p>
-<p><img alt="" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*nHJOSw5GlIPVmenoDmQmWg.png" /></p>
+<p><a class="glightbox" href="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*nHJOSw5GlIPVmenoDmQmWg.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*nHJOSw5GlIPVmenoDmQmWg.png" /></a></p>
 <p>Ollama 的使用情境非常廣泛，尤其適合想離線運作 AI 或在本地端保有數據隱私的使用者。例如，你可以用它來測試不同大小、不同架構的模型，包括小型的 7B 參數模型，或是超大型的 70B 參數模型，依照你的硬體資源調整執行策略。它也支援量化技術，讓模型在一般 RAM 配置中依舊能順暢跑起來。</p>
 <h2 id="ollama_2">Ollama 的核心特色</h2>
-<p><img alt="" src="../images/img-ollama-intro-1.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-1.png" /></a></p>
 <p><strong>1. 支援多種大型語言模型</strong><br />
 Ollama 本身並不限定你只能跑 llama 模型，而是彈性地整合多個 LLM。你可以用它來安裝像是 DeepSeek-R1、Llama、Gemma 等常見的模型，透過簡單的命令就能快速切換或更新。</p>
 <p><strong>2. 自動偵測硬體資源</strong><br />
@@ -1566,20 +1617,20 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <h2 id="ollama_3">Ollama 安裝</h2>
 <h3 id="_2">方法一 官方下載安裝包 (初學者建議)</h3>
 <p>首先，前往 Ollama <a href="https://ollama.com/">官方網站</a>，在首頁找到「Download」按鈕，選擇適合自己作業系統的安裝方式。</p>
-<p><img alt="" src="../images/img-ollama-intro-2.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-2.png" /></a></p>
 <p>本文以 Linux 系統作為展示，在終端機輸入以下指令，一鍵下載並安裝 Ollama：</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://ollama.com/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-3.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-3.png" /></a></p>
 <p>安裝完成後，Ollama 服務會自動在背景運行。你可以在終端機輸入 <code>ollama -v</code>，若顯示版本資訊或指令列表，即代表安裝成功。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ollama<span class="w"> </span>-v
 </span></code></pre></div>
 <p>同時要確認 Ollama server 是否成功被啟動，可以在終端機中輸入以下指令，透過 curl 測試:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w">  </span>http://localhost:11434
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-4.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-4.png" /></a></p>
 <p>亦或是可以在瀏覽器輸入 <code>http://localhost:11434</code> 連線成功將會看到 <code>Ollama is running</code> 的字串訊息。</p>
-<p><img alt="" src="../images/img-ollama-intro-5.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-5.png" /></a></p>
 <p>若沒有被正常啟動服務，可以手動輸入以下指令啟動 Ollama 服務:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ollama<span class="w"> </span>serve
 </span></code></pre></div>
@@ -1630,7 +1681,7 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>nvidia-smi
 </span></code></pre></div>
 <p>若成功出現以下畫面，則表示系統已正確配置 GPU 驅動程式。若尚未安裝，您可以參考這篇文章進行設定： <a href="https://andy6804tw.github.io/2025/02/20/linux-install-nvidia-driver/">Linux 安裝 NVIDIA GPU 驅動完整教學</a>。</p>
-<p><img alt="" src="../images/img-ollama-intro-6.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-6.png" /></a></p>
 <p>接著，在 Linux 安裝 NVIDIA Container Toolkit 使⁠ Docker 容器能使用 GPU 運算環境。基本上按照<a href="https://hub.docker.com/r/ollama/ollama">官方安裝步驟</a>就能完成。首先使用 Apt 安裝，這段指令的主要目的是 設定 NVIDIA Container Toolkit 的 APT 軟體庫 (repository)，以便可以使用 apt 來安裝與更新 NVIDIA Container Toolkit。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/gpgkey<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
@@ -1649,23 +1700,23 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <p>安裝完成後，就可以在 Docker 或其他容器環境中使用 NVIDIA GPU 加速了。最後就使用 docker 啟動含有 GPU 的 Ollama 服務吧!</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--gpus<span class="o">=</span>all<span class="w"> </span>-v<span class="w"> </span>ollama:/root/.ollama<span class="w"> </span>-p<span class="w"> </span><span class="m">11434</span>:11434<span class="w"> </span>--name<span class="w"> </span>ollama<span class="w"> </span>ollama/ollama
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-7.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-7.png" /></a></p>
 <p>部署成功後，我們可以進入正在運行的 Ollama Docker 容器，並開啟一個互動式 Bash Shell，以便直接在容器內操作。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ollama<span class="w"> </span>bash
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-8.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-8.png" /></a></p>
 <p>目前為止已經完成 Ollama 的環境安裝，並且啟動了 Ollama 服務。接下來要講解常用的指令，以及如何管理大型語言模型。</p>
 <h2 id="ollama_4">使用 Ollama 下載和運行模型</h2>
 <p>Ollama 安裝好之後，在終端機中，執行以下指令下載對應的大語言模型模型(例如: gemma2:9b)：</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ollama<span class="w"> </span>pull<span class="w"> </span>gemma2:9b
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-9.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-9.png" /></a></p>
 <p>在 <a href="https://ollama.com/search">Ollama 官方的 Models</a> 頁面上，提供了多種支援的模型。如果對這些模型較為熟悉，可以根據機器的配置選擇適合的模型，無論是較大的還是較小的版本。</p>
-<p><img alt="" src="../images/img-ollama-intro-10.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-10.png" /></a></p>
 <p>下載完成後，使用以下指令，透過終端機介面來使用剛剛下載的大型語言模型。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ollama<span class="w"> </span>run<span class="w"> </span>gemma2:9b
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-11.gif" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-11.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-11.gif" /></a></p>
 <p>如果輸出如上圖所示內容，則表示大語言模型正常運作。輸入 <code>/bye</code> 或是 <code>ctrl+d</code> 退出問答介面。</p>
 <h2 id="rest-api">REST API</h2>
 <p>除了直接在終端機使用互動模式，Ollama 預設也提供了一個 REST API，讓你可以透過程式或第三方工具（例如 Open WebUI）來呼叫並管理模型。換句話說，Ollama 不單只是一個聊天介面，而是能被視為一個「大型語言模型服務」：接收使用者送出的 prompt 後，進行推理並產生對應的答案。下面範例示範如何使用 <code>curl</code> 向本地端 Ollama 服務發送請求，指定要使用的模型（這裡是 <code>gemma2:9b</code>）並傳入對話內容：</p>
@@ -1678,7 +1729,7 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 </span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="s1">  &quot;stream&quot;: false</span>
 </span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-12.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-12.png" /></a></p>
 <p><strong>Chat Completion API（對話生成）</strong></p>
 <p>第二種方法是目前主流的對話生成模式，類似於 OpenAI API Service 所提供的 Chat Completion API。簡單來說，Chat Completion 的核心概念就是「補完對話」：我們先給 AI 一組對話內容作為上下文，再設定特定的條件或角色，接著讓 AI 根據這些情境繼續對話，產生後續回應。這樣一來，整段對話就能不斷延伸與發展。</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>http://localhost:11434/api/chat<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
@@ -1692,7 +1743,7 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 </span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="s1">  &quot;stream&quot;: false</span>
 </span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
-<p><img alt="" src="../images/img-ollama-intro-13.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-13.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <ul>
@@ -1757,7 +1808,7 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 </tbody>
 </table>
 <p>若需要確認 Ollama 是否有使用到 CPU 或 GPU，也可使用 <code>ollama ps</code> 指令來查看詳細資訊。更多相關說明，請參考官方文件：<a href="https://github.com/ollama/ollama/blob/main/docs/faq.md#how-can-i-tell-if-my-model-was-loaded-onto-the-gpu">Ollama FAQ</a>。</p>
-<p><img alt="" src="../images/img-ollama-intro-14.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-14.png" /></a></p>
 <p>我們可以使用 <code>ollama list</code> 來查看本機上已下載的 LLM 模型。這些模型會存放在以下系統資料夾中：</p>
 <ul>
 <li><strong>macOS</strong>: ~/.ollama/models</li>
@@ -1768,7 +1819,7 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
 <p class="admonition-title">Note</p>
 <p>如果你是透過 Docker 運行 Ollama，模型的存放位置會依據 Docker Volume（磁碟掛載） 設定來決定。</p>
 </div>
-<p><img alt="" src="../images/img-ollama-intro-15.png" /></p>
+<p><a class="glightbox" href="../images/img-ollama-intro-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-ollama-intro-15.png" /></a></p>
 <details class="note">
 <summary>如何找到 Docker Volume 的實體位置?</summary>
 <ul>
@@ -1872,5 +1923,7 @@ Ollama 會把各種模型集中管理，包含檔案下載、版本更新等，�
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

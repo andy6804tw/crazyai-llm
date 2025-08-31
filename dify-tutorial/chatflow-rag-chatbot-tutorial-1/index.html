@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -804,6 +813,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1284,6 +1314,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1511,7 +1562,7 @@
 <li>選擇「聊天流」類型。</li>
 <li>命名為「客服系統」後建立應用。</li>
 </ol>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-1.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-1.png" /></a></p>
 <hr />
 <h3 id="3-workflow">3. 編排客服的工作流程（Workflow）</h3>
 <p>進入應用編輯畫面後：</p>
@@ -1524,16 +1575,16 @@
 <li>點選流程圖中的「＋」新增一個節點。</li>
 <li>
 <p>選擇「知識檢索」模組。</p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-2.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-2.png" /></a></p>
 </li>
 <li>
 <p>從下拉選單中選取已建立的知識庫。</p>
 <p>若還沒建立知識庫可以先參考：<a href="../knowledge-retrieval/">使用 Dify 打造 AI 客服知識庫</a></p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-3.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-3.png" /></a></p>
 </li>
 <li>
 <p>系統會自動產生 <code>result</code> 陣列變數，代表匹配到的內容。</p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-4.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-4.png" /></a></p>
 </li>
 </ol>
 <h4 id="llm">➤ 修改 LLM 輸入上下文：</h4>
@@ -1541,7 +1592,7 @@
 <li>點選 LLM 節點。</li>
 <li>
 <p>在「上下文變數」欄位加入 <code>{{result}}</code>，讓大語言模型接收知識庫回傳的資料。</p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-5.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-5.png" /></a></p>
 </li>
 <li>
 <p>在「提示詞（Prompt）」中加入客服專屬語氣，例如：</p>
@@ -1552,7 +1603,7 @@
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> 若提問的問題與上下文無關，則用緩和語氣與客人互動。全程使用繁體中文回應。
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> 上下文: {{#context#}}
 </span></code></pre></div>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-6.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-6.png" /></a></p>
 <hr />
 <h3 id="4-context-memory">4. 開啟記憶功能（Context Memory）</h3>
 <p>為了讓客服對話能有上下文關聯：</p>
@@ -1561,21 +1612,21 @@
 <li>建議設定記憶長度為 10 次對話（避免 prompt 太大送不出去）。</li>
 <li>可支援多輪提問，讓使用者體驗更自然流暢。</li>
 </ul>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-7.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-7.png" /></a></p>
 <hr />
 <h3 id="5">5. 發佈專案</h3>
 <p>當你完成所有設定後，點選右上角的藍色「發佈」按鈕，選擇「發佈更新」，即可讓應用正式啟用。</p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-8.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-8.png" /></a></p>
 <p>專案建置完成後，你可以透過以下三種方式將客服系統嵌入網站，或與外部系統整合使用：</p>
 <h4 id="_3">➤ 運行</h4>
 <p>這是 Dify 內建的聊天視窗，系統會提供一組專屬網址，你可以將此連結直接分享給朋友或同事，立即體驗 AI 客服。</p>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-9.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-9.png" /></a></p>
 <h4 id="iframe">➤ iframe 嵌入</h4>
 <p>若你希望將客服系統整合至公司網站：</p>
 <ul>
 <li>點選應用 →「運行方式」→ 選擇 <strong>iframe</strong> 嵌入程式碼，即可將客服聊天框嵌入網頁中。</li>
 </ul>
-<p><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-10.png" /></p>
+<p><a class="glightbox" href="../images/img-workflow-rag-chatbot-tutorial-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-workflow-rag-chatbot-tutorial-10.png" /></a></p>
 <h4 id="api">➤ API 串接</h4>
 <p>若你需要完全自訂使用者介面（UI）：</p>
 <ul>
@@ -1590,7 +1641,7 @@
 <li>調整System prompt設計專屬的機器人</li>
 <li>可客製化嵌入網站或系統串接</li>
 </ul>
-<p>這樣的系統若委外開發往往動輒數十萬，而透過 Dify，能以最低成本、最快速度完成部署。<a href="./workflow-rag-chatbot-tutorial-2.md">下一篇</a>，我們將說明一些進階的設定讓我們的聊天機器人更加專業。</p>
+<p>這樣的系統若委外開發往往動輒數十萬，而透過 Dify，能以最低成本、最快速度完成部署。<a href="./wchatflow-rag-chatbot-tutorial-2.md">下一篇</a>，我們將說明一些進階的設定讓我們的聊天機器人更加專業。</p>
 
 
 
@@ -1657,5 +1708,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

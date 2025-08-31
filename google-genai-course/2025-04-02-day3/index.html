@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1047,6 +1056,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1332,6 +1362,27 @@
   
   <span class="md-ellipsis">
     使用 Dify 工作流打造 RAG AI 客服系統(進階篇)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
   </span>
   
 
@@ -1643,7 +1694,7 @@
 </div>
 <h2 id="day-3">Day 3 直播精華整理</h2>
 <p>第三天的直播聚焦在生成式 AI 代理。今天我們深入探討了如何利用前兩天學到的基礎模型、提示工程、embeddings 與向量資料庫等技術，來打造能夠觀察、推理並自主或半自主執行任務的 AI 代理。講者們除了介紹生成式 AI 代理的基本概念與核心組成（如模型、工具與調度層）之外，還分享了如何利用工具調用、外部資料連結，以及多代理系統的應用與挑戰。</p>
-<p><img alt="" src="../images/img-day3-1.png" /></p>
+<p><a class="glightbox" href="../images/img-day3-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-day3-1.png" /></a></p>
 <hr />
 <h2 id="qa">Q&amp;A 專家問答</h2>
 <h3 id="q1-notebook-lm">Q1：請問 Notebook LM 的功能與優勢？</h3>
@@ -1894,5 +1945,7 @@ AI 系統如何評估來自多個來源的即時資料可靠性，進而解決�
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

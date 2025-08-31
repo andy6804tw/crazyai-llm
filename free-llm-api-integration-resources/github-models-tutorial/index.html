@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/free-llm-api-integration-resources/github-models-tutorial/">
       
       
-        <link rel="prev" href="../../llm-practical/mcp-tutorial/">
+        <link rel="prev" href="../../llm-practical/qdrant-image-similarity-search/">
       
       
         <link rel="next" href="../groq-tutorial/">
@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -804,6 +813,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1266,6 +1296,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1499,9 +1550,9 @@
 <p class="admonition-title">Note</p>
 <p><strong>💡 如果你是老師或學生</strong>，可以透過 GitHub Education <strong><a href="https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/用老師-學生身份免費使用-github-copilot-223236e0e0e8">申請免費使用 GitHub Copilot Pro</a></strong>，享受更高級的模型與更多額度，對於學術研究與 AI 學習特別有幫助！</p>
 </div>
-<p><img alt="GitHub Copilot 方案" src="../images/img-github-models-1.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-1.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub Copilot 方案" src="../images/img-github-models-1.webp" /></a></p>
 <p>點選任一個模型後，可進入模型介紹頁面，查看該模型的支援語言、輸入輸出限制、測試評分等資訊，並直接進入 Playground 測試其回應能力。</p>
-<p><img alt="" src="../images/img-github-models-2.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-2.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-2.webp" /></a></p>
 <h2 id="github-models_3">GitHub Models 使用限制與限流說明</h2>
 <p>在開始使用 <strong>GitHub Models</strong> 之前，了解 <strong>速率限制 (Rate Limits)</strong> 非常重要。GitHub Models 依據不同的模型類型，將使用限制分為四個等級：</p>
 <ul>
@@ -1532,21 +1583,21 @@
 </ul>
 <h2 id="playground-llm">🎮 在 Playground 測試 LLM 模型</h2>
 <p>GitHub Models 提供 <strong>Playground</strong>，讓開發者可以無需寫程式，直接測試 LLM 模型的能力。只需選擇一個模型，即可輸入 Prompt 進行互動。</p>
-<p><img alt="GitHub Models Playground 入口" src="../images/img-github-models-3.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-3.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub Models Playground 入口" src="../images/img-github-models-3.webp" /></a></p>
 <h3 id="playground">如何進入 Playground</h3>
 <ol>
 <li><strong>前往 GitHub Models</strong>： <a href="https://github.com/marketplace/models">GitHub Models 入口</a></li>
 <li><strong>選擇模型</strong>：從下拉式選單中選擇一個模型</li>
 <li><strong>開始聊天</strong>：在輸入框輸入 Prompt，與 AI 進行對話</li>
 </ol>
-<p><img alt="" src="../images/img-github-models-4.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-4.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-4.webp" /></a></p>
 <p>右側區塊可切換「Parameters」與「Details」：</p>
 <ul>
 <li><strong>Parameters：</strong> 可設定與調整模型參數，如 System prompt、Response format、Max Tokens、Temperature 等。</li>
 <li><strong>Details：</strong> 提供模型的相關說明。</li>
 </ul>
 <p>在 GitHub Models Playground 的參數調整區（右側），使用者可以根據需求客製化 AI 模型的回應方式，透過 System Prompt 設定 AI 的角色與行為，並進一步微調 AI 回應的風格與長度。</p>
-<p><img alt="" src="../images/img-github-models-5.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-5.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-5.webp" /></a></p>
 <p>首先，System Prompt (系統提示詞) 允許開發者定義 AI 的角色、專業領域或回應限制。例如，設定 AI 為「地理專家」，它就只會回答地理相關問題，對於其他問題則禮貌拒答。這樣可以確保 AI 的回應更加聚焦，符合特定應用場景的需求。</p>
 <p>此外，開發者還可以透過以下幾個參數調整 AI 的回應方式：</p>
 <ul>
@@ -1570,7 +1621,7 @@
 <li><strong>Raw：</strong> 顯示您與模型對話紀錄的原始資料。</li>
 </ul>
 <p>在 GitHub Models Playground，使用者可以點擊 「Compare」按鈕，同時測試兩種不同的 LLM，觀察它們在相同 Prompt 下的回應差異。例如，在比較 GPT-4o 和 DeepSeek-R1 回答「全世界最高的山在哪裡？」時，GPT-4o 提供了精確的數據與測量資訊，而 DeepSeek-R1 則補充了文化背景與生態保護觀點。這種對比方式讓開發者能夠快速了解不同模型的資訊準確度、回應風格與適用場景，幫助選擇最適合的 LLM 來應用於專案中。</p>
-<p><img alt="" src="../images/img-github-models-6.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-6.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-6.webp" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Playground 適合誰？</p>
 <p>如果你是<strong>新手</strong>或是希望<strong>快速測試 LLM 的開發者</strong>，Playground 是最佳選擇，因為不需要寫任何程式碼！</p>
@@ -1582,10 +1633,10 @@
 <ul>
 <li>前往 <a href="https://github.com/settings/personal-access-tokens">GitHub Settings</a></li>
 <li>進入 <strong>Developer settings &gt; Personal access tokens &gt; Fine-grained tokens</strong>
-<img alt="" src="../images/img-github-models-7.webp" /></li>
+<a class="glightbox" href="../images/img-github-models-7.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-7.webp" /></a></li>
 <li>點選 「Generate new token」，並選擇 Public Repositories (read-only) 權限</li>
 <li>生成 Token 並<strong>妥善保存</strong>
-<img alt="" src="../images/img-github-models-8.webp" /></li>
+<a class="glightbox" href="../images/img-github-models-8.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-8.webp" /></a></li>
 </ul>
 <p><strong>2. 在Google Colab 執行 API 測試</strong></p>
 <p>為了安全起見，不建議直接在程式碼中明碼顯示 Token，而是應該使用 Colab Secrets 來存取（如果是本機開發建議使用dotenv管理環境變數）。</p>
@@ -1596,7 +1647,7 @@
 <li><strong>Value</strong> 欄位貼上剛剛在 GitHub 生成的 Token</li>
 <li>點擊「access✓」按鈕允許 Colab 存取金鑰</li>
 </ul>
-<p><img alt="" src="../images/img-github-models-9.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-9.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-9.webp" /></a></p>
 <p>這個範例程式會自動讀取 GitHub Token，透過 GitHub Models API 呼叫 GPT-4o 來測試 LLM 模型的回應能力。程式首先從 Google Colab 的 Secrets 取得 <code>GITHUB_TOKEN</code>，並使用 OpenAI 客戶端 來連接 GitHub Models 伺服器。</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
@@ -1633,7 +1684,7 @@
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 </span></code></pre></div>
 <p>這個範例展示了如何使用 Colab + GitHub Models API 來快速測試 LLM 模型的對話能力。你也可以試試看將 model 替換成其他模型，例如嘗試近日熱門的 DeepSeek-R1。</p>
-<p><img alt="" src="../images/img-github-models-10.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-10.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-10.webp" /></a></p>
 <p>上述範例是一個簡單的單輪對話示範，使用者輸入問題後，AI 依據設定的 System Prompt 回應對應的答案，沒有額外的上下文記憶功能。這種方式適合基礎的 API 測試，確保模型能夠正常運作。除了這種單輪對話模式，GitHub Models 官方教學還提供多種進階範例，讓開發者能夠體驗更完整的 AI 互動方式，例如：</p>
 <ul>
 <li><strong>執行多輪對話 (Run a multi-turn conversation)</strong><ul>
@@ -1653,7 +1704,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../images/img-github-models-11.webp" /></p>
+<p><a class="glightbox" href="../images/img-github-models-11.webp" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-github-models-11.webp" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>下一篇文章將會介紹另一個免費LLM資源！</p>
@@ -1733,5 +1784,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

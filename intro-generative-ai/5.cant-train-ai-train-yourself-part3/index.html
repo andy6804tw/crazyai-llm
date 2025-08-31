@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -999,6 +1008,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1293,6 +1323,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1547,10 +1598,10 @@
 <hr />
 <h2 id="5">5. 語言模型彼此合作</h2>
 <p>我們將探討如何通過設計精巧的對話與討論機制，使得多個語言模型能夠有機協同，形成一個高效運作的智慧團隊。</p>
-<p><img alt="" src="../images/img5-13.png" /></p>
+<p><a class="glightbox" href="../images/img5-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-13.png" /></a></p>
 <h3 id="51">5.1 讓合適的模型做合適的事情</h3>
 <p>不同語言模型各有其優勢與限制。例如，雖然 GPT-4 功能全面，但因運算與使用成本較高，對於一些簡單任務則可由成本較低的 GPT-3.5 來負責處理。實際上，平台上已經在應用類似技術，利用一個專門的分配模型決定將任務指派給最合適的模型，從而使整體效能與成本達到最佳平衡。</p>
-<p><img alt="" src="../images/img5-1.png" /></p>
+<p><a class="glightbox" href="../images/img5-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-1.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/abs/2305.05176">FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance</a></li>
@@ -1559,16 +1610,16 @@
 </div>
 <hr />
 <h3 id="52">5.2 讓模型彼此討論</h3>
-<p><img alt="" src="../images/img5-2.png" /></p>
+<p><a class="glightbox" href="../images/img5-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-2.png" /></a></p>
 <p>模型之間的討論能夠互補各自的知識盲點。透過讓一個模型產生答案，再由另一個模型檢視並提出修正建議，最終可形成更完善的結果。這種反覆互動不僅提升回答的正確率，也能激發出更多創新的思路。</p>
 <hr />
 <h4 id="_2">模型合作：實例中的翻譯討論</h4>
-<p><img alt="" src="../images/img5-3.png" /></p>
+<p><a class="glightbox" href="../images/img5-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-3.png" /></a></p>
 <p>在一個具體案例中，李教授示範如何將「葬送的芙莉蓮」翻譯成英文，各個模型則各自提出了多個翻譯版本。（如 <em>The Buried Laurel</em>、<em>Entombed Fleuriem</em> 等），隨後通過反覆交換意見，逐步達成共識，最終選擇了譯為 <em>Florian's Redemption</em>。這個過程展示了模型間通過對話和爭辯，如何產出比單一回應更為精確和創新的結果。</p>
 <hr />
 <h4 id="_3">模型合作：多一點模型一起討論</h4>
 <p>實驗顯示，當參與討論的模型數量增加時，整體回答的正確率也會隨之提高。同時，適當增加討論回合數（通常達到約四個回合後效果最佳）能使最終答案更為完善。這意味著，多模型間的充分互動是激發最佳結果的重要因素。</p>
-<p><img alt="" src="../images/img5-4.png" /></p>
+<p><a class="glightbox" href="../images/img5-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-4.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/abs/2305.14325">Improving Factuality and Reasoning in Language Models through Multiagent Debate</a></li>
@@ -1582,7 +1633,7 @@
 2. 一位模型擔任主管，其他模型分別向其彙報；
 3. 模型之間進行串聯式的互動；
 4. 兩模型辯論，由第三模型擔任裁判決定最佳回答。</p>
-<p><img alt="" src="../images/img5-5.png" /></p>
+<p><a class="glightbox" href="../images/img5-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-5.png" /></a></p>
 <p>目前論文的結論是，沒有一個最合適的討論方式，不同任務對應不同的討論模式，根據實際需求選擇合適的互動方式可以更有效地提升整體效能。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
@@ -1593,11 +1644,11 @@
 <hr />
 <h4 id="_5">討論要怎麼停下來？</h4>
 <p>要讓討論達到最佳效果並最終結束，需要引入一個裁判模型。該模型根據各模型間的對話內容進行判斷，決定是否達成共識並產生最終摘要。這個機制不僅能防止討論變得拖泥帶水，同時也能確保不會因過早結束而錯失進一步深入探討的機會。</p>
-<p><img alt="" src="../images/img5-6.png" /></p>
+<p><a class="glightbox" href="../images/img5-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-6.png" /></a></p>
 <hr />
 <h4 id="_6">討論會不會停不下來？</h4>
 <p>實際上，模型間的討論往往不會無限延續，主要是因為在設計 prompt 時通常會引入激發反對與挑戰的指令，使討論在達到一定深度後自然結束。關鍵在於如何設計 prompt，使得模型既能充分發揮質疑與辯論，又不至於因過度懷疑而提前終止討論。</p>
-<p><img alt="" src="../images/img5-7.png" /></p>
+<p><a class="glightbox" href="../images/img5-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-7.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/abs/2305.19118">Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate</a>  </li>
@@ -1608,11 +1659,11 @@
 <hr />
 <h3 id="53">5.3 團隊需要有不同的腳色</h3>
 <p>團隊分工是成功合作的重要關鍵。不僅在傳統的勇者小隊中需要不同專長的成員，在語言模型的應用中也同樣適用。透過讓模型根據自身專長分工，可以使整個系統發揮出更高的效率與精準度。</p>
-<p><img alt="" src="../images/img5-8.png" /></p>
+<p><a class="glightbox" href="../images/img5-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-8.png" /></a></p>
 <hr />
 <h4 id="-_1">引入不同的腳色 - 建立團隊</h4>
 <p>在一個專案中，可能需要負責規劃的專案經理(PM)、執行程式碼的工程師以及測試用戶等角色。藉由讓不同模型各自扮演特定角色，不僅能針對任務的不同面向進行專業處理，也能利用模型之間的互補優勢提高整體表現。</p>
-<p><img alt="" src="../images/img5-9.png" /></p>
+<p><a class="glightbox" href="../images/img5-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-9.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/abs/2303.17760">CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society</a></li>
@@ -1621,13 +1672,13 @@
 </div>
 <hr />
 <h4 id="-_2">引入不同的腳色 - 優化團隊</h4>
-<p><img alt="" src="../images/img5-10.png" /></p>
+<p><a class="glightbox" href="../images/img5-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-10.png" /></a></p>
 <p><a href="https://arxiv.org/abs/2310.02170">參考論文_Dynamic LLM-Agent Network: An LLM-agent Collaboration Framework with Agent Team Optimization</a></p>
 <p>除了組建團隊，團隊內部的優化也是關鍵。透過讓各模型互相評分，將表現較差的模型淘汰，能持續提升團隊效能。這種考績機制類似於企業內部的績效評估，旨在建立一支高效且專注的模型團隊。</p>
 <hr />
 <h4 id="_7">開源專案</h4>
 <p>目前已有多個開源專案，如 <a href="https://github.com/geekan/MetaGPT">MetaGPT</a>、<a href="https://github.com/OpenBMB/ChatDev">ChatDev</a> 等，展示了如何利用多個語言模型協同工作，完成從寫程式到自動化專案管理等任務，為未來更廣泛的應用提供了可能。</p>
-<p><img alt="" src="../images/img5-11.png" /></p>
+<p><a class="glightbox" href="../images/img5-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-11.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文 MetaGPT: <a href="https://arxiv.org/abs/2308.00352">Meta Programming for A Multi-Agent Collaborative Framework</a>  </li>
@@ -1638,7 +1689,7 @@
 <hr />
 <h4 id="ai">由 AI 組成的社群</h4>
 <p>除了團隊合作，還有研究探索由多個語言模型組成的虛擬社群，甚至模擬出具有人際互動與情感連結的「AI 村民」。這類實驗展示了語言模型在未來可能不僅僅是工具，而是能夠構成一個完整生態系統的智能體系。</p>
-<p><img alt="" src="../images/img5-12.png" /></p>
+<p><a class="glightbox" href="../images/img5-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img5-12.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文: <a href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a>  </li>
@@ -1718,5 +1769,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

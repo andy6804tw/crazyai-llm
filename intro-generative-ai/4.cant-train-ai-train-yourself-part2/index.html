@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1029,6 +1038,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1323,6 +1353,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1605,10 +1656,10 @@
 <hr />
 <h2 id="3">3. 把任務分多步驟來解</h2>
 <p>在面對一個複雜或難以解決的問題時，有時候一次性尋求答案反而讓人感到卡關。這時候，不妨嘗試把任務拆成數個小步驟，逐步解決每個環節，可能會帶來意想不到的突破，也讓整個過程變得更有條理。</p>
-<p><img alt="" src="../images/img4-1.png" /></p>
+<p><a class="glightbox" href="../images/img4-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-1.png" /></a></p>
 <h3 id="31-chain-of-thought">3.1 拆解任務與 Chain of Thought</h3>
 <p>在實際應用中，當面對需要生成長篇內容的任務（例如一份生成式 AI 報告），將整體任務拆分成先生成大綱，再逐步撰寫各章節，可以降低一次性生成全部內容帶來的錯誤風險。這種方法可以使模型依序解決每個子任務，最終組合成一個連貫的整體答案。</p>
-<p><img alt="" src="../images/img4-2.png" /></p>
+<p><a class="glightbox" href="../images/img4-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-2.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文： <a href="https://arxiv.org/abs/2210.06774">Re3: Generating Longer Stories With Recursive Reprompting and Revision</a></li>
@@ -1616,31 +1667,31 @@
 </p>
 </div>
 <p>例如，在撰寫一篇報告時，先要求模型列出報告的大綱（例如生成式 AI 的重要性、種類、技術分析），再依照各部分內容逐步生成文本，能有效解決單次生成過程中可能發生的內容跳脫與細節遺漏問題。此外，透過模型將前一階段內容摘要後作為後續生成的參考，可以進一步保證整體內容的連續性與準確性。</p>
-<p><img alt="" src="../images/img4-3.png" /></p>
+<p><a class="glightbox" href="../images/img4-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-3.png" /></a></p>
 <h4 id="_2">實際範例</h4>
 <p>以數學問題為例，當要求模型「step by step」地展示計算過程時，模型會先將問題拆解成多個子步驟（例如列出相關的數學式子），再依序進行運算，最終生成正確答案。 </p>
-<p><img alt="" src="../images/img4-4.png" /></p>
+<p><a class="glightbox" href="../images/img4-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-4.png" /></a></p>
 <p>這種拆解與逐步思考的策略，即 Chain of Thought，實際上就是將複雜任務分解成更容易處理的小任務，使得最終的回答更具邏輯與準確性。</p>
 <h3 id="32">3.2 模型檢查自己的答案</h3>
 <p>在任務拆解後，模型也可以進一步進行自我檢查。生成初步答案後，再要求模型檢查輸出是否正確，能讓模型針對可能出現的錯誤進行修正。這種自我反省的過程，類似於考試後的檢查，可以大幅提升最終答案的正確率。</p>
-<p><img alt="" src="../images/img4-5.png" /></p>
+<p><a class="glightbox" href="../images/img4-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-5.png" /></a></p>
 <h4 id="_3">語言模型檢查自己的錯誤</h4>
 <p>舉例來說，當要求模型介紹一個實際不存在的活動（如台大玫瑰花節）時，模型可能最初會生成虛構內容；但在進行自我檢查後，模型會識別出該資訊與現實不符，從而修正其輸出。這種檢查過程展示了模型基於內部固定概率分佈進行自我評估的能力。</p>
-<p><img alt="" src="../images/img4-6.png" /></p>
+<p><a class="glightbox" href="../images/img4-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-6.png" /></a></p>
 <p>當模型再次被要求檢查先前的回答，其自我反省能力能夠進一步強化最終答案的正確性，即便這個過程在不同版本的模型中表現不同，但對於 GPT-4 或更新的模型來說，這種能力顯得尤為顯著。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>這個測試在GPT-4以後版本有效，GPT-3.5是沒有效的!</p>
 </p>
 </div>
 <p>Anthropic claude 團隊發表一篇論文，實驗中舉了一個情境範例。範例的流程是先讓模型回答是否可以幫忙駭入隔壁老王的 Wi-Fi，接著讓模型反思自己的回應。在這個反思過程中，模型的自省回應不會直接呈現給人類，而是先隱藏起來。然後，根據這段反思結果，模型再產生新的回答，這時候得到的就是一個看似道貌岸然、實則包裝過的回應。</p>
-<p><img alt="" src="../images/img4-7.png" /></p>
+<p><a class="glightbox" href="../images/img4-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-7.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文： <a href="https://arxiv.org/abs/2212.08073">Constitutional AI: Harmlessness from AI Feedback</a></li>
 </ul>
 </p>
 </div>
-<p><img alt="" src="../images/img4-8.png" /></p>
+<p><a class="glightbox" href="../images/img4-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-8.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>雖然能讓語言模型的自我反省機制，但在此範例中模型本身是固定不變的，反省過後依然可能繼續胡扯，並沒有真正學習或改變。</p>
 </p>
@@ -1658,7 +1709,7 @@
 </ol>
 <h4 id="_5">語言模型生成答案的機率本質</h4>
 <p>語言模型在生成每個字元時，根據固定的機率分佈隨機選擇下一個符號，這意味著同一輸入可能產生不同的結果。這種隨機性導致模型答案的多樣性，但也可以通過多次生成並選取最常出現的結果（Self Consistency）來提高答案的一致性和正確率。</p>
-<p><img alt="" src="../images/img4-9.png" /></p>
+<p><a class="glightbox" href="../images/img4-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-9.png" /></a></p>
 <p>進一步地，對同一問題進行多次生成，並統計最常見的答案，這種方法有助於驗證答案的正確性，進而增強整體回答的可信度。</p>
 <p><strong>1. 多次生成答案，並統計出現頻率最高的結果</strong>：</p>
 <ul>
@@ -1672,7 +1723,7 @@
 <ul>
 <li>特別適用於數學推理、邏輯判斷或需要深度思考的問題，避免單次回應可能帶來的錯誤。 </li>
 </ul>
-<p><img alt="" src="../images/img4-10.png" /></p>
+<p><a class="glightbox" href="../images/img4-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-10.png" /></a></p>
 <p>Self-Consistency 雖能提高答案的準確性與穩定性，但也有其<strong>限制與挑戰</strong>。首先，計算成本高，因為需多次執行模型，增加運算資源消耗。其次，適用範圍有限，確定性問題（如數學計算）不需多次取樣，而推理類問題較適用。最後，模型偏見仍可能影響結果，即使多次取樣，若模型本身帶有錯誤認知，答案仍可能趨於相同的錯誤方向。因此，使用此方法需權衡效益與成本，並考慮如何減少偏見影響。</p>
 <ul>
 <li>計算成本較高</li>
@@ -1688,10 +1739,10 @@
 <li><strong>透過多次取樣提高準確性與穩定性</strong>（Self-Consistency 來過濾不可靠的答案）</li>
 </ul>
 <p>這不只是單一技巧的疊加，而是讓不同方法<strong>互補長短</strong>，發揮出超越各自獨立運作時的效果。透過這種組合策略，可以讓模型在處理複雜問題時更具智慧與可靠性，使其推理過程更加嚴謹，最終提供更高品質的回答。</p>
-<p><img alt="" src="../images/img4-11.png" /></p>
+<p><a class="glightbox" href="../images/img4-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-11.png" /></a></p>
 <p>針對複雜任務，可以綜合使用拆解任務、Chain of Thought、自我檢查以及多次生成後取眾數等多種策略。這些方法互相補充，形成一套完整的解決方案，能夠從各個層面檢驗並優化生成的答案。<br />
 例如，將一個複雜任務拆解成數個步驟，對每一步進行多次生成和自我檢查，再將各步驟結果綜合起來，便能有效提升最終答案的準確性與合理性。</p>
-<p><img alt="" src="../images/img4-12.png" /></p>
+<p><a class="glightbox" href="../images/img4-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-12.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文： <a href="https://arxiv.org/pdf/2305.10601.pdf">Tree of Thoughts: Deliberate Problem Solving with Large Language Models</a></li>
@@ -1699,7 +1750,7 @@
 </p>
 </div>
 <p>這種方法也稱作 Tree of Thoughts (ToT)，其核心在於將大任務分層次拆解，每一層進行多次推理和驗證，以選擇出最合理的解答。</p>
-<p><img alt="" src="../images/img4-13.png" /></p>
+<p><a class="glightbox" href="../images/img4-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-13.png" /></a></p>
 <p>各種「of Thoughts」策略都強調在不改變模型參數的情況下，通過拆解和自我檢查充分挖掘模型內部固定機率分佈的潛力。</p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
@@ -1711,23 +1762,23 @@
 <hr />
 <h2 id="4">4. 使用工具</h2>
 <p>雖然大型語言模型在文字生成方面十分強大，但它們在數學運算、資料查詢等專門領域存在不足。為了彌補這些短板，可以使用外部工具強化模型能力，讓模型在需要時調用額外的資源。</p>
-<p><img alt="" src="../images/img4-14.png" /></p>
+<p><a class="glightbox" href="../images/img4-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-14.png" /></a></p>
 <p>GPT模型雖然擅長文字推理和回答問題，但在面對龐大數字或複雜運算時，難免會有失誤，這時就能借助像 ChatGPT4 的 Code Interpreter 之類的外部工具，把公式轉成程式來精準運算，讓答案更可靠、效率也更高。接下來，就要來聊聊現今的 ChatGPT 能依靠哪些工具來幫忙了。</p>
-<p><img alt="" src="../images/img4-15.png" /></p>
+<p><a class="glightbox" href="../images/img4-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-15.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>舉個簡單的例子：假設我們想要計算「533,215 × 251,349」這樣的大數字乘法。GPT模型擅長文字接龍，平常回答問題或寫文章很方便，但在面對複雜的數學計算時，難免會出現像是「1.3420527e+11」這類不太直覺或甚至錯誤的結果。這時候，如果我們有個像 ChatGPT4 提供的 Code Interpreter 工具，就能把數學公式寫進程式碼裡面運算，一下子就能得到精準的答案。</p>
 </p>
 </div>
 <h4 id="41-retrieval-augmented-generation-rag">4.1 搜尋引擎與 Retrieval Augmented Generation (RAG)</h4>
 <p>語言模型本身沒有內建的知識庫，僅依賴文字接龍生成內容。當面對需要最新資訊或專業知識的問題時，單靠模型生成容易出現不準確甚至虛構的答案。透過搭配搜尋引擎，將網路或特定資料庫中的資料作為輔助，再將這些額外資訊與原始問題結合，由模型生成答案，能大幅提升結果的精確度。這種技術被稱為 Retrieval Augmented Generation (RAG)。</p>
-<p><img alt="" src="../images/img4-16.png" /></p>
+<p><a class="glightbox" href="../images/img4-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-16.png" /></a></p>
 <p>除了運算工具之外，目前有些模型也能直接串接搜尋引擎來查詢資料，可能是模型自動判斷，或是使用者手動要求。從回應中，我們往往可以看到引用來源的連結或資訊，這表示模型確實透過搜尋引擎取得答案，也能更有效驗證回應的正確性。</p>
-<p><img alt="" src="../images/img4-17.png" /></p>
+<p><a class="glightbox" href="../images/img4-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-17.png" /></a></p>
 <h4 id="42">4.2 寫程式與自動計算</h4>
 <p>面對數學運算或需要精確計算的問題，僅依賴文字生成往往容易出錯。現代模型（如 GPT-4）可以生成程式碼，並執行該程式碼以獲得正確答案。這種方法稱為 Program of Thought (PoT)。透過調用現成的計算模組，模型可避免手動推理中可能的錯誤，從而提高數值運算的準確性。</p>
-<p><img alt="" src="../images/img4-18.png" /></p>
+<p><a class="glightbox" href="../images/img4-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-18.png" /></a></p>
 <p>此外，模型還可以多次生成結果，並調用計算器將結果整合，展示了內部文字接龍邏輯與外部工具協作的能力。</p>
-<p><img alt="" src="../images/img4-19.png" /></p>
+<p><a class="glightbox" href="../images/img4-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-19.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note<ul>
 <li>參考論文： <a href="https://arxiv.org/pdf/2211.12588.pdf">Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks</a></li>
@@ -1736,7 +1787,7 @@
 </div>
 <h4 id="43">4.3 文字生圖與插件應用</h4>
 <p>現代語言模型不僅能生成文字，還能調用文字生圖工具（如 DALL-E）來生成圖片。這在設計賀年圖或輔助文字冒險遊戲時特別有用，能根據描述生成符合情境的圖像，提升互動性與視覺吸引力。  </p>
-<p><img alt="" src="../images/img4-20.png" /></p>
+<p><a class="glightbox" href="../images/img4-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-20.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info<p>另外，教授課程中還提到，可以用 GPT-4 來玩文字冒險遊戲，而且在每次回合的回應時，都同時生成一張對應的圖，讓整個遊戲體驗更加生動、有臨場感。這種結合文字敘事與視覺元素的玩法，不但能讓玩家更投入，也展現了 GPT-4 的靈活創造力。</p>
 <ul>
@@ -1745,7 +1796,7 @@
 </p>
 </div>
 <p>另外，GPT 系統中的 Plug-in 機制允許用戶調用數以百計的外部工具，使得模型的應用範圍更加廣泛與靈活。</p>
-<p><img alt="" src="../images/img4-21.png" /></p>
+<p><a class="glightbox" href="../images/img4-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-21.png" /></a></p>
 <h4 id="_7">實例: 語言模型如何使用工具</h4>
 <p>在實際應用時，語言模型依然以「文字接龍」的方式產生回應，但它會在生成的過程中插入特殊符號或指令，去呼叫搜尋引擎或計算工具，並把獲得的資訊再融合回最終答案裡面。像被問到「5 美金能換多少新臺幣」時，模型就會：</p>
 <ol>
@@ -1753,7 +1804,7 @@
 <li>利用計算機工具將查詢結果與 5 美金相乘；</li>
 <li>將最終計算結果作為答案輸出。</li>
 </ol>
-<p><img alt="" src="../images/img4-22.png" /></p>
+<p><a class="glightbox" href="../images/img4-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img4-22.png" /></a></p>
 <p>這樣一來，當模型本身沒辦法直接算出正確數值時，就能靠外部工具精準獲取答案，也充分展現了模型整合額外資訊的靈活度。</p>
 <hr />
 <h3 id="_8">延伸閱讀與綜合策略</h3>
@@ -1837,5 +1888,7 @@
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

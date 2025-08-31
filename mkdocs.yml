@@ -51,6 +51,7 @@ nav:
     - '使用Streamlit與Ollama建立聊天介面': 'llm-practical/使用Streamlit與Ollama建立聊天介面.md'
     - 'OpenAI Agents SDK多代理人工作流程教學': 'llm-practical/openai-agents-sdk-tutorial.md'
     - '深入理解 MCP 搭配簡易實作': 'llm-practical/mcp-tutorial.md'
+    - 'Qdrant 圖片向量庫教學': 'llm-practical/qdrant-image-similarity-search.md'
 
   - '🤖免費 LLM API 串接資源':
     - 'GitHub Models 免費試玩': 'free-llm-api-integration-resources/github-models-tutorial.md'

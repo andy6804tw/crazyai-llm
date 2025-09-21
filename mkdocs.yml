@@ -63,7 +63,8 @@ nav:
     - '📝利用 Google NotebookLM 打造高效學習筆記': 'aigc-tools/利用 Google NotebookLM 打造高效學習筆記.md'
 
   - '用Dify打造專屬AI助理':
-    -  '建立第一個應用': 'dify-tutorial/1.1介面介紹.md'
+    - '建立第一個應用': 'dify-tutorial/1.1dify-create-first-app.md'
+    - 'Dify 工作流與認識節點': 'dify-tutorial/1.2dify-workflow-overview.md'
     - '使用 Dify 打造 AI 客服知識庫': 'dify-tutorial/knowledge-retrieval.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(基礎篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-1.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(進階篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-2.md'

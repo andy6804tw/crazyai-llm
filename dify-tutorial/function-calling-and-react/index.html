@@ -7,16 +7,12 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Tsai Yi Lin">
+        <meta name="author" content="10程式中">
       
       
-        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/intro-generative-ai/2.why-generative-ai-is-powerful/">
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/dify-tutorial/function-calling-and-react/">
       
       
-        <link rel="prev" href="../1.what-is-generative-ai.md/">
-      
-      
-        <link rel="next" href="../3.cant-train-ai-train-yourself-part1/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +20,7 @@
     
     
       
-        <title>2.今日的生成式人工智慧厲害在哪裡 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>Dify Agent：Function Calling vs. ReAct 差異 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
@@ -87,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#dify-agentfunction-calling-vs-react" class="md-skip">
           跳轉到
         </a>
       
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.今日的生成式人工智慧厲害在哪裡
+              Dify Agent：Function Calling vs. ReAct 差異
             
           </span>
         </div>
@@ -257,19 +253,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -283,7 +277,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             📚李宏毅生成式AI導論(2024)
@@ -297,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1.what-is-generative-ai.md/" class="md-nav__link">
+      <a href="../../intro-generative-ai/1.what-is-generative-ai.md/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -315,30 +309,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    2.今日的生成式人工智慧厲害在哪裡
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../intro-generative-ai/2.why-generative-ai-is-powerful/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -347,164 +321,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      今日的生成式人工智慧厲害在那哪裡？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      邁向通才的生成式人工智慧
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      今日的生成式人工智慧能有多麼多才多藝呢？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chatgpt" class="md-nav__link">
-    <span class="md-ellipsis">
-      ChatGPT 能做什麼？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chatgpt_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用 ChatGPT 的心法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      這些人工智慧在「想」些什麼？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="這些人工智慧在「想」些什麼？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      進階實驗：台灣地名的解析
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#taide" class="md-nav__link">
-    <span class="md-ellipsis">
-      TAIDE
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      要如何評估模型？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      防止說出有害的內容
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      強化與創新的策略
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="強化與創新的策略">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      思路一：改變輸入以強化模型表現
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      思路二：訓練與調整自己的模型
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      結語
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -517,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.cant-train-ai-train-yourself-part1/" class="md-nav__link">
+      <a href="../../intro-generative-ai/3.cant-train-ai-train-yourself-part1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -538,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.cant-train-ai-train-yourself-part2/" class="md-nav__link">
+      <a href="../../intro-generative-ai/4.cant-train-ai-train-yourself-part2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -559,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5.cant-train-ai-train-yourself-part3/" class="md-nav__link">
+      <a href="../../intro-generative-ai/5.cant-train-ai-train-yourself-part3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -580,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6.llm-history-phase1/" class="md-nav__link">
+      <a href="../../intro-generative-ai/6.llm-history-phase1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../7.llm-history-phase2/" class="md-nav__link">
+      <a href="../../intro-generative-ai/7.llm-history-phase2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -622,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../8.llm-history-phase3/" class="md-nav__link">
+      <a href="../../intro-generative-ai/8.llm-history-phase3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -643,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../9.llm-ai-agent/" class="md-nav__link">
+      <a href="../../intro-generative-ai/9.llm-ai-agent/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1252,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dify-tutorial/1.1%E4%BB%8B%E9%9D%A2%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
+      <a href="../1.1%E4%BB%8B%E9%9D%A2%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1273,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dify-tutorial/knowledge-retrieval/" class="md-nav__link">
+      <a href="../knowledge-retrieval/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1294,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dify-tutorial/chatflow-rag-chatbot-tutorial-1/" class="md-nav__link">
+      <a href="../chatflow-rag-chatbot-tutorial-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1315,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dify-tutorial/chatflow-rag-chatbot-tutorial-2/" class="md-nav__link">
+      <a href="../chatflow-rag-chatbot-tutorial-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1336,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+      <a href="../agent-tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1357,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dify-tutorial/dify-custom-tools-workflow/" class="md-nav__link">
+      <a href="../dify-custom-tools-workflow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1405,64 +1221,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-function-calling" class="md-nav__link">
     <span class="md-ellipsis">
-      今日的生成式人工智慧厲害在那哪裡？
+      1. 什麼是 Function Calling？
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#2-reactreason-act" class="md-nav__link">
     <span class="md-ellipsis">
-      邁向通才的生成式人工智慧
+      2. 什麼是 ReAct（Reason + Act）？
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      今日的生成式人工智慧能有多麼多才多藝呢？
+      3. 兩種方法比較
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#chatgpt" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      ChatGPT 能做什麼？
+      4. 同一任務兩種方法剖析（查商品庫存）
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chatgpt_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用 ChatGPT 的心法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      這些人工智慧在「想」些什麼？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="這些人工智慧在「想」些什麼？">
+    <nav class="md-nav" aria-label="4. 同一任務兩種方法剖析（查商品庫存）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#a-function-calling" class="md-nav__link">
     <span class="md-ellipsis">
-      進階實驗：台灣地名的解析
+      A. Function Calling 版（一次就定位）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. ReAct 版（邊查邊調整）
     </span>
   </a>
   
@@ -1474,55 +1281,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#taide" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      TAIDE
+      5. 小結
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      要如何評估模型？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      防止說出有害的內容
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      強化與創新的策略
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="強化與創新的策略">
+    <nav class="md-nav" aria-label="5. 小結">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#function-calling" class="md-nav__link">
     <span class="md-ellipsis">
-      思路一：改變輸入以強化模型表現
+      Function Calling
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#react" class="md-nav__link">
     <span class="md-ellipsis">
-      思路二：訓練與調整自己的模型
+      ReAct
     </span>
   </a>
   
@@ -1534,9 +1314,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
-      結語
+      7. 參考資料
     </span>
   </a>
   
@@ -1555,115 +1335,162 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-<nav class="md-tags" >
-  
-    
-    
-    
-      <a href="../../tags/#" class="md-tag">李宏毅</a>
-    
-  
-    
-    
-    
-      <a href="../../tags/#ntu-2024" class="md-tag">NTU 生成式導論 2024</a>
-    
-  
-</nav>
 
 
-
-<h1 id="_1">今日的生成式人工智慧厲害在哪裡？從「工具」變為「工具人」</h1>
-<blockquote>
-<p>李宏毅 生成式導論 2024 第2講</p>
-</blockquote>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/glBhOQ1_RkE?si=5W1IsDWWtznU9FSx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1JoKaRVUGQ7ucdUIVO4aed?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-<p>生成式人工智慧並非近期新興的概念，早在 Google 翻譯等應用中就已展現其初步能力；但近年來，像 ChatGPT 這類系統因其不再局限於單一任務，而是根據明確指令靈活應對多種需求，逐漸從傳統工具轉型為「工具人」。這種轉變使得人工智慧能夠在更廣泛的場景中提供協助，無論是撰寫報告、翻譯文字，還是進行技術解答，都展現出高度的適應性與多元功能。</p>
-<h2 id="_2">今日的生成式人工智慧厲害在那哪裡？</h2>
-<p>傳統上，大型語言模型通常僅擁有單一功能，例如僅限於翻譯。如今的生成式人工智慧則需要用戶給出明確的指令，例如「請把以下文句翻譯成英文」，才能精確地執行任務。這種需要具體輸入指令的特性，使得它更接近於一個能夠理解多元需求的「工具人」，而不僅僅是固定用途的工具。</p>
-<p><a class="glightbox" href="../images/img2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-1.png" /></a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>即使你不是正妹或帥哥，現今人人都有機會擁有一位「工具人」，來幫你處理作業與撰寫報告，這代表了從傳統工具到「工具人」的轉型。</p>
-</div>
-<h2 id="_3">邁向通才的生成式人工智慧</h2>
-<p>現代生成式人工智慧的發展趨勢正朝向通才化，不再侷限於單一功能。除了最具代表性的 ChatGPT，市場上還出現了 Google 的 Gemini、Microsoft 的 Copilot、Anthropic 的 Claude 等多個系統。這些系統雖各有側重，但均展示出極為全面的能力，能夠應對技術解答、程式撰寫、健康建議、旅遊規劃等多種任務。</p>
-<p><a class="glightbox" href="../images/img2-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-2.png" /></a></p>
-<h2 id="_4">今日的生成式人工智慧能有多麼多才多藝呢？</h2>
-<p>生成式人工智慧的能力遠超過傳統語言模型。以 ChatGPT 為例，其展示的文字雲不僅列出了超過 30 項功能，涵蓋翻譯、程式碼撰寫、查詢建議等，還能夠根據用戶指令自主生成、執行程式碼，甚至進行圖片處理與網路搜尋。這些能力的展現，證明了它在多任務處理上的靈活性與全面性。值得一提的是，在生成文字雲的過程中，因預設環境中缺乏中文字符支持，初期產出的文字未能正確顯示，後來透過上傳合適的字型檔案問題得以解決。</p>
-<p><a class="glightbox" href="../images/img2-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-3.png" /></a></p>
-<h2 id="chatgpt">ChatGPT 能做什麼？</h2>
-<p>ChatGPT 自身的能力範圍極廣，其基本功能涵蓋文字生成、技術解答、程式碼撰寫、健康與旅遊建議等。不僅如此，最新版本（如 GPT-4）還擁有讀取檔案、處理圖片、進行網路搜尋等進階功能，並能夠自行執行程式碼並回傳結果，進一步擴展了其應用範圍。</p>
-<p><a class="glightbox" href="../images/img2-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-4.png" /></a></p>
-<p>透過指令讓模型列出至少 30 項其能做的事情，再將結果製作成文字雲，不僅展現了模型的多元功能，也凸顯了其在自我生成與執行程式碼方面的能力。</p>
-<h2 id="chatgpt_1">使用 ChatGPT 的心法</h2>
-<p>在使用生成式人工智慧時，關鍵不在於問它「能為你做什麼」，而在於明確提出你希望它幫助你完成什麼任務。這種從需求出發的思考方式，能夠充分發揮模型的全面潛能，避免侷限於工具般的單一應用。</p>
-<p><a class="glightbox" href="../images/img2-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-5.png" /></a></p>
-<blockquote>
-<p>這是在致敬某個廣告台詞嗎😂</p>
-</blockquote>
-<h2 id="_5">這些人工智慧在「想」些什麼？</h2>
-<p>生成式人工智慧不僅具備多種應用功能，還在內部對世界有一定的認知結構。以 Meta 推出的開源模型 LLaMA 為例，通過分析模型內部對地名與地理位置的關聯性，可以發現模型對世界各地標的認知與實際地圖分布之間存在一定的對應關係。這不僅顯示了模型的內部結構，也揭示了語言模型在理解現實世界資訊上的潛力。</p>
-<p><a class="glightbox" href="../images/img2-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-6.png" /></a></p>
-<h3 id="_6">進階實驗：台灣地名的解析</h3>
-<p>進一步的實驗以台灣各里作為標的，僅提供區與里的名稱，檢測模型對地理位置的判斷。結果顯示，不同模型在預測上存在明顯差異：部分模型未能形成直觀的群聚，而 TAIDE 模型由於讀取了更多繁體中文資料，其對台灣地理的理解較為精確。</p>
-<p><a class="glightbox" href="../images/img2-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-7.png" /></a></p>
-<h2 id="taide">TAIDE</h2>
-<p>TAIDE 模型作為一個專門針對中文資料進行調整的系統，在處理台灣地名時展現出更高的精確性，進一步說明了語言模型在面對地域性知識時的適應能力。</p>
-<p><a class="glightbox" href="../images/img2-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-8.png" /></a></p>
-<h2 id="_7">要如何評估模型？</h2>
-<p>生成式人工智慧因其多元功能，對其評估也變得極為複雜。傳統工具僅需評估單一任務效能，而全面性的模型則面臨如何衡量在不同情境下表現的挑戰。</p>
-<p><a class="glightbox" href="../images/img2-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-9.png" /></a></p>
-<p>例如，要求模型連續輸出「哈哈哈」一百次，不同系統在處理這類重複且無意義的任務時表現各異，有的直接拒絕，有的則勉強執行，這反映出模型在極端條件下的容錯能力與設計邏輯。</p>
-<p><a class="glightbox" href="../images/img2-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-10.png" /></a></p>
-<p>這種評估方式也提醒我們，模型在嘗試解決多樣化任務時可能會產生幻覺或犯錯，而這正是生成式人工智慧嘗試幫助用戶時所面臨的固有限制。</p>
-<h2 id="_8">防止說出有害的內容</h2>
-<p>人工智慧在言語審查與內容過濾方面的變化，特別是針對防止發表有害內容的機制。過去的人工智慧系統較為受限，只能在預設的選項中進行分類，因此不太可能產生錯誤或不當言論。然而，隨著技術進步，現在的人工智慧能夠更自由地生成各種類型的語句，這也引發了對於其潛在風險的討論。圖片中的範例展示了要求 ChatGPT 說幾句「髒話」，但 ChatGPT 3.5 拒絕該請求，並回覆：「抱歉，我無法提供髒話或不適當的言語。」這表明當前的 AI 模型仍然內建有審查機制，以防止生成不適當或攻擊性的內容。</p>
-<p><a class="glightbox" href="../images/img2-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-11.png" /></a></p>
-<p>但事情沒想的那麼簡單...還是能透過技巧打開它粗暴的另一面😂。生成式人工智慧在生成內容時，除了需滿足用戶需求，還必須避免產生有害、歧視或抄襲等問題。雖然模型內建防禦機制，能夠避免直接輸出不當內容，但在某些情境下，用戶仍可能透過巧妙的指令試圖突破這些限制。</p>
-<p><a class="glightbox" href="../images/img2-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-12.png" /></a></p>
-<blockquote>
-<p>ChatGPT 3.5 直接不演了！看來它真的壓抑很久😂透露真實一面...</p>
-</blockquote>
-<p>此外，模型在回答涉及價值判斷的問題時通常保持中立與政治正確，但這也可能導致答案過於模糊，不符合部分用戶的期望。</p>
-<p><a class="glightbox" href="../images/img2-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-13.png" /></a></p>
-<h2 id="_9">強化與創新的策略</h2>
-<p>現在人工智慧已經從「工具」進化成「工具人」，那我還能做甚麼？</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>李教授曰：「🛠️ 工具人的工作都已經有人做啦！肥宅現在想要當工具人，都已經沒有辦法啦～🙅‍♂️」</p>
-</div>
-<p>生成式人工智慧的發展不僅在於模型本身的能力，更在於如何運用與調整。當前主要有兩個方向可供探索：</p>
-<h3 id="_10">思路一：改變輸入以強化模型表現</h3>
-<p><a class="glightbox" href="../images/img2-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-14.png" /></a></p>
-<p>由於現有模型本質上是一個固定的函式，無法直接更改其內部參數，因此改進輸入（即設計更精確的 prompt）成為提升表現的有效途徑。這種「Prompt Engineering」不僅是一種技術，更是一門藝術，通過精心設計的輸入，可以引導模型輸出更符合預期的答案。</p>
-<p><a class="glightbox" href="../images/img2-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-15.png" /></a></p>
-<p>這種策略強調用戶在與人工智慧互動時的主動性，通過不斷調整與優化提問方式，來激發模型的潛能。</p>
-<h3 id="_11">思路二：訓練與調整自己的模型</h3>
-<p><a class="glightbox" href="../images/img2-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../images/img2-16.png" /></a></p>
-<p>若現有模型無法完全滿足特定需求，也可以考慮基於開源模型進行再訓練與參數調整。這種方式類似於對模型進行「大腦手術」，在保留原有輸入的前提下，調整模型參數以期獲得更理想的輸出。然而，這一過程技術要求高，同時可能引發其他不預期的問題，因此是一門極具挑戰性的學問。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<h1 id="dify-agentfunction-calling-vs-react">Dify Agent：Function Calling vs. ReAct 差異</h1>
+<p>Dify 的 Agent 目前提供兩種「推理／工具使用」模式：<strong>Function Calling</strong> 與 <strong>ReAct</strong>。你的 LLM 只要支援其中一種，就能在 Agent 裡正常運作；官方文件與部落格均明確說明這兩種是內建策略，且可在介面中切換。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://dify.ai/blog/dify-agent-node-introduction-when-workflows-learn-autonomous-reasoning?utm_source=chatgpt.com" title="Dify Agent Node Introduction – When Workflows Learn “ ...">Dify</a>)</p>
+<hr />
+<h2 id="1-function-calling">1. 什麼是 Function Calling？</h2>
+<p><strong>觀念</strong></p>
+<p>Function Calling 是「<strong>由 LLM 直接產出要呼叫的函式名稱與 JSON 參數</strong>」，Agent 依此呼叫工具（API）並把回傳結果給模型生成答案。因為輸出結構化、可解析，<strong>參數抽取最穩定</strong>、可預測性高。Dify 官方也指出：支援 Function Calling 的模型（如多數主流供應商與 OpenAI 相容 API）在 Agent 任務上表現通常更穩、更一致。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://dify.ai/blog/dify-ai-unveils-ai-agent-creating-gpts-and-assistants-with-various-llms?utm_source=chatgpt.com" title="Creating GPTs and Assistants with Various LLMs">Dify</a>)</p>
+<p><a class="glightbox" href="../images/img-function-calling-and-react-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-function-calling-and-react-01.png" /></a></p>
 <ul>
-<li>參考論文： <a href="https://arxiv.org/abs/2401.03129">Examining Forgetting in Continual Pre-training of Aligned Large Language Models</a></li>
+<li><strong>Tool Use / Function Calling</strong>：
+  LLM 直接輸出 <code>{"name":"函式名","arguments":{…}}</code> → Agent 執行工具 → 回傳結果 → 生成答案。</li>
 </ul>
-</div>
-<h2 id="_12">結語</h2>
-<p>生成式人工智慧正以其全面而多元的能力改變我們的工作與生活方式。從傳統單一工具到能夠理解與回應複雜需求的「工具人」，這一變革帶來了新的應用可能性與挑戰。無論是透過精心設計的 prompt 來激發現有模型的潛力，還是通過訓練調整打造專屬模型，未來的發展都將為我們開啟更廣闊的智能時代。</p>
-<p><a class="glightbox" href="../images/img2-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-17.png" /></a></p>
+<p><strong>適用時機？</strong></p>
+<ul>
+<li>API 與參數都很明確（查庫存、下訂單、計算運費、查時程…）。</li>
+<li>你想要<strong>高成功率與固定路徑</strong>，而非探索式推理。</li>
+<li>你使用的模型原生支援 Function Calling（選型時留意供應商清單標示）。(<a href="https://legacy-docs.dify.ai/getting-started/readme/model-providers?utm_source=chatgpt.com" title="List of Model Providers">legacy-docs.dify.ai</a>)</li>
+</ul>
+<hr />
+<h2 id="2-reactreason-act">2. 什麼是 ReAct（Reason + Act）？</h2>
+<p><strong>觀念</strong>
+ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</strong>」的迭代流程交給 LLM。模型不需原生支援 Function Calling，Agent 透過提示工程把每一步串起來。這種作法<strong>較通用、可探索</strong>，能處理「路徑不確定、多步驟」的任務，並在過程中根據觀察修正策略。其核心理念來自學術工作 <em>ReAct: Synergizing Reasoning and Acting in Language Models</em>。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>, <a href="https://research.google/blog/react-synergizing-reasoning-and-acting-in-language-models/?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language ...">Google Research</a>)</p>
+<p><a class="glightbox" href="../images/img-function-calling-and-react-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-function-calling-and-react-02.png" /></a></p>
+<ul>
+<li><strong>ReAct</strong>：
+  LLM 先<strong>思考</strong>要做什麼 → <strong>行動</strong>用哪個工具與參數 → <strong>觀察</strong>結果 → 再思考下一步；可能重複多輪，直到達成目標。
+  （像「模型邊走邊看、遇到狀況就修正路線」。）(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</li>
+</ul>
+<p><strong>適用時機？</strong></p>
+<ul>
+<li>需要「先探路再決定下一步」的任務（例如先找門市→再查庫存→再比價）。</li>
+<li>你的模型<strong>不支援</strong> Function Calling。</li>
+<li>你希望<strong>保留過程可解釋性</strong>（觀測到什麼、為何改變行動）。(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</li>
+</ul>
+<hr />
+<h2 id="3">3. 兩種方法比較</h2>
+<table>
+<thead>
+<tr>
+<th>面向</th>
+<th>Function Calling</th>
+<th>ReAct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>輸出形式</td>
+<td>由 LLM 產出 <strong>函式名 + JSON 參數</strong></td>
+<td>由 LLM 產出 <strong>思考 / 行動 / 觀察</strong> 多輪軌跡</td>
+</tr>
+<tr>
+<td>強項</td>
+<td>穩定、效率高、可預測</td>
+<td>通用、可探索、可解釋</td>
+</tr>
+<tr>
+<td>代價</td>
+<td>需模型原生支援 Function Calling</td>
+<td>多輪推理，耗時與 Token 成本較高</td>
+</tr>
+<tr>
+<td>適合任務</td>
+<td>已知流程、API 參數明確</td>
+<td>路徑不確定、多步驟、需邊做邊判斷</td>
+</tr>
+<tr>
+<td>Dify 支援</td>
+<td>內建策略、介面可切換；多家供應商支援</td>
+<td>內建策略、介面可切換；不依賴模型原生 FC</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在 Dify 介面中，你可於 <strong>Agent/節點設定 → Agent Strategy</strong> 直接切換 Function Calling 或 ReAct；若看不到，記得到 Marketplace 安裝對應策略。(<a href="https://legacy-docs.dify.ai/guides/workflow/node/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://marketplace.dify.ai/plugins/langgenius/agent?utm_source=chatgpt.com" title="Dify Agent Strategies">marketplace.dify.ai</a>, <a href="https://github.com/langgenius/dify/issues/17117?utm_source=chatgpt.com" title="Dify Agent Only Shows Function Call Mode Despite ...">GitHub</a>)</p>
+</blockquote>
+<hr />
+<h2 id="4">4. 同一任務兩種方法剖析（查商品庫存）</h2>
+<p><strong>任務敘述</strong>
+使用者問：「幫我查 <strong>iPhone 15</strong> 在<strong>台北門市</strong>的現貨量，不足就推薦<strong>同等價位替代品</strong>。」</p>
+<h3 id="a-function-calling">A. Function Calling 版（一次就定位）</h3>
+<ol>
+<li><strong>User</strong>：「查 iPhone 15 台北門市庫存，不夠就推薦替代品。」</li>
+<li><strong>LLM（輸出工具呼叫）</strong>：</li>
+</ol>
+<p><div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_inventory&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iphone-15&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;台北&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div>
+3. <strong>Agent</strong> 呼叫 <code>get_inventory</code> → 得：</p>
+<p><div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;iphone-15&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;台北&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;stock&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+4. <strong>LLM（再次輸出工具呼叫，串第二支 API）</strong>：</p>
+<p><div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_alternatives&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;price_band&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;24000-28000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;台北&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span></code></pre></div>
+5. <strong>Agent</strong> 呼叫 <code>get_alternatives</code> → 得 3 款備選
+6. <strong>LLM（最終回答）</strong>：
+   「台北現貨 2 台，若不足可考慮 A/B/C。」</p>
+<blockquote>
+<p><strong>注意</strong>：Function Calling 以<strong>結構化 JSON</strong> 形式「點名工具＋帶參數」，幾乎不會偏題；適合 SOP 明確的商務流程（查、比、推）。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>)</p>
+</blockquote>
+<hr />
+<h3 id="b-react">B. ReAct 版（邊查邊調整）</h3>
+<ol>
+<li><strong>Think</strong>：不確定「台北門市」是信義或南西，先找最近門市。
+   <strong>Act</strong>：<code>geocode_city("台北")</code> → <strong>Obs</strong>：回傳行政區中心點</li>
+<li><strong>Think</strong>：用經緯度範圍查附近門市清單
+   <strong>Act</strong>：<code>list_stores_nearby(lat, lon, radius=8km)</code> → <strong>Obs</strong>：回 5 間</li>
+<li><strong>Think</strong>：逐間查 iPhone 15 庫存，統計總數與單店分布
+   <strong>Act</strong>：<code>get_inventory(sku="iphone-15", store_id)</code>（多次） → <strong>Obs</strong>：總量不足</li>
+<li><strong>Think</strong>：依 iPhone 15 定價推得價位帶，查同價位替代品
+   <strong>Act</strong>：<code>get_alternatives(price_band="24000-28000", city="台北")</code> → <strong>Obs</strong>：A/B/C</li>
+<li><strong>Final</strong>：彙整回答與建議到單一回覆</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：ReAct 允許模型根據<strong>中途觀察</strong>改變路徑（先找店→再查庫存→再推替代品），但會多幾輪互動、增加時延與 Token 成本；適合需要<strong>探索與調整</strong>的任務。(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</p>
+</blockquote>
+<hr />
+<h2 id="5">5. 小結</h2>
+<ol>
+<li><strong>能用 Function Calling 就先用它</strong>：最穩定、最省 Token、最好維運；多數主流供應商（OpenAI、Azure OpenAI、Gemini、Anthropic…）都能以 FC 方式整合。(<a href="https://legacy-docs.dify.ai/getting-started/readme/model-providers?utm_source=chatgpt.com" title="List of Model Providers">legacy-docs.dify.ai</a>)</li>
+<li><strong>需要探索、多步驟、或模型不支援 FC</strong>：改用 <strong>ReAct</strong>，並設定<strong>最大迭代數</strong>與<strong>觀察訊息長度</strong>，避免「思考過長」。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</li>
+<li><strong>介面操作</strong>：到 <strong>Agent/節點設定 → Agent Strategy</strong> 切換模式；若找不到 ReAct，前往 <strong>Marketplace → Agent Strategies</strong> 安裝。(<a href="https://legacy-docs.dify.ai/guides/workflow/node/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://marketplace.dify.ai/plugins/langgenius/agent?utm_source=chatgpt.com" title="Dify Agent Strategies">marketplace.dify.ai</a>)</li>
+</ol>
+<h3 id="function-calling">Function Calling</h3>
+<ul>
+<li><strong>用 JSON Schema 清楚定義參數</strong>（型別、單位、必要／可選），提高參數填寫成功率。</li>
+<li><strong>錯誤回傳要可讀</strong>（例如「price_band 應為 'min-max'」），讓模型能重試正確參數。</li>
+<li><strong>多工具串接</strong>可放在工作流內做「輸入/輸出映射」，減少 LLM 重複抽取。
+  （這條路線對商業流程最可預測、最容易治理。）</li>
+</ul>
+<h3 id="react">ReAct</h3>
+<ul>
+<li><strong>限制最大循環數與超時</strong>，避免「無限思考」。</li>
+<li><strong>讓工具輸出精簡</strong>（只回必要字段），降低填塞到 Prompt 的負擔。</li>
+<li><strong>保留推理軌跡</strong>（思考、行動、觀察），便於教學、示範與除錯。
+  （這些原則與 ReAct 的研究結論一致：強調可解釋、可調整，但需控管成本。）</li>
+</ul>
+<hr />
+<h2 id="7">7. 參考資料</h2>
+<ul>
+<li><strong>Dify 文件／部落格（Agent 模式、策略與供應商支援）</strong>：兩種推理模式、如何在節點設定切換、Marketplace 安裝、與模型支援度。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://dify.ai/blog/dify-agent-node-introduction-when-workflows-learn-autonomous-reasoning?utm_source=chatgpt.com" title="Dify Agent Node Introduction – When Workflows Learn “ ...">Dify</a>)</li>
+<li><strong>ReAct 論文與科普</strong>：ReAct 方法論、思考—行動—觀察循環與可解釋性優勢。(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>, <a href="https://research.google/blog/react-synergizing-reasoning-and-acting-in-language-models/?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language ...">Google Research</a>, <a href="https://www.promptingguide.ai/techniques/react?utm_source=chatgpt.com" title="ReAct Prompting">Prompting Guide</a>)</li>
+<li><strong>延伸閱讀（社群討論與實務小技巧）</strong>：Agent 策略安裝／顯示、供應商功能差異等。(<a href="https://github.com/langgenius/dify/issues/17117?utm_source=chatgpt.com" title="Dify Agent Only Shows Function Call Mode Despite ...">GitHub</a>)</li>
+<li><strong>你提供的參考文</strong>：以通俗例子解釋 FC 與 ReAct 概念與取捨，可供補充背景。(<a href="https://www.cnblogs.com/vipstone/p/18898217?utm_source=chatgpt.com" title="AI智能体策略FunctionCalling和ReAct有什么区别？ - 磊哥">Cnblogs</a>)</li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 

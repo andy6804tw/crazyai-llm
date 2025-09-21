@@ -886,6 +886,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主流圖片與多模態嵌入模型總覽表
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主流圖片與多模態嵌入模型總覽表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型重點整理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#3-qdrant" class="md-nav__link">
     <span class="md-ellipsis">
       3. 用 Qdrant 建立圖片向量庫：完整實作流程
@@ -964,7 +988,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       結語
     </span>
@@ -1219,6 +1243,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../dify-tutorial/1.1%E4%BB%8B%E9%9D%A2%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    建立第一個應用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../dify-tutorial/knowledge-retrieval/" class="md-nav__link">
         
   
@@ -1296,6 +1341,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dify-tutorial/dify-custom-tools-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify 自訂模型教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1344,6 +1410,30 @@
       2. 主流圖片與多模態 embedding 模型簡介
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主流圖片與多模態嵌入模型總覽表
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主流圖片與多模態嵌入模型總覽表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型重點整理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1426,7 +1516,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       結語
     </span>
@@ -1467,32 +1557,86 @@
 <hr />
 <h2 id="2-embedding">2. 主流圖片與多模態 embedding 模型簡介</h2>
 <p>選對模型是建立圖片向量庫的第一步。以下簡單介紹幾種目前社群熱門且容易上手的 embedding 模型：</p>
+<p>以下是整理出截至 2025 年的 <strong>主流圖片嵌入（Image Embedding）模型</strong>與 <strong>多模態嵌入（Multimodal Embedding）模型</strong> 的統整表格，包含維護者、支援模態以及特色功能，幫助你快速比較與選擇：</p>
+<hr />
+<h2 id="_1">主流圖片與多模態嵌入模型總覽表</h2>
 <table>
 <thead>
 <tr>
-<th>模型</th>
-<th>特點</th>
-<th>PyPI 套件/下載資源</th>
+<th>模型／家族</th>
+<th>維護者／開發單位</th>
+<th>支援模態</th>
+<th>特點與應用重點</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>OpenCLIP</strong></td>
-<td>社群持續維護的 CLIP 延伸版，支援更多模型</td>
-<td><code>open-clip-torch</code></td>
+<td><strong>ViT</strong></td>
+<td>Google Research</td>
+<td>圖像</td>
+<td>Transformer 架構首款大規模圖像模型，改變圖像表徵方式。</td>
 </tr>
 <tr>
-<td><strong>ViT/DINOv2</strong></td>
-<td>純圖片分類，適合專注於圖片語意</td>
-<td><code>torchvision</code></td>
+<td><strong>DINOv2 / DINOv3</strong></td>
+<td>Meta AI / FAIR Lab</td>
+<td>圖像（DINOv3 加入圖文對齊）</td>
+<td>自監督圖像特徵學習，DINOv3 優化 dense 特徵並支援圖文對齊。</td>
 </tr>
 <tr>
-<td><strong>BLIP/BLIP-2</strong></td>
-<td>支援圖片描述（Captioning）、多模態應用</td>
-<td><code>transformers</code></td>
+<td><strong>CLIP</strong> (原版)</td>
+<td>OpenAI</td>
+<td>圖像、文本</td>
+<td>經典對齊模型，支援 zero-shot 檢索與跨模態應用。</td>
+</tr>
+<tr>
+<td><strong>Jina‑CLIP v1</strong></td>
+<td>Jina AI</td>
+<td>圖像 + 文本（主要英文）</td>
+<td>擁有 text–text 與 image–text 搜尋能力。</td>
+</tr>
+<tr>
+<td><strong>Jina‑CLIP v2</strong></td>
+<td>Jina AI</td>
+<td>圖像 + 文本（89 語系多語）</td>
+<td>支援 89 語，512×512 高影像解析度，提供 Matryoshka 表示法，可壓縮維度仍保效能 (<a href="https://github.com/facebookresearch/ImageBind?utm_source=chatgpt.com" title="ImageBind One Embedding Space to Bind Them All">GitHub</a>, <a href="https://ai.meta.com/blog/imagebind-six-modalities-binding-ai/?utm_source=chatgpt.com" title="ImageBind: Holistic AI learning across six modalities">Meta AI</a>, <a href="https://jina.ai/news/jina-clip-v2-multilingual-multimodal-embeddings-for-text-and-images/?utm_source=chatgpt.com" title="Multilingual Multimodal Embeddings for Text and Images">Jina AI</a>, <a href="https://jina.ai/embeddings/?utm_source=chatgpt.com" title="Embedding API">Jina AI</a>, <a href="https://jina.ai/models/jina-clip-v2/?utm_source=chatgpt.com" title="jina-clip-v2 - Search Foundation Models">Jina AI</a>)。</td>
+</tr>
+<tr>
+<td><strong>ImageBind</strong></td>
+<td>Meta AI / FAIR Lab</td>
+<td>圖像、文字、音訊、深度、熱圖、IMU</td>
+<td>支援六種模態共同映射進入一個嵌入空間，可跨模態檢索與 emergent 應⽤ (<a href="https://ai.meta.com/research/publications/imagebind-one-embedding-space-to-bind-them-all/?utm_source=chatgpt.com" title="ImageBind: One Embedding Space To Bind Them All">Meta AI</a>, <a href="https://arxiv.org/abs/2305.05665?utm_source=chatgpt.com" title="ImageBind: One Embedding Space To Bind Them All">arXiv</a>)。</td>
+</tr>
+<tr>
+<td><strong>Google Vertex AI Multimodal Embeddings</strong></td>
+<td>Google Cloud / Vertex AI</td>
+<td>圖像、文字、影片</td>
+<td>可處理混合內容，常用於分類與影片審查，輸出高維向量。</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h3 id="_2">模型重點整理</h3>
+<ul>
+<li>
+<p><strong>圖片嵌入模型 (僅支援圖像)</strong>：</p>
+</li>
+<li>
+<p><em>ViT</em>：Transformer 開啟者，改變視覺模型設計方式</p>
+</li>
+<li>
+<p><em>DINOv2 / DINOv3</em>：強化圖片特徵學習，DINOv3 還支援圖文一致性</p>
+</li>
+<li>
+<p><strong>多模態嵌入模型 (支援圖文或更多模態)</strong>：</p>
+</li>
+<li>
+<p><em>CLIP</em>：開創圖文共用空間的典範</p>
+</li>
+<li><em>Jina‑CLIP v1 &amp; v2</em>：後者支援多語、可調整向量維度，性能更強 (<a href="https://ai.meta.com/blog/imagebind-six-modalities-binding-ai/?utm_source=chatgpt.com" title="ImageBind: Holistic AI learning across six modalities">Meta AI</a>, <a href="https://jina.ai/news/jina-clip-v2-multilingual-multimodal-embeddings-for-text-and-images/?utm_source=chatgpt.com" title="Multilingual Multimodal Embeddings for Text and Images">Jina AI</a>)</li>
+<li><em>ImageBind</em>：創新將六種模態整合至單一向量空間，多模態檢索利器 (<a href="https://ai.meta.com/research/publications/imagebind-one-embedding-space-to-bind-them-all/?utm_source=chatgpt.com" title="ImageBind: One Embedding Space To Bind Them All">Meta AI</a>)</li>
+<li><em>Gemini / Gemma 系列</em>：目前不支援圖片向量嵌入，僅支援輸出文字或文字生成用途。</li>
+<li><em>Vertex AI Multimodal Embeddings</em>：Google 提供的多模態嵌入服務，方便嵌入搜尋與內容分類</li>
+</ul>
 <p><strong>推薦新手直接用 <code>open-clip-torch</code> 的 ViT-B-32（OpenAI權重）做練習，穩定、社群熱門、支援度高。</strong></p>
 <hr />
 <h2 id="3-qdrant">3. 用 Qdrant 建立圖片向量庫：完整實作流程</h2>
@@ -1623,7 +1767,7 @@
 <li><strong>進階降維</strong>：大量點建議 UMAP/t-SNE 先降維至 2D，前端可自訂更美觀的散點分布圖</li>
 </ul>
 <hr />
-<h2 id="_1">結語</h2>
+<h2 id="_3">結語</h2>
 <p>Qdrant 的 WebUI + 強大 Python API，結合主流多模態 embedding 模型，不只讓「以圖搜圖」超簡單，還能直觀探索向量資料集內的語意結構。不論你是做資料工程、內容推薦還是 AI 應用，這一套流程絕對讓你如虎添翼。</p>
 
 

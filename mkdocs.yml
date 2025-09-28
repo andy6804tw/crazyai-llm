@@ -68,6 +68,7 @@ nav:
     - 'Dify 工作流基礎：問題分類器': 'dify-tutorial/1.3dify-question-classifier.md'
     - 'Dify 工作流基礎：條件分支': 'dify-tutorial/1.4dify-ifelse.md'
     - 'Dify 工作流基礎：程式碼執行': 'dify-tutorial/1.5dify-code.md'
+    - 'Dify 工作流基礎：迭代': 'dify-tutorial/1.12dify-iteration.md'
     - '使用 Dify 打造 AI 客服知識庫': 'dify-tutorial/knowledge-retrieval.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(基礎篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-1.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(進階篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-2.md'

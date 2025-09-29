@@ -10,9 +10,13 @@
         <meta name="author" content="10程式中">
       
       
-        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/dify-tutorial/1.2dify-workflow-overview.md/">
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/dify-tutorial/1.3dify-question-classifier/">
       
       
+        <link rel="prev" href="../1.2dify-workflow-overview/">
+      
+      
+        <link rel="next" href="../1.4dify-ifelse/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Dify 工作流基礎：從 Chatflow 與 Workflow 認識節點 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>Dify 工作流基礎：問題分類器 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
@@ -83,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dify-chatflow-workflow" class="md-skip">
+        <a href="#dify" class="md-skip">
           跳轉到
         </a>
       
@@ -119,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dify 工作流基礎：從 Chatflow 與 Workflow 認識節點
+              Dify 工作流基礎：問題分類器
             
           </span>
         </div>
@@ -1030,17 +1034,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             用Dify打造專屬AI助理
@@ -1089,11 +1095,225 @@
   
   
     <li class="md-nav__item">
-      <a href="." class="md-nav__link">
+      <a href="../1.2dify-workflow-overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Dify 工作流與認識節點
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：問題分類器
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：問題分類器
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      高級設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      實務案例（場景）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="實務案例（場景）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例演示：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4dify-ifelse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：條件分支
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5dify-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：程式碼執行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.6dify-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：模板轉換
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.7dify-doc-extractor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：文件提取器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.12dify-iteration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：迭代
   </span>
   
 
@@ -1244,45 +1464,48 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      為什麼需要工作流？
+      使用方法
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dify" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dify 工作流的兩種類型
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="使用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      常見案例
+      高級設定
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      節點：工作流的組成核心
+      實務案例（場景）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="實務案例（場景）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例演示：
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      下一步？
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1301,169 +1524,76 @@
                   
 
 
-<h1 id="dify-chatflow-workflow">Dify 工作流基礎：從 Chatflow 與 Workflow 認識節點</h1>
-<h2 id="_1">為什麼需要工作流？</h2>
-<p>在建構 AI 應用的過程中，單靠提示詞 (Prompt) 有時不足以處理複雜邏輯。
-<strong>工作流 (Workflow)</strong> 的出現，正是為了將複雜任務拆解為「節點 (Node)」的形式，讓系統更有結構、更穩定。
-它的好處包括：</p>
+<h1 id="dify">Dify 工作流基礎：問題分類器</h1>
+<p><strong>問題分類器</strong>是一個能夠根據使用者輸入內容，自動判斷問題類型的節點。它依靠大語言模型（LLM）的自然語言理解與推理能力，將輸入的問題對應到事先定義好的分類，並輸出分類結果。
+透過這個節點，我們可以快速將不同意圖的輸入問題分流至不同的流程路徑，讓工作流更具結構性與自動化。</p>
+<p>常見應用包括：</p>
 <ul>
-<li><strong>降低複雜度</strong>：把大問題拆成小步驟。</li>
-<li><strong>提升可靠性</strong>：明確的流程比「黑箱推理」更穩定。</li>
-<li><strong>方便調試與擴展</strong>：每個節點都能獨立檢查，靈活修改。</li>
-<li><strong>提升可解釋性</strong>：知道系統是怎麼一步步產生結果。</li>
+<li>客服對話意圖分類</li>
+<li>產品評價或留言分類</li>
+<li>郵件與工單的自動分類</li>
 </ul>
+<p><a class="glightbox" href="../images/img1.3-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img1.3-1.png" /></a></p>
 <hr />
-<h2 id="dify">Dify 工作流的兩種類型</h2>
-<p>Dify 的工作流主要分為兩類，分別對應不同應用場景：</p>
-<table>
-<thead>
-<tr>
-<th>類型</th>
-<th>特點</th>
-<th>適用情境</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Chatflow</strong></td>
-<td>專為 <strong>對話式應用</strong> 設計，內建對話歷史 (Memory)，支援多輪互動與即時回覆。</td>
-<td>客服助理、FAQ 機器人、語義搜尋對話等</td>
-</tr>
-<tr>
-<td><strong>Workflow</strong></td>
-<td>專為 <strong>自動化/批處理</strong> 設計，支援邏輯判斷、程式碼執行與外部 API 調用。</td>
-<td>批量翻譯、報表生成、數據分析、郵件自動化等</td>
-</tr>
-</tbody>
-</table>
-<p><a class="glightbox" href="../images/img1.2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img1.2-1.png" /></a></p>
-<div class="admonition note">
-<p class="admonition-title">Note<ul>
-<li><strong>Chatflow</strong> 有「Answer 節點」與「聊天記憶 (Memory)」功能。<ul>
-<li>給予指令→ 產生內容→ 就內容進行多次討論→ 重新產生結果→ 結束</li>
+<h2 id="_1">使用方法</h2>
+<p>在工作流中配置 <strong>問題分類器</strong> 節點時，通常包含以下幾個步驟：</p>
+<ol>
+<li>
+<p><strong>選擇推理模型</strong>
+   問題分類器依賴 LLM 的推理能力，選擇合適的模型（如 GPT、Claude、Gemini 等）能提升分類準確率。</p>
+</li>
+<li>
+<p><strong>選擇輸入變數</strong>
+   指定要用來分類的輸入內容，一般為使用者的輸入問題，例如：<code>sys.query</code>。</p>
+</li>
+<li>
+<p><strong>編寫分類標籤 / 描述</strong>
+   為每個類別定義一段清楚的標籤或描述，例如：</p>
+<ul>
+<li>售前問題：與產品規格、價格相關的問題</li>
+<li>售後問題：與維修、保固、異常使用有關的問題</li>
+<li>其他問題：與產品無關的問題</li>
 </ul>
 </li>
-<li><strong>Workflow</strong> 則沒有多輪對話記憶，但能更靈活地進行批量與流程自動化。<ul>
-<li>給予指令→ 產生內容→ 結束</li>
-</ul>
+<li>
+<p><strong>設定分類輸出與下游節點</strong>
+   當問題被分類後，會輸出對應的 <code>class_name</code>，再根據結果導向不同的後續節點（例如：知識庫查詢、API 呼叫或回覆訊息）。</p>
 </li>
-</ul>
-</p>
-</div>
+</ol>
+<p><a class="glightbox" href="../images/img1.3-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img1.3-2.png" /></a></p>
 <hr />
-<h2 id="_2">常見案例</h2>
-<p>以下是幾個典型的工作流應用場景：</p>
+<h3 id="_2">高級設定</h3>
+<ul>
+<li><strong>指令</strong>：可補充額外說明，幫助模型更好地理解分類依據。</li>
+<li><strong>記憶</strong>：允許分類器參考對話上下文，提升對話型場景的判斷精度。</li>
+<li><strong>圖片分析</strong>：若模型支援多模態，可以輸入圖片變數進行圖片內容分類。</li>
+<li><strong>記憶窗口</strong>：控制上下文歷史訊息的傳遞範圍，避免過多資訊干擾。</li>
+</ul>
+<hr />
+<h2 id="_3">實務案例（場景）</h2>
+<p>以客服系統為例，我們設定三個分類標籤：</p>
+<ol>
+<li><strong>售前問題</strong></li>
+<li><strong>售後問題</strong></li>
+<li><strong>其他問題</strong></li>
+</ol>
+<p><a class="glightbox" href="../images/img1.3-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img1.3-3.png" /></a>  </p>
+<h3 id="_4">案例演示：</h3>
 <ul>
 <li>
-<p><strong>客戶服務助理</strong><br />
-  透過 Chatflow 整合知識庫，LLM 可以自動回應常見問題，減輕人工客服壓力，並保留對話歷史方便後續追蹤。</p>
+<p>使用者輸入：「<strong>iPhone 17 Pro Max 的記憶體多大？</strong>」
+  → 分類為 <strong>售前問題</strong>，導向產品規格知識庫。</p>
 </li>
 <li>
-<p><strong>內容生成</strong><br />
-  使用 Workflow，輸入一個主題或大綱即可批量生成文章、產品描述或行銷文案，大幅節省時間。</p>
+<p>使用者輸入：「<strong>我的 iPad 才用了兩個月，為什麼相機模糊？</strong>」
+  → 分類為 <strong>售後問題</strong>，導向客服工單流程。</p>
 </li>
 <li>
-<p><strong>任務與專案自動化</strong><br />
-  結合外部工具（如 Trello、Slack、Lark），可以自動建立任務、更新狀態或發送通知，讓專案管理更高效。</p>
-</li>
-<li>
-<p><strong>數據分析與報告生成</strong><br />
-  對大型資料集進行統計、檢索與整理，再交由 LLM 生成圖表、摘要或商業洞察，幫助決策者快速掌握重點。</p>
-</li>
-<li>
-<p><strong>郵件自動化處理</strong><br />
-  透過工作流，系統可以自動起草郵件或社群貼文，只要輸入重點，LLM 就能生成專業且結構良好的內容。</p>
+<p>使用者輸入：「<strong>明天台北會下雨嗎？</strong>」
+  → 分類為 <strong>其他問題</strong>，回覆罐頭語。</p>
 </li>
 </ul>
-<hr />
-<h2 id="_3">節點：工作流的組成核心</h2>
-<p>節點是工作流的核心，每個節點代表一個獨立的操作或邏輯。
-你可以把節點想像成「積木」，透過連接它們，拼湊出完整的 AI 流程。</p>
-<p>以下是 Dify 目前提供的核心節點清單：</p>
-<table>
-<thead>
-<tr>
-<th>節點名稱</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>開始（Start）</strong></td>
-<td>定義工作流的啟動參數。</td>
-</tr>
-<tr>
-<td><strong>結束（End）</strong></td>
-<td>定義 Workflow 的最終輸出。</td>
-</tr>
-<tr>
-<td><strong>回覆（Answer）</strong></td>
-<td>Chatflow 專屬，用於輸出對話回應。</td>
-</tr>
-<tr>
-<td><strong>大語言模型（LLM）</strong></td>
-<td>調用 LLM 進行推理、生成或處理語言。</td>
-</tr>
-<tr>
-<td><strong>知識檢索（Knowledge Retrieval）</strong></td>
-<td>從知識庫中檢索相關內容，提供給下游節點使用。</td>
-</tr>
-<tr>
-<td><strong>問題分類（Question Classifier）</strong></td>
-<td>使用 LLM 判斷用戶問題所屬的分類。</td>
-</tr>
-<tr>
-<td><strong>條件分支（IF/ELSE）</strong></td>
-<td>根據條件判斷，分流不同邏輯路徑。</td>
-</tr>
-<tr>
-<td><strong>程式碼執行（Code）</strong></td>
-<td>執行 Python / NodeJS 程式碼，自定義處理邏輯。</td>
-</tr>
-<tr>
-<td><strong>模板轉換（Template）</strong></td>
-<td>透過 Jinja2 模板語法進行格式轉換與文本處理。</td>
-</tr>
-<tr>
-<td><strong>變數聚合（Variable Aggregator）</strong></td>
-<td>將多路分支的變數整合為一個輸入，方便後續使用。</td>
-</tr>
-<tr>
-<td><strong>參數提取器（Parameter Extractor）</strong></td>
-<td>從自然語言中抽取結構化參數，用於 API 或工具調用。</td>
-</tr>
-<tr>
-<td><strong>迭代（Iteration）</strong></td>
-<td>對列表逐一處理，直到完成所有結果。</td>
-</tr>
-<tr>
-<td><strong>HTTP 請求（HTTP Request）</strong></td>
-<td>發送 HTTP API 請求，與外部系統交互。</td>
-</tr>
-<tr>
-<td><strong>工具（Tools）</strong></td>
-<td>調用 Dify 內建工具、自訂工具或子流程。</td>
-</tr>
-<tr>
-<td><strong>變數賦值（Variable Assigner）</strong></td>
-<td>向變數（如會話變數）進行賦值操作。</td>
-</tr>
-<tr>
-<td><strong>循環（Loop）</strong></td>
-<td>持續執行任務，直到滿足退出條件或達到次數上限。</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="_4">下一步？</h2>
-<p>本文僅介紹了 <strong>Dify 工作流的基礎觀念</strong> 包含工作流的兩種類型，以及節點在流程設計中的角色。
-在後續文章中，我會逐一拆解每一個節點，說明：</p>
-<ul>
-<li><strong>節點的用途</strong></li>
-<li><strong>常見的應用場景</strong></li>
-<li><strong>實作範例與技巧</strong></li>
-</ul>
-<p>讓你能逐步掌握如何靈活運用這些節點，打造真正實用的 AI 工作流。</p>
+<p>透過這樣的工作流，問題分類器能自動幫助系統整理與歸納問題，並分流到合適的後續處理節點，大幅提升自動化處理效率。</p>
 
 
 

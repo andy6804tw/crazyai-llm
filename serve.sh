@@ -1,1 +1,1 @@
-mkdocs serve -a 0.0.0.0:8005
+mkdocs serve -a 0.0.0.0:8005 --open --livereload

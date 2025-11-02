@@ -7,6 +7,9 @@
 3. 在 Dify → 工具 → MCP → 新增 MCP 伺服器 (HTTP)
 4. 建立一個 Agent，讓它能自動以工具方式呼叫 MCP Endpoint
 
+![](./images/img-mcp-server-agent-00.png)
+
+
 ---
 
 ## 什麼是 MCP（Model Context Protocol）?

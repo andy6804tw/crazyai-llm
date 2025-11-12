@@ -75,6 +75,7 @@ nav:
     - '使用 Dify 工作流打造 RAG AI 客服系統(基礎篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-1.md'
     - '使用 Dify 工作流打造 RAG AI 客服系統(進階篇)': 'dify-tutorial/chatflow-rag-chatbot-tutorial-2.md'
     - 'Dify Agent 教學': 'dify-tutorial/agent-tutorial.md'
+    - 'Dify Agent：Function Calling 與 ReAct 的差別': 'dify-tutorial//dufy-function-calling-and-react.md'
     - 'Dify 自定義工具': 'dify-tutorial/dify-custom-tools-workflow.md'
     - '在 Dify 建立自己的 MCP Server': 'dify-tutorial/dify-mcp-server-agent-integration.md'
 

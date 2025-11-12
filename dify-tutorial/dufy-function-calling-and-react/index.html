@@ -10,9 +10,13 @@
         <meta name="author" content="10程式中">
       
       
-        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/dify-tutorial/function-calling-and-react/">
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/dify-tutorial/dufy-function-calling-and-react/">
       
       
+        <link rel="prev" href="../agent-tutorial/">
+      
+      
+        <link rel="next" href="../dify-custom-tools-workflow/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Dify Agent：Function Calling vs. ReAct 差異 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+        <title>Dify Agent：Function Calling 與 ReAct 的差別 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
       
     
     
@@ -119,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dify Agent：Function Calling vs. ReAct 差異
+              Dify Agent：Function Calling 與 ReAct 的差別
             
           </span>
         </div>
@@ -762,7 +766,7 @@
   
   
   <span class="md-ellipsis">
-    Ollama API整合OpenAI
+    用OpenAI函式庫呼叫Ollama
     
   </span>
   
@@ -1104,18 +1108,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1131,7 +1137,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             用Dify打造專屬AI助理
@@ -1418,6 +1424,164 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Dify Agent：Function Calling 與 ReAct 的差別
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify Agent：Function Calling 與 ReAct 的差別
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 什麼是 Function Calling？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-reactreason-act" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 什麼是 ReAct（Reason + Act）？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 兩種方法比較
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 同一任務兩種方法剖析（查商品庫存）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 同一任務兩種方法剖析（查商品庫存）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Function Calling 版（一次就定位）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. ReAct 版（邊查邊調整）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 小結
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 小結">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Calling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react" class="md-nav__link">
+    <span class="md-ellipsis">
+      ReAct
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -1586,15 +1750,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 參考資料
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1612,11 +1767,11 @@
 
 
 <h1 id="dify-agentfunction-calling-vs-react">Dify Agent：Function Calling vs. ReAct 差異</h1>
-<p>Dify 的 Agent 目前提供兩種「推理／工具使用」模式：<strong>Function Calling</strong> 與 <strong>ReAct</strong>。你的 LLM 只要支援其中一種，就能在 Agent 裡正常運作；官方文件與部落格均明確說明這兩種是內建策略，且可在介面中切換。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://dify.ai/blog/dify-agent-node-introduction-when-workflows-learn-autonomous-reasoning?utm_source=chatgpt.com" title="Dify Agent Node Introduction – When Workflows Learn “ ...">Dify</a>)</p>
+<p>Dify 的 Agent 目前提供兩種「推理／工具使用」模式：<strong>Function Calling</strong> 與 <strong>ReAct</strong>。你的 LLM 只要支援其中一種，就能在 Agent 裡正常運作；官方文件與部落格均明確說明這兩種是內建策略，且可在介面中切換。</p>
 <hr />
 <h2 id="1-function-calling">1. 什麼是 Function Calling？</h2>
 <p><strong>觀念</strong></p>
-<p>Function Calling 是「<strong>由 LLM 直接產出要呼叫的函式名稱與 JSON 參數</strong>」，Agent 依此呼叫工具（API）並把回傳結果給模型生成答案。因為輸出結構化、可解析，<strong>參數抽取最穩定</strong>、可預測性高。Dify 官方也指出：支援 Function Calling 的模型（如多數主流供應商與 OpenAI 相容 API）在 Agent 任務上表現通常更穩、更一致。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://dify.ai/blog/dify-ai-unveils-ai-agent-creating-gpts-and-assistants-with-various-llms?utm_source=chatgpt.com" title="Creating GPTs and Assistants with Various LLMs">Dify</a>)</p>
+<p>Function Calling 是「<strong>由 LLM 直接產出要呼叫的函式名稱與 JSON 參數</strong>」，Agent 依此呼叫工具（API）並把回傳結果給模型生成答案。因為輸出結構化、可解析，<strong>參數抽取最穩定</strong>、可預測性高。Dify 官方也指出：支援 Function Calling 的模型（如多數主流供應商與 OpenAI 相容 API）在 Agent 任務上表現通常更穩、更一致。</p>
 <p><a class="glightbox" href="../images/img-function-calling-and-react-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-function-calling-and-react-01.png" /></a></p>
 <ul>
 <li><strong>Tool Use / Function Calling</strong>：
@@ -1626,23 +1781,22 @@
 <ul>
 <li>API 與參數都很明確（查庫存、下訂單、計算運費、查時程…）。</li>
 <li>你想要<strong>高成功率與固定路徑</strong>，而非探索式推理。</li>
-<li>你使用的模型原生支援 Function Calling（選型時留意供應商清單標示）。(<a href="https://legacy-docs.dify.ai/getting-started/readme/model-providers?utm_source=chatgpt.com" title="List of Model Providers">legacy-docs.dify.ai</a>)</li>
+<li>你使用的模型原生支援 Function Calling（選型時留意供應商清單標示）。</li>
 </ul>
-<hr />
 <h2 id="2-reactreason-act">2. 什麼是 ReAct（Reason + Act）？</h2>
 <p><strong>觀念</strong>
-ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</strong>」的迭代流程交給 LLM。模型不需原生支援 Function Calling，Agent 透過提示工程把每一步串起來。這種作法<strong>較通用、可探索</strong>，能處理「路徑不確定、多步驟」的任務，並在過程中根據觀察修正策略。其核心理念來自學術工作 <em>ReAct: Synergizing Reasoning and Acting in Language Models</em>。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>, <a href="https://research.google/blog/react-synergizing-reasoning-and-acting-in-language-models/?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language ...">Google Research</a>)</p>
+ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</strong>」的迭代流程交給 LLM。模型不需原生支援 Function Calling，Agent 透過提示工程把每一步串起來。這種作法<strong>較通用、可探索</strong>，能處理「路徑不確定、多步驟」的任務，並在過程中根據觀察修正策略。其核心理念來自學術工作 <em>ReAct: Synergizing Reasoning and Acting in Language Models</em>。</p>
 <p><a class="glightbox" href="../images/img-function-calling-and-react-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img-function-calling-and-react-02.png" /></a></p>
 <ul>
 <li><strong>ReAct</strong>：
   LLM 先<strong>思考</strong>要做什麼 → <strong>行動</strong>用哪個工具與參數 → <strong>觀察</strong>結果 → 再思考下一步；可能重複多輪，直到達成目標。
-  （像「模型邊走邊看、遇到狀況就修正路線」。）(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</li>
+  （像「模型邊走邊看、遇到狀況就修正路線」。）(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com">arXiv</a>) </li>
 </ul>
 <p><strong>適用時機？</strong></p>
 <ul>
 <li>需要「先探路再決定下一步」的任務（例如先找門市→再查庫存→再比價）。</li>
 <li>你的模型<strong>不支援</strong> Function Calling。</li>
-<li>你希望<strong>保留過程可解釋性</strong>（觀測到什麼、為何改變行動）。(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</li>
+<li>你希望<strong>保留過程可解釋性</strong>（觀測到什麼、為何改變行動）。</li>
 </ul>
 <hr />
 <h2 id="3">3. 兩種方法比較</h2>
@@ -1683,9 +1837,8 @@ ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</s
 </tbody>
 </table>
 <blockquote>
-<p>在 Dify 介面中，你可於 <strong>Agent/節點設定 → Agent Strategy</strong> 直接切換 Function Calling 或 ReAct；若看不到，記得到 Marketplace 安裝對應策略。(<a href="https://legacy-docs.dify.ai/guides/workflow/node/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://marketplace.dify.ai/plugins/langgenius/agent?utm_source=chatgpt.com" title="Dify Agent Strategies">marketplace.dify.ai</a>, <a href="https://github.com/langgenius/dify/issues/17117?utm_source=chatgpt.com" title="Dify Agent Only Shows Function Call Mode Despite ...">GitHub</a>)</p>
+<p>在 Dify 介面中，你可於 <strong>Agent/節點設定 → Agent Strategy</strong> 直接切換 Function Calling 或 ReAct；若看不到，記得到 Marketplace 安裝對應策略。</p>
 </blockquote>
-<hr />
 <h2 id="4">4. 同一任務兩種方法剖析（查商品庫存）</h2>
 <p><strong>任務敘述</strong>
 使用者問：「幫我查 <strong>iPhone 15</strong> 在<strong>台北門市</strong>的現貨量，不足就推薦<strong>同等價位替代品</strong>。」</p>
@@ -1712,7 +1865,7 @@ ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</s
 6. <strong>LLM（最終回答）</strong>：
    「台北現貨 2 台，若不足可考慮 A/B/C。」</p>
 <blockquote>
-<p><strong>注意</strong>：Function Calling 以<strong>結構化 JSON</strong> 形式「點名工具＋帶參數」，幾乎不會偏題；適合 SOP 明確的商務流程（查、比、推）。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>)</p>
+<p><strong>注意</strong>：Function Calling 以<strong>結構化 JSON</strong> 形式「點名工具＋帶參數」，幾乎不會偏題；適合 SOP 明確的商務流程（查、比、推）。</p>
 </blockquote>
 <hr />
 <h3 id="b-react">B. ReAct 版（邊查邊調整）</h3>
@@ -1728,14 +1881,14 @@ ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</s
 <li><strong>Final</strong>：彙整回答與建議到單一回覆</li>
 </ol>
 <blockquote>
-<p><strong>注意</strong>：ReAct 允許模型根據<strong>中途觀察</strong>改變路徑（先找店→再查庫存→再推替代品），但會多幾輪互動、增加時延與 Token 成本；適合需要<strong>探索與調整</strong>的任務。(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</p>
+<p><strong>注意</strong>：ReAct 允許模型根據<strong>中途觀察</strong>改變路徑（先找店→再查庫存→再推替代品），但會多幾輪互動、增加時延與 Token 成本；適合需要<strong>探索與調整</strong>的任務。</p>
 </blockquote>
 <hr />
 <h2 id="5">5. 小結</h2>
 <ol>
-<li><strong>能用 Function Calling 就先用它</strong>：最穩定、最省 Token、最好維運；多數主流供應商（OpenAI、Azure OpenAI、Gemini、Anthropic…）都能以 FC 方式整合。(<a href="https://legacy-docs.dify.ai/getting-started/readme/model-providers?utm_source=chatgpt.com" title="List of Model Providers">legacy-docs.dify.ai</a>)</li>
-<li><strong>需要探索、多步驟、或模型不支援 FC</strong>：改用 <strong>ReAct</strong>，並設定<strong>最大迭代數</strong>與<strong>觀察訊息長度</strong>，避免「思考過長」。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>)</li>
-<li><strong>介面操作</strong>：到 <strong>Agent/節點設定 → Agent Strategy</strong> 切換模式；若找不到 ReAct，前往 <strong>Marketplace → Agent Strategies</strong> 安裝。(<a href="https://legacy-docs.dify.ai/guides/workflow/node/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://marketplace.dify.ai/plugins/langgenius/agent?utm_source=chatgpt.com" title="Dify Agent Strategies">marketplace.dify.ai</a>)</li>
+<li><strong>能用 Function Calling 就先用它</strong>：最穩定、最省 Token、最好維運；多數主流供應商（OpenAI、Azure OpenAI、Gemini、Anthropic…）都能以 FC 方式整合。</li>
+<li><strong>需要探索、多步驟、或模型不支援 FC</strong>：改用 <strong>ReAct</strong>，並設定<strong>最大迭代數</strong>與<strong>觀察訊息長度</strong>，避免「思考過長」。</li>
+<li><strong>介面操作</strong>：到 <strong>Agent/節點設定 → Agent Strategy</strong> 切換模式；若找不到 ReAct，前往 <strong>Marketplace → Agent Strategies</strong> 安裝。</li>
 </ol>
 <h3 id="function-calling">Function Calling</h3>
 <ul>
@@ -1750,14 +1903,6 @@ ReAct 是把「<strong>思考→行動（調工具）→觀察（讀結果）</s
 <li><strong>讓工具輸出精簡</strong>（只回必要字段），降低填塞到 Prompt 的負擔。</li>
 <li><strong>保留推理軌跡</strong>（思考、行動、觀察），便於教學、示範與除錯。
   （這些原則與 ReAct 的研究結論一致：強調可解釋、可調整，但需控管成本。）</li>
-</ul>
-<hr />
-<h2 id="7">7. 參考資料</h2>
-<ul>
-<li><strong>Dify 文件／部落格（Agent 模式、策略與供應商支援）</strong>：兩種推理模式、如何在節點設定切換、Marketplace 安裝、與模型支援度。(<a href="https://legacy-docs.dify.ai/guides/application-orchestrate/agent?utm_source=chatgpt.com" title="Agent">legacy-docs.dify.ai</a>, <a href="https://dify.ai/blog/dify-agent-node-introduction-when-workflows-learn-autonomous-reasoning?utm_source=chatgpt.com" title="Dify Agent Node Introduction – When Workflows Learn “ ...">Dify</a>)</li>
-<li><strong>ReAct 論文與科普</strong>：ReAct 方法論、思考—行動—觀察循環與可解釋性優勢。(<a href="https://arxiv.org/abs/2210.03629?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language Models">arXiv</a>, <a href="https://research.google/blog/react-synergizing-reasoning-and-acting-in-language-models/?utm_source=chatgpt.com" title="ReAct: Synergizing Reasoning and Acting in Language ...">Google Research</a>, <a href="https://www.promptingguide.ai/techniques/react?utm_source=chatgpt.com" title="ReAct Prompting">Prompting Guide</a>)</li>
-<li><strong>延伸閱讀（社群討論與實務小技巧）</strong>：Agent 策略安裝／顯示、供應商功能差異等。(<a href="https://github.com/langgenius/dify/issues/17117?utm_source=chatgpt.com" title="Dify Agent Only Shows Function Call Mode Despite ...">GitHub</a>)</li>
-<li><strong>你提供的參考文</strong>：以通俗例子解釋 FC 與 ReAct 概念與取捨，可供補充背景。(<a href="https://www.cnblogs.com/vipstone/p/18898217?utm_source=chatgpt.com" title="AI智能体策略FunctionCalling和ReAct有什么区别？ - 磊哥">Cnblogs</a>)</li>
 </ul>
 
 

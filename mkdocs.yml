@@ -46,7 +46,7 @@ nav:
 
   - '💻LLM實戰應用':
     - 'Ollama使用教學': 'llm-practical/Ollama使用教學.md'
-    - 'Ollama API整合OpenAI': 'llm-practical/Ollama API整合OpenAI.md'
+    - '用OpenAI函式庫呼叫Ollama': 'llm-practical/Ollama API整合OpenAI.md'
     - '用Colab部署Ollama服務': 'llm-practical/使用Colab部署Ollama服務.md'
     - '使用Streamlit與Ollama建立聊天介面': 'llm-practical/使用Streamlit與Ollama建立聊天介面.md'
     - 'OpenAI Agents SDK多代理人工作流程教學': 'llm-practical/openai-agents-sdk-tutorial.md'

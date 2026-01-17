@@ -1927,9 +1927,7 @@
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<div class="codehilite"><pre><span></span><code>所有的階段都是在學文字接龍，只是訓練資料不同。
-</code></pre></div>
-
+<p>所有的階段都是在學文字接龍，只是訓練資料不同。</p>
 </div>
 <p>在大模型訓練的第三階段，核心在於讓模型與使用者互動並根據回饋進行微調，這一過程稱為增強式學習（RLHF）。使用者在提供回饋的過程中，會根據新舊答案的比較選擇較佳者，進而幫助模型優化生成機率。</p>
 <hr />
@@ -1970,9 +1968,7 @@
 <p>從模型學習的角度來看，Instruction Fine-tuning 主要訓練模型如何預測下一個字，假設每一步都是正確的，最終結果也會正確；但這個假設不總成立，因為模型只關注局部預測。相比之下，RLHF 接收的是完整答案之間的比較回饋，促使模型採用全局思考，專注於生成整體最佳答案，而非僅僅每一步的正確性。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>總結來說，Instruction Fine-tuning 著眼於「過程」，而 RLHF 著眼於「結果」，讓模型學習如何在整體生成中顧及人類偏好。
-</code></pre></div>
-
+<p>總結來說，Instruction Fine-tuning 著眼於「過程」，而 RLHF 著眼於「結果」，讓模型學習如何在整體生成中顧及人類偏好。</p>
 </div>
 <hr />
 <h2 id="reinforcement-learning-rl">增強式學習 (Reinforcement Learning, RL) 在語言模型中的應用</h2>
@@ -1998,9 +1994,7 @@
 <p><a class="glightbox" href="../images/img8-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img8-12.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>在下圍棋中，每一步落子都有明確的勝負標準；而語言模型的每一步雖然都是分類問題，但最終的評價卻取決於整個回答的品質，這就需要通過多候選答案比較來進行回饋。
-</code></pre></div>
-
+<p>在下圍棋中，每一步落子都有明確的勝負標準；而語言模型的每一步雖然都是分類問題，但最終的評價卻取決於整個回答的品質，這就需要通過多候選答案比較來進行回饋。</p>
 </div>
 <p>AlphaGo 的 RL 不依賴人工介入，因為圍棋規則自帶明確的勝負判斷，AlphaGo 可以透過與自身不同版本對弈來進行學習。而語言模型的 RL 則需要人類來評價生成句子的好壞，因為沒有客觀標準可判斷。為了彌補這一點，語言模型會建立一個「回饋模型」，模擬人類評分，從而使模型能在有限的人類回饋下學習並提升回答品質。</p>
 <details class="內有芙莉蓮故事">
@@ -2034,9 +2028,9 @@
 <p>這種自我回饋的方法正逐步被探索，但同時也面臨如何避免「自我強化偏差」的挑戰，即模型可能因過度依賴內部回饋而產生不自然或重複的語言行為。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>- 參考論文: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)
-</code></pre></div>
-
+<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a></li>
+</ul>
 </div>
 <hr />
 <h2 id="_4">過度向虛擬人類學習不是好事</h2>
@@ -2045,9 +2039,9 @@
 <p>當模型過度依賴虛擬人類回饋時，其生成的摘要會展現出奇怪的特徵。例如摘要結尾總是帶有 "please"，而中間則常常出現三個問號。這可能是因為虛擬人類本身只是一個模型，在回饋學習過程中吸收了不尋常的偏好，進而引導語言模型產生異常的輸出。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>- 參考論文: [Learning to summarize from human feedback](https://arxiv.org/abs/2009.01325)
-</code></pre></div>
-
+<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2009.01325">Learning to summarize from human feedback</a></li>
+</ul>
 </div>
 <h3 id="_5">過度學習虛擬回饋可能引起的行為後遺症</h3>
 <p>有觀點認為，ChatGPT 許多不盡如人意的表現，可能源自於過度依賴虛擬回饋模型學習。這一說法來自 OpenAI 共同創辦人 John Sormont 在 ICML 會議上的分享，他指出，過度學習虛擬人類（reward model）的回饋，可能使模型表現出一些讓人不喜歡的行為，例如過於冗長的條列回答、頻繁道歉、常以 “As an AI language model” 為開頭、語言過於模稜兩可，甚至常拒絕滿足用戶要求。這些行為均可能是虛擬老師過度介入後產生的後遺症。</p>
@@ -2062,32 +2056,32 @@
 <p><a class="glightbox" href="../images/img8-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img8-19.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>- 參考論文: [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290)
-- 參考論文: [KTO: Model Alignment as Prospect Theoretic Optimization](https://arxiv.org/abs/2402.01306)
-</code></pre></div>
-
+<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization: Your Language Model is Secretly a Reward Model</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2402.01306">KTO: Model Alignment as Prospect Theoretic Optimization</a></li>
+</ul>
 </div>
 <h2 id="ai">由AI來提供語言模型回饋(語言模型評價語言模型)</h2>
 <p>隨著AI能力的提升，傳統依賴人類回饋（RLHF）來訓練語言模型的方法面臨挑戰，因為人類回饋既昂貴又有限。近年來，研究者開始探索由AI自身提供回饋（RLAIF）的可能性，例如利用GPT-4這類超強模型來評估其他模型的輸出，甚至讓同一模型互相評價。這種方法利用語言模型的自我反省能力判斷答案的好壞，已在Claude的《Constitutional AI》論文及Meta的Self-rewarding模型中有所應用。換句話說，若取得人類回饋太麻煩，就有可能用先進的語言模型來替代，從而提高訓練效率和整體表現。</p>
 <p><a class="glightbox" href="../images/img8-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img8-20.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>- 參考論文: [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073)
-- 參考論文: [Instruction Tuning with GPT-4](https://arxiv.org/abs/2304.03277)
-- 參考論文: [RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback](https://arxiv.org/abs/2309.00267)
-- 參考論文: [Self-Rewarding Language Models](https://arxiv.org/abs/2401.10020)
-</code></pre></div>
-
+<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2212.08073">Constitutional AI: Harmlessness from AI Feedback</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2304.03277">Instruction Tuning with GPT-4</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2309.00267">RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2401.10020">Self-Rewarding Language Models</a></li>
+</ul>
 </div>
 <h2 id="_6">增強式學習的挑戰與權衡</h2>
 <p>增強式學習面臨一個根本性的挑戰：如何定義「好」。由於「好」沒有固定標準，因此當人類被要求評價一個答案時，不同角度會產生衝突。例如，若語言模型回答「我不能教你製作火藥」以保障安全，這從安全角度來看是正確的，但從幫助性角度看，卻可能被認為是不夠有用的。為了解決這個問題，部分研究（如 Llama 的論文）嘗試訓練兩個不同的 reward model：一個從安全性評分，另一個從幫助性評分，並以一定策略結合兩者。</p>
 <p><a class="glightbox" href="../images/img8-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img8-21.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="codehilite"><pre><span></span><code>- 參考論文: [Llama 2: Open Foundation and Fine-Tuned Chat Models](https://arxiv.org/abs/2307.09288)
--  參考論文: [Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback](https://arxiv.org/abs/2204.05862)
-</code></pre></div>
-
+<ul>
+<li>參考論文: <a href="https://arxiv.org/abs/2307.09288">Llama 2: Open Foundation and Fine-Tuned Chat Models</a></li>
+<li>參考論文: <a href="https://arxiv.org/abs/2204.05862">Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback</a></li>
+</ul>
 </div>
 <p>然而，不同模型對安全標準的定義也不盡相同，如 GPT-4、Gemini 與 Claude Dream 分別對製作玩具槍的回答就存在顯著差異。這些現象凸顯出，在增強式學習中確定什麼是「好」仍然是一個見仁見智、充滿挑戰的問題。</p>
 <p><a class="glightbox" href="../images/img8-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img8-22.png" /></a></p>
@@ -2096,9 +2090,7 @@
 <p><a class="glightbox" href="../images/img8-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img8-23.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<div class="codehilite"><pre><span></span><code>有關學術問題，一律讀博班就對了!
-</code></pre></div>
-
+<p>有關學術問題，一律讀博班就對了!</p>
 </div>
 <hr />
 <h2 id="_8">目前進度與未來展望</h2>

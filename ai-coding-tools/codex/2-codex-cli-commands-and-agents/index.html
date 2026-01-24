@@ -1,0 +1,2532 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Tsai Yi Lin">
+      
+      
+        <link rel="canonical" href="https://andy6804tw.github.io/crazyai-llm/ai-coding-tools/codex/2-codex-cli-commands-and-agents/">
+      
+      
+        <link rel="prev" href="../1-setup-and-cloud-tasks/">
+      
+      
+        <link rel="next" href="../3-ide-extension-and-todo/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Codex CLI 指令與 AGENTS.md 深度解析 - 全民瘋AI系列 [大語言模型應用與實戰]</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#codex-cli-agentsmd" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-header__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            全民瘋AI系列 [大語言模型應用與實戰]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Codex CLI 指令與 AGENTS.md 深度解析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="全民瘋AI系列 [大語言模型應用與實戰]" class="md-nav__button md-logo" aria-label="全民瘋AI系列 [大語言模型應用與實戰]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    全民瘋AI系列 [大語言模型應用與實戰]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andy6804tw/crazyai-llm" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    目錄
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📚李宏毅生成式AI導論(2024)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚李宏毅生成式AI導論(2024)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/1.what-is-generative-ai.md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.生成式AI是什麼
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/2.why-generative-ai-is-powerful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.今日的生成式人工智慧厲害在哪裡
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/3.cant-train-ai-train-yourself-part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.訓練不了人工智慧?你可以訓練你自己(上)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/4.cant-train-ai-train-yourself-part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.訓練不了人工智慧?你可以訓練你自己(中)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/5.cant-train-ai-train-yourself-part3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.訓練不了人工智慧?你可以訓練你自己(下)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/6.llm-history-phase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.大型語言模型修練史(第一階段)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/7.llm-history-phase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.大型語言模型修練史(第二階段)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/8.llm-history-phase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8.大型語言模型修練史(第三階段)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-generative-ai/9.llm-ai-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9.以大型語言模型打造的 AI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📚5-Day Gen AI Intensive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            📚5-Day Gen AI Intensive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../google-genai-course/2025-03-30-course-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    課程介紹
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../google-genai-course/2025-03-31-day1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Day 1]大型語言模型基礎與提示工程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../google-genai-course/2025-04-01-day2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Day 2]Embeddings 與向量資料庫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../google-genai-course/2025-04-02-day3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Day 3]生成式 AI 代理人
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../google-genai-course/2025-04-03-day4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Day 4]特定領域大型語言模型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../google-genai-course/2025-04-04-day5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Day 5]生成式 AI 的 MLOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    💻LLM實戰應用
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            💻LLM實戰應用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/Ollama%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ollama使用教學
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/Ollama%20API%E6%95%B4%E5%90%88OpenAI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    用OpenAI函式庫呼叫Ollama
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/%E4%BD%BF%E7%94%A8Colab%E9%83%A8%E7%BD%B2Ollama%E6%9C%8D%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    用Colab部署Ollama服務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/%E4%BD%BF%E7%94%A8Streamlit%E8%88%87Ollama%E5%BB%BA%E7%AB%8B%E8%81%8A%E5%A4%A9%E4%BB%8B%E9%9D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用Streamlit與Ollama建立聊天介面
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/openai-agents-sdk-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Agents SDK多代理人工作流程教學
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/mcp-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    深入理解 MCP 搭配簡易實作
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../llm-practical/qdrant-image-similarity-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Qdrant 圖片向量庫教學
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    🤖免費 LLM API 串接資源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🤖免費 LLM API 串接資源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../free-llm-api-integration-resources/github-models-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Models 免費試玩
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../free-llm-api-integration-resources/groq-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groq 免費體驗 Llama API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    🛠️熱門AI工具使用教學
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            🛠️熱門AI工具使用教學
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aigc-tools/AI%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-Raphael%E5%85%8D%E8%B2%BBAI%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🖼️Raphael免費AI圖像生成工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aigc-tools/AI%E7%94%9F%E6%88%90%E9%9F%B3%E6%A8%82-%E7%94%A8Suno.ai%E8%BC%95%E9%AC%86%E6%89%93%E9%80%A0%E5%B1%AC%E6%96%BC%E4%BD%A0%E7%9A%84AI%E9%9F%B3%E6%A8%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🎵Suno作曲及音樂生成器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aigc-tools/%E5%88%A9%E7%94%A8%20Google%20NotebookLM%20%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📝利用 Google NotebookLM 打造高效學習筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    用Dify打造專屬AI助理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            用Dify打造專屬AI助理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.1dify-create-first-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    建立第一個應用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.2dify-workflow-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流與認識節點
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.3dify-question-classifier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：問題分類器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.4dify-ifelse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：條件分支
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.5dify-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：程式碼執行
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.6dify-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：模板轉換
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.7dify-doc-extractor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：文件提取器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/1.12dify-iteration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 工作流基礎：迭代
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/knowledge-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用 Dify 打造 AI 客服知識庫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/chatflow-rag-chatbot-tutorial-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用 Dify 工作流打造 RAG AI 客服系統(基礎篇)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/chatflow-rag-chatbot-tutorial-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用 Dify 工作流打造 RAG AI 客服系統(進階篇)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/agent-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify Agent 教學
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/dify-function-calling-and-react/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify Agent：Function Calling 與 ReAct 的差別
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/dify-custom-tools-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dify 自定義工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dify-tutorial/dify-mcp-server-agent-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    在 Dify 建立自己的 MCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    🤖AI 程式碼輔助工具
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            🤖AI 程式碼輔助工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Codex
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Codex
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-setup-and-cloud-tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Codex 簡介與雲端任務設定
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Codex CLI 指令與 AGENTS.md 深度解析
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Codex CLI 指令與 AGENTS.md 深度解析
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#codex-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      安裝 Codex CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex" class="md-nav__link">
+    <span class="md-ellipsis">
+      登入與登出 Codex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      進入 Codex 與初始設定
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="進入 Codex 與初始設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      首次使用路徑的權限設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用 Codex 命令詳解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用 Codex 命令詳解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-model-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Model：選擇 AI 模型與思考深度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-approvals-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Approvals：調整 Agent 權限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-init-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Init：初始化專案與生成 AGENTS.md
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Compact：壓縮對話內容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Status：查看當前狀態
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ai-commit-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. ai-commit：自動生成 Commit Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理對話：回復之前的對話
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      與檔案和路徑互動
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex-cli_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      將圖片加入 Codex CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="將圖片加入 Codex CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      圖片的使用情境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      拖曳圖片到 CLI 的方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      關鍵檔案：AGENTS.md
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="關鍵檔案：AGENTS.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agentsmd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGENTS.md 的生成與用途
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      跨工具的專案描述檔
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentsmd_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGENTS.md 在不同使用情境下是否會被參考？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AGENTS.md 在不同使用情境下是否會被參考？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-cli-command-agentsmd-ide-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1：我用 CLI command 生成的 AGENTS.md，會在 IDE extension 中被參考嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2：如果我在對話中沒有特別提到 AGENTS.md，它還是會被參考嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3：那在雲端環境使用時，也一樣會參考 AGENTS.md 嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4：總結來說，AGENTS.md 可以在哪些情境下使用？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-ide-extension-and-todo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Codex IDE 擴充功能與 Todo 實用技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-mcp-servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Codex 整合 MCP Server：以 Context7 為例
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#codex-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      安裝 Codex CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex" class="md-nav__link">
+    <span class="md-ellipsis">
+      登入與登出 Codex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      進入 Codex 與初始設定
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="進入 Codex 與初始設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      首次使用路徑的權限設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用 Codex 命令詳解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常用 Codex 命令詳解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-model-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Model：選擇 AI 模型與思考深度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-approvals-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Approvals：調整 Agent 權限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-init-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Init：初始化專案與生成 AGENTS.md
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Compact：壓縮對話內容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Status：查看當前狀態
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ai-commit-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. ai-commit：自動生成 Commit Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理對話：回復之前的對話
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      與檔案和路徑互動
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codex-cli_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      將圖片加入 Codex CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="將圖片加入 Codex CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      圖片的使用情境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      拖曳圖片到 CLI 的方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      關鍵檔案：AGENTS.md
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="關鍵檔案：AGENTS.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agentsmd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGENTS.md 的生成與用途
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      跨工具的專案描述檔
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentsmd_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      AGENTS.md 在不同使用情境下是否會被參考？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AGENTS.md 在不同使用情境下是否會被參考？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-cli-command-agentsmd-ide-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1：我用 CLI command 生成的 AGENTS.md，會在 IDE extension 中被參考嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2：如果我在對話中沒有特別提到 AGENTS.md，它還是會被參考嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3：那在雲端環境使用時，也一樣會參考 AGENTS.md 嗎？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4：總結來說，AGENTS.md 可以在哪些情境下使用？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <a href="../../../tags/#tag:codex" class="md-tag">Codex</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="codex-cli-agentsmd">Codex CLI 指令與 AGENTS.md 深度解析</h1>
+<p>上一篇我們已經探討了 <strong>Codex</strong> 的基本設置以及其雲端任務功能。在這一篇，將深入介紹 <strong>Codex CLI</strong> ，並詳細說明 <strong>Codex</strong> 的一些重要命令，以及一個非常關鍵的檔案：<strong>AGENTS.md</strong>。</p>
+<h3 id="codex-cli">安裝 Codex CLI</h3>
+<p>首先，讓我們來安裝 <strong>Codex CLI</strong>。</p>
+<ol>
+<li><strong>進入 Codex 網頁</strong>：你只需要前往 <strong><a href="https://openai.com/zh-Hant/codex/">Codex</a></strong> 的官方網頁。</li>
+<li><strong>複製安裝指令</strong>：在網頁上，你可以找到並複製安裝指令。</li>
+<li><strong>打開終端機</strong>：接著，打開你的終端機應用程式。</li>
+<li><strong>執行安裝</strong>：將複製的指令貼上並按下 <strong>Enter</strong> 鍵，即可開始安裝。</li>
+</ol>
+<p><a class="glightbox" href="../images/img2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-1.png" /></a></p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>i<span class="w"> </span>-g<span class="w"> </span>@openai/codex
+</span></code></pre></div>
+<p><a class="glightbox" href="../images/img2-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-2.png" /></a></p>
+<h3 id="codex">登入與登出 Codex</h3>
+<p>安裝完成後，下一步是進行登入。</p>
+<ol>
+<li><strong>登入指令</strong>：在終端機中輸入 <code>codex login</code>。</li>
+<li><strong>瀏覽器驗證</strong>：執行此指令後，<strong>Codex</strong> 會在你的瀏覽器中自動開啟一個登入網頁，就像你現在看到的這樣。</li>
+<li><strong>選擇帳號登入</strong>：你只需透過你常用的帳號進行登入即可。</li>
+<li><strong>成功登入提示</strong>：一旦在網頁上完成登入，終端機便會顯示 <code>Successfully login</code> 的訊息。</li>
+<li><strong>登出指令</strong>：如果你需要登出，只需輸入 <code>Codex logout</code> 即可。</li>
+</ol>
+<h2 id="codex_1">進入 Codex 與初始設定</h2>
+<p>要進入 <strong>Codex</strong> 環境，你只需在終端機中直接輸入 <code>codex</code>。</p>
+<h3 id="_1">首次使用路徑的權限設定</h3>
+<p>如果你是第一次在某個特定路徑下使用 <strong>Codex</strong>，它會詢問你是否允許 <strong>Codex</strong> 使用該資料夾。這是一個重要的步驟，因為它確保 <strong>Codex</strong> 能夠存取和操作你的專案檔案。</p>
+<p><a class="glightbox" href="../images/img2-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-3.png" /></a></p>
+<ul>
+<li><strong>選擇「allow」</strong>：為了避免之後重複詢問，我建議你選擇第一個選項「allow」，這樣 <strong>Codex</strong> 就能夠順利地在這個專案資料夾中運作。</li>
+</ul>
+<p><a class="glightbox" href="../images/img2-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-4.png" /></a></p>
+<h2 id="codex_2">常用 Codex 命令詳解</h2>
+<p>接下來，我將介紹一些 <strong>Codex</strong> 中比較常用且實用的命令。你可以在終端機中輸入斜線 <code>/</code>，然後不斷按下方向鍵，來查看所有可用的命令。</p>
+<p><a class="glightbox" href="../images/img2-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-5.png" /></a></p>
+<h3 id="1-model-ai">1. Model：選擇 AI 模型與思考深度</h3>
+<p><code>Model</code> 命令允許你選擇當前想要使用的 <strong>AI</strong> 模型。</p>
+<ul>
+<li><strong>思考深度 </strong>：這個選項決定了 <strong>AI</strong> 思考問題的深入程度。<ul>
+<li><strong>深度越淺</strong>：使用的 <strong>token</strong> 越少，但程式碼撰寫上可能會思考得越淺，導致不夠嚴謹。</li>
+<li><strong>深度越深</strong>：使用的 <strong>token</strong> 越多，<strong>AI</strong> 會更深入地分析和思考。</li>
+</ul>
+</li>
+<li><strong>預設設定</strong>：預設的思考深度是 <code>medium</code>。</li>
+<li><strong>根據需求調整</strong>：你可以根據你的專案需求，將其調整為 <code>low</code> 或 <code>high</code>。</li>
+</ul>
+<p><a class="glightbox" href="../images/img2-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-6.png" /></a></p>
+<h3 id="2-approvals-agent">2. Approvals：調整 Agent 權限</h3>
+<p><code>Approvals</code> 命令是用來選擇 <strong>Agent</strong> 在此工作階段中的操作權限，不同模式代表 Agent 可執行的行為範圍不同。</p>
+<ul>
+<li>
+<p><strong><code>Read Only</code>（唯讀）</strong>
+  在此模式下，<strong>Agent</strong> 只能讀取檔案內容，<strong>無法修改檔案或執行指令</strong>。
+  若需要進行任何編輯或執行指令，系統都會要求你明確批准，適合用在只想讓 Agent 協助閱讀、分析程式碼的情境。</p>
+</li>
+<li>
+<p><strong><code>Agent (current)</code>（目前模式）</strong>
+  這是目前選取的模式。
+  <strong>Agent</strong> 可以在取得你同意的情況下，<strong>讀取與編輯檔案，並執行指令</strong>。
+  相較於唯讀模式更有彈性，同時仍保留人工確認，適合日常開發與協作使用。</p>
+</li>
+<li>
+<p><strong><code>Agent (full access)</code>（完整權限）</strong>
+  在此模式下，<strong>Agent</strong> 可以在此工作區與工作區外編輯程式碼，並且執行指令，<strong>包含網路存取能力</strong>。
+  由於權限最高，可能對系統或專案造成較大影響，<strong>使用時需特別謹慎</strong>，建議只在你完全信任操作內容時啟用。</p>
+</li>
+</ul>
+<p><a class="glightbox" href="../images/img2-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img2-7.png" /></a></p>
+<h3 id="3-init-agentsmd">3. Init：初始化專案與生成 AGENTS.md</h3>
+<p><code>init</code> 命令是一個非常重要的指令，它會執行以下動作：</p>
+<ul>
+<li><strong>掃描專案</strong>：它會掃描你整個專案的結構和內容。</li>
+<li><strong>生成簡短描述</strong>：為你的專案生成一個簡短的描述。</li>
+<li><strong>記錄專案說明</strong>：它會記錄專案主要使用的框架、如何啟動專案，以及如何運行測試等重要資訊。</li>
+<li><strong>儲存於 AGENTS.md</strong>：所有這些資訊都會被寫入一個名為 <strong>AGENTS.md</strong> 的檔案中。</li>
+<li><strong>對話與任務依循</strong>：之後你與 <strong>Codex</strong> 的對話或它執行的任務，都將會遵循這個 <strong>AGENTS.md</strong> 檔案中定義的規則和說明。</li>
+<li><strong>自訂規則</strong>：如果你希望未來的任務都能遵循某些特定規則，例如在更改程式碼後需要運行 <strong>Linter</strong>，你就可以將這些條件寫入 <strong>AGENTS.md</strong> 檔案中。這樣，<strong>Codex</strong> 在對程式碼進行任何改動時，都會自動執行這些規則。</li>
+</ul>
+<h3 id="4-compact">4. Compact：壓縮對話內容</h3>
+<p>在與 <strong>Codex</strong> 互動的過程中，你的對話內容其實是有一個上限的。</p>
+<ul>
+<li><strong>上下文累積</strong>：當你持續提問時，<strong>Codex</strong> 會參考你之前的提問，這會導致對話的上下文  越來越長。</li>
+<li><strong>上下文上限</strong>：最終，對話的上下文可能會達到其上限，這可能導致你較早的問答資訊遺失。</li>
+<li><strong>壓縮舊對話</strong>：你可以透過 <code>Compact</code> 這個指令來壓縮之前的對話內容。</li>
+<li><strong>保留對話歷史</strong>：這樣做可以讓你之後的問答繼續保留之前的對話內容，而不會因為上下文過長而丟失資訊。</li>
+</ul>
+<h3 id="5-status">5. Status：查看當前狀態</h3>
+<p><code>Status</code> 命令非常簡單，它主要用於：</p>
+<ul>
+<li><strong>查看當前模型</strong>：顯示你目前正在使用的 <strong>AI</strong> 模型。</li>
+<li><strong>顯示其他資訊</strong>：提供一些相關的資訊。</li>
+<li><strong>查看剩餘上下文</strong>：顯示當前對話還剩下多少上下文空間。</li>
+</ul>
+<h3 id="6-ai-commit-commit-message">6. ai-commit：自動生成 Commit Message</h3>
+<p><code>ai-commit</code> 這個命令比較特別，它的作用是：</p>
+<ul>
+<li><strong>偵測程式碼改動</strong>：它會自動偵測你本次程式碼的改動。</li>
+<li><strong>生成 Commit Message</strong>：根據改動內容，幫助你生成一段有意義的 <strong>Commit Message</strong>。</li>
+<li><strong>使用限制</strong>：這個功能只能在 <strong>IDE extension</strong> 中使用，無法在 <strong>CLI</strong> 中直接使用。</li>
+<li><strong>類似 GitHub Copilot</strong>：它的功能類似於 <strong>GitHub Copilot</strong> 的「auto generate Commit」功能。</li>
+<li><strong>提升效率</strong>：這在你進行 <strong>git Commit</strong> 時非常方便，你無需再花時間思考本次 <strong>Commit</strong> 的訊息內容。</li>
+</ul>
+<!-- **範例說明**：
+我之前請 **Codex** 幫我將網頁最上方導覽列的背景顏色改成黃色。現在，我們來執行 `AI Commit` 指令：
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>AI Commit
+</span></code></pre></div>
+
+它會開始「working」，然後會說明這次的改動，例如：「在上面這個填了一個背景色」。 -->
+
+<h2 id="_2">管理對話：回復之前的對話</h2>
+<p>有時候，我們可能會關閉 <strong>Codex</strong>，或者為了新的功能而希望重新開始一個乾淨的 <strong>Chat</strong>，不帶有之前的資料。然而，有時我們又會希望回復到之前的對話。</p>
+<ul>
+<li><strong>關閉當前 Chat</strong>：我現在先把這個 <strong>Chat</strong> 關掉。</li>
+<li><strong>回復指令</strong>：要回復之前的對話，只需輸入 <code>Codex Resume</code>。</li>
+<li><strong>選擇對話</strong>：它會列出你之前所有的對話記錄。你可以使用上下方向鍵來選擇你想要回復的對話。</li>
+<li><strong>確認回復</strong>：按下 <strong>Enter</strong> 鍵後，你就可以回到之前的對話了。</li>
+</ul>
+<h2 id="_3">與檔案和路徑互動</h2>
+<p>在你的 <strong>Chat</strong> 中，你可以提到你的檔案或路徑。</p>
+<ul>
+<li><strong>使用 <code>@</code> 符號</strong>：你可以使用 <code>@</code> 符號，例如 <code>@src/底下的檔案</code>。</li>
+<li><strong>方向鍵選擇</strong>：輸入 <code>@</code> 後，你可以使用上下方向鍵來選擇你想要提及的檔案或路徑。</li>
+<li><strong><code>mention</code> 命令</strong>：你也可以使用 <code>mention</code> 命令，它也會轉換成 <code>@</code> 符號，然後你再尋找你的路徑。</li>
+<li><strong>個人建議</strong>：我個人覺得這樣操作有些麻煩。首先，輸入 <code>@</code> 需要按下 <strong>Shift + 2</strong>。其次，你還需要使用方向鍵來選擇檔案，或者直接手動輸入路徑也很不便。</li>
+<li><strong>更高效的方法</strong>：我通常會直接在檔案總管中對檔案點擊右鍵，選擇「複製 relative path」，然後將路徑貼到 <strong>Codex</strong> 的 <strong>Chat</strong> 中，並說明我想要針對哪個檔案做什麼事情。這樣會更有效率。</li>
+</ul>
+<h2 id="codex-cli_1">將圖片加入 Codex CLI</h2>
+<p>接下來，我將說明如何在 <strong>Codex CLI</strong> 中加入圖片。這對於前端開發者來說尤其方便，特別是當你沒有使用 <strong>Figma</strong> 等設計工具時。</p>
+<h3 id="_4">圖片的使用情境</h3>
+<ul>
+<li><strong>前端設計稿</strong>：<ul>
+<li>如果你的設計師沒有使用 <strong>Figma</strong>，你就無法使用 <strong>Figma MCP</strong> 來查找設計稿。</li>
+<li>有些公司可能沒有專職設計師，而是由 <strong>PO</strong> 或 <strong>PM</strong> 在 <strong>PPT</strong> 上繪製設計稿。</li>
+<li>在這些情況下，你可以將設計稿圖片上傳到 <strong>Chat</strong> 中，然後告訴 <strong>Codex</strong> 你希望根據這張設計稿做什麼事情，這會非常方便。</li>
+</ul>
+</li>
+<li><strong>後端 API 規格</strong>：<ul>
+<li>當後端 <strong>API SPEC</strong> 需要撈取 <strong>DB</strong> 的特定欄位時，有時候規格會寫在 <strong>Confluence</strong> 或 <strong>Jira board</strong> 上。</li>
+<li>你可以將規格截圖，然後丟到 <strong>Chat</strong> 中，告訴 <strong>Codex</strong> 這個 <strong>API</strong> 想要撈取哪些欄位，這樣也會非常方便。</li>
+</ul>
+</li>
+</ul>
+<h3 id="cli">拖曳圖片到 CLI 的方法</h3>
+<ul>
+<li><strong>簡單操作</strong>：方法非常簡單，你只需從資料夾中將圖片拖曳到 <strong>CLI</strong> 介面上。</li>
+<li><strong>按下 Enter</strong>：拖曳後，按下 <strong>Enter</strong> 鍵。</li>
+<li><strong>處理時間</strong>：它會跑一段時間。我之前已經拖曳過一張圖片，就像這樣：<ul>
+<li>這張圖片就是這個影片的封面，主題是關於 <strong>Codex</strong> 的，圖案大概長什麼樣子。</li>
+</ul>
+</li>
+</ul>
+<h2 id="agentsmd">關鍵檔案：AGENTS.md</h2>
+<p>接下來，我將介紹一個非常重要的檔案：<strong>AGENTS.md</strong>。</p>
+<h3 id="agentsmd_1">AGENTS.md 的生成與用途</h3>
+<ul>
+<li><strong>生成方式</strong>：我們在指令中輸入 <code>init</code>，就可以生成這個 <strong>AGENTS.md</strong> 檔案。</li>
+<li><strong>專案描述</strong>：它主要用於描述你的專案。</li>
+<li><strong>包含 instruction</strong>：其中可能包含一些重要的 <strong>instruction</strong>。</li>
+<li><strong>自訂規則</strong>：如果你希望之後的對話能夠套用某些規則，你可以將這些規則寫入這個檔案中。</li>
+</ul>
+<p>跑完之後，你會看到左邊多了一個 <strong>AGENTS.md</strong> 檔案。它會詳細描述這個專案。</p>
+<h3 id="_5">跨工具的專案描述檔</h3>
+<p>如果你使用過其他 <strong>AI</strong> 輔助編碼工具，應該對這件事不陌生。許多工具都會有指令來生成一個專案的描述檔。</p>
+<ul>
+<li><strong>Claude Code 的 <code>cloud.md</code></strong>：例如，<strong>Claude Code</strong> 也有類似的 <code>init</code> 指令，用於生成 <code>cloud.md</code> 檔案。</li>
+<li><strong>AGENTS.md 的特別之處</strong>：比較特別的是 <strong>AGENTS.md</strong>。像 <code>cloud.md</code> 檔案，它通常只能用於 <strong>Claude Code</strong>。但是，正如我們在網頁上看到的，<strong>AGENTS.md</strong> 這個檔案會被多種工具參考：<ul>
+<li><strong>Codex</strong></li>
+<li><strong>Cursor</strong></li>
+<li><strong>Claude Code</strong></li>
+<li><strong>n8n</strong></li>
+<li><strong>Copilot</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="agentsmd_2">AGENTS.md 在不同使用情境下是否會被參考？</h3>
+<h4 id="q1-cli-command-agentsmd-ide-extension">Q1：我用 CLI command 生成的 <code>AGENTS.md</code>，會在 IDE extension 中被參考嗎？</h4>
+<p><strong>A：</strong> 會。只要專案中存在 <code>AGENTS.md</code>，在 IDE extension 裡使用時，Agent（Codex）會自動去參考這個檔案。</p>
+<h4 id="q2-agentsmd">Q2：如果我在對話中沒有特別提到 <code>AGENTS.md</code>，它還是會被參考嗎？</h4>
+<p><strong>A：</strong> 會的。只要 <code>AGENTS.md</code> 存在於專案內，就算你沒有在指令或對話中特別指出，Agent 仍然會自動參考。</p>
+<h4 id="q3-agentsmd">Q3：那在雲端環境使用時，也一樣會參考 <code>AGENTS.md</code> 嗎？</h4>
+<p><strong>A：</strong> 是的。在雲端使用的情境下，只要專案中有 <code>AGENTS.md</code>，Agent 同樣會自動參考，不需要額外說明。</p>
+<h4 id="q4agentsmd">Q4：總結來說，<code>AGENTS.md</code> 可以在哪些情境下使用？</h4>
+<p><strong>A：</strong> 一旦 <code>AGENTS.md</code> 生成完成，你就可以在以下三種情境中共用它的設定與說明：
+- CLI（命令列）
+- IDE extension
+- 雲端使用環境</p>
+<p>這代表你只需要維護一份 <code>AGENTS.md</code>，就能在不同使用方式下發揮一致的效果。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 - 2025 10程式中
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="../../../javascripts/analytics.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

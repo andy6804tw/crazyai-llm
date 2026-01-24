@@ -79,6 +79,13 @@ nav:
     - 'Dify 自定義工具': 'dify-tutorial/dify-custom-tools-workflow.md'
     - '在 Dify 建立自己的 MCP Server': 'dify-tutorial/dify-mcp-server-agent-integration.md'
 
+  - '🤖AI 程式碼輔助工具':
+    - 'Codex':
+      - 'Codex 簡介與雲端任務設定': 'ai-coding-tools/codex/1-setup-and-cloud-tasks.md'
+      - 'Codex CLI 指令與 AGENTS.md 深度解析': 'ai-coding-tools/codex/2-codex-cli-commands-and-agents.md'
+      - 'Codex IDE 擴充功能與 Todo 實用技巧': 'ai-coding-tools/codex/3-ide-extension-and-todo.md'
+      - 'Codex 整合 MCP Server：以 Context7 為例': 'ai-coding-tools/codex/4-mcp-servers.md'
+
 markdown_extensions:
   - admonition
   - footnotes
